@@ -1,12 +1,12 @@
 {
-  "name": "Web.Site",
+  "name": "website",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web Site for My Solution",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Ricardo Gaefke <ricardogaefke@gmail.com> (https://ricardogaefke.com/)",
+  "license": "MIT"
 }
