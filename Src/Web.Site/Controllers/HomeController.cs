@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Web.Site.Models;
 
 namespace Web.Site.Controllers
@@ -12,6 +13,16 @@ namespace Web.Site.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Message"] = "MI3D Plus";
+            
+            Request.HttpContext.Response.Headers.Add("Title", "MI3D Plus");
+            Request.HttpContext.Response.Headers.Add("Description", "O MI3D &eacute; um m&eacute;todo para desenvolver pessoas, que une tecnologia e ci&ecirc;ncias comportamentais para potencializar a performance profissional");
+
+            ViewBag.Page = JsonConvert.SerializeObject(new {
+                Title = "MI3D Plus",
+                Description = "O MI3D &eacute; um m&eacute;todo para desenvolver pessoas, que une tecnologia e ci&ecirc;ncias comportamentais para potencializar a performance profissional"
+            });
+            
             return View();
         }
 
