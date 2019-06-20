@@ -4,7 +4,7 @@
   "description": "Web Site for My Solution",
   "main": "./React/index.jsx",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src",
+    "lint": "./node_modules/.bin/eslint \"React/**/*.js*\"",
     "start": "dotnet run -p Web.Site.csproj",
     "build": "webpack --progress --color --mode=development",
     "prod": "webpack --mode=production"
