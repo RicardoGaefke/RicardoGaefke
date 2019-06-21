@@ -9,7 +9,7 @@ module.exports = () => {
     mode: 'production',
     devtool: '#source-map',
     entry: {
-      app: path.resolve(__dirname, './React/index.jsx'),
+      app: path.resolve(__dirname, './React/index.tsx'),
     },
     output: {
       filename: '[name].js',

@@ -4,7 +4,7 @@ import App from './app';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Welcome extends React.Component {
-  render() {
+  render(): any {
     return (
       <App />
     );

@@ -4,7 +4,7 @@ import MyHome from './Views/Home/Home';
 import MyNotFound from './Views/NotFound/NotFound';
 import MyAbout from './Views/About/About';
 
-const App = () => (
+const App = (): any => (
   <BrowserRouter>
     <Switch>
       <Route path="/" exact component={MyHome} />

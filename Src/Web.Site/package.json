@@ -4,7 +4,7 @@
   "description": "Web Site for My Solution",
   "main": "./React/index.jsx",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint \"React/**/*.js*\"",
+    "lint": "./node_modules/.bin/eslint \"React/**/*.*s*\"",
     "start": "dotnet run -p Web.Site.csproj",
     "build": "webpack --config webpack.dev.js --progress --color",
     "production": "webpack  --config webpack.prod.js"
@@ -26,7 +26,7 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
-    "@types/react": "^16.8.18",
+    "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
@@ -43,7 +43,7 @@
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
     "source-map-loader": "^0.2.4",
-    "typescript": "^3.4.5",
+    "typescript": "^3.5.2",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",
     "webpack-dev-server": "^3.7.2"

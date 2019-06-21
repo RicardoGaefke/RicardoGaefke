@@ -12,7 +12,7 @@ module.exports = () => {
       contentBase: './wwwwroot/dist',
     },
     entry: {
-      app: path.resolve(__dirname, './React/index.jsx'),
+      app: path.resolve(__dirname, './React/index.tsx'),
     },
     output: {
       filename: '[name].js',

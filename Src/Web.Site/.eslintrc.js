@@ -3,6 +3,13 @@ module.exports = {
     browser: true,
     es6: true,
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   extends: 'airbnb',
   globals: {
     Atomics: 'readonly',
@@ -12,7 +19,8 @@ module.exports = {
   parserOptions: {
     "parserOptions": {
       "jsx": true,
-      "useJSXTextNode": true
+      "useJSXTextNode": true,
+      "project": "./tsconfig.json"
     },
     ecmaVersion: 2018,
     sourceType: 'module',
@@ -20,12 +28,14 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
-    "react-hooks"
+    'react-hooks',
+    'import'
   ],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/prefer-stateless-function": "error"
+    "react/prefer-stateless-function": "error",
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }]
   }
 };
