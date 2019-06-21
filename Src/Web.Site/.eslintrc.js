@@ -23,9 +23,9 @@ module.exports = {
     "react-hooks"
   ],
   "rules": {
-    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-function-return-type": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "error"
   }
 };

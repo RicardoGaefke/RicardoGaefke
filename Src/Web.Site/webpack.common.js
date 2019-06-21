@@ -11,7 +11,8 @@ module.exports = {
     }],
   },
   entry: {
-    app: './React/index.jsx',
+    app: path.resolve(__dirname, './React/index.jsx'),
+    // app: './React/index.jsx',
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -22,5 +23,8 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, './wwwroot/dist'),
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
 };

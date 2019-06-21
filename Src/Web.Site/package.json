@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint \"React/**/*.js*\"",
     "start": "dotnet run -p Web.Site.csproj",
-    "build": "webpack --progress --color --mode=development",
-    "prod": "webpack --mode=production"
+    "build": "webpack --config webpack.dev.js --progress --color",
+    "production": "webpack  --config webpack.prod.js"
   },
   "keywords": [],
   "author": "Ricardo Gaefke <ricardogaefke@gmail.com> (https://ricardogaefke.com/)",
@@ -15,6 +15,7 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
     "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
     "webpack-merge": "^4.2.1"
