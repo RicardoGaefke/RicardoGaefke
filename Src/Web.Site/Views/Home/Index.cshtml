@@ -1,14 +1,28 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.SpaServices
+@using Microsoft.AspNetCore.Http.Features;
 
 @{
-    ViewData["Title"] = "Home Page";
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var showBanner = !consentFeature?.CanTrack ?? false;
 }
 
-<div
-    id="root"
-    asp-prerender-module="React/ssr/server.js"
-    asp-prerender-data="new {
-        page = @ViewBag.Page
-    }"
-></div>
-<script src="./dist/app.js" asp-append-version="true"></script>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"]</title>
+        <link rel="shortcut icon" href="favicon.ico">
+    </head>
+    <body>
+        <div
+            id="root"
+            asp-prerender-module="React/ssr/server.js"
+            asp-prerender-data="new {
+                page = @ViewBag.Page,
+                consentCookie = showBanner
+            }"
+        ></div>
+        <script src="./dist/app.js" asp-append-version="true"></script>
+    </body>
+</html>

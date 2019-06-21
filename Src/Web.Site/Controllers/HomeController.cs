@@ -13,21 +13,16 @@ namespace Web.Site.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["Message"] = "MI3D Plus";
+            ViewData["Message"] = "Ricardo Gaefke";
             
             Request.HttpContext.Response.Headers.Add("Title", "Ricardo Gaefke");
             Request.HttpContext.Response.Headers.Add("Description", "ASP.NET Core SSR React boilerplate");
-
+            
             ViewBag.Page = JsonConvert.SerializeObject(new {
                 Title = "Ricardo Gaefke",
                 Description = "Ricardo Gaefke's boilerplate"
             });
             
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 

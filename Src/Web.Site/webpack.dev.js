@@ -21,7 +21,10 @@ module.exports = () => {
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        title: 'Production',
+        minify: false,
+        filename: '../../Views/Home/Index.cshtml',
+        template: './Views/Home/Index.cshtml',
+        excludeChunks: ['app'],
       }),
     ],
   });

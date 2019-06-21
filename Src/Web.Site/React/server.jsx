@@ -11,7 +11,8 @@ import MyTest from './Components/Test/Test';
 export default createServerRenderer(params => {
   return new Promise((resolve, reject) => {
 
-    // const PageInfo = JSON.parse(params.data.page);
+    const PageInfo = JSON.parse(params.data.page);
+    PageInfo.consentCookie = JSON.parse(params.data.consentCookie);
 
     // setGlobal({
     //   language: 'PT'
@@ -25,9 +26,9 @@ export default createServerRenderer(params => {
 
     resolve({
       html: renderToString(app),
-      // globals: {
-      //   MyInitialState: JSON.parse(params.data.page)
-      // }
+      globals: {
+        MyInitialState: PageInfo,
+      },
     }, reject);
 
   });

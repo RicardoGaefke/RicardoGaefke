@@ -5,18 +5,6 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = () => {
-  // mode: 'production',
-  // devtool: '#source-map',
-  // entry: {
-  //   app: path.resolve(__dirname, './React/index.jsx'),
-  //   // server: path.resolve(__dirname, './React/server.jsx'),
-  //   // app: './React/index.jsx',
-  // },
-  // output: {
-  //   filename: '[name].js',
-  //   path: path.resolve(__dirname, './wwwroot/dist'),
-  // },
-
   const clientBundle = merge(common, {
     mode: 'production',
     devtool: '#source-map',
@@ -30,7 +18,10 @@ module.exports = () => {
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        title: 'Production',
+        minify: false,
+        filename: '../../Views/Home/Index.cshtml',
+        template: './Views/Home/Index.cshtml',
+        excludeChunks: ['app'],
       }),
     ],
   });
