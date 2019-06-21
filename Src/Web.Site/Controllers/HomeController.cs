@@ -15,12 +15,12 @@ namespace Web.Site.Controllers
         {
             ViewData["Message"] = "MI3D Plus";
             
-            Request.HttpContext.Response.Headers.Add("Title", "MI3D Plus");
-            Request.HttpContext.Response.Headers.Add("Description", "O MI3D &eacute; um m&eacute;todo para desenvolver pessoas, que une tecnologia e ci&ecirc;ncias comportamentais para potencializar a performance profissional");
+            Request.HttpContext.Response.Headers.Add("Title", "Ricardo Gaefke");
+            Request.HttpContext.Response.Headers.Add("Description", "ASP.NET Core SSR React boilerplate");
 
             ViewBag.Page = JsonConvert.SerializeObject(new {
-                Title = "MI3D Plus",
-                Description = "O MI3D &eacute; um m&eacute;todo para desenvolver pessoas, que une tecnologia e ci&ecirc;ncias comportamentais para potencializar a performance profissional"
+                Title = "Ricardo Gaefke",
+                Description = "Ricardo Gaefke's boilerplate"
             });
             
             return View();

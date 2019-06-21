@@ -13,6 +13,8 @@
   "author": "Ricardo Gaefke <ricardogaefke@gmail.com> (https://ricardogaefke.com/)",
   "license": "MIT",
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "aspnet-prerendering": "^3.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",

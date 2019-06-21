@@ -4,20 +4,11 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!-- <div
-    id="App"
-    asp-prerender-module="React/Server/Home.js"
+<div
+    id="root"
+    asp-prerender-module="React/ssr/server.js"
     asp-prerender-data="new {
         page = @ViewBag.Page
     }"
-    ></div> -->
-
-    <div id="root">react</div>
-    <script src="./dist/app.bundle.js"></script>
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
-<!-- <script src="/dist/Views/Home.js" asp-append-version="true"></script> -->
+></div>
+<script src="./dist/app.js" asp-append-version="true"></script>
