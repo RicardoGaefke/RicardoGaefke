@@ -23,7 +23,7 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         minify: false,
         filename: '../../Views/Home/Index.cshtml',
-        template: './Views/Home/Index.cshtml',
+        template: './Views/Home/Template.cshtml',
         excludeChunks: ['app'],
       }),
     ],
