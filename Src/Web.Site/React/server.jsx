@@ -3,10 +3,12 @@
 /* eslint-disable arrow-parens */
 import '@babel/polyfill';
 import React from 'react';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter, Switch, Route } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { createServerRenderer } from 'aspnet-prerendering';
-import MyTest from './Components/Test/Test';
+import MyHome from './Views/Home/Home';
+import MyAbout from './Views/About/About';
+import MyNotFound from './Views/NotFound/NotFound';
 
 export default createServerRenderer(params => {
   return new Promise((resolve, reject) => {
@@ -20,7 +22,12 @@ export default createServerRenderer(params => {
 
     const app = (
       <StaticRouter location={params.url} context={params}>
-        <MyTest />
+        <Switch>
+          <Route path="/" exact component={MyHome} />
+          <Route path="/About/" component={MyAbout} />
+          <Route path="/NotFound/" exact component={MyNotFound} />
+          <Route component={MyNotFound} />
+        </Switch>
       </StaticRouter>
     );
 
