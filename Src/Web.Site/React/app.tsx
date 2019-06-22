@@ -1,18 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import MyHome from './Views/Home/Home';
-import MyNotFound from './Views/NotFound/NotFound';
-import MyAbout from './Views/About/About';
+import { ThemeProvider } from '@material-ui/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import MyRoutes from './Components/Router/Router';
+import theme from './Theme/theme';
 
 const App = (): any => (
-  <BrowserRouter>
-    <Switch>
-      <Route path="/" exact component={MyHome} />
-      <Route path="/About/" component={MyAbout} />
-      <Route path="/NotFound/" exact component={MyNotFound} />
-      <Route component={MyNotFound} />
-    </Switch>
-  </BrowserRouter>
+  <ThemeProvider theme={theme}>
+    <MyRoutes />
+    <CssBaseline />
+  </ThemeProvider>
 );
 
 export default App;

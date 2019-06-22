@@ -36,6 +36,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prefer-stateless-function": "error",
-    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+    "max-len": [2, 150, 2]
   }
 };

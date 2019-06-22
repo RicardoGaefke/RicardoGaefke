@@ -3,12 +3,11 @@
 /* eslint-disable arrow-parens */
 import '@babel/polyfill';
 import React from 'react';
-import { StaticRouter, Switch, Route } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { createServerRenderer } from 'aspnet-prerendering';
-import MyHome from './Views/Home/Home';
-import MyAbout from './Views/About/About';
-import MyNotFound from './Views/NotFound/NotFound';
+import { ServerStyleSheets } from '@material-ui/styles';
+import App from './app';
 
 export default createServerRenderer(params => {
   return new Promise((resolve, reject) => {
@@ -16,23 +15,26 @@ export default createServerRenderer(params => {
     const PageInfo = JSON.parse(params.data.page);
     PageInfo.consentCookie = JSON.parse(params.data.consentCookie);
 
-    // setGlobal({
-    //   language: 'PT'
-    // });
+    const sheets = new ServerStyleSheets();
 
     const app = (
       <StaticRouter location={params.url} context={params}>
-        <Switch>
-          <Route path="/" exact component={MyHome} />
-          <Route path="/About/" component={MyAbout} />
-          <Route path="/NotFound/" exact component={MyNotFound} />
-          <Route component={MyNotFound} />
-        </Switch>
+        <App />
       </StaticRouter>
     );
 
+    const html = renderToString(
+      sheets.collect(app),
+    );
+
+    const css = sheets.toString();
+
+    const renderFullPage = () => {
+      return `${html}<style>${css}</style>`;
+    };
+
     resolve({
-      html: renderToString(app),
+      html: renderFullPage(),
       globals: {
         MyInitialState: PageInfo,
       },

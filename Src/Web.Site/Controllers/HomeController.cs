@@ -13,7 +13,7 @@ namespace Web.Site.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["Message"] = "Ricardo Gaefke";
+            ViewData["Title"] = "Ricardo Gaefke";
             
             Request.HttpContext.Response.Headers.Add("Title", "Ricardo Gaefke");
             Request.HttpContext.Response.Headers.Add("Description", "ASP.NET Core SSR React boilerplate");
