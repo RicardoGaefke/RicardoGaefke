@@ -2,10 +2,11 @@ import React from 'react';
 
 export interface IButtonProps {
   children?: React.ReactNode,
-  onClick?: (e:any) => void
+  onClick?: (e:any) => void,
+  styles?: {}
 }
 
-const styles = {
+const style = {
   border: '1px solid #eee',
   borderRadius: 3,
   backgroundColor: '#FFFFFF',
@@ -16,7 +17,7 @@ const styles = {
 };
 
 const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps): any => {
-  const { onClick, children } = props;
+  const { onClick, children, styles } = props;
 
   return (
     <button onClick={onClick} style={styles} type="button">
@@ -28,6 +29,7 @@ const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps): any
 Button.defaultProps = {
   children: null,
   onClick: (): void => {},
+  styles: style,
 };
 
 export default Button;
