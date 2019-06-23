@@ -7,7 +7,8 @@
     "lint": "./node_modules/.bin/eslint \"React/**/*.*s*\"",
     "start": "dotnet run -p Web.Site.csproj",
     "build": "webpack --config webpack.dev.js --progress --color",
-    "production": "webpack  --config webpack.prod.js"
+    "production": "webpack  --config webpack.prod.js",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "keywords": [],
   "author": "Ricardo Gaefke <ricardogaefke@gmail.com> (https://ricardogaefke.com/)",
@@ -17,6 +18,7 @@
     "@material-ui/core": "^4.1.1",
     "@material-ui/icons": "^4.2.0",
     "@material-ui/styles": "^4.1.1",
+    "@storybook/react": "^5.1.9",
     "aspnet-prerendering": "^3.0.1",
     "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
@@ -47,6 +49,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
+    "react-docgen-typescript-loader": "^3.1.0",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "typescript": "^3.5.2",
