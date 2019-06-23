@@ -367,4 +367,8 @@ typings/
 # Ignore all local history of files
 .history
 
+### ignore my dist files to build on the cloud
+dist/
+ssr/
+
 # End of https://www.gitignore.io/api/node,aspnetcore,visualstudiocode
