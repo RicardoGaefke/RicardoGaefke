@@ -1,15 +1,12 @@
 import React from 'react';
-import {
-  // eslint-disable-next-line no-unused-vars
-  withStyles, makeStyles, createStyles, Theme,
-} from '@material-ui/core/styles';
+// eslint-disable-next-line no-unused-vars
+import { withStyles, Theme } from '@material-ui/core/styles';
 // eslint-disable-next-line no-unused-vars
 import Menu, { MenuProps } from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
-// import IconButton from '@material-ui/core/IconButton';
-import Language from '@material-ui/icons/Language';
 import ListItemText from '@material-ui/core/ListItemText';
+import Language from '@material-ui/icons/Language';
+import MyButton from '../Button/MyButton';
 
 const StyledMenu = withStyles({
   paper: {
@@ -31,20 +28,6 @@ const StyledMenu = withStyles({
   />
 ));
 
-const useStyles = makeStyles((theme: Theme): any => createStyles({
-  button: {
-    margin: theme.spacing(0),
-    boxShadow: '0 0 0 0',
-    paddingLeft: '8px',
-    paddingRight: '8px',
-    backgroundColor: 'transparent',
-    color: '#fff',
-  },
-  input: {
-    display: 'none',
-  },
-}));
-
 interface myprops {
   button: string,
   input: string,
@@ -61,11 +44,12 @@ const StyledMenuItem = withStyles((theme): any => ({
   },
 }))(MenuItem);
 
-const MyLanguageMenu = (): any => {
+const MyLanguageMenu = (props: any): any => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const classes: myprops | any = useStyles({});
+  // const classes: myprops | any = useStyles({});
+  const { btnClass } = props;
 
-  function handleClick(event: React.MouseEvent<HTMLElement>): any {
+  function handleClick(event: React.MouseEvent<HTMLElement>): void {
     setAnchorEl(event.currentTarget);
   }
 
@@ -75,15 +59,15 @@ const MyLanguageMenu = (): any => {
 
   return (
     <div>
-      <Button
-        className={classes.button}
+      <MyButton
+        className={btnClass}
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
         onClick={handleClick}
       >
         <Language />
-      </Button>
+      </MyButton>
       <StyledMenu
         id="customized-menu"
         anchorEl={anchorEl}

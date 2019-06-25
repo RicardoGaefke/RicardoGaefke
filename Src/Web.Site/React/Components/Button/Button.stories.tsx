@@ -16,5 +16,5 @@ storiesOf('Button', module)
     <Button onClick={action('button-click')}>Hello World!</Button>
   ))
   .add('Knobs text', (): React.ReactNode => (
-    <Button onClick={action('button-click')}>{text('Label', 'Hello Storybook')}</Button>
+    <Button onClick={action('button-click')}>{text('Texto', 'Hello Storybook')}</Button>
   ));
