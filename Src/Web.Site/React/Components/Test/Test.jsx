@@ -1,5 +1,30 @@
 import React from 'react';
+import { useStateValue } from '../../Utils/StateProvider';
 
-const MyText = () => (<h1>teste de app</h1>);
+const MyTest = () => {
+  const [{ theme, language }, dispatch] = useStateValue();
 
-export default MyText;
+  return (
+    <div>
+      <h1>Título da App</h1>
+      <h3>
+        {theme}
+        {language}
+      </h3>
+      <button
+        type="button"
+        title="Btn"
+        onClick={
+          dispatch({
+            type: 'changeOther',
+            value: 'other',
+          })
+        }
+      >
+        Btn
+      </button>
+    </div>
+  );
+};
+
+export default MyTest;

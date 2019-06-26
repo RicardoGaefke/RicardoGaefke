@@ -34,7 +34,7 @@ interface myprops {
   btn: string
 }
 
-export default function ButtonAppBar(): any {
+const MyAppBar = (): any => {
   const classes: myprops | any = useStyles({});
   const [anchorElLang, setAnchorElLang] = React.useState<null | HTMLElement>(null);
   const [anchorElTheme, setAnchorElTheme] = React.useState<null | HTMLElement>(null);
@@ -157,4 +157,6 @@ export default function ButtonAppBar(): any {
       </AppBar>
     </div>
   );
-}
+};
+
+export default MyAppBar;

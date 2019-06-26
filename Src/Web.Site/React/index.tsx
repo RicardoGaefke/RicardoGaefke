@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './app';
+import { MyStateProvider } from './Utils/AppContext';
+import MyApp from './Utils/MyApp';
+// import App from './app';
 
 // eslint-disable-next-line react/prefer-stateless-function
-const MyApp = (): any => (
+const App = (): any => (
   <BrowserRouter>
-    <App />
+    <MyStateProvider>
+      <MyApp />
+    </MyStateProvider>
   </BrowserRouter>
 );
 
-ReactDOM.hydrate(<MyApp />, document.getElementById('root'));
+ReactDOM.hydrate(<App />, document.getElementById('root'));

@@ -6,7 +6,7 @@ export interface IInitialContext {
   theme: string
 }
 
-export const MyApp = (props: any): any => {
+export const MyStateProvider = (props: any): any => {
   const { children } = props;
 
   const reducer = (state: IInitialContext, action: any): IInitialContext => {

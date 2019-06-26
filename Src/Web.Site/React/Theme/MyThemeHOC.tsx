@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import myTheme from './theme';
-import { MyApp } from '../Utils/AppContext';
+import { MyStateProvider } from '../Utils/AppContext';
 import { useStateValue } from '../Utils/StateProvider';
 
 const MyThemeHOC = (props: any): any => {
@@ -11,12 +11,12 @@ const MyThemeHOC = (props: any): any => {
   const MyColor = myTheme(theme);
 
   return (
-    <MyApp>
+    <MyStateProvider>
       <ThemeProvider theme={MyColor}>
         <CssBaseline />
         {children}
       </ThemeProvider>
-    </MyApp>
+    </MyStateProvider>
   );
 };
 export default MyThemeHOC;
