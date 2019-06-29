@@ -12,6 +12,7 @@ import { IInitialContext } from '../../Utils/AppContext';
 // eslint-disable-next-line no-unused-vars
 import { IDropDownItem } from '../DropDownMenu/DropDownItem';
 import { useStateValue } from '../../Utils/StateProvider';
+import { MyAppBarTexts, MyThemeItems } from './Texts';
 
 const useStyles = makeStyles((): any => createStyles({
   root: {
@@ -39,13 +40,13 @@ const MyAppBar = (): any => {
   const [anchorElLang, setAnchorElLang] = React.useState<null | HTMLElement>(null);
   const [anchorElTheme, setAnchorElTheme] = React.useState<null | HTMLElement>(null);
 
-  const [{ theme }, dispatch] = useStateValue();
+  const [{ language }, dispatch] = useStateValue();
 
   const handleClickLang = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorElLang(event.currentTarget);
   };
 
-  const handleCloseLang = (): any => {
+  const handleCloseLang = (): void => {
     setAnchorElLang(null);
   };
 
@@ -53,28 +54,30 @@ const MyAppBar = (): any => {
     setAnchorElTheme(event.currentTarget);
   };
 
-  const handleCloseTheme = (): any => {
+  const handleCloseTheme = (): void => {
     setAnchorElTheme(null);
   };
 
-  const changeLanguage = (newLang: string): any => {
+  const changeLanguage = (newLang: string): void => {
     dispatch({
       type: 'changeLanguage',
       value: newLang,
     });
   };
 
-  const changeTheme = (newTheme: string): any => {
+  const changeTheme = (newTheme: string): void => {
     dispatch({
       type: 'changeTheme',
       value: newTheme,
     });
   };
 
+  const myItems: IMyAppBarThemeTexts = MyThemeItems(language);
+
   const ThemeItems: IDropDownItem[] = [
     {
       id: '1',
-      primary: 'Dark',
+      primary: myItems.dark,
       onClick: (): any => {
         setAnchorElTheme(null);
         changeTheme('dark');
@@ -82,7 +85,7 @@ const MyAppBar = (): any => {
     },
     {
       id: '2',
-      primary: 'Light',
+      primary: myItems.light,
       onClick: (): any => {
         setAnchorElTheme(null);
         changeTheme('light');
@@ -109,8 +112,10 @@ const MyAppBar = (): any => {
     },
   ];
 
+  const MyTexts = MyAppBarTexts(language);
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} key={language}>
       <AppBar position="static" color="inherit">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
@@ -118,7 +123,7 @@ const MyAppBar = (): any => {
           </Typography>
           <MyButton
             color="inherit"
-            title="Theme"
+            title={MyTexts.theme}
             className={classes.btn}
             aria-controls="MenuTheme"
             aria-haspopup="true"
@@ -136,7 +141,7 @@ const MyAppBar = (): any => {
           />
           <MyButton
             color="inherit"
-            title="Language"
+            title={MyTexts.language}
             className={classes.btn}
             aria-controls="MenuLanguage"
             aria-haspopup="true"
@@ -152,7 +157,7 @@ const MyAppBar = (): any => {
             onClose={handleCloseLang}
             items={LanguageItems}
           />
-          <MyButton color="inherit" title="Login" className={classes.btn}>{theme || 'Login'}</MyButton>
+          <MyButton color="inherit" title="Login" className={classes.btn}>Login</MyButton>
         </Toolbar>
       </AppBar>
     </div>
@@ -160,3 +165,13 @@ const MyAppBar = (): any => {
 };
 
 export default MyAppBar;
+
+export interface IMyAppBarTexts {
+  theme: string,
+  language: string
+}
+
+export interface IMyAppBarThemeTexts {
+  dark: string,
+  light: string
+}

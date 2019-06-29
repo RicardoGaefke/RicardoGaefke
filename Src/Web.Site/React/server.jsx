@@ -7,8 +7,8 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { createServerRenderer } from 'aspnet-prerendering';
 import { ServerStyleSheets } from '@material-ui/styles';
+import { MyStateProvider } from './Utils/AppContext';
 // import App from './app';
-import { StateProvider } from './Utils/StateProvider';
 import MyApp from './Utils/MyApp';
 
 export default createServerRenderer(params => {
@@ -21,9 +21,9 @@ export default createServerRenderer(params => {
 
     const app = (
       <StaticRouter location={params.url} context={params}>
-        <StateProvider>
+        <MyStateProvider>
           <MyApp />
-        </StateProvider>
+        </MyStateProvider>
       </StaticRouter>
     );
 
