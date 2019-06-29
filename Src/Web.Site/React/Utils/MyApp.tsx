@@ -5,14 +5,22 @@ import { useStateValue } from './StateProvider';
 import AppBar from '../Components/AppBar/MyAppBar';
 import MyRoutes from '../Components/Router/Router';
 import myTheme from '../Theme/theme';
+import MyFooter from '../Components/Footer/MyFooter';
+import useStyles from './AppStyles';
 
 const MyApp = (): any => {
   const [{ theme }] = useStateValue();
+  const classes: any = useStyles();
 
   return (
     <ThemeProvider theme={myTheme(theme)}>
-      <AppBar />
-      <MyRoutes />
+      <div className={classes.body}>
+        <AppBar />
+        <div className={classes.main}>
+          <MyRoutes />
+        </div>
+        <MyFooter />
+      </div>
       <CssBaseline />
     </ThemeProvider>
   );

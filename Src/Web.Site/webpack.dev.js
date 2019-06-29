@@ -49,25 +49,5 @@ module.exports = () => {
     ],
   });
 
-  const serverCssBundle = merge(common, {
-    mode: 'development',
-    target: 'node',
-    devtool: 'inline-source-map',
-    devServer: {
-      contentBase: './wwwwroot/dist',
-    },
-    entry: {
-      server: path.resolve(__dirname, './React/server.css.jsx'),
-    },
-    output: {
-      libraryTarget: 'commonjs',
-      filename: 'server.css.js',
-      path: path.resolve(__dirname, './React/ssr'),
-    },
-    plugins: [
-      new CleanWebpackPlugin(),
-    ],
-  });
-
-  return [clientBundle, serverBundle, serverCssBundle];
+  return [clientBundle, serverBundle];
 };

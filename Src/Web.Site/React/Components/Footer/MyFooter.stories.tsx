@@ -7,7 +7,7 @@ const App = (): any => (
   <MyThemeHOC />
 );
 
-storiesOf('MyAppBar')
+storiesOf('MyFooter')
   .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
   .add('Basic', (): React.ReactNode => (
     <App />

@@ -16,7 +16,7 @@ import { MyAppBarTexts, MyThemeItems } from './Texts';
 
 const useStyles = makeStyles((): any => createStyles({
   root: {
-    flexGrow: 1,
+    flexGrow: 0,
   },
   title: {
     flexGrow: 1,

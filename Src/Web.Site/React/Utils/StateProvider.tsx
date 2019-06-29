@@ -8,6 +8,7 @@ export const StateContext = createContext<IInitialContext | any>(initialState);
 
 export const StateProvider = (props: any): any => {
   const { reducer, children } = props;
+
   return (
     <StateContext.Provider value={useReducer(reducer, initialState)}>
       {children}
