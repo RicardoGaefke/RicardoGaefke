@@ -12,8 +12,10 @@ import MyApp from './Utils/MyApp';
 
 export default createServerRenderer(params => {
   return new Promise((resolve, reject) => {
+
     const PageInfo = JSON.parse(params.data.page);
     PageInfo.consentCookie = JSON.parse(params.data.consentCookie);
+
     const sheets = new ServerStyleSheets();
 
     const app = (
@@ -24,21 +26,15 @@ export default createServerRenderer(params => {
       </StaticRouter>
     );
 
-    const html = renderToString(
+    renderToString(
       sheets.collect(app),
     );
 
     const css = sheets.toString();
 
-    const renderFullPage = () => {
-      return `${html}<style>${css}</style>`;
-    };
-
     resolve({
-      html: renderFullPage(),
-      globals: {
-        MyInitialState: PageInfo,
-      },
+      html: `<style>${css}</style>`,
     }, reject);
+
   });
 });
