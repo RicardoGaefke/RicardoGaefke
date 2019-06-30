@@ -1,6 +1,11 @@
 import React from 'react';
-import MyText from '../../Components/Test/Test';
+import MyMainBanner from '../../Components/MainBanner/MainBanner';
 
-const MyHome = () => <MyText />;
+
+const MyHome = () => (
+  <div>
+    <MyMainBanner />
+  </div>
+);
 
 export default MyHome;

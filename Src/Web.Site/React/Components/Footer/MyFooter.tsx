@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, makeStyles } from '@material-ui/core';
+import { Container, makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme): any => ({
   footer: {
@@ -15,7 +15,9 @@ const MyFooter = (): any => {
   return (
     <footer className={classes.footer}>
       <Container maxWidth="sm">
-        Ricardo Gaefke &copy; 2019
+        <Typography variant="body1" align="center">
+          Ricardo Gaefke &copy; 2019
+        </Typography>
       </Container>
     </footer>
   );
