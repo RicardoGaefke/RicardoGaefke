@@ -2,6 +2,9 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const myTheme = (t: string = 'dark'): any => {
   const myThemeDark = createMuiTheme({
+    shape: {
+      borderRadius: 0,
+    },
     palette: {
       type: 'dark',
       primary: {
@@ -20,6 +23,9 @@ const myTheme = (t: string = 'dark'): any => {
   });
 
   const myThemeLight = createMuiTheme({
+    shape: {
+      borderRadius: 0,
+    },
     palette: {
       type: 'light',
       primary: {

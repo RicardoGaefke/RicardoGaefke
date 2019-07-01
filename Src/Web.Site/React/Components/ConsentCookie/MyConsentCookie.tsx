@@ -37,7 +37,7 @@ const MyMessage = (text: string, policy: string): any => (
       variant="text"
       size="small"
       title={policy}
-      to="/About/"
+      to="/Policy/"
       color="primary"
     >
       {policy}

@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: any): any => ({
   main: {
     flexGrow: 1,
     marginTop: theme.spacing(2),
-    marginBotton: theme.spacing(2),
+    marginBotton: theme.spacing(4),
   },
 }));
 
