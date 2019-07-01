@@ -7,9 +7,10 @@ import MyRoutes from '../Components/Router/Router';
 import myTheme from '../Theme/theme';
 import MyFooter from '../Components/Footer/MyFooter';
 import useStyles from './AppStyles';
+import MyConsentCookie from '../Components/ConsentCookie/MyConsentCookie';
 
 const MyApp = (): any => {
-  const [{ theme }] = useStateValue();
+  const [{ theme, consentCookie }] = useStateValue();
   const classes: any = useStyles();
 
   return (
@@ -20,6 +21,7 @@ const MyApp = (): any => {
           <MyRoutes />
         </div>
         <MyFooter />
+        {(consentCookie) ? <MyConsentCookie /> : null}
       </div>
       <CssBaseline />
     </ThemeProvider>

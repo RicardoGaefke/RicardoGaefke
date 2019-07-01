@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { IInitialContext } from './AppContext';
 
-export const initialState = { language: 'ENG', theme: 'dark' };
+export const initialState: IInitialContext = { language: 'ENG', theme: 'dark', consentCookie: true };
 
 export const StateContext = createContext<IInitialContext | any>(initialState);
 

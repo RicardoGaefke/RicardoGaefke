@@ -3,7 +3,8 @@ import { StateProvider, initialState } from './StateProvider';
 
 export interface IInitialContext {
   language: string,
-  theme: string
+  theme: string,
+  consentCookie: boolean
 }
 
 export const MyStateProvider = (props: any): any => {
