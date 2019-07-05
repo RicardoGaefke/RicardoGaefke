@@ -13,7 +13,9 @@ import MyApp from './Utils/MyApp';
 export default createServerRenderer(params => {
   return new Promise((resolve, reject) => {
     const PageInfo = JSON.parse(params.data.page);
-    PageInfo.consentCookie = JSON.parse(params.data.consentCookie);
+    PageInfo.consentCookie = params.data.consentCookie;
+    PageInfo.MyCookieString = params.data.MyCookieString;
+
     const sheets = new ServerStyleSheets();
 
     const app = (
