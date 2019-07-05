@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link as RLink } from 'react-router-dom';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import Language from '@material-ui/icons/Language';
 import InvertColors from '@material-ui/icons/InvertColors';
@@ -119,7 +121,15 @@ const MyAppBar = (): any => {
       <AppBar position="static" color="inherit">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Ricardo Gaefke
+            <Link
+              title="Home page"
+              color="textPrimary"
+              underline="none"
+              component={RLink}
+              to="/"
+            >
+              Ricardo Gaefke
+            </Link>
           </Typography>
           <MyButton
             color="inherit"
