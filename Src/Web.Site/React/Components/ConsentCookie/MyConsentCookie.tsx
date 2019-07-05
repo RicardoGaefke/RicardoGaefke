@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme): any => ({
   snackbar: {
     margin: theme.spacing(1),
     backgroundColor: '#c7e4e2',
-    maxWidth: 600,
+    maxWidth: 500,
     position: 'fixed',
     bottom: 15,
     right: 15,

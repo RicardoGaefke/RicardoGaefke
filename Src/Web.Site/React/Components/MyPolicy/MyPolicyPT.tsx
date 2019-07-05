@@ -59,8 +59,8 @@ const MyPolicyPT = (): any => (
       Os utilizadores podem desativar o cookie DART visitando a Política de
       {' '}
       <Link
-        href="http://politicaprivacidade.com/"
-        title="privacidade da rede de conteúdo"
+        href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&hl=pt-BR"
+        title="Desativar cookies"
         color="textPrimary"
         underline="always"
       >
