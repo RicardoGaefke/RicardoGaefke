@@ -25,7 +25,7 @@ export const MyThemeItems = (language: string): IMyAppBarThemeTexts => {
 
   const ItemsENG: IMyAppBarThemeTexts = {
     dark: 'Dark theme',
-    light: 'light theme',
+    light: 'Light theme',
   };
 
   if (language === 'PT') return ItemsPT;
