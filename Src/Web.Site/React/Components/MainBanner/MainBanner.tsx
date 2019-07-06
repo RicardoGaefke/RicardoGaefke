@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as RLink } from 'react-router-dom';
 import {
   // eslint-disable-next-line no-unused-vars
   Container, Typography, Button, makeStyles, createStyles, Theme,
@@ -11,6 +12,9 @@ import { IMyBanner, MyBannerLanguage } from './languages';
 const useStyles = makeStyles((theme: Theme): any => createStyles({
   rightIcon: {
     marginLeft: theme.spacing(1),
+  },
+  myPaper: {
+    marginBottom: theme.spacing(3),
   },
 }));
 
@@ -33,6 +37,49 @@ const MyMainBanner = (): any => {
           <span className={classes.rightIcon}>
             <Octicon icon={MarkGithub} ariaLabel="GitHub project repository" />
           </span>
+        </Button>
+      </Typography>
+
+      <Typography align="center" className={classes.myPaper}>
+        <Button
+          title={myLanguage.home}
+          variant="text"
+          component={RLink}
+          to="/"
+        >
+          {myLanguage.home}
+        </Button>
+        <Button
+          title={myLanguage.about}
+          variant="text"
+          component={RLink}
+          to="/About/"
+        >
+          {myLanguage.about}
+        </Button>
+        <Button
+          title={myLanguage.privacy}
+          variant="text"
+          component={RLink}
+          to="/Policy/"
+        >
+          {myLanguage.privacy}
+        </Button>
+        <Button
+          title={myLanguage.notFound}
+          variant="text"
+          component={RLink}
+          to="/404/"
+        >
+          {myLanguage.notFound}
+        </Button>
+        <Button
+          title={myLanguage.forbidden}
+          variant="text"
+          component={RLink}
+          to="/403/"
+        >
+          {myLanguage.forbidden}
         </Button>
       </Typography>
     </Container>
