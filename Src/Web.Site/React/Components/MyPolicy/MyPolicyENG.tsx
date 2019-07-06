@@ -2,8 +2,8 @@ import React from 'react';
 import { Container, Typography, Link } from '@material-ui/core';
 import { Link as RLink } from 'react-router-dom';
 
-const MyPolicyPT = (): any => (
-  <Container fixed>
+const MyPolicyENG = (): any => (
+  <Container maxWidth="sm">
     <Typography variant="h6" gutterBottom>
       Cookie policy for
       {' '}
@@ -135,4 +135,4 @@ const MyPolicyPT = (): any => (
   </Container>
 );
 
-export default MyPolicyPT;
+export default MyPolicyENG;

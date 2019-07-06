@@ -3,7 +3,7 @@ import { Container, Typography, Link } from '@material-ui/core';
 import { Link as RLink } from 'react-router-dom';
 
 const MyPolicyPT = (): any => (
-  <Container fixed>
+  <Container maxWidth="sm">
     <Typography variant="h6" gutterBottom>
       Política de privacidade para
       {' '}
