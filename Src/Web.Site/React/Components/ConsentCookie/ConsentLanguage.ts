@@ -8,7 +8,7 @@ export const myConsentLanguage = (language: string): IConsentCookie => {
   const myLangPT: IConsentCookie = {
     text: 'Este site utiliza cookies!',
     button: 'Eu aceito',
-    privacy: 'Conheça nossa política de privacidade',
+    privacy: 'Leia nossa política de privacidade',
   };
 
   const myLangENG: IConsentCookie = {

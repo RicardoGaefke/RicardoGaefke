@@ -23,8 +23,7 @@
             asp-prerender-module="React/ssr/server.js"
             asp-prerender-data="new {
                 page = @ViewBag.Page,
-                consentCookie = @showBanner,
-                MyCookieString = @cookieString
+                consentCookie = @showBanner
             }"
         ></div>
         <script src="/dist/app.js" asp-append-version="true"></script>

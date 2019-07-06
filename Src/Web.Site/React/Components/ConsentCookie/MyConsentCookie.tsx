@@ -19,11 +19,12 @@ const useStyles = makeStyles((theme: Theme): any => ({
   },
 }));
 
-const Action = (text: string): any => (
+const Action = (text: string, close: () => void): any => (
   <Button
     color="primary"
     size="small"
     variant="contained"
+    onClick={close}
   >
     {text}
   </Button>
@@ -46,16 +47,28 @@ const MyMessage = (text: string, policy: string): any => (
 );
 
 const MyConsentCookie = (): any => {
-  const [{ language }] = useStateValue();
+  const [{ language }, dispatch] = useStateValue();
   const classes: any = useStyles();
   const myLanguage = myConsentLanguage(language);
+
+  const closeConsent = (): void => {
+    let myRoot!: HTMLElement;
+    // eslint-disable-next-line prefer-const
+    myRoot = document.getElementById('root')!;
+    document.cookie = myRoot.dataset.cookieString!;
+
+    dispatch({
+      type: 'changeConsent',
+      value: false,
+    });
+  };
 
   return (
     <div>
       <SnackbarContent
         className={classes.snackbar}
         message={MyMessage(myLanguage.text, myLanguage.privacy)}
-        action={Action(myLanguage.button)}
+        action={Action(myLanguage.button, closeConsent)}
       />
     </div>
   );

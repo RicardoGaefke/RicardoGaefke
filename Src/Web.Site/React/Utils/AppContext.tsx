@@ -22,6 +22,11 @@ export const MyStateProvider = (props: any): any => {
           ...state,
           theme: action.value,
         };
+      case 'changeConsent':
+        return {
+          ...state,
+          consentCookie: action.value,
+        };
       default:
         return state;
     }

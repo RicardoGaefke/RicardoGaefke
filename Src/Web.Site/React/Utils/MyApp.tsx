@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { useStateValue } from './StateProvider';
@@ -9,9 +9,27 @@ import MyFooter from '../Components/Footer/MyFooter';
 import useStyles from './AppStyles';
 import MyConsentCookie from '../Components/ConsentCookie/MyConsentCookie';
 
+declare global {
+  interface Window {
+    MyInitialState: {
+      Title: string,
+      Description: string,
+      consentCookie: boolean
+    }
+  }
+}
+
 const MyApp = (): any => {
-  const [{ theme, consentCookie }] = useStateValue();
+  const [{ theme, consentCookie }, dispatch] = useStateValue();
   const classes: any = useStyles();
+
+  useEffect((): void => {
+    const myConsent: any = window.MyInitialState.consentCookie;
+    dispatch({
+      type: 'changeConsent',
+      value: myConsent,
+    });
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={myTheme(theme)}>
