@@ -7,7 +7,7 @@ namespace WebJobsSDKSample
   {
     public static void ProcessQueueMessage([QueueTrigger("email")] string message, ILogger logger)
     {
-      logger.LogInformation(message);
+      logger.LogInformation(message + " - Fez upload?");
     }
   }
 }
