@@ -1,1 +1,0 @@
-dotnet WebJobs.Email.dll
