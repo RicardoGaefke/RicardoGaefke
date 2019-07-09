@@ -20,7 +20,7 @@ namespace WebJobsSDKSample
       MyEmail email = JsonConvert.DeserializeObject<MyEmail>(message);
 
       var msg = new SendGridMessage();
-      msg.SetFrom(new EmailAddress("suporte@mi3dplus.com", "Suporte MI3D Plus"));
+      msg.SetFrom(new EmailAddress("atendimento@mi3dplus.com", "Atendimento MI3D Plus"));
       msg.SetSubject(email.Subject);
       msg.AddContent(MimeType.Html, email.Body);
       msg.AddTo(new EmailAddress(email.To.First().Address, email.To.First().DisplayName));
