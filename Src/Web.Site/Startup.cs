@@ -9,13 +9,14 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using DI;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using MyApp.DI;
+using MyApp.Domain;
 
-namespace Web.Site
+namespace MyApp.Web.Site
 {
     public class Startup
     {
@@ -26,10 +27,12 @@ namespace Web.Site
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+    // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             Bootstrap.Configure(services);
+
+            services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
             
             services.Configure<CookiePolicyOptions>(options =>
             {

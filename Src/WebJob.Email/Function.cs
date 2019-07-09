@@ -8,7 +8,7 @@ using SendGrid;
 using SendGrid.Helpers.Mail;
 using Newtonsoft.Json;
 
-namespace WebJobsSDKSample
+namespace MyApp.WebJob.Email
 {
   public class Functions
   {
