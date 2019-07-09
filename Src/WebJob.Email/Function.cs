@@ -2,9 +2,11 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using Newtonsoft.Json;
 
 namespace WebJobsSDKSample
 {
@@ -15,11 +17,13 @@ namespace WebJobsSDKSample
       var apiKey = "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";
       var client = new SendGridClient(apiKey);
 
+      MyEmail email = JsonConvert.DeserializeObject<MyEmail>(message);
+
       var msg = new SendGridMessage();
       msg.SetFrom(new EmailAddress("suporte@mi3dplus.com", "Suporte MI3D Plus"));
-      msg.SetSubject("Email da plataforma");
-      msg.AddContent(MimeType.Html, "<strong>Assim serão as chaves</strong>");
-      msg.AddTo(new EmailAddress("ricardogaefke@gmail.com", "Ricardo Gaefke"));
+      msg.SetSubject(email.Subject);
+      msg.AddContent(MimeType.Html, email.Body);
+      msg.AddTo(new EmailAddress(email.To.First().Address, email.To.First().DisplayName));
       msg.AddCc(new EmailAddress("coachcarlosdesouza@hotmail.com", "Carlos de Souza"));
 
       var response = await client.SendEmailAsync(msg);
@@ -28,5 +32,18 @@ namespace WebJobsSDKSample
       
       logger.LogInformation(mId);
     }
+  }
+
+  public class MyEmail
+  {
+    public string Subject;
+    public IEnumerable<MyAddress> To;
+    public string Body;
+  }
+
+  public class MyAddress
+  {
+    public string DisplayName;
+    public string Address;
   }
 }

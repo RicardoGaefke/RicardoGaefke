@@ -64,6 +64,7 @@ namespace Web.Site
                     "text/xml",
                     "application/json",
                     "text/json",
+                    "font",
                     "font/woff2",
                     "font/woff",
                     "image/x-icon",

@@ -1,0 +1,54 @@
+{
+  "From": {
+    "DisplayName":"Portal MI3D",
+    "User":"ti",
+    "Host":"mi4d.com.br",
+    "Address":"ti@mi4d.com.br"
+  },
+  "Sender": null,
+  "ReplyTo":null,
+  "ReplyToList":[],
+  "To": [
+    {
+      "DisplayName":"",
+      "User":"ricardogaefke",
+      "Host":"gmail.com",
+      "Address":"ricardogaefke@gmail.com"
+    }
+  ],
+  "Bcc":[],
+  "CC":[],
+  "Priority":0,
+  "DeliveryNotificationOptions":0,
+  "Subject":"Esqueci minha senha",
+  "SubjectEncoding":null,
+  "Headers":[],
+  "HeadersEncoding":null,
+  "Body":"<html xmlns=\"http://www.w3.org/1999/xhtml\"> <head> <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0;\"><meta name=\"format-detection\" content=\"telephone=no\"/><style> @import url(https://fonts.googleapis.com/css?family=Lato); body { margin: 0; padding: 0; min-width: 100%; width: 100% !important; height: 100% !important; font-family: 'Lato', sans-serif;} body, table, td, div, p, a { -webkit-font-smoothing: antialiased; text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 100%; } table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important; border-spacing: 0; } img { border: 0; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; } #outlook a { padding: 0; } .ReadMsgBody { width: 100%; } .ExternalClass { width: 100%; } .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }@media all and (min-width: 560px) { .container { border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px; -khtml-border-radius: 8px; } }a, a:hover { color: blue; text-decoration: none; } .footer a, .footer a:hover { color: #828999; }</style><!-- ASSUNTO --> <title>RECUPERAÇÃO DE SENHA - MI3Dplus!</title></head><!-- BODY --> <body topmargin=\"0\" rightmargin=\"0\" bottommargin=\"0\" leftmargin=\"0\" marginwidth=\"0\" marginheight=\"0\" width=\"100%\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; width: 100%; height: 100%; -webkit-font-smoothing: antialiased; text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 100%; background-color: #f1f2f7; color: #FFFFFF;\" bgcolor=\"#2D3445\" text=\"#FFFFFF\"><!-- SECTION / BACKGROUND --> <table width=\"100%\" align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; width: 100%;\" class=\"background\"><tr><td align=\"center\" valign=\"top\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;\" bgcolor=\"#f1f2f7\"><!-- WRAPPER --> <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" width=\"500\" style=\"border-collapse: collapse; border-spacing: 0; padding: 0; width: inherit; max-width: 580px; border-top:3px solid #38aae1; margin-top:30px;\" class=\"wrapper\" bgcolor=\"#fff\"><tr> <td align=\"center\" valign=\"top\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 9.25%; padding-right: 9.25%; width: 87.5%; padding-top: 20px; padding-bottom: 20px;\"><!-- LOGO --> <a target=\"_blank\" style=\"text-decoration: none;\" href=\"https://mi4d.com.br/?utm_source=compra-online&utm_medium=email&utm_content=compra-chave&utm_campaign=compra-chave-email-auto\"><img border=\"0\" vspace=\"0\" hspace=\"0\" src=\"https://www.mi4d.com.br/Content/img/logo-mi3d.jpg\" width=\"150\" height=\"52\" alt=\"Logo\" title=\"Logo\" style=\" color: #FFFFFF; font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;\" /></a></td> </tr> <!-- SUPHEADER --> <tr> <td align=\"center\" valign=\"top\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 9.25%; padding-right: 9.25%; width: 87.5%; font-size: 14px; font-weight: 400; line-height: 150%; letter-spacing: 2px; padding-top: 27px; padding-bottom: 0; color: #333; font-family: sans-serif;\" class=\"supheader\"> RECUPERAÇÃO DE SENHA </td> </tr><!-- HEADER --> <tr> <td align=\"center\" valign=\"top\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;padding-left: 9.25%; padding-right: 9.25%; width: 87.5%; font-size: 24px; font-weight: bold; line-height: 130%; padding-top: 5px; color: #333; font-family: sans-serif;\" class=\"header\">Olá, <b>Ricardo</b>!<br><br> </td> </tr><!-- PARAGRAFO --> <tr> <td align=\"left\" valign=\"top\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 9.25%; padding-right: 9.25%; width: 87.5%; font-size: 15px; font-weight: 400; line-height: 160%; padding-top: 15px; color: #333; font-family: sans-serif;\" class=\"paragraph\"><strong>Esqueceu sua senha?</strong><br> Não tem problema. <br>Crie uma nova clicando no botão abaixo:<br><br><br> <a href=\"https://localhost:44300/Account/ResetPassword?userId=3776&code=qKhWJiIjYwY%2BXqBFp0QSVPE6wUugH5lBfsb%2Bss%2BWgeYn64g1OXr2d17QG44B%2Fn6uO17020Rc1XEo%2FP8z6nztH2g52Z9fYvgDfDbchZ5IplV1zG66ziEGg5cG%2BkbOil0KVKxW2ts2L9RlUOdXmAYvGw4cRV825EJJ6mS%2FtGgYo3A%3D\" target=\"_blank\" style=\" padding: 10px 16px; font-size: 18px; line-height: 1.33; border-radius: 6px; background:#4697ce; color:#fff; \">Criar nova senha</a><br><br><br> Se o botão não funcionar, copie e cole o seguinte link em seu navegador:<br> </td> </tr> <tr> <td align=\"center\" valign=\"top\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 9.25%; padding-right: 9.25%; width: 100%; font-size: 15px; font-weight: 400; line-height: 160%; padding-top: 15px; color: #333; font-family: sans-serif;\" class=\"paragraph\"> <span style=\"border:1px dashed #ccc; padding:15px; font-size:13px; display:block;\">https://localhost:44300/Account/ResetPassword?userId=3776&code=qKhWJiIjYwY%2BXqBFp0QSVPE6wUugH5lBfsb%2Bss%2BWgeYn64g1OXr2d17QG44B%2Fn6uO17020Rc1XEo%2FP8z6nztH2g52Z9fYvgDfDbchZ5IplV1zG66ziEGg5cG%2BkbOil0KVKxW2ts2L9RlUOdXmAYvGw4cRV825EJJ6mS%2FtGgYo3A%3D</span> </td> </tr> <tr> <td align=\"left\" valign=\"top\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 9.25%; padding-right: 9.25%; width: 87.5%; font-size: 14px; font-weight: 400; line-height: 160%; padding-top: 15px; color: #333; font-family: sans-serif;\" class=\"paragraph\"> <br>Caso lembre a senha e não queira modifica-la, por favor desconsidere o e-mail.<br><br><b style=\"font-size: 17px;\"> Maiores informações </b> <br> atendimento@mi3dplus.com</p><br><strong>Equipe MI3Dplus</strong><br> </td> </tr><!-- LINE --> <tr> <td align=\"center\" valign=\"top\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; padding-top: 30px;\" class=\"line\"><hr color=\"#565F73\" align=\"center\" width=\"100%\" size=\"1\" noshade style=\"margin: 0; padding: 0;\" /> </td> </tr><!-- FOOTER --> <tr> <td align=\"center\" valign=\"top\" style=\"border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 10.5px; font-weight: 400; line-height: 150%; padding-top: 10px; padding-bottom: 20px; color: #828999; font-family: sans-serif;\" class=\"footer\"><!-- ANALYTICS --> <!-- http://www.google-analytics.com/collect?v=1&tid={{UA-Tracking-ID}}&cid={{Client-ID}}&t=event&ec=email&ea=open&cs={{Campaign-Source}}&cm=email&cn={{Campaign-Name}} --> <img width=\"1\" height=\"1\" border=\"0\" vspace=\"0\" hspace=\"0\" style=\"margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;\" src=\"http://institutomi4d.com.br/Content/img/tracker.png\" /></td> </tr><!-- End of WRAPPER --> </table><!-- End of SECTION / BACKGROUND --> </td></tr></table></body> </html>",
+  "BodyEncoding": {
+    "BodyName":"utf-8",
+    "EncodingName":"Unicode (UTF-8)",
+    "HeaderName":"utf-8",
+    "WebName":"utf-8",
+    "WindowsCodePage":1200,
+    "IsBrowserDisplay":true,
+    "IsBrowserSave":true,
+    "IsMailNewsDisplay":true,
+    "IsMailNewsSave":true,
+    "IsSingleByte":false,
+    "EncoderFallback": {
+      "DefaultString":"�",
+      "MaxCharCount":1
+    },
+    "DecoderFallback": {
+      "DefaultString":"�",
+      "MaxCharCount":1
+    },
+    "IsReadOnly":true,
+    "CodePage":65001
+  },
+  "BodyTransferEncoding":-1,
+  "IsBodyHtml":true,
+  "Attachments":[],
+  "AlternateViews":[]
+}
