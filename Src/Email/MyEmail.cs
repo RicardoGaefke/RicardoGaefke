@@ -17,16 +17,31 @@ namespace MyApp.Email
   {
     _connectionStrings = ConnectionStrings;
   }
-    public async Task<string> SendMail()
+
+    public async Task<string> SendMail(Emails emails)
     {
-      // string apiKey = "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";
       SendGridClient client = new SendGridClient(_connectionStrings.Value.SendGrid);
 
       SendGridMessage msg = new SendGridMessage();
       msg.SetFrom(new EmailAddress("donotreply@ricardogaefke.com", "Ricardo Gaefke"));
-      msg.SetSubject("My SG test");
-      msg.AddTo(new EmailAddress("ricardogaefke@gmail.com", "Ricardo Gaefke"));
-      msg.AddContent(MimeType.Html, "<strong>and easy to do anywhere, even with C#</strong>");
+      msg.SetSubject(emails.Subject);
+
+      foreach (Address item in emails.To)
+      {
+          msg.AddTo(item.Email, item.DisplayName);
+      }
+
+      foreach (Address item in emails.Cc)
+      {
+        msg.AddCc(item.Email, item.DisplayName);
+      }
+
+      foreach (Address item in emails.Bc)
+      {
+        msg.AddBcc(item.Email, item.DisplayName);
+      }
+      
+      msg.AddContent(MimeType.Html, emails.Body);
             
       Response response = await client.SendEmailAsync(msg);
       
