@@ -32,7 +32,7 @@ namespace MyApp.Web.Site
         {
             Bootstrap.Configure(services);
 
-            services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
+            services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("CUSTOMCONNSTR_ConnectionStrings"));
             
             services.Configure<CookiePolicyOptions>(options =>
             {

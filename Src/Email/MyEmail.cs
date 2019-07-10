@@ -31,15 +31,15 @@ namespace MyApp.Email
           msg.AddTo(item.Email, item.DisplayName);
       }
 
-      foreach (Address item in emails.Cc)
-      {
-        msg.AddCc(item.Email, item.DisplayName);
-      }
+      // foreach (Address item in emails.Cc)
+      // {
+      //   msg.AddCc(item.Email, item.DisplayName);
+      // }
 
-      foreach (Address item in emails.Bc)
-      {
-        msg.AddBcc(item.Email, item.DisplayName);
-      }
+      // foreach (Address item in emails.Bc)
+      // {
+      //   msg.AddBcc(item.Email, item.DisplayName);
+      // }
       
       msg.AddContent(MimeType.Html, emails.Body);
             

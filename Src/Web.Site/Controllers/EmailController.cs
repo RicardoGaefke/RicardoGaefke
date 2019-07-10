@@ -33,7 +33,7 @@ namespace Web.Site.Controllers
       }
       catch (System.Exception ex)
       {
-          return ex.Message;
+          return ex.Message + " - " + ex.StackTrace;
       }
     }
   }
