@@ -83,6 +83,7 @@ namespace MyApp.Web.Site
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             var configuration = app.ApplicationServices.GetService<Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration>();
+            var cachePeriod = env.IsDevelopment() ? "600" : "31536000";
             
             if (env.IsDevelopment())
             {
@@ -98,7 +99,7 @@ namespace MyApp.Web.Site
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            // app.UseStaticFiles();
             app.UseCookiePolicy();
 
             var provider = new FileExtensionContentTypeProvider();
@@ -113,7 +114,6 @@ namespace MyApp.Web.Site
                 ContentTypeProvider = provider,
                 OnPrepareResponse = ctx =>
                 {
-                    var cachePeriod = env.IsDevelopment() ? "600" : "31536000";
                     ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={cachePeriod}");
                 }
             });
@@ -122,6 +122,7 @@ namespace MyApp.Web.Site
             {
                 context.Response.Headers["Author"] = "Ricardo Gaefke";
                 context.Response.Headers["Author_email"] = "ricardogaefke@gmail.com";
+                context.Response.Headers["Author_URL"] = "ricardogaefke.com";
                 return next.Invoke();
             });
 
