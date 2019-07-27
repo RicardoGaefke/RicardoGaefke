@@ -77,7 +77,6 @@ namespace MyApp.Web.Site
                 };
                 options.EnableForHttps = true;
             });
-            ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
