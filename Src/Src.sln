@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site", "Web.Site\Web.Site.csproj", "{3C77A196-951C-46D6-942B-07E717C7755A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJob.Email", "WebJob.Email\WebJob.Email.csproj", "{320519D1-8CFC-4D07-88F0-972A1D453E20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,17 @@ Global
 		{3C77A196-951C-46D6-942B-07E717C7755A}.Release|x64.Build.0 = Release|Any CPU
 		{3C77A196-951C-46D6-942B-07E717C7755A}.Release|x86.ActiveCfg = Release|Any CPU
 		{3C77A196-951C-46D6-942B-07E717C7755A}.Release|x86.Build.0 = Release|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Debug|x64.Build.0 = Debug|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Debug|x86.Build.0 = Debug|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Release|x64.ActiveCfg = Release|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Release|x64.Build.0 = Release|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Release|x86.ActiveCfg = Release|Any CPU
+		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

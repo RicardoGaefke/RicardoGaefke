@@ -29,12 +29,18 @@ namespace Web.Site.Controllers
 
         Emails myMsg = new Emails("Ricardo Gaefke, Contact", myTo, "Mensagem a ser <strong>enviada</strong>");
 
-        return await _myEmail.SendMail(myMsg);
+        return await _myEmail.SendMailMI3D(myMsg);
       }
       catch (System.Exception ex)
       {
           return ex.Message + " - " + ex.StackTrace;
       }
+    }
+
+    [HttpGet("sendgrid")]
+    public string GetSendGrid(long id)
+    {
+      return _myEmail.SendGridConnStr();
     }
   }
 }

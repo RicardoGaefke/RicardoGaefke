@@ -12,6 +12,10 @@ const MyAbout = (): any => {
     axios('/api/email');
   };
 
+  const myClickConnStr = (): void => {
+    axios('/api/email/sendgrid');
+  };
+
   return (
     <Container maxWidth="md">
       <Typography variant="h2" gutterBottom>
@@ -29,7 +33,16 @@ const MyAbout = (): any => {
         color="primary"
         onClick={myClick}
       >
-        My Axios
+        Send Message
+      </Button>
+      <Button
+        variant="text"
+        size="small"
+        title="Axios"
+        color="primary"
+        onClick={myClickConnStr}
+      >
+        Get sg
       </Button>
     </Container>
   );

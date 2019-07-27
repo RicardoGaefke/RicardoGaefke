@@ -373,5 +373,7 @@ ssr/
 
 ### ignore local connection strings
 appsettings.json
+appSettings.json
+test.json
 
 # End of https://www.gitignore.io/api/node,aspnetcore,visualstudiocode
