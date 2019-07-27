@@ -56,7 +56,7 @@ namespace MyApp.Web.Site
                 {
                     // Default
                     "text/plain",
-                    "image/png",
+                    // "image/png",
                     "image/jpg",
                     "image/jpeg",
                     "image/jp2",
@@ -72,7 +72,8 @@ namespace MyApp.Web.Site
                     "font/woff",
                     "image/x-icon",
                     // Custom
-                    "image/svg+xml"
+                    "image/svg+xml",
+                    "script"
                 };
                 options.EnableForHttps = true;
             });
@@ -98,8 +99,8 @@ namespace MyApp.Web.Site
                 app.UseHsts();
             }
 
+            app.UseResponseCompression();
             app.UseHttpsRedirection();
-            // app.UseStaticFiles();
             app.UseCookiePolicy();
 
             var provider = new FileExtensionContentTypeProvider();
