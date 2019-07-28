@@ -69,7 +69,7 @@ const MyMainBanner = (): any => {
           title={myLanguage.notFound}
           variant="text"
           component={RLink}
-          to="/404/"
+          to="/NotFound/"
         >
           {myLanguage.notFound}
         </Button>
@@ -77,7 +77,7 @@ const MyMainBanner = (): any => {
           title={myLanguage.forbidden}
           variant="text"
           component={RLink}
-          to="/403/"
+          to="/Forbidden/"
         >
           {myLanguage.forbidden}
         </Button>
