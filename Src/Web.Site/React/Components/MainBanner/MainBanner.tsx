@@ -81,6 +81,14 @@ const MyMainBanner = (): any => {
         >
           {myLanguage.forbidden}
         </Button>
+        <Button
+          title={myLanguage.error}
+          variant="text"
+          component={RLink}
+          to="/Error/"
+        >
+          {myLanguage.error}
+        </Button>
       </Typography>
     </Container>
   );

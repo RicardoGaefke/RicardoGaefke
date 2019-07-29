@@ -5,6 +5,7 @@ export interface IMyBanner {
   privacy: string,
   notFound: string,
   forbidden: string,
+  error: string
 }
 
 export const MyBannerLanguage = (language: string): IMyBanner => {
@@ -15,6 +16,7 @@ export const MyBannerLanguage = (language: string): IMyBanner => {
     privacy: 'Privacidade',
     notFound: '404',
     forbidden: '403',
+    error: 'Erro',
   };
 
   const myBannerENG: IMyBanner = {
@@ -24,6 +26,7 @@ export const MyBannerLanguage = (language: string): IMyBanner => {
     privacy: 'Privacy',
     notFound: '404',
     forbidden: '403',
+    error: 'Error',
   };
 
   if (language === 'PT') return myBannerPT;
