@@ -24,14 +24,14 @@ const MyError = (props: IMyErrorProps): any => {
   const classes: any = useStyles();
 
   return (
-    <Container maxWidth="md">
-      <Typography variant="h2" gutterBottom>
+    <Container maxWidth="xl" style={{ paddingTop: '40px', paddingBottom: '15px' }}>
+      <Typography variant="h2" gutterBottom align="center">
         {MyTexts.title}
       </Typography>
-      <Typography variant="body1" gutterBottom>
+      <Typography variant="body1" gutterBottom align="center">
         {MyTexts.text}
       </Typography>
-      <Typography>
+      <Typography align="center">
         <Button
           title="Home page"
           variant="outlined"
