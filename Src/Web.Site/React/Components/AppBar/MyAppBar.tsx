@@ -16,7 +16,7 @@ import { IDropDownItem } from '../DropDownMenu/DropDownItem';
 import { useStateValue } from '../../Utils/StateProvider';
 import { MyAppBarTexts, MyThemeItems } from './Texts';
 
-const useStyles = makeStyles((): any => createStyles({
+const useStyles = makeStyles((theme): any => createStyles({
   root: {
     flexGrow: 0,
   },
@@ -29,6 +29,10 @@ const useStyles = makeStyles((): any => createStyles({
     paddingLeft: '4px',
     paddingRight: '4px',
   },
+  myBar: {
+    backgroundColor: (theme.palette.type === 'dark') ? 'rgba(255,255,255,0.05)' : '#757ce8',
+    color: (theme.palette.type === 'dark') ? '#fff' : 'rgba(233,233,233,1)',
+  }
 }));
 
 interface myprops {
@@ -118,12 +122,12 @@ const MyAppBar = (): any => {
 
   return (
     <div className={classes.root} key={language}>
-      <AppBar position="static" color="inherit">
+      <AppBar position="static" className={classes.myBar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link
               title="Home page"
-              color="textPrimary"
+              color="inherit"
               underline="none"
               component={RLink}
               to="/"
