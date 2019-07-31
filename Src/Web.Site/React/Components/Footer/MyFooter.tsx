@@ -3,9 +3,10 @@ import { Container, makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme): any => ({
   footer: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     marginTop: 'auto',
-    backgroundColor: 'rgba(255,255,255,0.05)',
+    // backgroundColor: 'rgba(255,255,255,0.05)',
+    backgroundColor: (theme.palette.type === 'dark') ? 'rgba(255,255,255,0.05)' : 'rgba(233,233,233,1)',
   },
 }));
 

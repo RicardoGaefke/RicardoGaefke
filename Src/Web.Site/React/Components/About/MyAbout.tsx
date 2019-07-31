@@ -18,32 +18,34 @@ const MyAbout = (): any => {
 
   return (
     <Container maxWidth="md">
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" align="center" gutterBottom>
         {texts.titulo}
       </Typography>
 
-      <Typography variant="body2" gutterBottom>
+      <Typography variant="body2" align="center" gutterBottom>
         {texts.texto}
       </Typography>
 
-      <Button
-        variant="text"
-        size="small"
-        title="Axios"
-        color="primary"
-        onClick={myClick}
-      >
-        Send Message
-      </Button>
-      <Button
-        variant="text"
-        size="small"
-        title="Axios"
-        color="primary"
-        onClick={myClickConnStr}
-      >
-        Get sg
-      </Button>
+      <Typography align="center" gutterBottom>
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          title="Send message"
+          onClick={myClick}
+        >
+          Send Message
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          title="Get SG Key"
+          onClick={myClickConnStr}
+        >
+          Get sg
+        </Button>
+      </Typography>
     </Container>
   );
 };
