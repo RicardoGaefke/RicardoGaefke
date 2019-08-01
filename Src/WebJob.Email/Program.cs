@@ -30,7 +30,8 @@ namespace MyApp.WebJob.Email
                 services.AddSingleton<IMyEmail, MyEmail>();
 
                 services.AddOptions();
-            }).ConfigureWebJobs(b =>
+            })
+            .ConfigureWebJobs(b =>
             {
                 b.AddAzureStorageCoreServices();
                 b.AddAzureStorage();
