@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme): any => createStyles({
   myBar: {
     backgroundColor: (theme.palette.type === 'dark') ? 'rgba(255,255,255,0.05)' : '#757ce8',
     color: (theme.palette.type === 'dark') ? '#fff' : 'rgba(233,233,233,1)',
-  }
+  },
 }));
 
 interface myprops {

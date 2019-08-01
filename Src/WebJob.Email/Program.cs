@@ -63,13 +63,14 @@ namespace MyApp.WebJob.Email
 
     public MyJobActivator(IServiceProvider serviceProvider)
     {
-      _serviceProvider = serviceProvider;
+      this._serviceProvider = serviceProvider;
     }
 
     public T CreateInstance<T>()
     {
-      object instance = _serviceProvider.GetService(typeof(T));
-      return (T)instance;
+    //   object instance = _serviceProvider.GetService(typeof(T));
+    //   return (T)instance;
+        return _serviceProvider.GetService<T>();
     }
   }
 }
