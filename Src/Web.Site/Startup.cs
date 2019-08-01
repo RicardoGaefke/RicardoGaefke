@@ -83,7 +83,7 @@ namespace MyApp.Web.Site
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             var configuration = app.ApplicationServices.GetService<Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration>();
-            var cachePeriod = env.IsDevelopment() ? "600" : "31536000";
+            var cachePeriod = env.IsDevelopment() ? "600" : "31557600";
             
             if (env.IsDevelopment())
             {
