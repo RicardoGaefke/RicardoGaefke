@@ -12,7 +12,7 @@ namespace MyApp.WebJob.Email
 {
     class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
             Secrets.ConnectionStrings myConfig = new Secrets.ConnectionStrings();
             
@@ -52,7 +52,7 @@ namespace MyApp.WebJob.Email
             
             using (host)
             {
-                await host.RunAsync();
+                host.Run();
             }
         }
     }
