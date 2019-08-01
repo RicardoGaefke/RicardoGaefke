@@ -24,12 +24,10 @@ namespace MyApp.WebJob.Email
             })
             .ConfigureServices((hostContext, services) =>
             {
-                services.AddSingleton<IJobActivator>(new MyJobActivator(services.BuildServiceProvider()));
-                services.AddTransient<Functions, Functions>();
-                services.AddSingleton<IMyEmail, MyEmail>();
-                services.Configure<Secrets.ConnectionStrings>(hostContext.Configuration.GetSection("CUSTOMCONNSTR_ConnectionStrings"));
-                
                 hostContext.Configuration.GetSection("CUSTOMCONNSTR_ConnectionStrings").Bind(myConfig);
+
+                services.AddSingleton<Functions>(new Functions(myConfig));
+                services.AddSingleton<IMyEmail, MyEmail>();
 
                 services.AddOptions();
             }).ConfigureWebJobs(b =>
@@ -56,21 +54,4 @@ namespace MyApp.WebJob.Email
             }
         }
     }
-
-  public class MyJobActivator : IJobActivator
-  {
-    private readonly IServiceProvider _serviceProvider;
-
-    public MyJobActivator(IServiceProvider serviceProvider)
-    {
-      this._serviceProvider = serviceProvider;
-    }
-
-    public T CreateInstance<T>()
-    {
-    //   object instance = _serviceProvider.GetService(typeof(T));
-    //   return (T)instance;
-        return _serviceProvider.GetService<T>();
-    }
-  }
 }

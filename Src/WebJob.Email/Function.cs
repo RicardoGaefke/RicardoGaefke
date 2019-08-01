@@ -3,18 +3,24 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using Newtonsoft.Json;
+using MyApp.Domain;
 
 namespace MyApp.WebJob.Email
-{
+{ 
   public class Functions
   {
+    private static Secrets.ConnectionStrings _connectionStrings;
+    public Functions(Secrets.ConnectionStrings ConnectionStrings)
+    {
+      Console.WriteLine("Functions constructor");
+      _connectionStrings = ConnectionStrings;
+    }
     public static async void ProcessQueueMessage([QueueTrigger("email")] string message, ILogger logger)
     {
-      var apiKey = "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";
+      var apiKey = _connectionStrings.SendGrid;
       var client = new SendGridClient(apiKey);
 
       MyEmails email = JsonConvert.DeserializeObject<MyEmails>(message);
