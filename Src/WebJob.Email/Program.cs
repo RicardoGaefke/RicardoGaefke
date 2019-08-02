@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyApp.Email;
@@ -25,11 +26,13 @@ namespace MyApp.WebJob.Email
             .ConfigureServices((hostContext, services) =>
             {
                 hostContext.Configuration.GetSection("CUSTOMCONNSTR_ConnectionStrings").Bind(myConfig);
-
+                services.AddOptions<Secrets.ConnectionStrings>()
+                    .Bind(hostContext.Configuration.GetSection("CUSTOMCONNSTR_ConnectionStrings"));
+                
                 services.AddSingleton<Functions>(new Functions(myConfig));
                 services.AddSingleton<IMyEmail, MyEmail>();
-
-                services.AddOptions();
+                services.Configure<Secrets.ConnectionStrings>(hostContext.Configuration.GetSection("CUSTOMCONNSTR_ConnectionStrings"));
+                // services.AddSingleton<Functions, Functions>();
             })
             .ConfigureWebJobs(b =>
             {
