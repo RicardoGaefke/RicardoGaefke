@@ -31,7 +31,7 @@ namespace MyApp.WebJob.Email
                 
                 services.AddSingleton<Functions>(new Functions(myConfig));
                 services.AddSingleton<IMyEmail, MyEmail>();
-                services.Configure<Secrets.ConnectionStrings>(hostContext.Configuration.GetSection("CUSTOMCONNSTR_ConnectionStrings"));
+                services.Configure<Secrets.ConnectionStrings>(hostContext.Configuration.GetSection("ConnectionStrings"));
                 // services.AddSingleton<Functions, Functions>();
             })
             .ConfigureWebJobs(b =>
