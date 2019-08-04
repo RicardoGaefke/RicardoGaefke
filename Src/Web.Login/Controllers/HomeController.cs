@@ -11,7 +11,7 @@ namespace MyApp.Web.Login.Controllers
         {   
             ViewData["Title"] = "Ricardo Gaefke";
             
-            Request.HttpContext.Response.Headers.Add("Title", "Ricardo Gaefke");
+            Request.HttpContext.Response.Headers.Add("Title", "Ricardo Gaefke Login");
             Request.HttpContext.Response.Headers.Add("Description", "ASP.NET Core SSR React login");
             
             ViewBag.Page = JsonConvert.SerializeObject(new {

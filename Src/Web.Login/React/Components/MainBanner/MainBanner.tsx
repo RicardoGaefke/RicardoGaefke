@@ -29,7 +29,7 @@ const MyMainBanner = (): any => {
         .NET Core + SSR React
       </Typography>
       <Typography variant="body1" align="center" gutterBottom>
-        {myLanguage.subtitle}
+        Login page
       </Typography>
       <Typography variant="body1" align="center" style={{ paddingTop: '20px', paddingBottom: '15px' }}>
         <Button variant="outlined" href="https://github.com/RicardoGaefke/RicardoGaefke" target="_blank">
