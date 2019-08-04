@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Web.Site.Models;
 
-namespace MyApp.Web.Site.Controllers
+namespace MyApp.Web.Login.Controllers
 {
     public class HomeController : Controller
     {   
@@ -12,11 +12,11 @@ namespace MyApp.Web.Site.Controllers
             ViewData["Title"] = "Ricardo Gaefke";
             
             Request.HttpContext.Response.Headers.Add("Title", "Ricardo Gaefke");
-            Request.HttpContext.Response.Headers.Add("Description", "ASP.NET Core SSR React boilerplate");
+            Request.HttpContext.Response.Headers.Add("Description", "ASP.NET Core SSR React login");
             
             ViewBag.Page = JsonConvert.SerializeObject(new {
                 Title = "Ricardo Gaefke",
-                Description = "Ricardo Gaefke's boilerplate"
+                Description = "Ricardo Gaefke's boilerplate login"
             });
             
             return View();

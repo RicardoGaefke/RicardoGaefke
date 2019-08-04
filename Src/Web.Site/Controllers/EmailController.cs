@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using MyApp.Email;
 using MyApp.Domain;
 
-namespace Web.Site.Controllers
+namespace MyApp.Web.Site.Controllers
 {
   [Route("api/email")]
   [ApiController]

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Site", "Web.Site\Web.Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJob.Email", "WebJob.Email\WebJob.Email.csproj", "{320519D1-8CFC-4D07-88F0-972A1D453E20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Login", "Web.Login\Web.Login.csproj", "{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Release|x64.Build.0 = Release|Any CPU
 		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Release|x86.ActiveCfg = Release|Any CPU
 		{320519D1-8CFC-4D07-88F0-972A1D453E20}.Release|x86.Build.0 = Release|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Debug|x64.Build.0 = Debug|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Debug|x86.Build.0 = Debug|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Release|x64.ActiveCfg = Release|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Release|x64.Build.0 = Release|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Release|x86.ActiveCfg = Release|Any CPU
+		{6010DD62-B13C-4ABB-83B8-4F01A0B3733F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
