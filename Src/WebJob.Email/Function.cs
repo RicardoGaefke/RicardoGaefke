@@ -26,7 +26,8 @@ namespace MyApp.WebJob.Email
     }
     public static async void ProcessQueueMessage([QueueTrigger("email")] string message, ILogger logger)
     {
-      var apiKey = "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";
+      // var apiKey = "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";
+      var apiKey = _connectionStrings.SendGrid;
       var client = new SendGridClient(apiKey);
 
       MyEmails email = JsonConvert.DeserializeObject<MyEmails>(message);
