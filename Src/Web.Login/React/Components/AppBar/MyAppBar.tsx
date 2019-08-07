@@ -118,6 +118,10 @@ const MyAppBar = (): any => {
     },
   ];
 
+  const MyLogin = (): void => {
+    window.location.href = 'https://login.ricardogaefke.com';
+  };
+
   const MyTexts = MyAppBarTexts(language);
 
   return (
@@ -171,7 +175,14 @@ const MyAppBar = (): any => {
             onClose={handleCloseLang}
             items={LanguageItems}
           />
-          <MyButton color="inherit" title="Login" className={classes.btn}>Login</MyButton>
+          <MyButton
+            color="inherit"
+            title="Login"
+            className={classes.btn}
+            onClick={MyLogin}
+          >
+            Login
+          </MyButton>
         </Toolbar>
       </AppBar>
     </div>
