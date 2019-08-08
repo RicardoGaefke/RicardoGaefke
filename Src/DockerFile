@@ -20,13 +20,15 @@ WORKDIR /usr/local/sbin
 
 COPY . .
 
+COPY /Web.Site/*/*.* /Web.Site/
 COPY /Web.Site/package*.json /Web.Site/
+COPY /Web.Site/webpack.*.js /Web.Site/
 
-WORKDIR /Web.Site/
+WORKDIR /
 
-RUN npm install
+RUN npm install --prefix Web.Site
 
-RUN npm run production
+RUN npm run production --prefix Web.Site
 
 FROM build AS publish
 RUN dotnet publish -c Release -o /app
@@ -41,3 +43,6 @@ ENV ConnectionStrings:Storage=DefaultEndpointsProtocol=https;AccountName=ricardo
 
 ENV ASPNETCORE_URLS="http://*:5000"
 ENTRYPOINT ["dotnet", "Web.Site.dll"]
+
+## remove unused images
+## docker rmi $(docker images -q -f "dangling=true")
