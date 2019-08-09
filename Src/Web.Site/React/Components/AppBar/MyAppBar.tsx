@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme): any => createStyles({
     paddingRight: '4px',
   },
   myBar: {
-    backgroundColor: (theme.palette.type === 'dark') ? 'rgba(255,255,255,0.05)' : '#757ce8',
+    backgroundColor: (theme.palette.type === 'dark') ? 'rgba(255,255,255,0.05)' : theme.palette.primary.main,
     color: (theme.palette.type === 'dark') ? '#fff' : 'rgba(233,233,233,1)',
   },
 }));
