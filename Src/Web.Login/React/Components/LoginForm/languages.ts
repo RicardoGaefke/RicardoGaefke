@@ -1,4 +1,5 @@
 interface IMyLoginTextBox {
+  legend: string,
   title: string
 }
 
@@ -16,12 +17,14 @@ interface IMyLoginTexts {
 const MyLoginTexts = (l: string): IMyLoginTexts => {
   const MyLoginTextsPT: IMyLoginTexts = {
     email: {
+      legend: 'Por favor informe teu email',
       title: 'email',
     },
     remember: {
       title: 'Lembrar-me',
     },
     password: {
+      legend: 'Por favor informe tua senha',
       title: 'senha',
     },
     keep: {
@@ -31,13 +34,15 @@ const MyLoginTexts = (l: string): IMyLoginTexts => {
 
   const MyLoginTextsENG: IMyLoginTexts = {
     email: {
-      title: 'email',
+      legend: 'Please enter your email',
+      title: 'your email',
     },
     remember: {
       title: 'Remember me',
     },
     password: {
-      title: 'password',
+      legend: 'Please enter your password',
+      title: 'your password',
     },
     keep: {
       title: 'Keep me connected',

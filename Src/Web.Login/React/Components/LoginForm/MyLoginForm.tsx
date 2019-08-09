@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import {
-  Container, TextField, Typography, Checkbox, FormControlLabel,
+  Container, TextField, Typography, Checkbox, FormControlLabel, Button,
 } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 // eslint-disable-next-line no-unused-vars
@@ -67,7 +67,7 @@ const MyLoginForm = (): any => {
               type="email"
               className={clsx(classes.margin, classes.textField)}
               label={MyTexts.email.title}
-              title={MyTexts.email.title}
+              title={MyTexts.email.legend}
               value={values.email}
               variant="outlined"
               onChange={handleChange('email')}
@@ -88,7 +88,7 @@ const MyLoginForm = (): any => {
               id="password"
               className={clsx(classes.margin, classes.textField)}
               label={MyTexts.password.title}
-              title={MyTexts.password.title}
+              title={MyTexts.password.legend}
               value={values.password}
               variant="outlined"
               type="password"
@@ -103,6 +103,14 @@ const MyLoginForm = (): any => {
               control={<Checkbox checked={values.keep} color="primary" onChange={handleChangeCheckbox('keep')} value={values.keep} />}
               label={MyTexts.keep.title}
             />
+            <Button
+              color="primary"
+              variant="contained"
+              fullWidth
+              style={{ color: 'white' }}
+            >
+              Botao
+            </Button>
           </form>
         </Paper>
       </Typography>
