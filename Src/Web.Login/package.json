@@ -7,7 +7,7 @@
     "lint": "./node_modules/.bin/eslint \"React/**/*.*s*\"",
     "start": "dotnet run -p Web.Login.csproj",
     "build": "webpack --config webpack.dev.js --progress --color",
-    "production": "webpack  --config webpack.prod.js",
+    "production": "webpack --config webpack.prod.js",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "keywords": [],
@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "@material-ui/core": "^4.3.1",
+    "@material-ui/core": "^4.3.2",
     "@material-ui/icons": "^4.2.1",
     "@material-ui/styles": "^4.3.0",
     "@primer/octicons-react": "^9.1.1",
@@ -33,6 +33,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-material-ui-form-validator": "^2.0.9",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "webpack-merge": "^4.2.1"

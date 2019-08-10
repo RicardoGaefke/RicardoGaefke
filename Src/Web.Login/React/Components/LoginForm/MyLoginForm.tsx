@@ -1,8 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import {
-  Container, TextField, Typography, Checkbox, FormControlLabel, Button,
+  Container, Typography, Checkbox, FormControlLabel, Button,
 } from '@material-ui/core';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import Paper from '@material-ui/core/Paper';
 // eslint-disable-next-line no-unused-vars
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
@@ -61,17 +62,19 @@ const MyLoginForm = (): any => {
     <Container maxWidth="xs">
       <Typography align="center">
         <Paper className={classes.paper}>
-          <form className={classes.container}>
-            <TextField
-              id="email"
-              type="email"
+          <ValidatorForm
+            className={classes.container}
+          >
+            <TextValidator
               className={clsx(classes.margin, classes.textField)}
+              onChange={handleChange('email')}
+              name="email"
               label={MyTexts.email.title}
               title={MyTexts.email.legend}
               value={values.email}
               variant="outlined"
-              onChange={handleChange('email')}
-              margin="normal"
+              validators={['required', 'isEmail']}
+              errorMessages={['this field is required', 'email is not valid']}
               fullWidth
             />
 
@@ -84,8 +87,8 @@ const MyLoginForm = (): any => {
               label={MyTexts.remember.title}
             />
 
-            <TextField
-              id="password"
+            <TextValidator
+              name="password"
               className={clsx(classes.margin, classes.textField)}
               label={MyTexts.password.title}
               title={MyTexts.password.legend}
@@ -93,7 +96,8 @@ const MyLoginForm = (): any => {
               variant="outlined"
               type="password"
               onChange={handleChange('password')}
-              margin="normal"
+              validators={['required', 'minLength:6']}
+              errorMessages={['this field is required', 'Min length']}
               fullWidth
             />
 
@@ -111,7 +115,7 @@ const MyLoginForm = (): any => {
             >
               Botao
             </Button>
-          </form>
+          </ValidatorForm>
         </Paper>
       </Typography>
     </Container>

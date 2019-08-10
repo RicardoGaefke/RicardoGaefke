@@ -1,10 +1,10 @@
 import React from 'react';
-import MyMainBanner from '../../Components/MainBanner/MainBanner';
+import MyLoginForm from '../../Components/LoginForm/MyLoginForm';
 
 
 const MyHome = () => (
   <div>
-    <MyMainBanner />
+    <MyLoginForm />
   </div>
 );
 
