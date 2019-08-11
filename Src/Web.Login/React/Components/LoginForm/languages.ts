@@ -11,7 +11,8 @@ interface IMyLoginTexts {
   email: IMyLoginTextBox,
   remember: IMyLoginCheckbox,
   password: IMyLoginTextBox,
-  keep: IMyLoginCheckbox
+  keep: IMyLoginCheckbox,
+  btn: IMyLoginTextBox
 }
 
 const MyLoginTexts = (l: string): IMyLoginTexts => {
@@ -30,6 +31,10 @@ const MyLoginTexts = (l: string): IMyLoginTexts => {
     keep: {
       title: 'Manter-me conectado',
     },
+    btn: {
+      legend: 'Autenticar acesso à plataforma',
+      title: 'Autenticar',
+    },
   };
 
   const MyLoginTextsENG: IMyLoginTexts = {
@@ -46,6 +51,10 @@ const MyLoginTexts = (l: string): IMyLoginTexts => {
     },
     keep: {
       title: 'Keep me connected',
+    },
+    btn: {
+      legend: 'Authenticate access to platform',
+      title: 'Authenticate',
     },
   };
 

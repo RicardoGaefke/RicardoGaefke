@@ -136,9 +136,10 @@ const NewLoginForm = (): any => {
                       fullWidth
                       style={{ color: 'white' }}
                       type="submit"
+                      title={MyTexts.btn.legend}
                       disabled={isSubmitting}
                     >
-                      Botao
+                      {MyTexts.btn.title}
                     </Button>
                   </form>
                 );
