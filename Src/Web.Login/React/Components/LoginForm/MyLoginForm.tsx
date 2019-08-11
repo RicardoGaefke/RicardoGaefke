@@ -1,10 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import {
-  Container, Typography, Checkbox, FormControlLabel, Button,
+  Container, Typography, Checkbox, FormControlLabel, Button, Paper,
 } from '@material-ui/core';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import Paper from '@material-ui/core/Paper';
 // eslint-disable-next-line no-unused-vars
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { useStateValue } from '../../Utils/StateProvider';
@@ -58,12 +57,17 @@ const MyLoginForm = (): any => {
     setValues({ ...values, [name]: event.target.checked });
   };
 
+  const submit = (): void => {
+    console.log(values);
+  };
+
   return (
     <Container maxWidth="xs">
       <Typography align="center">
         <Paper className={classes.paper}>
           <ValidatorForm
             className={classes.container}
+            onSubmit={submit}
           >
             <TextValidator
               className={clsx(classes.margin, classes.textField)}
@@ -96,8 +100,8 @@ const MyLoginForm = (): any => {
               variant="outlined"
               type="password"
               onChange={handleChange('password')}
-              validators={['required', 'minLength:6']}
-              errorMessages={['this field is required', 'Min length']}
+              validators={['required']}
+              errorMessages={['this field is required']}
               fullWidth
             />
 
@@ -108,10 +112,12 @@ const MyLoginForm = (): any => {
               label={MyTexts.keep.title}
             />
             <Button
+              className={classes.margin}
               color="primary"
               variant="contained"
               fullWidth
               style={{ color: 'white' }}
+              type="submit"
             >
               Botao
             </Button>
