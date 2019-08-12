@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
     width: 200,
   },
   paper: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(2),
   },
   margin: {
     margin: theme.spacing(1),
@@ -56,7 +56,7 @@ const NewLoginForm = (): any => {
   return (
     <>
       <Container maxWidth="xs" className={classes.container}>
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} elevation={5}>
           <Formik
             initialValues={{
               email: '',
@@ -105,7 +105,6 @@ const NewLoginForm = (): any => {
                   <FormControlLabel
                     id="rememberMe"
                     name="rememberMe"
-                    className={classes.paper}
                     control={
                       (
                         <Checkbox
@@ -133,7 +132,6 @@ const NewLoginForm = (): any => {
                   <FormControlLabel
                     id="keep"
                     name="keep"
-                    className={classes.margin}
                     control={<Checkbox checked={values.keep} color="primary" onChange={handleChange} value={values.keep} />}
                     label={MyTexts.keep.title}
                   />

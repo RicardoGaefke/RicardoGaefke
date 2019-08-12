@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link as RLink } from 'react-router-dom';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -129,8 +128,7 @@ const MyAppBar = (): any => {
               title="Home page"
               color="inherit"
               underline="none"
-              component={RLink}
-              to="/"
+              href="https://www.ricardogaefke.com"
             >
               Ricardo Gaefke
             </Link>

@@ -1,10 +1,10 @@
 import React from 'react';
-import MyLoginForm from '../../Components/LoginForm/NewLoginForm';
+import NewLoginForm from '../../Components/LoginForm/NewLoginForm';
 
 
 const MyHome = () => (
   <>
-    <MyLoginForm />
+    <NewLoginForm />
   </>
 );
 
