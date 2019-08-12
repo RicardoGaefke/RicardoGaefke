@@ -10,6 +10,12 @@ const useStyles = makeStyles((theme: any): any => ({
     flexGrow: 1,
     marginTop: theme.spacing(2),
     marginBotton: theme.spacing(6),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
+    alignContent: 'stretch',
   },
 }));
 
