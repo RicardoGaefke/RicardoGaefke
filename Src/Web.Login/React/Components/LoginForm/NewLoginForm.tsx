@@ -9,6 +9,7 @@ import {
   Formik,
 } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 import { useStateValue } from '../../Utils/StateProvider';
 import MyLoginTexts from './languages';
 
@@ -73,7 +74,10 @@ const NewLoginForm = (): any => {
                 .min(6, 'Password must contain at least 8 characters'),
             })}
             onSubmit={(values, { setSubmitting }):void => {
-              alert(JSON.stringify(values, null, 2));
+              // alert(JSON.stringify(values, null, 2));
+
+              axios('/api/sign/in');
+
               setSubmitting(false);
             }}
           >
@@ -122,6 +126,7 @@ const NewLoginForm = (): any => {
                     label={MyTexts.password.title}
                     title={MyTexts.password.legend}
                     name="password"
+                    type="password"
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}
