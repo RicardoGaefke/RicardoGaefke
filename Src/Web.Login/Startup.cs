@@ -41,7 +41,7 @@ namespace MyApp.Web.Login
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.MinimumSameSitePolicy = SameSiteMode.Lax;
                 options.ConsentCookie.Domain = ".ricardogaefke.com";
             });
 
@@ -66,6 +66,12 @@ namespace MyApp.Web.Login
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
                 options.Cookie.SameSite = SameSiteMode.Lax;
+
+                options.Events.OnSigningIn = (context) =>
+                {
+                    context.Response.Headers["login"] = "entrando";
+                    return Task.CompletedTask;
+                };
 
                 options.Events.OnRedirectToLogin = (context) =>
                 {
