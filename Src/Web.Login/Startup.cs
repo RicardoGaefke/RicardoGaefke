@@ -57,7 +57,7 @@ namespace MyApp.Web.Login
                 }
                 else
                 {
-                    options.Cookie.Domain = ".ricardogaefke.com";
+                    options.Cookie.Domain = "ricardogaefke.com";
                 }
                 
                 options.Cookie.Name = "ricardogaefke";
