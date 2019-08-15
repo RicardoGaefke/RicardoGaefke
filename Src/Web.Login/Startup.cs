@@ -50,7 +50,7 @@ namespace MyApp.Web.Login
             services.AddDataProtection();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddCookie(options =>
+            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
             {
                 if (HostingEnvironment.IsDevelopment())
                 {
@@ -58,13 +58,14 @@ namespace MyApp.Web.Login
                 }
                 else
                 {
-                    options.Cookie.Domain = "ricardogaefke.com";
+                    options.Cookie.Domain = ".ricardogaefke.com";
                 }
                 
                 options.Cookie.Name = "ricardogaefke";
                 options.Cookie.IsEssential = true;
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                options.Cookie.SameSite = SameSiteMode.Lax;
 
                 options.Events.OnRedirectToLogin = (context) =>
                 {
