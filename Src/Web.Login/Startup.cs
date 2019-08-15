@@ -41,7 +41,7 @@ namespace MyApp.Web.Login
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.Lax;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
                 options.ConsentCookie.Domain = ".ricardogaefke.com";
             });
 
@@ -50,28 +50,22 @@ namespace MyApp.Web.Login
             services.AddDataProtection();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+            .AddCookie(options =>
             {
-                if (HostingEnvironment.IsDevelopment())
-                {
-                    options.Cookie.Domain = "localhost";    
-                }
-                else
-                {
-                    options.Cookie.Domain = ".ricardogaefke.com";
-                }
-                
+                // if (HostingEnvironment.IsDevelopment())
+                // {
+                //     options.Cookie.Domain = "localhost";    
+                // }
+                // else
+                // {
+                //     options.Cookie.Domain = "ricardogaefke.com";
+                // }
+
+                options.Cookie.Domain = "ricardogaefke.com";
                 options.Cookie.Name = "ricardogaefke";
                 options.Cookie.IsEssential = true;
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-                options.Cookie.SameSite = SameSiteMode.Lax;
-
-                options.Events.OnSigningIn = (context) =>
-                {
-                    context.Response.Headers["login"] = "entrando";
-                    return Task.CompletedTask;
-                };
 
                 options.Events.OnRedirectToLogin = (context) =>
                 {
