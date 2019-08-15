@@ -14,11 +14,22 @@ namespace MyApp.Web.Login
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var configuration = new ConfigurationBuilder()
+                .AddCommandLine(args)
+                .Build()
+            ;
+
+            CreateWebHostBuilder(args)
+                .UseConfiguration(configuration)
+                .Build()
+                .Run()
+            ;
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            WebHost
+                .CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+            ;
     }
 }

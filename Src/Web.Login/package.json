@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint \"React/**/*.*s*\"",
     "start": "dotnet run -p Web.Login.csproj",
+    "start5050": "dotnet run --urls=https://localhost:5050/",
     "build": "webpack --config webpack.dev.js --progress --color",
     "production": "webpack --config webpack.prod.js",
     "storybook": "start-storybook -p 9001 -c .storybook"
