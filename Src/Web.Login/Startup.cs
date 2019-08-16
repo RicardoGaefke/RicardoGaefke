@@ -41,8 +41,15 @@ namespace MyApp.Web.Login
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-                options.ConsentCookie.Domain = ".ricardogaefke.com";
+                
+                if (HostingEnvironment.IsDevelopment())
+                {
+                    options.ConsentCookie.Domain = "localhost";
+                }
+                else
+                {
+                    options.ConsentCookie.Domain = ".ricardogaefke.com";
+                }
             });
 
             services.AddNodeServices();
@@ -52,16 +59,16 @@ namespace MyApp.Web.Login
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
-                // if (HostingEnvironment.IsDevelopment())
-                // {
-                //     options.Cookie.Domain = "localhost";    
-                // }
-                // else
-                // {
-                //     options.Cookie.Domain = "ricardogaefke.com";
-                // }
+                if (HostingEnvironment.IsDevelopment())
+                {
+                    options.Cookie.Domain = "localhost";    
+                }
+                else
+                {
+                    options.Cookie.Domain = ".ricardogaefke.com";
+                }
 
-                options.Cookie.Domain = "ricardogaefke.com";
+                // options.Cookie.Domain = "ricardogaefke.com";
                 options.Cookie.Name = "ricardogaefke";
                 options.Cookie.IsEssential = true;
                 options.Cookie.HttpOnly = true;
