@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
-using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -32,42 +29,17 @@ namespace MyApp.Web.Login
     // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Bootstrap.Configure(services, HostingEnvironment, Configuration);
+
             services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
-
-            Bootstrap.Configure(services, HostingEnvironment);
-            
-            services.AddNodeServices();
-
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddCookie(options =>
-            {
-                if (HostingEnvironment.IsDevelopment())
-                {
-                    options.Cookie.Domain = "localhost";    
-                }
-                else
-                {
-                    options.Cookie.Domain = ".ricardogaefke.com";
-                }
-
-                options.Cookie.Name = "ricardogaefke";
-                options.Cookie.IsEssential = true;
-                options.Cookie.HttpOnly = true;
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-
-                options.Events.OnRedirectToLogin = (context) =>
-                {
-                    context.Response.StatusCode = 401;
-                    return Task.CompletedTask;
-                };
-            });
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options => {
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                     options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
-                });
+                })
+            ;
 
             services.AddResponseCompression(options =>
             {
@@ -141,7 +113,7 @@ namespace MyApp.Web.Login
             {
                 context.Response.Headers["Author"] = "Ricardo Gaefke";
                 context.Response.Headers["Author_email"] = "ricardogaefke@gmail.com";
-                context.Response.Headers["Author_URL"] = "ricardogaefke.com";
+                context.Response.Headers["Author_URL"] = "www.ricardogaefke.com";
                 return next.Invoke();
             });
 

@@ -32,11 +32,9 @@ namespace MyApp.Web.Site
     // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Bootstrap.Configure(services, HostingEnvironment);
+            Bootstrap.Configure(services, HostingEnvironment, Configuration);
 
             services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
-            
-            services.AddNodeServices();
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
@@ -117,9 +115,11 @@ namespace MyApp.Web.Site
             {
                 context.Response.Headers["Author"] = "Ricardo Gaefke";
                 context.Response.Headers["Author_email"] = "ricardogaefke@gmail.com";
-                context.Response.Headers["Author_URL"] = "ricardogaefke.com";
+                context.Response.Headers["Author_URL"] = "www.ricardogaefke.com";
                 return next.Invoke();
             });
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
