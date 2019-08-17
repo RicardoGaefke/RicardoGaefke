@@ -31,7 +31,13 @@ namespace MyApp.DI
                 }
             });
 
-            services.AddDataProtection()
+            if (HostingEnvironment.IsDevelopment())
+            {
+                services.AddDataProtection();
+            }
+            else
+            {
+                services.AddDataProtection()
                 .SetApplicationName("ricardogaefke")
                 .PersistKeysToAzureBlobStorage(new Uri("https://ricardogaefke.blob.core.windows.net/ricardogaefke-login/keys.xml?sp=rcw&st=2019-08-17T02:22:19Z&se=2030-08-17T10:22:19Z&spr=https&sv=2018-03-28&sig=vgQ0IHHjtJe6zAbIT3rgibVuulQfy59GJYEjUERB7Yg%3D&sr=b"))
                 .ProtectKeysWithAzureKeyVault(
@@ -40,6 +46,7 @@ namespace MyApp.DI
                     "oowc2QhH8I_k+KzATqUp0UCx.6CJ*G-w"
                 )
             ;
+            }
         }
     }
 }

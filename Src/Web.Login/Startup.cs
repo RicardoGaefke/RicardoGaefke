@@ -50,7 +50,6 @@ namespace MyApp.Web.Login
                     options.Cookie.Domain = ".ricardogaefke.com";
                 }
 
-                // options.Cookie.Domain = "ricardogaefke.com";
                 options.Cookie.Name = "ricardogaefke";
                 options.Cookie.IsEssential = true;
                 options.Cookie.HttpOnly = true;
@@ -114,8 +113,7 @@ namespace MyApp.Web.Login
             }
             else
             {
-                
-                // app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
 
