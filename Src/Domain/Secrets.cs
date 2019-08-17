@@ -10,5 +10,13 @@ namespace MyApp.Domain
       public string AzureWebJobsDashboard { get; set; }
       public string AzureWebJobsStorage {get; set;}
     }
+
+    public class Login
+    {
+      public string KeyVault {get; set;}
+      public string ClientID {get; set;}
+      public string ClientSecret {get; set;}
+      public string Blob {get; set;}
+    }
   }
 }
