@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using MyApp.DI;
@@ -33,28 +32,11 @@ namespace MyApp.Web.Login
     // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Bootstrap.Configure(services);
-
             services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
+
+            Bootstrap.Configure(services, HostingEnvironment);
             
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                
-                if (HostingEnvironment.IsDevelopment())
-                {
-                    options.ConsentCookie.Domain = "localhost";
-                }
-                else
-                {
-                    options.ConsentCookie.Domain = ".ricardogaefke.com";
-                }
-            });
-
             services.AddNodeServices();
-
-            services.AddDataProtection();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
