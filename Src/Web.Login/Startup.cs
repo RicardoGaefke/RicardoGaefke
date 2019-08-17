@@ -114,7 +114,8 @@ namespace MyApp.Web.Login
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                
+                // app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
 
