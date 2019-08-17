@@ -73,9 +73,9 @@ namespace MyApp.DI
                     .SetApplicationName("ricardogaefke")
                     .PersistKeysToAzureBlobStorage(new Uri("https://ricardogaefke.blob.core.windows.net/ricardogaefke-login/keys.xml?sp=rcw&st=2019-08-17T02:22:19Z&se=2030-08-17T10:22:19Z&spr=https&sv=2018-03-28&sig=vgQ0IHHjtJe6zAbIT3rgibVuulQfy59GJYEjUERB7Yg%3D&sr=b"))
                     .ProtectKeysWithAzureKeyVault(
-                        Configuration.GetSection("login")["KeyVault"],
-                        Configuration.GetSection("login")["ClientID"],
-                        Configuration.GetSection("login")["ClientSecret"]
+                        "https://ricardogaefke.vault.azure.net/keys/ricardogaefke-login/",
+                        "116095b6-cd59-4de7-af03-6f7f3615729d",
+                        "oowc2QhH8I_k+KzATqUp0UCx.6CJ*G-w"
                     )
                 ;
             }
