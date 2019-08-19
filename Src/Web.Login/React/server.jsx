@@ -19,7 +19,7 @@ export default createServerRenderer(params => {
 
     const app = (
       <StaticRouter location={params.url} context={params}>
-        <MyStateProvider>
+        <MyStateProvider PageInfo={PageInfo}>
           <MyApp />
         </MyStateProvider>
       </StaticRouter>

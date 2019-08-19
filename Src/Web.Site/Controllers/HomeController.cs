@@ -16,7 +16,8 @@ namespace MyApp.Web.Site.Controllers
             
             ViewBag.Page = JsonConvert.SerializeObject(new {
                 Title = "Ricardo Gaefke",
-                Description = "Ricardo Gaefke's boilerplate"
+                Description = "Ricardo Gaefke's boilerplate",
+                Authenticated = HttpContext.User.Identity.IsAuthenticated
             });
             
             return View();

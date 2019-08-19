@@ -18,15 +18,19 @@ namespace MyApp.Web.Login.Controllers
       try
       {
         var claims = new List<Claim>
-      {
-        new Claim(ClaimTypes.Name, "ricardogaefke@gmail.com"),
-        new Claim("UserName", "Ricardo Gaefke"),
-        new Claim(ClaimTypes.Role, "Master"),
-      };
+        {
+          new Claim(ClaimTypes.Name, "Ricardo Gaefke"),
+          new Claim(ClaimTypes.Email, "ricardogaefke@gmail.com"),
+          new Claim("Custom", "Ricardo Gaefke"),
+          new Claim(ClaimTypes.Role, "Master"),
+        };
 
         var claimsIdentity = new ClaimsIdentity(
-          claims
+          claims,
+          CookieAuthenticationDefaults.AuthenticationScheme
         );
+
+        var principal = new ClaimsPrincipal(claimsIdentity);
 
         var authProperties = new AuthenticationProperties
         {
@@ -54,11 +58,11 @@ namespace MyApp.Web.Login.Controllers
 
         await HttpContext.SignInAsync(
           CookieAuthenticationDefaults.AuthenticationScheme,
-          new ClaimsPrincipal(claimsIdentity),
+          principal,
           authProperties
         );
 
-        return "entrou";    
+        return HttpContext.User.Identity.IsAuthenticated.ToString();
       }
       catch (System.Exception ex)
       {

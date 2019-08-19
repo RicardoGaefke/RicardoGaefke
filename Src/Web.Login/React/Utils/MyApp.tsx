@@ -14,7 +14,12 @@ declare global {
     MyInitialState: {
       Title: string,
       Description: string,
-      consentCookie: boolean
+      language: 'ENG',
+      theme: 'dark',
+      consentCookie: false,
+      Name: '',
+      IsAuthenticated: false,
+      Email: '',
     }
   }
 }
@@ -28,6 +33,10 @@ const MyApp = (): any => {
     dispatch({
       type: 'changeConsent',
       value: myConsent,
+    });
+    dispatch({
+      type: 'changeAuth',
+      value: window.MyInitialState.IsAuthenticated,
     });
   }, [dispatch]);
 

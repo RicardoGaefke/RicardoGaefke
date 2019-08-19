@@ -14,6 +14,8 @@ export default createServerRenderer(params => {
   return new Promise((resolve, reject) => {
     const PageInfo = JSON.parse(params.data.page);
     PageInfo.consentCookie = params.data.consentCookie;
+    PageInfo.Authenticated = params.data.authenticated;
+    PageInfo.name = params.data.name;
 
     const sheets = new ServerStyleSheets();
 

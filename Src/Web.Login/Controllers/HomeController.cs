@@ -16,7 +16,12 @@ namespace MyApp.Web.Login.Controllers
             
             ViewBag.Page = JsonConvert.SerializeObject(new {
                 Title = "Ricardo Gaefke",
-                Description = "Ricardo Gaefke's boilerplate login"
+                Description = "Ricardo Gaefke's boilerplate login",
+                IsAuthenticated = User.Identity.IsAuthenticated,
+                Name = User.Identity.Name,
+                Email = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Email)?.Value,
+                language = "ENG",
+                theme = "dark"
             });
             
             return View();

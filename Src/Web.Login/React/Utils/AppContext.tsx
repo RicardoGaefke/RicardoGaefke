@@ -1,17 +1,25 @@
 import React from 'react';
-import { StateProvider, initialState } from './StateProvider';
+import { StateProvider } from './StateProvider';
 
 export interface IInitialContext {
   language: string,
   theme: string,
-  consentCookie: boolean
+  consentCookie: boolean,
+  Name?: string,
+  Email?: string,
+  IsAuthenticated: boolean
 }
 
 export const MyStateProvider = (props: any): any => {
-  const { children } = props;
+  const { children, PageInfo } = props;
 
   const reducer = (state: IInitialContext, action: any): IInitialContext => {
     switch (action.type) {
+      case 'changeAuth':
+        return {
+          ...state,
+          IsAuthenticated: action.value,
+        };
       case 'changeLanguage':
         return {
           ...state,
@@ -33,7 +41,7 @@ export const MyStateProvider = (props: any): any => {
   };
 
   return (
-    <StateProvider initialState={initialState} reducer={reducer}>
+    <StateProvider MyInitialState={PageInfo} reducer={reducer}>
       {children}
     </StateProvider>
   );

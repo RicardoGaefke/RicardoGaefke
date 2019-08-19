@@ -51,8 +51,16 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
 
 const NewLoginForm = (): any => {
   const classes: any = useStyles('');
-  const [{ language }] = useStateValue();
+  const [{ language }, dispatch] = useStateValue();
   const MyTexts = MyLoginTexts(language);
+
+  const myClick = (): void => {
+    axios('/api/sign/check')
+      .then((): void => dispatch({
+        type: 'changeLanguage',
+        value: true,
+      }));
+  };
 
   return (
     <>
@@ -150,6 +158,13 @@ const NewLoginForm = (): any => {
                     disabled={isSubmitting}
                   >
                     {MyTexts.btn.title}
+                  </Button>
+                  <Button
+                    variant="text"
+                    onClick={myClick}
+                    title="Esqueci a senha"
+                  >
+                    Esqueci a senha
                   </Button>
                 </form>
               );
