@@ -1,5 +1,5 @@
 import React from 'react';
-import { StateProvider } from './StateProvider';
+import { StateProvider, initialState } from './StateProvider';
 
 export interface IInitialContext {
   language: string,
@@ -11,7 +11,7 @@ export interface IInitialContext {
 }
 
 export const MyStateProvider = (props: any): any => {
-  const { children, PageInfo } = props;
+  const { children } = props;
 
   const reducer = (state: IInitialContext, action: any): IInitialContext => {
     switch (action.type) {
@@ -41,7 +41,7 @@ export const MyStateProvider = (props: any): any => {
   };
 
   return (
-    <StateProvider MyInitialState={PageInfo} reducer={reducer}>
+    <StateProvider MyInitialState={initialState} reducer={reducer}>
       {children}
     </StateProvider>
   );

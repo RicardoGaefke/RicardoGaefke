@@ -72,9 +72,17 @@ namespace MyApp.Web.Login.Controllers
     }
 
     [HttpGet("check")]
-    public bool Check()
+    public InitialState Check()
     {
-      return HttpContext.User.Identity.IsAuthenticated;
+      InitialState MyInitialState = new InitialState();
+
+      MyInitialState.isAuthenticated = HttpContext.User.Identity.IsAuthenticated;
+      MyInitialState.name = User.Identity.Name;
+      MyInitialState.email = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Email)?.Value;
+      MyInitialState.language = "ENG";
+      MyInitialState.theme = "dark";
+
+      return MyInitialState;
     }
 
     [HttpGet("out")]
