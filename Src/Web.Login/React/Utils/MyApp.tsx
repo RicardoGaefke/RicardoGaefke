@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import axios from 'axios';
 import { useStateValue } from './StateProvider';
 import AppBar from '../Components/AppBar/MyAppBar';
 import MyRoutes from '../Components/Router/Router';
@@ -8,36 +9,54 @@ import myTheme from '../Theme/theme';
 import MyFooter from '../Components/Footer/MyFooter';
 import useStyles from './AppStyles';
 import MyConsentCookie from '../Components/ConsentCookie/MyConsentCookie';
-
-declare global {
-  interface Window {
-    MyInitialState: {
-      Title: string,
-      Description: string,
-      language: 'ENG',
-      theme: 'dark',
-      consentCookie: false,
-      Name: '',
-      IsAuthenticated: false,
-      Email: '',
-    }
-  }
-}
+// eslint-disable-next-line no-unused-vars
+import { IInitialContext } from './AppContext';
 
 const MyApp = (): any => {
   const [{ theme, consentCookie }, dispatch] = useStateValue();
   const classes: any = useStyles();
 
   useEffect((): void => {
-    const myConsent: any = window.MyInitialState.consentCookie;
-    dispatch({
-      type: 'changeConsent',
-      value: myConsent,
-    });
-    dispatch({
-      type: 'changeAuth',
-      value: window.MyInitialState.IsAuthenticated,
-    });
+    axios.get<IInitialContext>('/api/sign/check')
+      .then((response): void => {
+        const { data } = response;
+        if (data.consentCookie) {
+          dispatch({
+            type: 'changeConsent',
+            value: data.consentCookie,
+          });
+          dispatch({
+            type: 'changeAuth',
+            value: data.isAuthenticated,
+          });
+          dispatch({
+            type: 'changeLanguage',
+            value: data.language,
+          });
+          dispatch({
+            type: 'changeTheme',
+            value: data.theme,
+          });
+          dispatch({
+            type: 'changeName',
+            value: data.name,
+          });
+          dispatch({
+            type: 'changeEmail',
+            value: data.email,
+          });
+        }
+      });
+
+    // const myConsent: any = window.MyInitialState.consentCookie;
+    // dispatch({
+    //   type: 'changeConsent',
+    //   value: myConsent,
+    // });
+    // dispatch({
+    //   type: 'changeAuth',
+    //   value: window.MyInitialState.IsAuthenticated,
+    // });
   }, [dispatch]);
 
   return (

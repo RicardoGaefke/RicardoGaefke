@@ -2,6 +2,7 @@ import React from 'react';
 import { StateProvider, initialState } from './StateProvider';
 
 export interface IInitialContext {
+  ready: boolean,
   language: string,
   theme: string,
   consentCookie: boolean,
@@ -15,6 +16,10 @@ export const MyStateProvider = (props: any): any => {
 
   const reducer = (state: IInitialContext, action: any): IInitialContext => {
     switch (action.type) {
+      case 'changeAll':
+        return {
+          ...state,
+        };
       case 'changeAuth':
         return {
           ...state,
@@ -31,6 +36,16 @@ export const MyStateProvider = (props: any): any => {
           theme: action.value,
         };
       case 'changeConsent':
+        return {
+          ...state,
+          consentCookie: action.value,
+        };
+      case 'changeName':
+        return {
+          ...state,
+          consentCookie: action.value,
+        };
+      case 'changeEmail':
         return {
           ...state,
           consentCookie: action.value,

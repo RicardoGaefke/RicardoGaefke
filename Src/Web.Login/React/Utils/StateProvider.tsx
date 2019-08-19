@@ -3,6 +3,7 @@ import React, { createContext, useContext, useReducer } from 'react';
 import { IInitialContext } from './AppContext';
 
 export const initialState: IInitialContext = {
+  ready: false,
   language: 'ENG',
   theme: 'dark',
   consentCookie: false,

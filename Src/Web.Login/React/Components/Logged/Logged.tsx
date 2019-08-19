@@ -37,7 +37,9 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
 
 const Logged = (): React.ReactElement<React.ReactPropTypes> => {
   const classes: any = useStyles('');
-  const [{ isAuthenticated, language }] = useStateValue();
+  const [{
+    isAuthenticated, language, name, email,
+  }] = useStateValue();
 
   return (
     <Container maxWidth="xs" className={classes.container}>
@@ -48,6 +50,12 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
           <br />
           Lang:
           {language}
+          <br />
+          Name:
+          {name}
+          <br />
+          email:
+          {email}
         </>
       </Paper>
     </Container>
