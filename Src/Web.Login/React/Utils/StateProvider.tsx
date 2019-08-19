@@ -6,9 +6,9 @@ export const initialState: IInitialContext = {
   language: 'ENG',
   theme: 'dark',
   consentCookie: false,
-  Name: '',
-  IsAuthenticated: false,
-  Email: '',
+  name: '',
+  isAuthenticated: false,
+  email: '',
 };
 
 const StateContext = createContext<IInitialContext | any>(initialState);

@@ -5,9 +5,9 @@ export interface IInitialContext {
   language: string,
   theme: string,
   consentCookie: boolean,
-  Name?: string,
-  Email?: string,
-  IsAuthenticated: boolean
+  name?: string,
+  email?: string,
+  isAuthenticated: boolean
 }
 
 export const MyStateProvider = (props: any): any => {
@@ -18,7 +18,7 @@ export const MyStateProvider = (props: any): any => {
       case 'changeAuth':
         return {
           ...state,
-          IsAuthenticated: action.value,
+          isAuthenticated: action.value,
         };
       case 'changeLanguage':
         return {
