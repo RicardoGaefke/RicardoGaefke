@@ -2,11 +2,12 @@ namespace MyApp.Domain
 {
     public class InitialState
     {
-      string language;
-      string theme;
-      bool consentCookie;
-      string name;
-      bool isAuthenticated;
-      string email;
+      public string language;
+      public string theme;
+      public bool consentCookie;
+      public string name;
+      public bool isAuthenticated;
+      public bool ready;
+      public string email;
     }
 }
