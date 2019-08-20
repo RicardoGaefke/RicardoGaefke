@@ -20,11 +20,16 @@ const MyApp = (): any => {
     axios.get<IInitialContext>('/api/sign/check')
       .then((response): void => {
         const { data } = response;
-        if (data.consentCookie) {
-          dispatch({
-            type: 'changeConsent',
-            value: data.consentCookie,
-          });
+        dispatch({
+          type: 'changeConsent',
+          value: data.consentCookie,
+        });
+        dispatch({
+          type: 'changeReady',
+          value: true,
+        });
+
+        if (data.isAuthenticated) {
           dispatch({
             type: 'changeAuth',
             value: data.isAuthenticated,

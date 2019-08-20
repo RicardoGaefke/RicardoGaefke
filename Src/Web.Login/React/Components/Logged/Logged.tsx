@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
 const Logged = (): React.ReactElement<React.ReactPropTypes> => {
   const classes: any = useStyles('');
   const [{
-    isAuthenticated, language, name, email,
+    isAuthenticated, language, name, email, consentCookie,
   }] = useStateValue();
 
   return (
@@ -47,6 +47,9 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
         <>
           Auth:
           {isAuthenticated}
+          <br />
+          Cookie:
+          {consentCookie}
           <br />
           Lang:
           {language}

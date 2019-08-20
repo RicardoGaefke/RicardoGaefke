@@ -16,9 +16,10 @@ export const MyStateProvider = (props: any): any => {
 
   const reducer = (state: IInitialContext, action: any): IInitialContext => {
     switch (action.type) {
-      case 'changeAll':
+      case 'changeReady':
         return {
           ...state,
+          ready: action.value,
         };
       case 'changeAuth':
         return {
@@ -43,12 +44,12 @@ export const MyStateProvider = (props: any): any => {
       case 'changeName':
         return {
           ...state,
-          consentCookie: action.value,
+          name: action.value,
         };
       case 'changeEmail':
         return {
           ...state,
-          consentCookie: action.value,
+          email: action.value,
         };
       default:
         return state;

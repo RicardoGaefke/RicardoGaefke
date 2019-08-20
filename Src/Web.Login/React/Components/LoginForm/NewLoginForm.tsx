@@ -9,7 +9,10 @@ import {
   Formik,
 } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+// eslint-disable-next-line no-unused-vars
+import axios, { AxiosResponse } from 'axios';
+// eslint-disable-next-line no-unused-vars
+import { IInitialContext } from '../../Utils/AppContext';
 import { useStateValue } from '../../Utils/StateProvider';
 import MyLoginTexts from './languages';
 
@@ -57,7 +60,7 @@ const NewLoginForm = (): any => {
   const myClick = (): void => {
     axios('/api/sign/check')
       .then((): void => dispatch({
-        type: 'changeLanguage',
+        type: 'changeAuth',
         value: true,
       }));
   };
@@ -81,12 +84,40 @@ const NewLoginForm = (): any => {
                 .required('Required')
                 .min(6, 'Password must contain at least 8 characters'),
             })}
-            onSubmit={(values, { setSubmitting }):void => {
+            onSubmit={async (values, { setSubmitting }): Promise<void> => {
               // alert(JSON.stringify(values, null, 2));
 
-              axios('/api/sign/in');
+              await axios.get('/api/sign/in');
 
-              setSubmitting(false);
+              axios.get<IInitialContext>('/api/sign/check')
+                .then((response): void => {
+                  const { data } = response;
+
+                  if (data.isAuthenticated) {
+                    dispatch({
+                      type: 'changeAuth',
+                      value: data.isAuthenticated,
+                    });
+                    dispatch({
+                      type: 'changeLanguage',
+                      value: data.language,
+                    });
+                    dispatch({
+                      type: 'changeTheme',
+                      value: data.theme,
+                    });
+                    dispatch({
+                      type: 'changeName',
+                      value: data.name,
+                    });
+                    dispatch({
+                      type: 'changeEmail',
+                      value: data.email,
+                    });
+
+                    setSubmitting(false);
+                  }
+                });
             }}
           >
             {(props: any): any => {
