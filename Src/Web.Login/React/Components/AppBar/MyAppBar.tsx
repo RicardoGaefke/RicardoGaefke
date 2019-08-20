@@ -9,7 +9,7 @@ import InvertColors from '@material-ui/icons/InvertColors';
 import MyButton from '../Button/MyButton';
 import MyDropDownMenu from '../DropDownMenu/DropDownMenu';
 // eslint-disable-next-line no-unused-vars
-import { IInitialContext } from '../../Utils/AppContext';
+import { IInitialContext } from '../../../../TypeScript/Utils/IInitialState';
 // eslint-disable-next-line no-unused-vars
 import { IDropDownItem } from '../DropDownMenu/DropDownItem';
 import { useStateValue } from '../../Utils/StateProvider';

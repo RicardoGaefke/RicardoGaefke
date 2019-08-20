@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { MyStateProvider } from './Utils/AppContext';
+import MyStateProvider from './Utils/AppContext';
 import MyApp from './Utils/MyApp';
 
-// eslint-disable-next-line react/prefer-stateless-function
 const App = (): any => (
   <BrowserRouter>
     <MyStateProvider>

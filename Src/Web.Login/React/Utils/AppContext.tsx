@@ -1,17 +1,9 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
+import { IInitialContext } from '../../../TypeScript/Utils/IInitialState';
 import { StateProvider, initialState } from './StateProvider';
 
-export interface IInitialContext {
-  ready: boolean,
-  language: string,
-  theme: string,
-  consentCookie: boolean,
-  name?: string,
-  email?: string,
-  isAuthenticated: boolean
-}
-
-export const MyStateProvider = (props: any): any => {
+const MyStateProvider = (props: any): any => {
   const { children } = props;
 
   const reducer = (state: IInitialContext, action: any): IInitialContext => {
@@ -62,3 +54,5 @@ export const MyStateProvider = (props: any): any => {
     </StateProvider>
   );
 };
+
+export default MyStateProvider;

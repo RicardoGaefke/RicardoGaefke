@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
   margin: {
     margin: theme.spacing(1),
   },
+  marginBottom: {
+    marginBottom: theme.spacing(3),
+  },
 }));
 
 const Logged = (): React.ReactElement<React.ReactPropTypes> => {
@@ -54,7 +57,7 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
   return (
     <Container maxWidth="xs" className={classes.container}>
       <Paper className={classes.paper} elevation={5}>
-        <Typography variant="h5" component="h2" align="center" gutterBottom>
+        <Typography variant="h5" component="h2" align="center" gutterBottom className={classes.marginBottom}>
           Você está conectado
         </Typography>
 
@@ -64,15 +67,15 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
           <strong>{name}</strong>
         </Typography>
 
-        <Typography variant="body2" color="textSecondary" gutterBottom>
+        <Typography variant="body2" color="textSecondary" gutterBottom className={classes.marginBottom}>
           email:
           &nbsp;
           <strong>{email}</strong>
         </Typography>
 
-        <Divider />
+        <Divider className={classes.marginBottom} />
 
-        <Typography variant="subtitle2" align="center" gutterBottom>
+        <Typography variant="subtitle2" align="center" gutterBottom className={classes.marginBottom}>
           Serviços disponíveis:
         </Typography>
 

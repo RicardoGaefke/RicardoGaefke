@@ -12,16 +12,9 @@ import * as Yup from 'yup';
 // eslint-disable-next-line no-unused-vars
 import axios, { AxiosResponse } from 'axios';
 // eslint-disable-next-line no-unused-vars
-import { IInitialContext } from '../../Utils/AppContext';
+import { IInitialContext } from '../../../../TypeScript/Utils/IInitialState';
 import { useStateValue } from '../../Utils/StateProvider';
 import MyLoginTexts from './languages';
-
-interface IState {
-  email: string;
-  rememberMe: boolean;
-  password: string;
-  keep: boolean;
-}
 
 const useStyles = makeStyles((theme: Theme): any => createStyles({
   container: {
@@ -74,20 +67,24 @@ const NewLoginForm = (): any => {
         <Paper className={classes.paper} elevation={5}>
           <Formik
             initialValues={{
-              email: '',
-              password: '',
-              keep: false,
+              Email: '',
+              Password: '',
+              KeepConnected: false,
             }}
             validationSchema={Yup.object().shape({
-              email: Yup.string()
+              Email: Yup.string()
                 .email()
                 .required('Required'),
-              password: Yup.string()
+              Password: Yup.string()
                 .required('Required')
                 .min(6, 'Password must contain at least 8 characters'),
             })}
             onSubmit={async (values, { setSubmitting }): Promise<void> => {
-              await axios.get('/api/sign/in');
+              await axios.post('/api/sign/in', {
+                Email: values.Email,
+                Password: values.Password,
+                KeepConnected: values.KeepConnected,
+              });
 
               axios.get<IInitialContext>('/api/sign/check')
                 .then((response): void => {
@@ -134,36 +131,38 @@ const NewLoginForm = (): any => {
               return (
                 <form onSubmit={handleSubmit} autoComplete="off">
                   <TextField
-                    error={errors.email && touched.email}
+                    error={errors.Email && touched.Email}
                     label={MyTexts.email.title}
                     title={MyTexts.email.legend}
-                    name="email"
-                    value={values.email}
+                    name="Email"
+                    id="Email"
+                    value={values.Email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    helperText={(errors.email && touched.email) && errors.email}
+                    helperText={(errors.Email && touched.Email) && errors.Email}
                     variant="outlined"
                     className={classes.marginBottom}
                     fullWidth
                   />
                   <TextField
-                    error={errors.password && touched.password}
+                    error={errors.Password && touched.Password}
                     label={MyTexts.password.title}
                     title={MyTexts.password.legend}
-                    name="password"
-                    type="password"
-                    value={values.password}
+                    name="Password"
+                    id="Password"
+                    type="Password"
+                    value={values.Password}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    helperText={(errors.password && touched.password) && errors.password}
+                    helperText={(errors.Password && touched.Password) && errors.Password}
                     variant="outlined"
                     className={classes.marginBottom}
                     fullWidth
                   />
                   <FormControlLabel
-                    id="keep"
-                    name="keep"
-                    control={<Checkbox checked={values.keep} color="primary" onChange={handleChange} value={values.keep} />}
+                    id="KeepConnected"
+                    name="KeepConnected"
+                    control={<Checkbox checked={values.KeepConnected} color="primary" onChange={handleChange} value={values.KeepConnected} />}
                     label={MyTexts.keep.title}
                   />
                   <Button

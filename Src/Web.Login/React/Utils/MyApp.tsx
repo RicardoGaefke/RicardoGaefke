@@ -11,7 +11,7 @@ import MyFooter from '../Components/Footer/MyFooter';
 import useStyles from './AppStyles';
 import MyConsentCookie from '../Components/ConsentCookie/MyConsentCookie';
 // eslint-disable-next-line no-unused-vars
-import { IInitialContext } from './AppContext';
+import { IInitialContext } from '../../../TypeScript/Utils/IInitialState';
 
 const MyApp = (): any => {
   const [{ theme, consentCookie, ready }, dispatch] = useStateValue();

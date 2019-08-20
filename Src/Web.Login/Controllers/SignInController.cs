@@ -13,8 +13,8 @@ namespace MyApp.Web.Login.Controllers
   [ApiController]
   public class SignInController : ControllerBase
   {
-    [HttpGet("in")]
-    public async Task<ActionResult<string>> In()
+    [HttpPost("in")]
+    public async Task<ActionResult<bool>> In(User user)
     {
       try
       {
@@ -43,7 +43,7 @@ namespace MyApp.Web.Login.Controllers
           // value set here overrides the ExpireTimeSpan option of 
           // CookieAuthenticationOptions set with AddCookie.
 
-          IsPersistent = true,
+          IsPersistent = user.KeepConnected,
           // Whether the authentication session is persisted across 
           // multiple requests. When used with cookies, controls
           // whether the cookie's lifetime is absolute (matching the
@@ -63,11 +63,11 @@ namespace MyApp.Web.Login.Controllers
           authProperties
         );
 
-        return HttpContext.User.Identity.IsAuthenticated.ToString();
+        return HttpContext.User.Identity.IsAuthenticated;
       }
-      catch (System.Exception ex)
+      catch (System.Exception)
       {
-          return $"errou: {ex.Message}";
+          return false;
       }
       
     }
@@ -81,8 +81,8 @@ namespace MyApp.Web.Login.Controllers
       InitialState MyInitialState = new InitialState();
 
       MyInitialState.isAuthenticated = HttpContext.User.Identity.IsAuthenticated;
-      MyInitialState.name = User.Identity.Name;
-      MyInitialState.email = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Email)?.Value;
+      MyInitialState.Name = User.Identity.Name;
+      MyInitialState.Email = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Email)?.Value;
       MyInitialState.language = "ENG";
       MyInitialState.theme = "dark";
       MyInitialState.consentCookie = showBanner;
