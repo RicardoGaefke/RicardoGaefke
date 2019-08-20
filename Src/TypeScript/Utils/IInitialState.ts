@@ -2,6 +2,9 @@ export interface IInitialContext {
   language: string,
   theme: string,
   consentCookie: boolean,
-  Name?: string,
-  IsAuthenticated?: boolean
+  name?: string,
+  email: string,
+  isAuthenticated?: boolean,
+  KeepConnected?: boolean,
+  ready: boolean,
 }

@@ -5,9 +5,9 @@ namespace MyApp.Domain
       public string language;
       public string theme;
       public bool consentCookie;
-      public string name;
+      public string Name;
       public bool isAuthenticated;
-      public bool ready;
-      public string email;
+      public bool Ready;
+      public string Email;
     }
 }
