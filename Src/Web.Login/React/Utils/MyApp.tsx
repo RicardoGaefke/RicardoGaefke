@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useStateValue } from './StateProvider';
 import AppBar from '../Components/AppBar/MyAppBar';
 import MyRoutes from '../Components/Router/Router';
+import FullModal from '../Components/FullModal/FullModal';
 import myTheme from '../Theme/theme';
 import MyFooter from '../Components/Footer/MyFooter';
 import useStyles from './AppStyles';
@@ -13,7 +14,7 @@ import MyConsentCookie from '../Components/ConsentCookie/MyConsentCookie';
 import { IInitialContext } from './AppContext';
 
 const MyApp = (): any => {
-  const [{ theme, consentCookie }, dispatch] = useStateValue();
+  const [{ theme, consentCookie, ready }, dispatch] = useStateValue();
   const classes: any = useStyles();
 
   useEffect((): void => {
@@ -52,16 +53,6 @@ const MyApp = (): any => {
           });
         }
       });
-
-    // const myConsent: any = window.MyInitialState.consentCookie;
-    // dispatch({
-    //   type: 'changeConsent',
-    //   value: myConsent,
-    // });
-    // dispatch({
-    //   type: 'changeAuth',
-    //   value: window.MyInitialState.IsAuthenticated,
-    // });
   }, [dispatch]);
 
   return (
@@ -69,6 +60,7 @@ const MyApp = (): any => {
       <div className={classes.body}>
         <AppBar />
         <div className={classes.main}>
+          <FullModal show={!ready} />
           <MyRoutes />
         </div>
         <MyFooter />
