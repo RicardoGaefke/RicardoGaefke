@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
   margin: {
     margin: theme.spacing(1),
   },
+  marginBottom: {
+    marginBottom: theme.spacing(1),
+  },
 }));
 
 const NewLoginForm = (): any => {
@@ -72,7 +75,6 @@ const NewLoginForm = (): any => {
           <Formik
             initialValues={{
               email: '',
-              rememberMe: true,
               password: '',
               keep: false,
             }}
@@ -85,8 +87,6 @@ const NewLoginForm = (): any => {
                 .min(6, 'Password must contain at least 8 characters'),
             })}
             onSubmit={async (values, { setSubmitting }): Promise<void> => {
-              // alert(JSON.stringify(values, null, 2));
-
               await axios.get('/api/sign/in');
 
               axios.get<IInitialContext>('/api/sign/check')
@@ -143,22 +143,8 @@ const NewLoginForm = (): any => {
                     onBlur={handleBlur}
                     helperText={(errors.email && touched.email) && errors.email}
                     variant="outlined"
+                    className={classes.marginBottom}
                     fullWidth
-                  />
-                  <FormControlLabel
-                    id="rememberMe"
-                    name="rememberMe"
-                    control={
-                      (
-                        <Checkbox
-                          checked={values.rememberMe}
-                          color="primary"
-                          onChange={handleChange}
-                          value={values.rememberMe}
-                        />
-                      )
-                    }
-                    label={MyTexts.remember.title}
                   />
                   <TextField
                     error={errors.password && touched.password}
@@ -171,6 +157,7 @@ const NewLoginForm = (): any => {
                     onBlur={handleBlur}
                     helperText={(errors.password && touched.password) && errors.password}
                     variant="outlined"
+                    className={classes.marginBottom}
                     fullWidth
                   />
                   <FormControlLabel

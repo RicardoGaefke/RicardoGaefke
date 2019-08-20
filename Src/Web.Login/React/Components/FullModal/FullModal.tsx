@@ -37,9 +37,9 @@ const FullModal = (props: IProps): React.ReactElement<IProps> => {
         }}
       >
         <DialogContent className={classes.root}>
-          <p className={classes.child}>
+          <div className={classes.child}>
             <CircularProgress />
-          </p>
+          </div>
         </DialogContent>
       </Dialog>
     </>
