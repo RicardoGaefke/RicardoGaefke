@@ -8,27 +8,50 @@ import myTheme from '../Theme/theme';
 import MyFooter from '../Components/Footer/MyFooter';
 import useStyles from './AppStyles';
 import MyConsentCookie from '../Components/ConsentCookie/MyConsentCookie';
-
-declare global {
-  interface Window {
-    MyInitialState: {
-      Title: string,
-      Description: string,
-      consentCookie: boolean
-    }
-  }
-}
+import myAxios from './MyAxios';
+// eslint-disable-next-line no-unused-vars
+import { IInitialContext } from '../../../TypeScript/Utils/IInitialState';
 
 const MyApp = (): any => {
   const [{ theme, consentCookie }, dispatch] = useStateValue();
   const classes: any = useStyles();
 
   useEffect((): void => {
-    const myConsent: any = window.MyInitialState.consentCookie;
-    dispatch({
-      type: 'changeConsent',
-      value: myConsent,
-    });
+    myAxios.get<IInitialContext>('sign/check')
+      .then((response): void => {
+        const { data } = response;
+        dispatch({
+          type: 'changeConsent',
+          value: data.consentCookie,
+        });
+        dispatch({
+          type: 'changeReady',
+          value: true,
+        });
+
+        if (data.isAuthenticated) {
+          dispatch({
+            type: 'changeAuth',
+            value: data.isAuthenticated,
+          });
+          dispatch({
+            type: 'changeLanguage',
+            value: data.language,
+          });
+          dispatch({
+            type: 'changeTheme',
+            value: data.theme,
+          });
+          dispatch({
+            type: 'changeName',
+            value: data.name,
+          });
+          dispatch({
+            type: 'changeEmail',
+            value: data.email,
+          });
+        }
+      });
   }, [dispatch]);
 
   return (

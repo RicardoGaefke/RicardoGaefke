@@ -1,5 +1,5 @@
 import React from 'react';
-import { MyStateProvider } from '../Utils/AppContext';
+import MyStateProvider from '../Utils/AppContext';
 import MyThemeApp from './MyThemeApp';
 
 const MyThemeHOC = (props: any): any => {

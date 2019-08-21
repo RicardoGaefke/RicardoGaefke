@@ -1,12 +1,15 @@
 import React, { createContext, useContext, useReducer } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { IInitialContext } from './AppContext';
+import { IInitialContext } from '../../../TypeScript/Utils/IInitialState';
 
 export const initialState: IInitialContext = {
+  ready: false,
   language: 'ENG',
   theme: 'dark',
   consentCookie: false,
-  Authenticated: false,
+  name: '',
+  isAuthenticated: false,
+  email: '',
 };
 
 export const StateContext = createContext<IInitialContext | any>(initialState);

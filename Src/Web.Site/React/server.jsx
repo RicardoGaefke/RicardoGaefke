@@ -7,7 +7,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { createServerRenderer } from 'aspnet-prerendering';
 import { ServerStyleSheets } from '@material-ui/styles';
-import { MyStateProvider } from './Utils/AppContext';
+import MyStateProvider from './Utils/AppContext';
 import MyApp from './Utils/MyApp';
 
 export default createServerRenderer(params => {
