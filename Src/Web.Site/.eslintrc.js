@@ -33,6 +33,7 @@ module.exports = {
   ],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "error",
+    "import/no-unresolved": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prefer-stateless-function": "error",
