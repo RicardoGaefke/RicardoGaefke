@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import axios from 'axios';
 import { useStateValue } from './StateProvider';
 import AppBar from '../Components/AppBar/MyAppBar';
 import MyRoutes from '../Components/Router/Router';
@@ -12,13 +11,14 @@ import useStyles from './AppStyles';
 import MyConsentCookie from '../Components/ConsentCookie/MyConsentCookie';
 // eslint-disable-next-line no-unused-vars
 import { IInitialContext } from '../../../TypeScript/Utils/IInitialState';
+import myAxios from './MyAxios';
 
 const MyApp = (): any => {
   const [{ theme, consentCookie, ready }, dispatch] = useStateValue();
   const classes: any = useStyles();
 
   useEffect((): void => {
-    axios.get<IInitialContext>('/api/sign/check')
+    myAxios.get<IInitialContext>('sign/check')
       .then((response): void => {
         const { data } = response;
         dispatch({

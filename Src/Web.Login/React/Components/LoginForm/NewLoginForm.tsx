@@ -1,7 +1,7 @@
 import React from 'react';
 // import clsx from 'clsx';
 import {
-  Container, Paper, TextField, FormControlLabel, Checkbox, Button,
+  Container, Paper, TextField, FormControlLabel, Checkbox, Button, Divider,
 } from '@material-ui/core';
 // eslint-disable-next-line no-unused-vars
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
@@ -10,11 +10,12 @@ import {
 } from 'formik';
 import * as Yup from 'yup';
 // eslint-disable-next-line no-unused-vars
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 // eslint-disable-next-line no-unused-vars
 import { IInitialContext } from '../../../../TypeScript/Utils/IInitialState';
 import { useStateValue } from '../../Utils/StateProvider';
 import MyLoginTexts from './languages';
+import myAxios from '../../Utils/MyAxios';
 
 const useStyles = makeStyles((theme: Theme): any => createStyles({
   container: {
@@ -44,7 +45,10 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
     margin: theme.spacing(1),
   },
   marginBottom: {
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(3),
+  },
+  marginBottomPlus: {
+    marginBottom: theme.spacing(3),
   },
 }));
 
@@ -54,10 +58,10 @@ const NewLoginForm = (): any => {
   const MyTexts = MyLoginTexts(language);
 
   const myClick = (): void => {
-    axios('/api/sign/check')
-      .then((): void => dispatch({
+    myAxios.get<IInitialContext>('sign/check')
+      .then((response): void => dispatch({
         type: 'changeAuth',
-        value: true,
+        value: response.data.isAuthenticated,
       }));
   };
 
@@ -80,13 +84,13 @@ const NewLoginForm = (): any => {
                 .min(6, 'Password must contain at least 8 characters'),
             })}
             onSubmit={async (values, { setSubmitting }): Promise<void> => {
-              await axios.post('/api/sign/in', {
+              await myAxios.post('sign/in', {
                 Email: values.Email,
                 Password: values.Password,
                 KeepConnected: values.KeepConnected,
               });
 
-              axios.get<IInitialContext>('/api/sign/check')
+              myAxios.get<IInitialContext>('sign/check')
                 .then((response): void => {
                   const { data } = response;
 
@@ -129,7 +133,10 @@ const NewLoginForm = (): any => {
               } = props;
 
               return (
-                <form onSubmit={handleSubmit} autoComplete="off">
+                <form
+                  autoComplete="off"
+                  onSubmit={handleSubmit}
+                >
                   <TextField
                     error={errors.Email && touched.Email}
                     label={MyTexts.email.title}
@@ -141,7 +148,7 @@ const NewLoginForm = (): any => {
                     onBlur={handleBlur}
                     helperText={(errors.Email && touched.Email) && errors.Email}
                     variant="outlined"
-                    className={classes.marginBottom}
+                    className={classes.marginBottomPlus}
                     fullWidth
                   />
                   <TextField
@@ -162,7 +169,17 @@ const NewLoginForm = (): any => {
                   <FormControlLabel
                     id="KeepConnected"
                     name="KeepConnected"
-                    control={<Checkbox checked={values.KeepConnected} color="primary" onChange={handleChange} value={values.KeepConnected} />}
+                    className={classes.marginBottom}
+                    control={
+                      (
+                        <Checkbox
+                          checked={values.KeepConnected}
+                          color="primary"
+                          onChange={handleChange}
+                          value={values.KeepConnected}
+                        />
+                      )
+                    }
                     label={MyTexts.keep.title}
                   />
                   <Button
@@ -173,11 +190,14 @@ const NewLoginForm = (): any => {
                     type="submit"
                     title={MyTexts.btn.legend}
                     disabled={isSubmitting}
+                    className={classes.marginBottomPlus}
                   >
                     {MyTexts.btn.title}
                   </Button>
+                  <Divider className={classes.marginBottomPlus} />
                   <Button
-                    variant="text"
+                    fullWidth
+                    variant="outlined"
                     onClick={myClick}
                     title="Esqueci a senha"
                   >
