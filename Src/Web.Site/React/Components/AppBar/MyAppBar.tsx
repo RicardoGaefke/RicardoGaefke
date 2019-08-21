@@ -46,7 +46,7 @@ const MyAppBar = (): any => {
   const [anchorElLang, setAnchorElLang] = React.useState<null | HTMLElement>(null);
   const [anchorElTheme, setAnchorElTheme] = React.useState<null | HTMLElement>(null);
 
-  const [{ language }, dispatch] = useStateValue();
+  const [{ language, isAuthenticated }, dispatch] = useStateValue();
 
   const handleClickLang = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorElLang(event.currentTarget);
@@ -181,7 +181,7 @@ const MyAppBar = (): any => {
             className={classes.btn}
             onClick={MyLogin}
           >
-            Login
+            {(isAuthenticated) ? 'Admin' : 'Login'}
           </MyButton>
         </Toolbar>
       </AppBar>
