@@ -4,8 +4,9 @@ import {
 } from '@material-ui/core';
 // eslint-disable-next-line no-unused-vars
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import axios from 'axios';
+import myAxios from '../../Utils/MyAxios';
 import { useStateValue } from '../../Utils/StateProvider';
+import LoggedTexts from './Languages';
 
 const useStyles = makeStyles((theme: Theme): any => createStyles({
   container: {
@@ -42,11 +43,11 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
 const Logged = (): React.ReactElement<React.ReactPropTypes> => {
   const classes: any = useStyles('');
   const [{
-    name, email,
+    name, email, language,
   }, dispatch] = useStateValue();
 
   const logout = async (): Promise<void> => {
-    await axios.get('/api/sign/out');
+    await myAxios.get('/api/sign/out');
 
     dispatch({
       type: 'changeAuth',
@@ -54,55 +55,58 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
     });
   };
 
+  const myTexts = LoggedTexts(language);
+
   return (
     <Container maxWidth="xs" className={classes.container}>
       <Paper className={classes.paper} elevation={5}>
         <Typography variant="h5" component="h2" align="center" gutterBottom className={classes.marginBottom}>
-          Você está conectado
+          {myTexts.message}
         </Typography>
 
         <Typography variant="body2" color="textSecondary" gutterBottom>
-          Nome:
-          &nbsp;
+          {myTexts.name}
+          :&nbsp;
           <strong>{name}</strong>
         </Typography>
 
         <Typography variant="body2" color="textSecondary" gutterBottom className={classes.marginBottom}>
-          email:
-          &nbsp;
+          {myTexts.email}
+          :&nbsp;
           <strong>{email}</strong>
         </Typography>
 
         <Divider className={classes.marginBottom} />
 
         <Typography variant="subtitle2" align="center" gutterBottom className={classes.marginBottom}>
-          Serviços disponíveis:
+          {myTexts.available}
+          :
         </Typography>
 
         <Typography align="center">
           <Button
             size="small"
-            title="Home page"
+            title={myTexts.homepage.legend}
             variant="text"
             href="https://www.ricardogaefke.com"
           >
-            Home page
+            {myTexts.homepage.text}
           </Button>
           <Button
             size="small"
-            title="Delineamento"
+            title={myTexts.ci.legend}
             variant="text"
             href="https://ci.ricardogaefke.com"
           >
-            Delineamento
+            {myTexts.ci.text}
           </Button>
           <Button
             size="small"
-            title="Encerrar conexão"
+            title={myTexts.close.legend}
             variant="text"
             onClick={logout}
           >
-            Encerrar conexão
+            {myTexts.close.text}
           </Button>
         </Typography>
       </Paper>
