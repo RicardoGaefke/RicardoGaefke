@@ -27,13 +27,16 @@ namespace MyApp.DI
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
+                options.EventsType = typeof(CustomCookieAuthenticationEvents);
+                
                 if (HostingEnvironment.IsDevelopment())
                 {
-                options.Cookie.Domain = "localhost";
+                    options.Cookie.Domain = "localhost:*";
+                    options.Cookie.SameSite = SameSiteMode.Lax;
                 }
                 else
                 {
-                options.Cookie.Domain = ".ricardogaefke.com";
+                    options.Cookie.Domain = ".ricardogaefke.com";
                 }
 
                 options.Cookie.Name = "ricardogaefke";
@@ -47,6 +50,8 @@ namespace MyApp.DI
                     return Task.CompletedTask;
                 };
             });
+
+            services.AddScoped<CustomCookieAuthenticationEvents>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
