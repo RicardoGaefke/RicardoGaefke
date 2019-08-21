@@ -12,7 +12,8 @@ interface IMyLoginTexts {
   remember: IMyLoginCheckbox,
   password: IMyLoginTextBox,
   keep: IMyLoginCheckbox,
-  btn: IMyLoginTextBox
+  btn: IMyLoginTextBox,
+  forgot: IMyLoginTextBox,
 }
 
 const MyLoginTexts = (l: string): IMyLoginTexts => {
@@ -35,6 +36,10 @@ const MyLoginTexts = (l: string): IMyLoginTexts => {
       legend: 'Autenticar acesso à plataforma',
       title: 'Autenticar',
     },
+    forgot: {
+      legend: 'Utilize esta ferramenta para recuperar tua senha',
+      title: 'Esqueci minha senha',
+    },
   };
 
   const MyLoginTextsENG: IMyLoginTexts = {
@@ -55,6 +60,10 @@ const MyLoginTexts = (l: string): IMyLoginTexts => {
     btn: {
       legend: 'Authenticate access to platform',
       title: 'Authenticate',
+    },
+    forgot: {
+      legend: 'Use this service to recover your password',
+      title: 'Forgot my password',
     },
   };
 

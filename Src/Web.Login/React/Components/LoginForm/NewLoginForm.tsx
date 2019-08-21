@@ -199,9 +199,9 @@ const NewLoginForm = (): any => {
                     fullWidth
                     variant="outlined"
                     onClick={myClick}
-                    title="Esqueci a senha"
+                    title={MyTexts.forgot.legend}
                   >
-                    Esqueci a senha
+                    {MyTexts.forgot.title}
                   </Button>
                 </form>
               );
