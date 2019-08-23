@@ -37,6 +37,7 @@ namespace MyApp.DI
                 else
                 {
                     options.Cookie.Domain = ".ricardogaefke.com";
+                    options.LoginPath = "https://login.ricardogaefke.com";
                 }
 
                 options.Cookie.Name = "ricardogaefke";
