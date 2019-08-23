@@ -33,12 +33,18 @@ namespace MyApp.DI
                 {
                     options.Cookie.Domain = "localhost";
                     options.Cookie.SameSite = SameSiteMode.Lax;
-                    options.LoginPath = "//login.ricardogaefke.com";
                 }
                 else
                 {
                     options.Cookie.Domain = ".ricardogaefke.com";
-                    options.LoginPath = "//login.ricardogaefke.com";
+                    options.Events = new CookieAuthenticationEvents()
+                    {
+                        OnRedirectToLogin = (context) =>
+                        {
+                            context.HttpContext.Response.Redirect("https://login.ricardogaefke.com");
+                            return Task.CompletedTask;
+                        }
+                    }
                 }
 
                 options.Cookie.Name = "ricardogaefke";
