@@ -31,13 +31,14 @@ namespace MyApp.DI
                 
                 if (HostingEnvironment.IsDevelopment())
                 {
-                    options.Cookie.Domain = "localhost:*";
+                    options.Cookie.Domain = "localhost";
                     options.Cookie.SameSite = SameSiteMode.Lax;
+                    options.LoginPath = "//login.ricardogaefke.com";
                 }
                 else
                 {
                     options.Cookie.Domain = ".ricardogaefke.com";
-                    options.LoginPath = "https://login.ricardogaefke.com";
+                    options.LoginPath = "//login.ricardogaefke.com";
                 }
 
                 options.Cookie.Name = "ricardogaefke";
