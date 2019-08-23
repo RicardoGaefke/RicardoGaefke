@@ -44,7 +44,7 @@ namespace MyApp.DI
                             context.HttpContext.Response.Redirect("https://login.ricardogaefke.com");
                             return Task.CompletedTask;
                         }
-                    }
+                    };
                 }
 
                 options.Cookie.Name = "ricardogaefke";
