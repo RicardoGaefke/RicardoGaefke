@@ -32,7 +32,7 @@ namespace MyApp.DI
                 if (HostingEnvironment.IsDevelopment())
                 {
                     options.Cookie.Domain = "localhost";
-                    options.Cookie.SameSite = SameSiteMode.Lax;
+                    options.Cookie.SameSite = SameSiteMode.None;
                 }
                 else
                 {
@@ -44,13 +44,13 @@ namespace MyApp.DI
                             context.HttpContext.Response.Redirect("https://login.ricardogaefke.com");
                             return Task.CompletedTask;
                         }
-                    }
+                    };
                 }
 
                 options.Cookie.Name = "ricardogaefke";
                 options.Cookie.IsEssential = true;
                 options.Cookie.HttpOnly = true;
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                // options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 
                 options.Events.OnRedirectToLogin = (context) =>
                     {
@@ -76,25 +76,19 @@ namespace MyApp.DI
                 }
             });
 
-            if (HostingEnvironment.IsDevelopment())
-            {
-                services.AddDataProtection();
-            }
-            else
-            {
-                Secrets.Login myLogin = new Secrets.Login();
-                Configuration.GetSection("login").Bind(myLogin);
-                
-                services.AddDataProtection()
-                    .SetApplicationName("ricardogaefke")
-                    .PersistKeysToAzureBlobStorage(new Uri(myLogin.Blob))
-                    .ProtectKeysWithAzureKeyVault(
-                        myLogin.KeyVault,
-                        myLogin.ClientID,
-                        myLogin.ClientSecret
-                    )
-                ;
-            }
+            // services.AddDataProtection();
+            Secrets.Login myLogin = new Secrets.Login();
+            Configuration.GetSection("login").Bind(myLogin);
+
+            services.AddDataProtection()
+                .SetApplicationName("ricardogaefke")
+                .PersistKeysToAzureBlobStorage(new Uri(myLogin.Blob))
+                .ProtectKeysWithAzureKeyVault(
+                    myLogin.KeyVault,
+                    myLogin.ClientID,
+                    myLogin.ClientSecret
+                )
+            ;
         }
     }
 }
