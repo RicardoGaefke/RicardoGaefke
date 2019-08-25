@@ -33,6 +33,14 @@ namespace MyApp.DI
                 {
                     options.Cookie.Domain = "localhost";
                     options.Cookie.SameSite = SameSiteMode.None;
+                    options.Events = new CookieAuthenticationEvents()
+                    {
+                    OnRedirectToLogin = (context) =>
+                        {
+                            context.HttpContext.Response.Redirect("https://localhost:5055");
+                            return Task.CompletedTask;
+                        }
+                    };
                 }
                 else
                 {
