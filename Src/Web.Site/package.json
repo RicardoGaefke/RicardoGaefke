@@ -5,8 +5,7 @@
   "main": "./React/index.jsx",
   "scripts": {
     "lint": "./node_modules/.bin/eslint \"React/**/*.*s*\"",
-    "start": "dotnet run -p Web.Site.csproj",
-    "start5050": "dotnet run --urls=https://localhost:5050/",
+    "start": "dotnet run --urls=https://localhost:5050/",
     "build": "webpack --config webpack.dev.js --progress --color",
     "production": "webpack  --config webpack.prod.js",
     "docker": "webpack  --config webpack.docker.js",
