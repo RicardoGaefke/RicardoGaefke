@@ -51,7 +51,7 @@ namespace MyApp.DI
                 });
             }
 
-            // Add your AppInsights ID here to make it globally available
+            // Add your AppInsights ID here to make it globally available //
             services.AddApplicationInsightsTelemetry("465f47b3-8d7a-46ee-a81e-e51182c12296");
 
             services.AddSingleton<MyEmail>();
