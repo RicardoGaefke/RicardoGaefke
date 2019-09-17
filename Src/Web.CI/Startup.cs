@@ -73,6 +73,8 @@ namespace MyApp.Web.Login
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors("MyPolicy");
+            
             var configuration = app.ApplicationServices.GetService<Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration>();
             var cachePeriod = env.IsDevelopment() ? "600" : "31557600";
             
@@ -114,6 +116,19 @@ namespace MyApp.Web.Login
                 context.Response.Headers["Author"] = "Ricardo Gaefke";
                 context.Response.Headers["Author_email"] = "ricardogaefke@gmail.com";
                 context.Response.Headers["Author_URL"] = "www.ricardogaefke.com";
+
+                //manually added cors
+
+                string[] myHosts = {
+                    "https://localhost:5050",
+                    "https://localhost:5055",
+                    "https://localhost:5060"
+                };
+
+                // context.Response.Headers.Add("Access-Control-Allow-Headers", new[] { "Origin, X-Requested-With, Content-Type, Accept" });
+                // context.Response.Headers.Add("Access-Control-Allow-Methods", new[] { "POST, OPTIONS, GET" }); // new[] { "GET, POST, PUT, DELETE, OPTIONS" }
+                // context.Response.Headers.Add("Access-Control-Allow-Credentials", new[] { "true" });
+                // context.Response.Headers.Add("Access-Control-Allow-Origin", myHosts);
                 return next.Invoke();
             });
 
