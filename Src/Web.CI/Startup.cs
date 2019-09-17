@@ -74,6 +74,8 @@ namespace MyApp.Web.Login
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors("MyPolicy");
+
+            app.UseAuthentication();
             
             var configuration = app.ApplicationServices.GetService<Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration>();
             var cachePeriod = env.IsDevelopment() ? "600" : "31557600";
@@ -131,8 +133,6 @@ namespace MyApp.Web.Login
                 // context.Response.Headers.Add("Access-Control-Allow-Origin", myHosts);
                 return next.Invoke();
             });
-
-            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
