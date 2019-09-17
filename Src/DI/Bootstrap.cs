@@ -61,8 +61,6 @@ namespace MyApp.DI
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 options.EventsType = typeof(CustomCookieAuthenticationEvents);
                 
                 if (HostingEnvironment.IsDevelopment())
@@ -83,15 +81,10 @@ namespace MyApp.DI
                     };
                 }
 
-=======
->>>>>>> Dev
                 options.Cookie.Name = "ricardogaefke";
                 options.Cookie.IsEssential = true;
                 options.Cookie.HttpOnly = true;
                 // options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-
-=======
->>>>>>> Dev
                 // options.Events.OnRedirectToLogin = (context) =>
                 //     {
                 //         context.Response.StatusCode = 401;
@@ -132,7 +125,7 @@ namespace MyApp.DI
                     options.Cookie.Domain = "ricardogaefke.com";
                     options.Cookie.SameSite = SameSiteMode.None;
                     options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-                    // options.LoginPath = "https://localhost:5055";
+                    // options.LoginPath = "https://localhost:5055";  //
                     options.Events = new CookieAuthenticationEvents()
                     {
                         OnRedirectToLogin = (context) =>
