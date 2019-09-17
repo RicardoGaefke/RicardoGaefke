@@ -1,12 +1,16 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Newtonsoft.Json;
 using Web.Site.Models;
 
 namespace MyApp.Web.Login.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {   
+        [EnableCors("MyPolicy")]
         public IActionResult Index()
         {   
             ViewData["Title"] = "Ricardo Gaefke";
