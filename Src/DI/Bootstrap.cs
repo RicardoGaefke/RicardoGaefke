@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -18,39 +16,6 @@ namespace MyApp.DI
     {
         public static void Configure(IServiceCollection services, IHostingEnvironment HostingEnvironment, IConfiguration Configuration)
         {
-            // if (HostingEnvironment.IsDevelopment())
-            // {
-            //     services.AddCors(options =>
-            //     {
-            //         options.AddPolicy("MyPolicy", builder =>
-            //         {
-            //             builder
-            //                 .WithOrigins(
-            //                     "https://localhost:5050",
-            //                     "https://localhost:5055",
-            //                     "https://localhost:5060"
-            //                 )
-            //                 .AllowAnyHeader()
-            //                 .AllowAnyMethod()
-            //                 .AllowCredentials()
-            //             ;
-            //         });
-            //     });
-            // } else {
-            //     services.AddCors(options =>
-            //     {
-            //         options.AddPolicy("MyPolicy", builder =>
-            //         {
-            //             builder
-            //                 .SetIsOriginAllowedToAllowWildcardSubdomains()
-            //                 .AllowAnyHeader()
-            //                 .AllowAnyMethod()
-            //                 .AllowCredentials()
-            //             ;
-            //         });
-            //     });
-            // }
-
             // Add your AppInsights ID here to make it globally available //
             services.AddApplicationInsightsTelemetry("465f47b3-8d7a-46ee-a81e-e51182c12296");
 
@@ -66,7 +31,7 @@ namespace MyApp.DI
                 options.Cookie.IsEssential = true;
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-                options.Cookie.SameSite = SameSiteMode.None;
+                options.Cookie.SameSite = SameSiteMode.Lax;
                 options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
 
                 if (HostingEnvironment.IsDevelopment())

@@ -37,10 +37,10 @@ namespace MyApp.Web.Login
                 options.AddPolicy(RicardoGaefkeCors, builder =>
                 {
                     builder
-                        .WithOrigins("https://localhost:5050", "https://localhost:5060")
+                        .WithOrigins("https://localhost:5050", "https://localhost:5055", "https://localhost:5060")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
-                        .AllowCredentials();
+                        .AllowCredentials()
                     ;
                 });
             });

@@ -9,8 +9,7 @@ namespace MyApp.Web.Login.Controllers
 {
     [Authorize]
     public class HomeController : Controller
-    {   
-        [EnableCors("MyPolicy")]
+    {
         public IActionResult Index()
         {   
             ViewData["Title"] = "Ricardo Gaefke";

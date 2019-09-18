@@ -24,7 +24,7 @@ namespace MyApp.Web.Login
             HostingEnvironment = environment;
         }
 
-        readonly string RicardoGaefkeCors = "_ricardoGaefkeCors";
+        readonly string RicardoGaefkeCors = "_RicardoGaefkeCors";
 
         public IConfiguration Configuration { get; }
         public IHostingEnvironment HostingEnvironment { get; }
@@ -35,8 +35,13 @@ namespace MyApp.Web.Login
             services.AddCors(options =>
             {
                 options.AddPolicy(RicardoGaefkeCors, builder =>
-                {
-                    builder.WithOrigins("https://localhost:5050", "https://localhost:5055", "https://localhost:5060");
+                    {
+                    builder
+                        .WithOrigins("https://localhost:5050", "https://localhost:5055", "https://localhost:5060")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials()
+                    ;
                 });
             });
 
