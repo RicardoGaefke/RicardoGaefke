@@ -13,12 +13,14 @@ import MyConsentCookie from '../Components/ConsentCookie/MyConsentCookie';
 import { IInitialContext } from '../../../TypeScript/Utils/IInitialState';
 import myAxios from './MyAxios';
 
+const MyHost = (): string => ((window.location.hostname.includes('localhost')) ? 'localhost:5055' : 'login.ricardogaefke.com');
+
 const MyApp = (): any => {
   const [{ theme, consentCookie, ready }, dispatch] = useStateValue();
   const classes: any = useStyles();
 
   useEffect((): void => {
-    myAxios.get<IInitialContext>('https://localhost:5055/api/sign/check')
+    myAxios.get<IInitialContext>(`https://${MyHost()}/api/sign/check`)
       .then((response): void => {
         const { data } = response;
         dispatch({
