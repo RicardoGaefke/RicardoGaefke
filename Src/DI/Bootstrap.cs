@@ -18,38 +18,38 @@ namespace MyApp.DI
     {
         public static void Configure(IServiceCollection services, IHostingEnvironment HostingEnvironment, IConfiguration Configuration)
         {
-            if (HostingEnvironment.IsDevelopment())
-            {
-                services.AddCors(options =>
-                {
-                    options.AddPolicy("MyPolicy", builder =>
-                    {
-                        builder
-                            .WithOrigins(
-                                "https://localhost:5050",
-                                "https://localhost:5055",
-                                "https://localhost:5060"
-                            )
-                            .AllowAnyHeader()
-                            .AllowAnyMethod()
-                            .AllowCredentials()
-                        ;
-                    });
-                });
-            } else {
-                services.AddCors(options =>
-                {
-                    options.AddPolicy("MyPolicy", builder =>
-                    {
-                        builder
-                            .SetIsOriginAllowedToAllowWildcardSubdomains()
-                            .AllowAnyHeader()
-                            .AllowAnyMethod()
-                            .AllowCredentials()
-                        ;
-                    });
-                });
-            }
+            // if (HostingEnvironment.IsDevelopment())
+            // {
+            //     services.AddCors(options =>
+            //     {
+            //         options.AddPolicy("MyPolicy", builder =>
+            //         {
+            //             builder
+            //                 .WithOrigins(
+            //                     "https://localhost:5050",
+            //                     "https://localhost:5055",
+            //                     "https://localhost:5060"
+            //                 )
+            //                 .AllowAnyHeader()
+            //                 .AllowAnyMethod()
+            //                 .AllowCredentials()
+            //             ;
+            //         });
+            //     });
+            // } else {
+            //     services.AddCors(options =>
+            //     {
+            //         options.AddPolicy("MyPolicy", builder =>
+            //         {
+            //             builder
+            //                 .SetIsOriginAllowedToAllowWildcardSubdomains()
+            //                 .AllowAnyHeader()
+            //                 .AllowAnyMethod()
+            //                 .AllowCredentials()
+            //             ;
+            //         });
+            //     });
+            // }
 
             // Add your AppInsights ID here to make it globally available //
             services.AddApplicationInsightsTelemetry("465f47b3-8d7a-46ee-a81e-e51182c12296");
@@ -72,7 +72,6 @@ namespace MyApp.DI
                 if (HostingEnvironment.IsDevelopment())
                 {
                     options.Cookie.Domain = "localhost";
-                    // options.LoginPath = "https://localhost:5055";
                     options.Events = new CookieAuthenticationEvents()
                     {
                         OnRedirectToLogin = (context) =>
@@ -90,8 +89,7 @@ namespace MyApp.DI
                 }
                 else
                 {
-                    options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-                    // options.LoginPath = "https://localhost:5055";  //
+                    options.Cookie.Domain = ".ricardogaefke.com";
                     options.Events = new CookieAuthenticationEvents()
                     {
                         OnRedirectToLogin = (context) =>

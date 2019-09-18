@@ -18,7 +18,7 @@ const MyApp = (): any => {
   const classes: any = useStyles();
 
   useEffect((): void => {
-    myAxios.get<IInitialContext>('sign/check')
+    myAxios.get<IInitialContext>('https://localhost:5055/api/sign/check')
       .then((response): void => {
         const { data } = response;
         dispatch({

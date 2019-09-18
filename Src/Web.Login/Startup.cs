@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,12 +24,27 @@ namespace MyApp.Web.Login
             HostingEnvironment = environment;
         }
 
+        readonly string RicardoGaefkeCors = "_RicardoGaefkeCors";
+
         public IConfiguration Configuration { get; }
         public IHostingEnvironment HostingEnvironment { get; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(RicardoGaefkeCors, builder =>
+                {
+                    builder
+                        .WithOrigins("https://localhost:5050", "https://localhost:5060")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    ;
+                });
+            });
+
             Bootstrap.Configure(services, HostingEnvironment, Configuration);
 
             services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
@@ -88,6 +104,8 @@ namespace MyApp.Web.Login
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
+            app.UseCors(RicardoGaefkeCors);
 
             app.UseResponseCompression();
             app.UseHttpsRedirection();
