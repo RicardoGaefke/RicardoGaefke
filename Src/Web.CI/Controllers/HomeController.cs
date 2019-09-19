@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Cors;
 using Newtonsoft.Json;
 using Web.Site.Models;
 
-namespace MyApp.Web.Login.Controllers
+namespace MyApp.Web.CI.Controllers
 {
     [Authorize]
     public class HomeController : Controller

@@ -55,6 +55,12 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
     });
   };
 
+  const MyHost = (): string => ((window.location.hostname.includes('localhost')) ? 'localhost:5060' : 'ci.ricardogaefke.com');
+
+  const test = async ():Promise<void> => {
+    await myAxios.get(`https://${MyHost()}/api/test/in`);
+  };
+
   const myTexts = LoggedTexts(language);
 
   return (
@@ -107,6 +113,15 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
             onClick={logout}
           >
             {myTexts.close.text}
+          </Button>
+
+          <Button
+            size="small"
+            title="meu teste"
+            variant="text"
+            onClick={test}
+          >
+            teste
           </Button>
         </Typography>
       </Paper>
