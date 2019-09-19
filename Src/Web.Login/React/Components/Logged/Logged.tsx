@@ -47,7 +47,7 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
   }, dispatch] = useStateValue();
 
   const logout = async (): Promise<void> => {
-    await myAxios.get('/api/sign/out');
+    await myAxios.get('/sign/out');
 
     dispatch({
       type: 'changeAuth',
