@@ -7,10 +7,10 @@ using Web.Site.Models;
 
 namespace MyApp.Web.CI.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         [Authorize]
+        [EnableCors]
         public IActionResult Index()
         {   
             ViewData["Title"] = "Ricardo Gaefke";
