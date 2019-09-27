@@ -152,6 +152,7 @@ namespace MyApp.Web.Login
 
             app.Use((context, next) =>
             {
+                //  My personal info
                 context.Response.Headers["Author"] = "Ricardo Gaefke";
                 context.Response.Headers["Author_email"] = "ricardogaefke@gmail.com";
                 context.Response.Headers["Author_URL"] = "www.ricardogaefke.com";
