@@ -46,7 +46,7 @@ namespace MyApp.DI
                             },
                             OnSignedIn = (context) =>
                             {
-                                context.HttpContext.Response.Redirect("https://localhost:5060");
+                                // context.HttpContext.Response.Redirect("https://localhost:5060/");
                                 return Task.CompletedTask;
                             }
                         };
@@ -58,7 +58,7 @@ namespace MyApp.DI
                         {
                             OnRedirectToLogin = (context) =>
                             {
-                                context.HttpContext.Response.Redirect("https://login.ricardogaefke.com?ReturnUrl=" + context.Request.Host.Value);
+                                context.HttpContext.Response.Redirect("https://login.ricardogaefke.com?ReturnUrl=https://" + context.Request.Host.Value);
                                 // context.HttpContext.Response.StatusCode = 401;
                                 return Task.CompletedTask;
                             },

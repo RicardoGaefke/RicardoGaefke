@@ -5,6 +5,7 @@
   "main": "./React/index.jsx",
   "scripts": {
     "lint": "./node_modules/.bin/eslint \"React/**/*.*s*\"",
+    "lint-fix": "./node_modules/.bin/eslint \"React/**/*.*s*\" --fix",
     "start": "dotnet run --urls=https://localhost:5050/",
     "build": "webpack --config webpack.dev.js --progress --color",
     "production": "webpack  --config webpack.prod.js",

@@ -84,14 +84,14 @@ const NewLoginForm = (): any => {
                 .min(6, 'Password must contain at least 8 characters'),
             })}
             onSubmit={async (values, { setSubmitting }): Promise<void> => {
-              await myAxios.post('sign/in', {
+              await myAxios.post<boolean>('sign/in', {
                 Email: values.Email,
                 Password: values.Password,
                 KeepConnected: values.KeepConnected,
               });
 
               myAxios.get<IInitialContext>('sign/check')
-                .then((response): void => {
+                .then(async (response): Promise<void> => {
                   const { data } = response;
 
                   if (data.isAuthenticated) {
@@ -115,6 +115,15 @@ const NewLoginForm = (): any => {
                       type: 'changeEmail',
                       value: data.email,
                     });
+
+                    const UrlParams = new URLSearchParams(window.location.search);
+                    const MyUrl = UrlParams.get('ReturnUrl');
+
+                    if (MyUrl !== null) {
+                      // const CheckUrl = Yup.string().url();
+                      // console.log(await CheckUrl.isValid(`https://${MyUrl}`));
+                      window.location.href = `https://${MyUrl}`;
+                    }
 
                     setSubmitting(false);
                   }

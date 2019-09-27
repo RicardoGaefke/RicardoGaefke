@@ -64,7 +64,7 @@ namespace MyApp.Web.Login.Controllers
           authProperties
         );
 
-        return HttpContext.User.Identity.IsAuthenticated;
+        return true;
       }
       catch (System.Exception)
       {
