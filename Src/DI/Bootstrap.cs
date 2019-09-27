@@ -24,8 +24,8 @@ namespace MyApp.DI
             services.AddNodeServices();
 
             services
-                .AddAuthentication()
-                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
                 {
                     // // options.EventsType = typeof(CustomCookieAuthenticationEvents);
                     options.Cookie.Name = "ricardogaefke";
