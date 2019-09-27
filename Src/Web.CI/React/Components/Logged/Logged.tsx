@@ -46,8 +46,10 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
     name, email, language,
   }, dispatch] = useStateValue();
 
+  const MyHost = (): string => ((window.location.hostname.includes('localhost')) ? 'localhost:5055' : 'login.ricardogaefke.com');
+
   const logout = async (): Promise<void> => {
-    await myAxios.get('/sign/out');
+    await myAxios.get(`https://${MyHost()}/api/sign/out`);
 
     dispatch({
       type: 'changeAuth',
