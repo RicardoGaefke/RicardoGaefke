@@ -64,7 +64,7 @@ namespace MyApp.DI
                             },
                             OnSignedIn = (context) =>
                             {
-                                context.HttpContext.Response.Redirect("https://ci.ricardogaefke.com");
+                                // context.HttpContext.Response.Redirect("https://ci.ricardogaefke.com");
                                 return Task.CompletedTask;
                             }
                         };
