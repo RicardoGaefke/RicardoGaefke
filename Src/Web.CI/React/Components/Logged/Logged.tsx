@@ -55,6 +55,8 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
       type: 'changeAuth',
       value: false,
     });
+
+    window.location.href = `https://${MyHost()}/`;
   };
 
   const myTexts = LoggedTexts(language);

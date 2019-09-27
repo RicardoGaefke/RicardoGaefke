@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace MyApp.Web.Login
+namespace MyApp.Web.CI
 {
     public class Program
     {

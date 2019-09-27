@@ -14,7 +14,7 @@ using System.IO;
 using MyApp.DI;
 using MyApp.Domain;
 
-namespace MyApp.Web.Login
+namespace MyApp.Web.CI
 {
     public class Startup
     {
@@ -34,38 +34,22 @@ namespace MyApp.Web.Login
         {
             services.AddCors(options =>
             {
-                if (HostingEnvironment.IsDevelopment())
+                options.AddPolicy(RicardoGaefkeCors, builder =>
                 {
-                    options.AddPolicy(RicardoGaefkeCors, builder =>
-                    {
-                        builder
-                            .WithOrigins(
-                                "https://localhost:5050",
-                                "https://localhost:5055",
-                                "https://localhost:5060"
-                            )
-                            .AllowAnyMethod()
-                            .AllowAnyHeader()
-                            .AllowCredentials()
-                        ;
-                    });
-                }
-                else
-                {
-                    options.AddPolicy(RicardoGaefkeCors, builder =>
-                    {
-                        builder
-                            .WithOrigins(
-                                "https://www.ricardogaefke.com",
-                                "https://login.ricardogaefke.com",
-                                "https://ci.ricardogaefke.com"
-                            )
-                            .AllowAnyMethod()
-                            .AllowAnyHeader()
-                            .AllowCredentials()
-                        ;
-                    });
-                }
+                    builder
+                        .WithOrigins(
+                            "https://localhost:5050",
+                            "https://localhost:5055",
+                            "https://localhost:5060",
+                            "https://www.ricardogaefke.com",
+                            "https://login.ricardogaefke.com",
+                            "https://ci.ricardogaefke.com"
+                        )
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials()
+                    ;
+                });
             });
 
             Bootstrap.Configure(services, HostingEnvironment, Configuration);

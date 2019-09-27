@@ -35,19 +35,19 @@ namespace MyApp.Web.Login
             services.AddCors(options =>
             {
                 options.AddPolicy(RicardoGaefkeCors, builder =>
-                    {
+                {
                     builder
-                            .WithOrigins(
-                                "https://localhost:5050",
-                                "https://localhost:5055",
-                                "https://localhost:5060",
-                                "https://www.ricardogaefke.com",
-                                "https://login.ricardogaefke.com",
-                                "https://ci.ricardogaefke.com"
-                            )
-                            .AllowAnyMethod()
-                            .AllowAnyHeader()
-                            .AllowCredentials()
+                        .WithOrigins(
+                            "https://localhost:5050",
+                            "https://localhost:5055",
+                            "https://localhost:5060",
+                            "https://www.ricardogaefke.com",
+                            "https://login.ricardogaefke.com",
+                            "https://ci.ricardogaefke.com"
+                        )
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials()
                       ;
                     }
                 );
