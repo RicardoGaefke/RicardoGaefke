@@ -10,6 +10,7 @@ namespace MyApp.Web.CI.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        [Authorize]
         public IActionResult Index()
         {   
             ViewData["Title"] = "Ricardo Gaefke";
