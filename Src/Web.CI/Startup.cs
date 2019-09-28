@@ -112,7 +112,12 @@ namespace MyApp.Web.CI
                 app.UseHsts();
             }
 
-            app.UseCors(RicardoGaefkeCors);
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials()
+            );
 
             app.UseResponseCompression();
             app.UseHttpsRedirection();
