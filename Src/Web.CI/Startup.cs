@@ -34,7 +34,7 @@ namespace MyApp.Web.CI
         {
             services.AddCors(options =>
             {
-                options.AddPolicy(RicardoGaefkeCors, builder =>
+                options.AddDefaultPolicy(builder =>
                 {
                     builder
                         .WithOrigins(
@@ -108,7 +108,7 @@ namespace MyApp.Web.CI
                 app.UseHsts();
             }
 
-            app.UseCors(RicardoGaefkeCors);
+            app.UseCors();
 
             app.UseResponseCompression();
             app.UseHttpsRedirection();

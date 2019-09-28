@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Cors;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 using System.Security.Claims;
 using MyApp.Domain;
 
@@ -14,6 +15,7 @@ namespace MyApp.Web.CI.Controllers
   [ApiController]
   public class TestController : ControllerBase
   {
+    [EnableCors]
     [HttpGet("in")]
     public string In()
     {
