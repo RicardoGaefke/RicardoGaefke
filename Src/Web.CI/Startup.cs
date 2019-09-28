@@ -38,12 +38,8 @@ namespace MyApp.Web.CI
                 {
                     builder
                         .WithOrigins(
-                            "https://localhost:5050",
-                            "https://localhost:5055",
-                            "https://localhost:5060",
                             "https://www.ricardogaefke.com",
-                            "https://login.ricardogaefke.com",
-                            "https://ci.ricardogaefke.com"
+                            "https://login.ricardogaefke.com"
                         )
                         .AllowAnyMethod()
                         .AllowAnyHeader()
