@@ -112,19 +112,7 @@ namespace MyApp.Web.CI
                 app.UseHsts();
             }
 
-            app.UseCors(builder => builder
-                .WithOrigins(
-                    "https://localhost:5050",
-                    "https://localhost:5055",
-                    "https://localhost:5060",
-                    "https://www.ricardogaefke.com",
-                    "https://login.ricardogaefke.com",
-                    "https://ci.ricardogaefke.com"
-                )
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowCredentials()
-            );
+            app.UseCors(RicardoGaefkeCors);
 
             app.UseResponseCompression();
             app.UseHttpsRedirection();
