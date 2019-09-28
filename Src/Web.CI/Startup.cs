@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -24,7 +26,7 @@ namespace MyApp.Web.CI
             HostingEnvironment = environment;
         }
 
-        readonly string RicardoGaefkeCors = "_RicardoGaefkeCors";
+        // readonly string RicardoGaefkeCors = "_RicardoGaefkeCors";
 
         public IConfiguration Configuration { get; }
         public IHostingEnvironment HostingEnvironment { get; }
@@ -38,9 +40,8 @@ namespace MyApp.Web.CI
                 {
                     builder
                         .WithOrigins(
-                            "https://www.ricardogaefke.com",
-                            "https://login.ricardogaefke.com"
-                        )
+                            "https://*.ricardogaefke.com"
+                        ).SetIsOriginAllowedToAllowWildcardSubdomains()
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials()
@@ -52,7 +53,15 @@ namespace MyApp.Web.CI
 
             services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
 
-            services.AddMvc()
+            services.AddMvc(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build()
+                ;
+
+                config.Filters.Add(new AuthorizeFilter(policy));
+            })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options => {
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;

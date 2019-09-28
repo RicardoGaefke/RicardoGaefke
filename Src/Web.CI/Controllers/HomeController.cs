@@ -8,7 +8,6 @@ using Web.Site.Models;
 namespace MyApp.Web.CI.Controllers
 {
     //[EnableCors]
-    [Authorize()]
     public class HomeController : Controller
     {
         public IActionResult Index()
