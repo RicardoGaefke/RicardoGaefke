@@ -56,9 +56,10 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
   };
 
   const MyHost = (): string => ((window.location.hostname.includes('localhost')) ? 'localhost:5065' : 'api.ricardogaefke.com');
+  //  my host
 
   const test = async ():Promise<void> => {
-    await myAxios.get(`https://${MyHost}/WeatherForecast`);
+    await myAxios.get(`https://${MyHost()}/WeatherForecast`);
   };
 
   const myTexts = LoggedTexts(language);
