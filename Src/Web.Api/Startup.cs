@@ -20,11 +20,30 @@ namespace MyApp.Web.Api
             Configuration = configuration;
         }
 
+        readonly string RicardoGaefkeCors = "_ricardoGaefkeCors";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(RicardoGaefkeCors,
+                    builder =>
+                    {
+                        builder
+                            .WithOrigins(
+                                "https://login.ricardogaefke.com",
+                                "https://localhost:5055"
+                            )
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .AllowCredentials();
+                    }
+                );
+            });
+            
             services.AddControllers();
 
             services.AddSwaggerDocument();
@@ -45,11 +64,13 @@ namespace MyApp.Web.Api
             app.UseOpenApi();
             app.UseSwaggerUi3();
 
+            app.UseCors();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireCors(RicardoGaefkeCors);
             });
         }
     }

@@ -55,10 +55,10 @@ const Logged = (): React.ReactElement<React.ReactPropTypes> => {
     });
   };
 
-  const MyHost = (): string => ((window.location.hostname.includes('localhost')) ? 'localhost:5060' : 'ci.ricardogaefke.com');
+  // const MyHost = (): string => ((window.location.hostname.includes('localhost')) ? 'localhost:5060' : 'ci.ricardogaefke.com');
 
   const test = async ():Promise<void> => {
-    await myAxios.get(`https://${MyHost()}/api/test/in`);
+    await myAxios.get('https://localhost:5065/WeatherForecast');
   };
 
   const myTexts = LoggedTexts(language);
