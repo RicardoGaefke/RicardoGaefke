@@ -23,71 +23,70 @@ namespace MyApp.DI
 
             services.AddNodeServices();
 
-            services
-                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options =>
-                {
-                    // // options.EventsType = typeof(CustomCookieAuthenticationEvents);
-                    options.Cookie.Name = "ricardogaefke";
-                    options.Cookie.IsEssential = true;
-                    options.Cookie.HttpOnly = true;
-                    options.Cookie.SameSite = SameSiteMode.None;
+            // services
+            //     .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            //     .AddCookie(options =>
+            //     {
+            //         options.Cookie.Name = "ricardogaefke";
+            //         options.Cookie.IsEssential = true;
+            //         options.Cookie.HttpOnly = true;
+            //         options.Cookie.SameSite = SameSiteMode.None;
 
-                    if (HostingEnvironment.IsDevelopment())
-                    {
-                        options.Cookie.Domain = "localhost";
-                        options.Events = new CookieAuthenticationEvents()
-                        {
-                            OnRedirectToLogin = (context) =>
-                            {
-                                context.HttpContext.Response.Redirect("https://localhost:5055?ReturnUrl=" + context.Request.Host.Value);
-                                // context.HttpContext.Response.StatusCode = 401;
-                                return Task.CompletedTask;
-                            },
-                            OnSignedIn = (context) =>
-                            {
-                                // context.HttpContext.Response.Redirect("https://localhost:5060/");
-                                return Task.CompletedTask;
-                            }
-                        };
-                    }
-                    else
-                    {
-                        options.Cookie.Domain = ".ricardogaefke.com";
-                        options.Events = new CookieAuthenticationEvents()
-                        {
-                            OnRedirectToLogin = (context) =>
-                            {
-                                context.HttpContext.Response.Redirect("https://login.ricardogaefke.com?ReturnUrl=https://" + context.Request.Host.Value);
-                                // context.HttpContext.Response.StatusCode = 401;
-                                return Task.CompletedTask;
-                            },
-                            OnSignedIn = (context) =>
-                            {
-                                // context.HttpContext.Response.Redirect("https://ci.ricardogaefke.com");
-                                return Task.CompletedTask;
-                            }
-                        };
-                    }
-                })
-            ;
+            //         if (HostingEnvironment.IsDevelopment())
+            //         {
+            //             options.Cookie.Domain = "localhost";
+            //             options.Events = new CookieAuthenticationEvents()
+            //             {
+            //                 OnRedirectToLogin = (context) =>
+            //                 {
+            //                     context.HttpContext.Response.Redirect("https://localhost:5055?ReturnUrl=" + context.Request.Host.Value);
+            //                     // context.HttpContext.Response.StatusCode = 401;
+            //                     return Task.CompletedTask;
+            //                 },
+            //                 OnSignedIn = (context) =>
+            //                 {
+            //                     // context.HttpContext.Response.Redirect("https://localhost:5060/");
+            //                     return Task.CompletedTask;
+            //                 }
+            //             };
+            //         }
+            //         else
+            //         {
+            //             options.Cookie.Domain = ".ricardogaefke.com";
+            //             options.Events = new CookieAuthenticationEvents()
+            //             {
+            //                 OnRedirectToLogin = (context) =>
+            //                 {
+            //                     context.HttpContext.Response.Redirect("https://login.ricardogaefke.com?ReturnUrl=https://" + context.Request.Host.Value);
+            //                     // context.HttpContext.Response.StatusCode = 401;
+            //                     return Task.CompletedTask;
+            //                 },
+            //                 OnSignedIn = (context) =>
+            //                 {
+            //                     // context.HttpContext.Response.Redirect("https://ci.ricardogaefke.com");
+            //                     return Task.CompletedTask;
+            //                 }
+            //             };
+            //         }
+            //     })
+            // ;
 
-            services.AddScoped<CustomCookieAuthenticationEvents>();
+            // services.AddScoped<CustomCookieAuthenticationEvents>();
 
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+            // services.Configure<CookiePolicyOptions>(options =>
+            // {
+            //     // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+            //     options.CheckConsentNeeded = context => true;
 
-                if (HostingEnvironment.IsDevelopment())
-                {
-                    options.ConsentCookie.Domain = "localhost";
-                }
-                else
-                {
-                    options.ConsentCookie.Domain = ".ricardogaefke.com";
-                }
-            });
+            //     if (HostingEnvironment.IsDevelopment())
+            //     {
+            //         options.ConsentCookie.Domain = "localhost";
+            //     }
+            //     else
+            //     {
+            //         options.ConsentCookie.Domain = ".ricardogaefke.com";
+            //     }
+            // });
 
             Secrets.Login myLogin = new Secrets.Login();
             Configuration.GetSection("ConnectionStrings").Bind(myLogin);

@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Builder;
 
 namespace MyApp.DI
 {
@@ -57,6 +58,23 @@ namespace MyApp.DI
                     }
                 })
             ;
+
+            services.AddScoped<CustomCookieAuthenticationEvents>();
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                    options.CheckConsentNeeded = context => true;
+
+              if (IsDev)
+              {
+                options.ConsentCookie.Domain = "localhost";
+              }
+              else
+              {
+                options.ConsentCookie.Domain = ".ricardogaefke.com";
+              }
+            });
         }
     }
 }

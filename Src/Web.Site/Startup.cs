@@ -37,6 +37,8 @@ namespace MyApp.Web.Site
 
             Bootstrap.Configure(services, HostingEnvironment, Configuration);
 
+            CookiesAuth.Configure(services, Configuration, HostingEnvironment.IsDevelopment());
+
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options => {

@@ -55,6 +55,8 @@ namespace MyApp.Web.Login
 
             Bootstrap.Configure(services, HostingEnvironment, Configuration);
 
+            CookiesAuth.Configure(services, Configuration, HostingEnvironment.IsDevelopment());
+
             services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
 
             services.AddMvc()
