@@ -27,6 +27,8 @@ namespace MyApp.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string hostCors = Configuration.GetSection("ConnectionStrings")["Cors"];
+            
             services.AddCors(options =>
             {
                 options.AddPolicy(RicardoGaefkeCors,
@@ -34,8 +36,7 @@ namespace MyApp.Web.Api
                     {
                         builder
                             .WithOrigins(
-                                "https://*.ricardogaefke.com",
-                                "https://localhost:5055"
+                                hostCors
                             )
                             .SetIsOriginAllowedToAllowWildcardSubdomains()
                             .AllowAnyHeader()
