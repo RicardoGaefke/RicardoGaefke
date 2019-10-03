@@ -89,8 +89,9 @@ namespace MyApp.DI
                 }
             });
 
-            // services.AddDataProtection();
             Secrets.Login myLogin = new Secrets.Login();
+            Configuration.GetSection("ConnectionStrings").Bind(myLogin);
+
             Configuration.GetSection("login").Bind(myLogin);
 
             if (myLogin.KeyVault == null)

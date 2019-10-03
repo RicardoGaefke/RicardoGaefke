@@ -16,8 +16,6 @@ namespace MyApp.Web.Login
         {
             var configuration = new ConfigurationBuilder()
                 .AddCommandLine(args)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddEnvironmentVariables()
                 .Build()
             ;
 
