@@ -93,14 +93,14 @@ namespace MyApp.DI
             Secrets.Login myLogin = new Secrets.Login();
             Configuration.GetSection("login").Bind(myLogin);
 
-            if (myLogin.Blob == null)
-            {
-                throw new Exception("blob null");
-            }
-
             if (myLogin.KeyVault == null)
             {
                 throw new Exception("KeyVault null");
+            }
+
+            if (myLogin.Blob == null)
+            {
+                throw new Exception("blob null");
             }
 
             services.AddDataProtection()
