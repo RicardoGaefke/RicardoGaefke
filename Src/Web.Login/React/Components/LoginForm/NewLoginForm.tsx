@@ -122,7 +122,7 @@ const NewLoginForm = (): any => {
                     if (MyUrl !== null) {
                       // const CheckUrl = Yup.string().url();
                       // console.log(await CheckUrl.isValid(`https://${MyUrl}`));
-                      window.location.href = `https://${MyUrl}`;
+                      window.location.href = MyUrl;
                     }
 
                     setSubmitting(false);
