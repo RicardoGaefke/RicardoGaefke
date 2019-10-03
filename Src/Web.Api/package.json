@@ -1,0 +1,16 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "Web Site for My Solution",
+  "main": "./React/index.jsx",
+  "scripts": {
+    "start": "dotnet run --urls=https://localhost:5065/"
+  },
+  "keywords": [],
+  "author": "Ricardo Gaefke <ricardogaefke@gmail.com> (https://ricardogaefke.com/)",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

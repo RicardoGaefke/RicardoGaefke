@@ -34,9 +34,10 @@ namespace MyApp.Web.Api
                     {
                         builder
                             .WithOrigins(
-                                "https://login.ricardogaefke.com",
+                                "https://*.ricardogaefke.com",
                                 "https://localhost:5055"
                             )
+                            .SetIsOriginAllowedToAllowWildcardSubdomains()
                             .AllowAnyHeader()
                             .AllowAnyMethod()
                             .AllowCredentials();
