@@ -15,6 +15,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using MyApp.DI;
 using MyApp.Domain;
+using MyApp.Email;
 
 namespace MyApp.Web.Site
 {
@@ -33,9 +34,14 @@ namespace MyApp.Web.Site
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
-            services.Configure<Secrets.Login>(Configuration.GetSection("login"));
+            services.Configure<Secrets.Login>(Configuration.GetSection("ConnectionStrings"));
 
-            Bootstrap.Configure(services, HostingEnvironment, Configuration);
+            //  project's DI
+            services.AddSingleton<MyEmail>();
+
+            services.AddNodeServices();
+
+            Bootstrap.Configure(services, Configuration);
 
             CookiesAuth.Configure(services, Configuration, HostingEnvironment.IsDevelopment());
 

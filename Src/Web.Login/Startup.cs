@@ -53,7 +53,12 @@ namespace MyApp.Web.Login
                 );
             });
 
-            Bootstrap.Configure(services, HostingEnvironment, Configuration);
+            //  project's DI
+            services.AddSingleton<MyEmail>();
+
+            services.AddNodeServices();
+
+            Bootstrap.Configure(services, Configuration);
 
             CookiesAuth.Configure(services, Configuration, HostingEnvironment.IsDevelopment());
 

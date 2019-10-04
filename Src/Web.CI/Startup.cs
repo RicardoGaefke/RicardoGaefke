@@ -49,7 +49,9 @@ namespace MyApp.Web.CI
                 });
             });
 
-            Bootstrap.Configure(services, HostingEnvironment, Configuration);
+            Bootstrap.Configure(services, Configuration);
+
+            services.AddNodeServices();
 
             CookiesAuth.Configure(services, Configuration, HostingEnvironment.IsDevelopment());
 

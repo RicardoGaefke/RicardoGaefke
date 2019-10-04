@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DI\DI.csproj" />
+    <ProjectReference Include="..\Email\Email.csproj" />
   </ItemGroup>
 
   <ItemGroup>

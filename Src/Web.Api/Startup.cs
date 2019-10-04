@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MyApp.DI;
+using MyApp.Email;
 
 namespace MyApp.Web.Api
 {
@@ -48,6 +49,9 @@ namespace MyApp.Web.Api
                     }
                 );
             });
+
+            //  project's DI
+            services.AddSingleton<MyEmail>();
 
             CookiesAuth.Configure(services, Configuration, HostingEnvironment.IsDevelopment());
             
