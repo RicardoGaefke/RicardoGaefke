@@ -56,6 +56,7 @@ namespace MyApp.Web.Api
             //  project's DI
             services.AddSingleton<MyEmail>();
 
+            Bootstrap.Configure(services, Configuration);
             CookiesAuth.Configure(services, Configuration, HostingEnvironment.IsDevelopment());
             
             services.AddControllers();
@@ -80,6 +81,7 @@ namespace MyApp.Web.Api
 
             app.UseCors();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

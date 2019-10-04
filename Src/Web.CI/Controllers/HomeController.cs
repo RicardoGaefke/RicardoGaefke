@@ -7,7 +7,6 @@ using Web.Site.Models;
 
 namespace MyApp.Web.CI.Controllers
 {
-    //[EnableCors]
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -15,7 +14,7 @@ namespace MyApp.Web.CI.Controllers
             ViewData["Title"] = "Ricardo Gaefke";
             
             Request.HttpContext.Response.Headers.Add("Title", "Ricardo Gaefke Login");
-            Request.HttpContext.Response.Headers.Add("Description", "ASP.NET Core SSR React login");
+            Request.HttpContext.Response.Headers.Add("Description", "ASP.NET Core SSR React front end");
             
             ViewBag.Page = JsonConvert.SerializeObject(new {
                 Title = "Ricardo Gaefke",
