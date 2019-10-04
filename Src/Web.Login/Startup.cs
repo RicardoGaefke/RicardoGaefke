@@ -13,6 +13,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using MyApp.DI;
 using MyApp.Domain;
+using MyApp.Email;
 
 namespace MyApp.Web.Login
 {
