@@ -31,6 +31,9 @@ namespace MyApp.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add your AppInsights ID here to make it globally available //
+            services.AddApplicationInsightsTelemetry("9e5cc6db-d8d8-49c5-aa18-d60b4d06196b");
+
             string hostCors = Configuration.GetSection("ConnectionStrings")["Cors"];
             
             services.AddCors(options =>

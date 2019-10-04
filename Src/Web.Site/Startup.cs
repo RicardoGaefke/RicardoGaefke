@@ -33,6 +33,9 @@ namespace MyApp.Web.Site
     // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add your AppInsights ID here to make it globally available //
+            services.AddApplicationInsightsTelemetry("465f47b3-8d7a-46ee-a81e-e51182c12296");
+
             services.Configure<Secrets.ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
             services.Configure<Secrets.Login>(Configuration.GetSection("ConnectionStrings"));
 
@@ -90,7 +93,6 @@ namespace MyApp.Web.Site
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                // do not trace AppInsights for dev env
                 configuration.DisableTelemetry = true;
                 configuration.InstrumentationKey = "";
             }

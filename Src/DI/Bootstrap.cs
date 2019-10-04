@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.AspNetCore.DataProtection;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,9 +11,6 @@ namespace MyApp.DI
     {
         public static void Configure(IServiceCollection services, IConfiguration Configuration)
         {
-            // Add your AppInsights ID here to make it globally available //
-            services.AddApplicationInsightsTelemetry("465f47b3-8d7a-46ee-a81e-e51182c12296");
-
             Secrets.Login myLogin = new Secrets.Login();
             Configuration.GetSection("ConnectionStrings").Bind(myLogin);
 

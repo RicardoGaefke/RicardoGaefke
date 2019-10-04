@@ -32,6 +32,9 @@ namespace MyApp.Web.Login
     // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add your AppInsights ID here to make it globally available //
+            services.AddApplicationInsightsTelemetry("ad26124a-c2fe-415a-859a-1852f7d2c75e");
+
             services.AddCors(options =>
             {
                 options.AddPolicy(RicardoGaefkeCors, builder =>
