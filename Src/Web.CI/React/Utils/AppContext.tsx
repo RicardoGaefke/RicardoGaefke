@@ -43,6 +43,11 @@ const MyStateProvider = (props: any): any => {
           ...state,
           email: action.value,
         };
+      case 'changeDrawer':
+        return {
+          ...state,
+          drawer: action.value,
+        };
       default:
         return state;
     }

@@ -10,6 +10,7 @@ export const initialState: IInitialContext = {
   name: '',
   isAuthenticated: false,
   email: '',
+  drawer: true,
 };
 
 const StateContext = createContext<IInitialContext | any>(initialState);
