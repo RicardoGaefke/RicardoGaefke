@@ -14,6 +14,7 @@ import { IInitialContext } from '../../../../TypeScript/Utils/IInitialState';
 import { IDropDownItem } from '../DropDownMenu/DropDownItem';
 import { useStateValue } from '../../Utils/StateProvider';
 import { MyAppBarTexts, MyThemeItems } from './Texts';
+import MyDrawer from './Hamburger';
 
 const useStyles = makeStyles((theme): any => createStyles({
   root: {
@@ -124,6 +125,8 @@ const MyAppBar = (): any => {
       <AppBar position="static" className={classes.myBar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
+            <MyDrawer />
+
             <Link
               title="Home page"
               color="inherit"
