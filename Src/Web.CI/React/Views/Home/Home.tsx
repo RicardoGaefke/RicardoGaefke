@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStateValue } from '../../Utils/StateProvider';
-import Logged from '../../Components/Logged/Logged';
+import MyDrawer from '../../Components/Drawer/MyDrawer';
 import MyFullModal from '../../Components/FullModal/FullModal';
 import HomeLangs from './HomeLangs';
 
@@ -11,7 +11,7 @@ const MyHome = (): React.ReactElement => {
     <>
       {
         (isAuthenticated)
-          ? <Logged />
+          ? <MyDrawer />
           : <MyFullModal show message={HomeLangs(language)} />
       }
     </>
