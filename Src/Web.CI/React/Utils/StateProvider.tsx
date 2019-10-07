@@ -11,6 +11,7 @@ export const initialState: IInitialContext = {
   isAuthenticated: false,
   email: '',
   drawer: true,
+  screen: 'Dashboard',
 };
 
 const StateContext = createContext<IInitialContext | any>(initialState);

@@ -58,7 +58,7 @@ const ElevationScroll = (props: IElevation): any => {
   return React.cloneElement(children, {
     elevation: trigger ? 4 : 0,
   });
-}
+};
 
 
 const MyAppBar = (): React.ReactElement<myprops> => {

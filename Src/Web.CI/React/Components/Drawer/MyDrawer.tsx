@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme): any => ({
 const MyDrawer = (): React.ReactElement => {
   const classes: any = useStyles({});
 
-  const [{ drawer, language }, dispatch] = useStateValue();
+  const [{ drawer, language, screen }, dispatch] = useStateValue();
 
   const MyTexts = MyDrawerLangs(language);
 
@@ -104,15 +104,15 @@ const MyDrawer = (): React.ReactElement => {
           <IconButton
             color="inherit"
             aria-label={MyTexts.MenuOpen}
-            title={MyTexts.MenuOpen}
+            title={(drawer) ? MyTexts.MenuClose : MyTexts.MenuOpen}
             onClick={changeDrawer}
             edge="start"
-            className={clsx(classes.menuButton, drawer && classes.hide)}
+            className={clsx(classes.menuButton, drawer)}
           >
-            <Menu />
+            {(drawer) ? <MenuOpen /> : <Menu />}
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            {screen}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -125,15 +125,6 @@ const MyDrawer = (): React.ReactElement => {
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.drawerHeader}>
-          <IconButton
-            onClick={changeDrawer}
-            aria-label={MyTexts.MenuClose}
-            title={MyTexts.MenuClose}
-          >
-            <MenuOpen />
-          </IconButton>
-        </div>
         <Divider />
         Meu menu
       </Drawer>

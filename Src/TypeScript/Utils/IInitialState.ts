@@ -8,4 +8,5 @@ export interface IInitialContext {
   KeepConnected?: boolean,
   ready: boolean,
   drawer?: boolean,
+  screen?: string,
 }

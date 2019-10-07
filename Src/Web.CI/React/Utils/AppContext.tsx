@@ -48,6 +48,11 @@ const MyStateProvider = (props: any): any => {
           ...state,
           drawer: action.value,
         };
+      case 'changeScreen':
+        return {
+          ...state,
+          screen: action.value,
+        };
       default:
         return state;
     }
