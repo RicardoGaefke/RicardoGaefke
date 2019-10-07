@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
   textField: {
   },
   dense: {
-    marginTop: 16,
+    marginTop: 0,
   },
   menu: {
     width: 200,
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
     padding: theme.spacing(2),
   },
   margin: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(0),
   },
   marginBottom: {
     marginBottom: theme.spacing(3),

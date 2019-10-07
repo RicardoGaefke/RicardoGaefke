@@ -8,9 +8,9 @@ const useStyles = makeStyles((theme: any): any => ({
   },
   main: {
     flexGrow: 1,
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(0),
     marginBotton: theme.spacing(6),
-    paddingTop: theme.spacing(2),
+    paddingTop: theme.spacing(0),
     paddingBottom: theme.spacing(2),
     flexDirection: 'column',
     justifyContent: 'flex-start',
