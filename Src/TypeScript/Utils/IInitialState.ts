@@ -7,5 +7,5 @@ export interface IInitialContext {
   isAuthenticated?: boolean,
   KeepConnected?: boolean,
   ready: boolean,
-  drawer: boolean,
+  drawer?: boolean,
 }
