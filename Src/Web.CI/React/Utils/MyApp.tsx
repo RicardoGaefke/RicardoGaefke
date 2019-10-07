@@ -4,7 +4,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { useStateValue } from './StateProvider';
 import AppBar from '../Components/AppBar/MyAppBar';
 import MyRoutes from '../Components/Router/Router';
-import FullModal from '../Components/FullModal/FullModal';
 import myTheme from '../Theme/theme';
 import MyFooter from '../Components/Footer/MyFooter';
 import useStyles from './AppStyles';
@@ -16,7 +15,7 @@ import myAxios from './MyAxios';
 const MyHost = (): string => ((window.location.hostname.includes('localhost')) ? 'localhost:5055' : 'login.ricardogaefke.com');
 
 const MyApp = (): any => {
-  const [{ theme, consentCookie, ready }, dispatch] = useStateValue();
+  const [{ theme, consentCookie }, dispatch] = useStateValue();
   const classes: any = useStyles();
 
   useEffect((): void => {
@@ -62,7 +61,6 @@ const MyApp = (): any => {
       <div className={classes.body}>
         <AppBar />
         <div className={classes.main}>
-          <FullModal show={!ready} />
           <MyRoutes />
         </div>
         <MyFooter />
