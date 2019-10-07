@@ -1,10 +1,13 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Dialog, DialogContent, CircularProgress } from '@material-ui/core';
+import {
+  Dialog, DialogContent, CircularProgress, Typography,
+} from '@material-ui/core';
 
 interface IProps {
-  show: boolean
+  show: boolean,
+  message?: string,
 }
 
 const useStyles = makeStyles((theme: Theme): any => createStyles({
@@ -21,7 +24,7 @@ const useStyles = makeStyles((theme: Theme): any => createStyles({
 }));
 
 const FullModal = (props: IProps): React.ReactElement<IProps> => {
-  const { show } = props;
+  const { show, message } = props;
   const classes: any = useStyles('');
 
   return (
@@ -39,6 +42,9 @@ const FullModal = (props: IProps): React.ReactElement<IProps> => {
         <DialogContent className={classes.root}>
           <div className={classes.child}>
             <CircularProgress />
+            <Typography align="center" variant="h6">
+              {message}
+            </Typography>
           </div>
         </DialogContent>
       </Dialog>

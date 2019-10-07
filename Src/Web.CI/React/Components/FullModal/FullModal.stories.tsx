@@ -11,6 +11,12 @@ const NewApp = (): any => (
   </MyThemeHOC>
 );
 
+const NewAppWithMessage = (): any => (
+  <MyThemeHOC>
+    <FullModal show message="Loading credentials" />
+  </MyThemeHOC>
+);
+
 storiesOf('FullModal')
   .addDecorator((story: any): any => (
     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
@@ -18,4 +24,8 @@ storiesOf('FullModal')
   .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
   .add('Basic', (): React.ReactNode => (
     <NewApp />
+  ))
+  .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
+  .add('With message', (): React.ReactNode => (
+    <NewAppWithMessage />
   ));

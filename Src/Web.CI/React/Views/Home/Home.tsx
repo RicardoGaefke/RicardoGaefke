@@ -1,22 +1,18 @@
 import React from 'react';
 import { useStateValue } from '../../Utils/StateProvider';
 import Logged from '../../Components/Logged/Logged';
-
-const NotLogged = ():React.ReactElement => (
-  <div>
-    I am not logged!!!
-  </div>
-);
+import MyFullModal from '../../Components/FullModal/FullModal';
+import HomeLangs from './HomeLangs';
 
 const MyHome = (): React.ReactElement => {
-  const [{ isAuthenticated }] = useStateValue();
+  const [{ isAuthenticated, language }] = useStateValue();
 
   return (
     <>
       {
         (isAuthenticated)
           ? <Logged />
-          : <NotLogged />
+          : <MyFullModal show message={HomeLangs(language)} />
       }
     </>
   );

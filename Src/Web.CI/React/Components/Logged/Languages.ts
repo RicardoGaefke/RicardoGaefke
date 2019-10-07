@@ -52,8 +52,8 @@ const LoggedTexts = (l: string): ILoggedTexts => {
     },
   };
 
-  if (l === 'ENG') return textsENG;
-  return textsPT;
+  if (l === 'PT') return textsPT;
+  return textsENG;
 };
 
 export default LoggedTexts;
