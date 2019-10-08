@@ -12,6 +12,11 @@ export const initialState: IInitialContext = {
   email: '',
   drawer: true,
   screen: 'Dashboard',
+  companySelect: {
+    open: false,
+    name: 'BassDrill',
+    value: 55,
+  },
 };
 
 const StateContext = createContext<IInitialContext | any>(initialState);

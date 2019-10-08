@@ -15,6 +15,7 @@ import MenuOpen from '@material-ui/icons/MenuOpen';
 import { useStateValue } from '../../Utils/StateProvider';
 import MyDrawerLangs from './MyDrawerLangs';
 import MyMenuTree from '../MenuTree/MyMenuTree';
+import MyCompanySelect from '../SelectCompany/MySelectCompany';
 
 const drawerWidth = 450;
 
@@ -125,6 +126,8 @@ const MyDrawer = (): React.ReactElement => {
           paper: classes.drawerPaper,
         }}
       >
+        <Divider />
+        <MyCompanySelect />
         <Divider />
         <MyMenuTree />
       </Drawer>

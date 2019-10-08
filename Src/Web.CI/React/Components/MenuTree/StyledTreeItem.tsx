@@ -25,6 +25,6 @@ const StyledTreeItem = withStyles((theme: Theme): any => createStyles({
     paddingLeft: 12,
     borderLeft: `1px dashed ${fade(theme.palette.text.primary, 0.4)}`,
   },
-}))((props: TreeItemProps): any => <TreeItem {...props} TransitionComponent={TransitionComponent} />);
+}))((props: TreeItemProps): React.ReactElement<any> => <TreeItem {...props} TransitionComponent={TransitionComponent} />);
 
 export default StyledTreeItem;
