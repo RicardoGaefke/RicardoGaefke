@@ -5,7 +5,6 @@ import {
   makeStyles, Theme,
 } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -15,8 +14,9 @@ import Menu from '@material-ui/icons/Menu';
 import MenuOpen from '@material-ui/icons/MenuOpen';
 import { useStateValue } from '../../Utils/StateProvider';
 import MyDrawerLangs from './MyDrawerLangs';
+import MyMenuTree from '../MenuTree/MyMenuTree';
 
-const drawerWidth = 250;
+const drawerWidth = 450;
 
 const useStyles = makeStyles((theme): any => ({
   root: {
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme): any => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    paddingTop: 'calc(65px + 24px)',
+    paddingTop: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -94,7 +94,6 @@ const MyDrawer = (): React.ReactElement => {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
@@ -127,7 +126,7 @@ const MyDrawer = (): React.ReactElement => {
         }}
       >
         <Divider />
-        Meu menu
+        <MyMenuTree />
       </Drawer>
       <main
         className={clsx(classes.content, {
