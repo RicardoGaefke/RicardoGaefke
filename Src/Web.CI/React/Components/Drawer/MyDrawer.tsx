@@ -14,7 +14,7 @@ import Menu from '@material-ui/icons/Menu';
 import MenuOpen from '@material-ui/icons/MenuOpen';
 import MyDrawerLangs from './MyDrawerLangs';
 import { useStateValue } from '../../Utils/StateProvider';
-import MyMenuTree from '../MenuTree/MyMenuTree';
+import NavigationTree from '../NavigationTree/MyNavigationTree';
 import MyCompanySelect from '../SelectCompany/MySelectCompany';
 import MyRouter from '../Router/Router';
 
@@ -130,7 +130,7 @@ const MyDrawer = (): React.ReactElement => {
         <Divider />
         <MyCompanySelect />
         <Divider />
-        <MyMenuTree />
+        <NavigationTree />
       </Drawer>
       <main
         className={clsx(classes.content, {
