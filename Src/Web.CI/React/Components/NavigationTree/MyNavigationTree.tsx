@@ -10,6 +10,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // eslint-disable-next-line no-unused-vars
 import TreeItem, { TreeItemProps } from '@material-ui/lab/TreeItem';
+import { useStateValue } from '../../Utils/StateProvider';
 import myStaticData from './StaticData';
 
 const useStyles = makeStyles({
@@ -20,10 +21,11 @@ const useStyles = makeStyles({
 });
 
 const MyNavigationTree = (props: any): React.ReactElement<any> => {
-  const staticData = myStaticData;
   const classes = useStyles({});
+  const [{ language }] = useStateValue();
   const [activeItemId, setActiveItemId] = useState();
   const { history } = props;
+  const staticData = myStaticData(language);
 
   const renderLabel = (item): React.ReactElement<any> => (
     <Box
