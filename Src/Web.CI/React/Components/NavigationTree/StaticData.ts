@@ -39,7 +39,7 @@ const myStaticData = (l: string): INavNode[] => {
           title: myTexts.clients,
         },
         {
-          id: '/clients/',
+          id: '/exemplo/',
           title: 'Exemplo',
         },
       ],
