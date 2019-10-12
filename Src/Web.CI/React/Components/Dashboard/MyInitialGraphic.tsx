@@ -8,6 +8,7 @@ const MyInitialGraphic = (): React.ReactElement<any> => {
 
   return (
     <Box style={{ height: 500 }}>
+      deu pau
       <ResponsiveAreaBump
         data={data}
         margin={
