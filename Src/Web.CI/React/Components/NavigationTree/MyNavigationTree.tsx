@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link as RLink, withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -36,7 +36,7 @@ const MyNavigationTree = (props: any): React.ReactElement<any> => {
       }}
       onClick={(event): void => {
         setActiveItemId(item.id);
-        history.push(item.id);
+        history.push(item.url);
         event.stopPropagation();
         event.preventDefault();
       }}
@@ -70,9 +70,18 @@ const MyNavigationTree = (props: any): React.ReactElement<any> => {
     </TreeItem>
   );
 
+  useEffect((): void => {
+    const pageURL = window.location.href;
+    const lastURLSegment = (
+      (pageURL.endsWith('/')) ? pageURL.slice(0, -1).substr(pageURL.slice(0, -1).lastIndexOf('/') + 1) : pageURL.substr(pageURL.lastIndexOf('/') + 1)
+    );
+    setActiveItemId(lastURLSegment);
+  }, []);
+
   return (
     <>
       <TreeView
+        defaultExpanded={['plants']}
         className={classes.root}
         defaultCollapseIcon={<ExpandMoreIcon />}
         defaultExpandIcon={<ChevronRightIcon />}

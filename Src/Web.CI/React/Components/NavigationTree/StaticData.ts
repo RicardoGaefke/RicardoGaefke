@@ -9,7 +9,8 @@ const myStaticData = (l: string): INavNode[] => {
 
   const staticData: INavNode[] = [
     {
-      id: '/dashboard/',
+      id: 'dashboard',
+      url: '/dashboard/',
       title: myTexts.dashboard,
     },
     {
@@ -27,7 +28,8 @@ const myStaticData = (l: string): INavNode[] => {
       ],
     },
     {
-      id: '/company/',
+      id: 'company',
+      url: '/company/',
       title: myTexts.company,
       children: [
         {
@@ -49,7 +51,8 @@ const myStaticData = (l: string): INavNode[] => {
       title: myTexts.reports,
     },
     {
-      id: '/plants/',
+      id: 'plants',
+      url: '/plants/',
       title: myTexts.plants,
       children: [
         {
