@@ -5,9 +5,7 @@ import {
 } from '@material-ui/core';
 // eslint-disable-next-line no-unused-vars
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import {
-  Formik,
-} from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 // eslint-disable-next-line no-unused-vars
 import { AxiosResponse } from 'axios';
