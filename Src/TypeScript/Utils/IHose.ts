@@ -4,8 +4,8 @@ import { IDowntime } from './IDowntime';
 export interface IHose {
   Id?: number,
   Type: number,
-  Date?: Date | string,
-  Installation?: Date,
+  Date?: string | null,
+  Installation?: string | null,
   Technician?: number,
   Assistant?: number,
   Code?: string,

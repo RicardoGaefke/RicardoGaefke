@@ -3,8 +3,8 @@ import { IHose } from '../../../../../TypeScript/Utils/IHose';
 
 const initialValues: IHose = {
   Type: 1,
-  Date: new Date(),
-  Installation: new Date(),
+  Date: new Date().toISOString(),
+  Installation: new Date().toISOString(),
   Technician: 0,
   Assistant: 0,
   Code: 'ABC',

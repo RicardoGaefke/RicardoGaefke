@@ -33,6 +33,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
     handleChange,
     handleBlur,
     handleSubmit,
+    setFieldValue,
   } = props;
 
   return (
@@ -84,7 +85,9 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 id="Hose-Date"
                 label={myTexts.date}
                 value={values.Date}
-                onChange={handleChange}
+                onChange={(value): void => {
+                  setFieldValue('Date', value);
+                }}
                 KeyboardButtonProps={{
                   'aria-label': myTexts.date,
                 }}
@@ -148,9 +151,16 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 format="MM/dd/yyyy"
                 margin="normal"
                 id="Hose-Installation"
+                name="Hose-Installation"
                 label={myTexts.installation}
                 value={values.Installation}
-                onChange={handleChange}
+                onChange={(value): void => {
+                  setFieldValue('Installation', value);
+                }}
+                InputProps={{
+                  id: 'Hose-Installation',
+                  name: 'Hose-Installation',
+                }}
                 KeyboardButtonProps={{
                   'aria-label': myTexts.installation,
                 }}
@@ -185,8 +195,8 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 error={errors.Tag as any && touched.Tag as any}
                 label={myTexts.tag}
                 title={myTexts.tag}
-                name="Code"
-                id="Code"
+                name="Tag"
+                id="Tag"
                 value={values.Tag}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -205,8 +215,8 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 error={errors.DetachedCode as any && touched.DetachedCode as any}
                 label={myTexts.detached}
                 title={myTexts.detached}
-                name="Code"
-                id="Code"
+                name="DetachedCode"
+                id="DetachedCode"
                 value={values.DetachedCode}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -233,11 +243,11 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
   );
 };
 
-export const SuperForm = withFormik({
+const SuperForm = withFormik({
   displayName: 'HoseAddForm',
   mapPropsToValues: (): IHose => (initialValues),
   handleSubmit: (values, { setSubmitting }): void => {
-    console.log(values);
+    console.table(values);
     setSubmitting(false);
   },
 })(HoseForm);
