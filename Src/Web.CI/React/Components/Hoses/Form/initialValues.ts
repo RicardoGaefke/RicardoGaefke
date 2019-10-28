@@ -10,6 +10,7 @@ const initialValues: IHose = {
   Code: 'ABC',
   Tag: '',
   DetachedCode: '',
+  Brand: 0,
 };
 
 export default initialValues;

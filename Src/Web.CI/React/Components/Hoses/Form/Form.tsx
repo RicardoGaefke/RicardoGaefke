@@ -85,8 +85,8 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 id="Hose-Date"
                 label={myTexts.date}
                 value={values.Date}
-                onChange={(value): void => {
-                  setFieldValue('Date', value);
+                onChange={(value: Date): void => {
+                  setFieldValue('Date', value.toISOString());
                 }}
                 KeyboardButtonProps={{
                   'aria-label': myTexts.date,
@@ -151,15 +151,10 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 format="MM/dd/yyyy"
                 margin="normal"
                 id="Hose-Installation"
-                name="Hose-Installation"
                 label={myTexts.installation}
                 value={values.Installation}
-                onChange={(value): void => {
-                  setFieldValue('Installation', value);
-                }}
-                InputProps={{
-                  id: 'Hose-Installation',
-                  name: 'Hose-Installation',
+                onChange={(value: Date): void => {
+                  setFieldValue('Installation', value.toISOString());
                 }}
                 KeyboardButtonProps={{
                   'aria-label': myTexts.installation,
@@ -225,6 +220,27 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 className={classes.item}
                 fullWidth
               />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Brand">{myTexts.brand}</InputLabel>
+                <Select
+                  value={values.Brand}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Brand',
+                    id: 'Hose-Brand',
+                  }}
+                >
+                  <MenuItem value="0" />
+                  <MenuItem value="1">Parker</MenuItem>
+                  <MenuItem value="2">Dell</MenuItem>
+                </Select>
+              </FormControl>
             </Grid>
           </Grid>
           <Button

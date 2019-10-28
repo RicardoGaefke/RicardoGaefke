@@ -35,6 +35,7 @@ const formLangs = (l: string): IHoseForm => {
     installation: 'Data de instalação',
     tag: 'TAG do cliente',
     detached: 'Código avulso',
+    brand: 'Marca',
   };
 
   const formENG: IHoseForm = {
@@ -70,6 +71,7 @@ const formLangs = (l: string): IHoseForm => {
     installation: 'Date of installation',
     tag: 'Client TAG',
     detached: 'Detached code',
+    brand: 'Brand',
   };
 
   if (l === 'PT') return formPT;

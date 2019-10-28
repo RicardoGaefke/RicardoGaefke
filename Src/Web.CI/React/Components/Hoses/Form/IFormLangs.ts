@@ -17,4 +17,5 @@ export interface IHoseForm {
   installation: string,
   tag: string,
   detached: string,
+  brand: string,
 }
