@@ -5,6 +5,9 @@ import React from 'react';
 import { FormikProps, withFormik, FormikValues } from 'formik';
 import {
   Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem, NoSsr,
+  Input,
+  Checkbox,
+  ListItemText,
 } from '@material-ui/core';
 import {
   MuiPickersUtilsProvider,
@@ -239,6 +242,60 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                   <MenuItem value="0" />
                   <MenuItem value="1">Parker</MenuItem>
                   <MenuItem value="2">Dell</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Assistant">{myTexts.rule}</InputLabel>
+                <Select
+                  value={values.Rule}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Rule',
+                    id: 'Hose-Rule',
+                  }}
+                >
+                  <MenuItem value="0">&nbsp;</MenuItem>
+                  <MenuItem value="1">Rule 01</MenuItem>
+                  <MenuItem value="2">Rule 02</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Compatible">{myTexts.compatibleRules}</InputLabel>
+                <Select
+                  labelId="demo-mutiple-checkbox-label"
+                  id="demo-mutiple-checkbox"
+                  multiple
+                  value={values.CompatibleRules}
+                  onChange={(e: React.ChangeEvent<{value: unknown}>): void => {
+                    setFieldValue('CompatibleRules', e.target.value as number[]);
+                  }}
+                  input={<Input />}
+                  renderValue={(selected): string => (selected as string[]).join(', ')}
+                  inputProps={{
+                    name: 'Compatible',
+                    id: 'Hose-Compatible',
+                  }}
+                >
+                  {
+                    myTexts.type.options.map((o): React.ReactNode => (
+                      <MenuItem key={o.value} value={o.value}>
+                        <Checkbox color="secondary" checked={values.CompatibleRules.indexOf(parseInt(o.value.toString(), 0)) > -1} />
+                        <ListItemText primary={o.text} />
+                      </MenuItem>
+                    ))
+                  }
                 </Select>
               </FormControl>
             </Grid>

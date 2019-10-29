@@ -36,6 +36,8 @@ const formLangs = (l: string): IHoseForm => {
     tag: 'TAG do cliente',
     detached: 'Código avulso',
     brand: 'Marca',
+    rule: 'Norma',
+    compatibleRules: 'Normas compatíveis',
   };
 
   const formENG: IHoseForm = {
@@ -72,6 +74,8 @@ const formLangs = (l: string): IHoseForm => {
     tag: 'Client TAG',
     detached: 'Detached code',
     brand: 'Brand',
+    rule: 'Rule',
+    compatibleRules: 'Compatible rules',
   };
 
   if (l === 'PT') return formPT;

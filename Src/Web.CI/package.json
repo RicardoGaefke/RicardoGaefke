@@ -21,7 +21,7 @@
     "@material-ui/icons": "^4.4.3",
     "@material-ui/lab": "^4.0.0-alpha.30",
     "@material-ui/pickers": "^3.2.7",
-    "@material-ui/styles": "^4.5.0",
+    "@material-ui/styles": "^4.5.2",
     "@nivo/axes": "^0.59.2",
     "@nivo/bump": "^0.59.1",
     "@primer/octicons-react": "^9.1.1",

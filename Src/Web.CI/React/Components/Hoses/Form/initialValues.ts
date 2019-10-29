@@ -11,6 +11,8 @@ const initialValues: IHose = {
   Tag: '',
   DetachedCode: '',
   Brand: 0,
+  Rule: 0,
+  CompatibleRules: [1, 2],
 };
 
 export default initialValues;

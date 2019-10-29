@@ -13,7 +13,7 @@ export interface IHose {
   DetachedCode?: string,
   Brand?: number,
   Rule?: number,
-  CompatibleRules?: number[],
+  CompatibleRules: number[],
   Fluid?: number,
   Gauge?: number,
   WorkPressure?: number,

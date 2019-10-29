@@ -18,4 +18,6 @@ export interface IHoseForm {
   tag: string,
   detached: string,
   brand: string,
+  rule: string,
+  compatibleRules: string,
 }
