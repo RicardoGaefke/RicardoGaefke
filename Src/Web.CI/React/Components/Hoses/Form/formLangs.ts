@@ -38,6 +38,8 @@ const formLangs = (l: string): IHoseForm => {
     brand: 'Marca',
     rule: 'Norma',
     compatibleRules: 'Normas compatíveis',
+    fluid: 'Fluído',
+    gauge: 'Ângulo',
   };
 
   const formENG: IHoseForm = {
@@ -76,6 +78,8 @@ const formLangs = (l: string): IHoseForm => {
     brand: 'Brand',
     rule: 'Rule',
     compatibleRules: 'Compatible rules',
+    fluid: 'Fluid',
+    gauge: 'Gauge',
   };
 
   if (l === 'PT') return formPT;

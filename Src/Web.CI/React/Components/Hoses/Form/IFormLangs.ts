@@ -20,4 +20,6 @@ export interface IHoseForm {
   brand: string,
   rule: string,
   compatibleRules: string,
+  fluid: string,
+  gauge: string,
 }

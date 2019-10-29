@@ -299,6 +299,48 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 </Select>
               </FormControl>
             </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Fluid">{myTexts.fluid}</InputLabel>
+                <Select
+                  value={values.Fluid}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Fluid',
+                    id: 'Hose-Fluid',
+                  }}
+                >
+                  <MenuItem value="0">&nbsp;</MenuItem>
+                  <MenuItem value="1">Rule 01</MenuItem>
+                  <MenuItem value="2">Rule 02</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Assistant">{myTexts.gauge}</InputLabel>
+                <Select
+                  value={values.Gauge}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Gauge',
+                    id: 'Hose-Gauge',
+                  }}
+                >
+                  <MenuItem value="0">&nbsp;</MenuItem>
+                  <MenuItem value="1">Rule 01</MenuItem>
+                  <MenuItem value="2">Rule 02</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
           </Grid>
           <Button
             color="primary"

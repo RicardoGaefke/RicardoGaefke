@@ -13,6 +13,8 @@ const initialValues: IHose = {
   Brand: 0,
   Rule: 0,
   CompatibleRules: [1, 2],
+  Fluid: 0,
+  Gauge: 0,
 };
 
 export default initialValues;
