@@ -25,17 +25,17 @@ const App = (): any => (
   </MyThemeHOC>
 );
 
-storiesOf('MyPolicy')
+storiesOf('MyPolicy', module)
   .addDecorator((story: any): any => (
     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ))
   .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
-  .add('Portuguese', (): React.ReactNode => (
+  .add('Portuguese', (): React.ReactElement => (
     <AppPT />
   ))
-  .add('English', (): React.ReactNode => (
+  .add('English', (): React.ReactElement => (
     <AppENG />
   ))
-  .add('Complete', (): React.ReactNode => (
+  .add('Complete', (): React.ReactElement => (
     <App />
   ));

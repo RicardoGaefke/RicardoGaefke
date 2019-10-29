@@ -11,11 +11,11 @@ const App = (): any => (
   </MyThemeHOC>
 );
 
-storiesOf('MyPlantsInfo')
+storiesOf('MyPlantsInfo', module)
   .addDecorator((story: any): any => (
     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ))
   .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
-  .add('Basic', (): React.ReactNode => (
+  .add('Basic', (): React.ReactElement => (
     <App />
   ));

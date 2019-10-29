@@ -4,15 +4,15 @@ import { storiesOf } from '@storybook/react';
 import { withConsole } from '@storybook/addon-console';
 import MyThemeHOC from '../../Theme/MyThemeHOC';
 
-const App = (): any => (
+const App = (): React.ReactElement<any> => (
   <MyThemeHOC />
 );
 
-storiesOf('MyAppBar')
+storiesOf('MyAppBar', module)
   .addDecorator((story: any): any => (
     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ))
   .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
-  .add('Basic', (): React.ReactNode => (
+  .add('Basic', (): React.ReactElement => (
     <App />
   ));

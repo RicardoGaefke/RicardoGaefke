@@ -17,15 +17,15 @@ const NewAppWithMessage = (): any => (
   </MyThemeHOC>
 );
 
-storiesOf('FullModal')
+storiesOf('FullModal', module)
   .addDecorator((story: any): any => (
     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ))
   .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
-  .add('Basic', (): React.ReactNode => (
+  .add('Basic', (): React.ReactElement => (
     <NewApp />
   ))
   .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
-  .add('With message', (): React.ReactNode => (
+  .add('With message', (): React.ReactElement => (
     <NewAppWithMessage />
   ));

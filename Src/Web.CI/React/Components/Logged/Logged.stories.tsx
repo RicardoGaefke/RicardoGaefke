@@ -11,11 +11,11 @@ const NewApp = (): any => (
   </MyThemeHOC>
 );
 
-storiesOf('Logged')
+storiesOf('Logged', module)
   .addDecorator((story: any): any => (
     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ))
   .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
-  .add('Basic', (): React.ReactNode => (
+  .add('Basic', (): React.ReactElement => (
     <NewApp />
   ));
