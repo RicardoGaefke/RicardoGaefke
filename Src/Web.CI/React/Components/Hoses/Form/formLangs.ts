@@ -45,7 +45,13 @@ const formLangs = (l: string): IHoseForm => {
     workPressureExceedsMandatory: 'É necessário exceder a norma?',
     workPressureOverRule: 'Pressão de trabalho personalizada',
     length: 'Comprimento',
-    gender: 'Gênero',
+    terminal1gender: 'Gênero do terminal 1',
+    terminal1: 'Terminal 1',
+    terminal1Angle: 'Ângulo terminal 1',
+    terminal1Material: 'Tipo de aterial',
+    terminal1Abrasion: 'Desgaste do terminal 1',
+    adapter1: 'Adaptador 1',
+    adapter1Abrasion: 'Desgaste do adaptador 1',
   };
 
   const formENG: IHoseForm = {
@@ -91,7 +97,13 @@ const formLangs = (l: string): IHoseForm => {
     workPressureExceedsMandatory: 'Is it mandatory to exceed?',
     workPressureOverRule: 'Custom work pressure',
     length: 'Length',
-    gender: 'Gender',
+    terminal1gender: 'Gender terminal 1',
+    terminal1: 'Terminal 1',
+    terminal1Angle: 'Terminal 1 angle',
+    terminal1Material: 'Material type',
+    terminal1Abrasion: 'Terminal 1 abrasion',
+    adapter1: 'Adapter 1',
+    adapter1Abrasion: 'Adapter 1 abrasion',
   };
 
   if (l === 'PT') return formPT;

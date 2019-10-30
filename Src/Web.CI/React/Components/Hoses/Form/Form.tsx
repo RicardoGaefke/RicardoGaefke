@@ -13,6 +13,7 @@ import {
   FormGroup,
   InputAdornment,
   FormHelperText,
+  FormLabel,
 } from '@material-ui/core';
 import {
   MuiPickersUtilsProvider,
@@ -467,7 +468,10 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               md={4}
             >
               <FormControl className={classes.item}>
-                <InputLabel htmlFor="Length">{myTexts.length}</InputLabel>
+                <InputLabel htmlFor="Length" hidden>
+                  {myTexts.length}
+                  &nbsp;(mm)
+                </InputLabel>
                 <Input
                   id="Length"
                   name="Length"
@@ -494,22 +498,25 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               md={4}
             >
               <FormControl className={classes.item}>
-                <InputLabel htmlFor="Length">{myTexts.length}</InputLabel>
+                <InputLabel htmlFor="Lengthm" hidden>
+                  {myTexts.length}
+                  &nbsp;(m)
+                </InputLabel>
                 <Input
-                  id="Length"
-                  name="Length"
+                  id="Lengthm"
+                  name="Lengthm"
                   value={((values.Length || 0) / 100)}
                   onChange={(event: React.ChangeEvent<{ value: unknown }>): void => {
                     setFieldValue('Length', (event.target.value as number * 100));
                   }}
                   onBlur={handleBlur}
                   endAdornment={<InputAdornment position="end">m</InputAdornment>}
-                  aria-describedby="Length"
+                  aria-describedby="Lengthm"
                   inputProps={{
                     'aria-label': myTexts.length,
                     title: myTexts.length,
-                    name: 'Length',
-                    id: 'Length',
+                    name: 'Lengthm',
+                    id: 'Lengthm',
                   }}
                 />
                 {
@@ -522,19 +529,190 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               xs={12}
               md={4}
             >
+              <FormControl className={classes.item}>
+                <InputLabel htmlFor="Lengthp" hidden>
+                  {myTexts.length}
+                  &nbsp;(in)
+                </InputLabel>
+                <Input
+                  id="Lengthp"
+                  name="Lengthp"
+                  value={((values.Length || 0) / 25.4)}
+                  onChange={(event: React.ChangeEvent<{ value: unknown }>): void => {
+                    setFieldValue('Length', (event.target.value as number * 25.4));
+                  }}
+                  onBlur={handleBlur}
+                  endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                  aria-describedby="Lengthp"
+                  inputProps={{
+                    'aria-label': myTexts.length,
+                    title: myTexts.length,
+                    name: 'Lengthp',
+                    id: 'Lengthp',
+                  }}
+                />
+                {
+                  (errors.Length as any && touched.Length as any) ? <FormHelperText id="Length">Error</FormHelperText> : null
+                }
+              </FormControl>
+            </Grid>
+          </Grid>
+          <Grid
+            alignItems="center"
+            container
+            spacing={2}
+          >
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
               <FormControl variant="filled" className={classes.item}>
-                <InputLabel htmlFor="Hose-Gender">{myTexts.gender}</InputLabel>
+                <InputLabel htmlFor="Hose-Terminal1">{myTexts.terminal1}</InputLabel>
                 <Select
-                  value={values.Gender}
+                  value={values.Terminal1}
                   onChange={handleChange}
                   inputProps={{
-                    name: 'Gender',
-                    id: 'Hose-Gender',
+                    name: 'Terminal1',
+                    id: 'Hose-Terminal1',
+                  }}
+                >
+                  <MenuItem value="0">&nbsp;</MenuItem>
+                  <MenuItem value="1">Terminal 01</MenuItem>
+                  <MenuItem value="2">Terminal 02</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Terminal1Gender">{myTexts.terminal1gender}</InputLabel>
+                <Select
+                  value={values.Terminal1Gender}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Terminal1Gender',
+                    id: 'Hose-Terminal1Gender',
                   }}
                 >
                   <MenuItem value="0">&nbsp;</MenuItem>
                   <MenuItem value="1">Gender 01</MenuItem>
                   <MenuItem value="2">Gender 02</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Terminal1Angle">{myTexts.terminal1Angle}</InputLabel>
+                <Select
+                  value={values.Terminal1Angle}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Terminal1Angle',
+                    id: 'Hose-Terminal1Angle',
+                  }}
+                >
+                  <MenuItem value="0">&nbsp;</MenuItem>
+                  <MenuItem value="1">Angle 01</MenuItem>
+                  <MenuItem value="2">Angle 02</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Terminal1Material">{myTexts.terminal1Material}</InputLabel>
+                <Select
+                  value={values.Terminal1Material}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Terminal1Material',
+                    id: 'Hose-Terminal1Material',
+                  }}
+                >
+                  <MenuItem value="0">&nbsp;</MenuItem>
+                  <MenuItem value="1">Material 01</MenuItem>
+                  <MenuItem value="2">Material 02</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Terminal1Abrasion">{myTexts.terminal1Abrasion}</InputLabel>
+                <Select
+                  value={values.Terminal1Abrasion}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Terminal1Abrasion',
+                    id: 'Hose-Terminal1Abrasion',
+                  }}
+                >
+                  <MenuItem value="0">&nbsp;</MenuItem>
+                  <MenuItem value="1">Tenuous</MenuItem>
+                  <MenuItem value="2">Moderate</MenuItem>
+                  <MenuItem value="3">Severe</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+          </Grid>
+          <Grid
+            alignItems="center"
+            container
+            spacing={2}
+          >
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <TextField
+                error={errors.Adapter1 as any && touched.Adapter1 as any}
+                label={myTexts.adapter1}
+                title={myTexts.adapter1}
+                name="Adapter1"
+                id="Adapter1"
+                value={values.Adapter1}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                helperText={(errors.Adapter1 && touched.Adapter1) && errors.Adapter1}
+                variant="outlined"
+                className={classes.item}
+                fullWidth
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Adapter1Abrasion">{myTexts.adapter1Abrasion}</InputLabel>
+                <Select
+                  value={values.Adapter1Abrasion}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Adapter1Abrasion',
+                    id: 'Hose-Adapter1Abrasion',
+                  }}
+                >
+                  <MenuItem value="0">&nbsp;</MenuItem>
+                  <MenuItem value="1">Tenuous</MenuItem>
+                  <MenuItem value="2">Moderate</MenuItem>
+                  <MenuItem value="3">Severe</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
