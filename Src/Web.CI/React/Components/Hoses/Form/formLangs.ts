@@ -44,6 +44,8 @@ const formLangs = (l: string): IHoseForm => {
     workPressureExceeds: 'Pressão de trabalho excede a norma',
     workPressureExceedsMandatory: 'É necessário exceder a norma?',
     workPressureOverRule: 'Pressão de trabalho personalizada',
+    length: 'Comprimento',
+    gender: 'Gênero',
   };
 
   const formENG: IHoseForm = {
@@ -88,6 +90,8 @@ const formLangs = (l: string): IHoseForm => {
     workPressureExceeds: 'Work pressure exceeds rule',
     workPressureExceedsMandatory: 'Is it mandatory to exceed?',
     workPressureOverRule: 'Custom work pressure',
+    length: 'Length',
+    gender: 'Gender',
   };
 
   if (l === 'PT') return formPT;

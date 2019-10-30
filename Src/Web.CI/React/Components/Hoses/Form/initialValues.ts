@@ -12,13 +12,15 @@ const initialValues: IHose = {
   DetachedCode: '',
   Brand: 0,
   Rule: 0,
-  CompatibleRules: [1, 2],
+  CompatibleRules: [],
   Fluid: 0,
   Gauge: 0,
   WorkPressure: 0,
   WorkPressureExceeds: false,
   WorkPressureExceedsMandatory: false,
   WorkPressureOverRule: 0,
+  Length: 0,
+  Gender: 0,
 };
 
 export default initialValues;

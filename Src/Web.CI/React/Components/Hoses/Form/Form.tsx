@@ -11,6 +11,8 @@ import {
   FormControlLabel,
   Switch,
   FormGroup,
+  InputAdornment,
+  FormHelperText,
 } from '@material-ui/core';
 import {
   MuiPickersUtilsProvider,
@@ -294,7 +296,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                   {
                     myTexts.type.options.map((o): React.ReactNode => (
                       <MenuItem key={o.value} value={o.value}>
-                        <Checkbox color="secondary" checked={values.CompatibleRules.indexOf(parseInt(o.value.toString(), 0)) > -1} />
+                        <Checkbox color="secondary" checked={(values.CompatibleRules || []).indexOf(parseInt(o.value.toString(), 0)) > -1} />
                         <ListItemText primary={o.text} />
                       </MenuItem>
                     ))
@@ -394,7 +396,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                           value="WorkPressureExceeds"
                           color="primary"
                           inputProps={{
-                            'aria-label': 'primary checkbox',
+                            'aria-label': myTexts.workPressureExceeds,
                             id: 'WorkPressureExceeds',
                             name: 'WorkPressureExceeds',
                           }}
@@ -419,7 +421,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                           value="WorkPressureExceedsMandatory"
                           color="primary"
                           inputProps={{
-                            'aria-label': 'primary checkbox',
+                            'aria-label': myTexts.workPressureExceedsMandatory,
                             id: 'WorkPressureExceedsMandatory',
                             name: 'WorkPressureExceedsMandatory',
                           }}
@@ -452,6 +454,89 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 fullWidth
                 type="number"
               />
+            </Grid>
+          </Grid>
+          <Grid
+            alignItems="center"
+            container
+            spacing={2}
+          >
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl className={classes.item}>
+                <InputLabel htmlFor="Length">{myTexts.length}</InputLabel>
+                <Input
+                  id="Length"
+                  name="Length"
+                  value={values.Length}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  endAdornment={<InputAdornment position="end">mm</InputAdornment>}
+                  aria-describedby="Length"
+                  inputProps={{
+                    'aria-label': myTexts.length,
+                    title: myTexts.length,
+                    name: 'Length',
+                    id: 'Length',
+                  }}
+                />
+                {
+                  (errors.Length as any && touched.Length as any) ? <FormHelperText id="Length">Error</FormHelperText> : null
+                }
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl className={classes.item}>
+                <InputLabel htmlFor="Length">{myTexts.length}</InputLabel>
+                <Input
+                  id="Length"
+                  name="Length"
+                  value={((values.Length || 0) / 100)}
+                  onChange={(event: React.ChangeEvent<{ value: unknown }>): void => {
+                    setFieldValue('Length', (event.target.value as number * 100));
+                  }}
+                  onBlur={handleBlur}
+                  endAdornment={<InputAdornment position="end">m</InputAdornment>}
+                  aria-describedby="Length"
+                  inputProps={{
+                    'aria-label': myTexts.length,
+                    title: myTexts.length,
+                    name: 'Length',
+                    id: 'Length',
+                  }}
+                />
+                {
+                  (errors.Length as any && touched.Length as any) ? <FormHelperText id="Length">Error</FormHelperText> : null
+                }
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl variant="filled" className={classes.item}>
+                <InputLabel htmlFor="Hose-Gender">{myTexts.gender}</InputLabel>
+                <Select
+                  value={values.Gender}
+                  onChange={handleChange}
+                  inputProps={{
+                    name: 'Gender',
+                    id: 'Hose-Gender',
+                  }}
+                >
+                  <MenuItem value="0">&nbsp;</MenuItem>
+                  <MenuItem value="1">Gender 01</MenuItem>
+                  <MenuItem value="2">Gender 02</MenuItem>
+                </Select>
+              </FormControl>
             </Grid>
           </Grid>
           <Button

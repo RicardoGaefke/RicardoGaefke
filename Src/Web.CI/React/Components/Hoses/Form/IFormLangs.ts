@@ -26,4 +26,6 @@ export interface IHoseForm {
   workPressureExceeds: string,
   workPressureExceedsMandatory: string,
   workPressureOverRule: string,
+  length: string,
+  gender: string,
 }
