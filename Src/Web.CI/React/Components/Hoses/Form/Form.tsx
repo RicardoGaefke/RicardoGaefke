@@ -13,7 +13,6 @@ import {
   FormGroup,
   InputAdornment,
   FormHelperText,
-  FormLabel,
 } from '@material-ui/core';
 import {
   MuiPickersUtilsProvider,
