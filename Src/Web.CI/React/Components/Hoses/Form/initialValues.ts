@@ -15,6 +15,10 @@ const initialValues: IHose = {
   CompatibleRules: [1, 2],
   Fluid: 0,
   Gauge: 0,
+  WorkPressure: 0,
+  WorkPressureExceeds: false,
+  WorkPressureExceedsMandatory: false,
+  WorkPressureOverRule: 0,
 };
 
 export default initialValues;

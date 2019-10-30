@@ -8,6 +8,9 @@ import {
   Input,
   Checkbox,
   ListItemText,
+  FormControlLabel,
+  Switch,
+  FormGroup,
 } from '@material-ui/core';
 import {
   MuiPickersUtilsProvider,
@@ -340,6 +343,115 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                   <MenuItem value="2">Rule 02</MenuItem>
                 </Select>
               </FormControl>
+            </Grid>
+          </Grid>
+          <Grid
+            alignItems="center"
+            container
+            spacing={2}
+          >
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <TextField
+                error={errors.WorkPressure as any && touched.WorkPressure as any}
+                label={myTexts.workPressure}
+                title={myTexts.workPressure}
+                name="WorkPressure"
+                id="WorkPressure"
+                value={values.WorkPressure}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                helperText={(errors.WorkPressure && touched.WorkPressure) && errors.WorkPressure}
+                variant="outlined"
+                className={classes.item}
+                fullWidth
+                type="number"
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <FormControl component="fieldset" className={classes.item}>
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      (
+                        <Switch
+                          checked={values.WorkPressureExceeds}
+                          onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                            if (!event.target.checked) {
+                              setFieldValue('WorkPressureExceeds', false);
+                              setFieldValue('WorkPressureExceedsMandatory', false);
+                            } else {
+                              setFieldValue('WorkPressureExceeds', event.target.checked);
+                            }
+                          }}
+                          value="WorkPressureExceeds"
+                          color="primary"
+                          inputProps={{
+                            'aria-label': 'primary checkbox',
+                            id: 'WorkPressureExceeds',
+                            name: 'WorkPressureExceeds',
+                          }}
+                        />
+                      )
+                    }
+                    label={myTexts.workPressureExceeds}
+                  />
+                  <FormControlLabel
+                    control={
+                      (
+                        <Switch
+                          checked={values.WorkPressureExceedsMandatory}
+                          onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                            if (event.target.checked) {
+                              setFieldValue('WorkPressureExceeds', true);
+                              setFieldValue('WorkPressureExceedsMandatory', true);
+                            } else {
+                              setFieldValue('WorkPressureExceedsMandatory', event.target.checked);
+                            }
+                          }}
+                          value="WorkPressureExceedsMandatory"
+                          color="primary"
+                          inputProps={{
+                            'aria-label': 'primary checkbox',
+                            id: 'WorkPressureExceedsMandatory',
+                            name: 'WorkPressureExceedsMandatory',
+                          }}
+                        />
+                      )
+                    }
+                    label={myTexts.workPressureExceedsMandatory}
+                  />
+                </FormGroup>
+              </FormControl>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <TextField
+                disabled={!values.WorkPressureExceeds}
+                error={errors.WorkPressureOverRule as any && touched.WorkPressureOverRule as any}
+                label={myTexts.workPressureOverRule}
+                title={myTexts.workPressureOverRule}
+                name="WorkPressureOverRule"
+                id="WorkPressureOverRule"
+                value={values.WorkPressureOverRule}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                helperText={(errors.WorkPressureOverRule && touched.WorkPressureOverRule) && errors.WorkPressureOverRule}
+                variant="outlined"
+                className={classes.item}
+                fullWidth
+                type="number"
+              />
             </Grid>
           </Grid>
           <Button

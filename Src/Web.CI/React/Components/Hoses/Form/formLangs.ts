@@ -40,6 +40,10 @@ const formLangs = (l: string): IHoseForm => {
     compatibleRules: 'Normas compatíveis',
     fluid: 'Fluído',
     gauge: 'Ângulo',
+    workPressure: 'Pressão de trabalho',
+    workPressureExceeds: 'Pressão de trabalho excede a norma',
+    workPressureExceedsMandatory: 'É necessário exceder a norma?',
+    workPressureOverRule: 'Pressão de trabalho personalizada',
   };
 
   const formENG: IHoseForm = {
@@ -80,6 +84,10 @@ const formLangs = (l: string): IHoseForm => {
     compatibleRules: 'Compatible rules',
     fluid: 'Fluid',
     gauge: 'Gauge',
+    workPressure: 'Work pressure',
+    workPressureExceeds: 'Work pressure exceeds rule',
+    workPressureExceedsMandatory: 'Is it mandatory to exceed?',
+    workPressureOverRule: 'Custom work pressure',
   };
 
   if (l === 'PT') return formPT;

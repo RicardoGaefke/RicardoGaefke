@@ -22,4 +22,8 @@ export interface IHoseForm {
   compatibleRules: string,
   fluid: string,
   gauge: string,
+  workPressure: string,
+  workPressureExceeds: string,
+  workPressureExceedsMandatory: string,
+  workPressureOverRule: string,
 }

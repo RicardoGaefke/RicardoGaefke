@@ -19,6 +19,7 @@ export interface IHose {
   WorkPressure?: number,
   WorkPressureExceeds?: boolean,
   WorkPressureExceedsMandatory?: boolean,
+  WorkPressureOverRule?: number,
   Length?: number,
   Terminal1?: number,
   Terminal1Gender?: number,
