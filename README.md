@@ -4,46 +4,37 @@ Ricardo Gaefke's project with ASP.NET Core, SSR React, Azure SQL, integration, T
 
 ## Getting Started
 
+RicardoGaefke is a boilerplate created to help a lot of peoples to manage your business using the technology in the right way. This project was using the best tools in the World, like a Javascript, React, ASP.NET Core, SSR React, Azure SQL, Integration, TDD and Typescript.
+
+### Prerequisites
+
+You need to have some packages in your machine or to install them to run perfectly.
+
+```
+React
+Git
+.NET Core 3.0.0 & 2.0.0
+```
+
 ### Installating
 
-To get started with RicardoGaefke, you can simply install it via npm. You need to install some packages to run perfectly.
+To get started with RicardoGaefke, you can simply install it via npm.
 ```
 npm install ricardo-gaefke
 ```
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Running tests here is very simple. You just need to access your local git and run this line of code:
+```
+npm test
+```
+If you prefer, you can see the build running with the tests using Coveralls. To do this, you need to access this url:
+
+* [Coveralls](https://coveralls.io/github/LucasNeevs/RicardoGaefke) - Web service used to track code coverage.
+
+
+--->
 
 ### Break down into end to end tests
 
