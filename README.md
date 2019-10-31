@@ -2,6 +2,8 @@
 
 Ricardo Gaefke's project with ASP.NET Core, SSR React, Azure SQL, integration, TDD and Typescript.
 
+**Visit [https://github.com/RicardoGaefke/RicardoGaefke](https://github.com/RicardoGaefke/RicardoGaefke) to get started.**
+
 ## Getting Started
 
 RicardoGaefke is a boilerplate created to help a lot of peoples to manage your business using the technology in the right way. This project was using the best tools in the World, like a Javascript, React, ASP.NET Core, SSR React, Azure SQL, Integration, TDD and Typescript.
