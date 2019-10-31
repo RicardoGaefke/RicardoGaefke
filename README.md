@@ -1,6 +1,6 @@
 # RicardoGaefke
 
-Ricardo Gaefke's project with ASP.NET Core, SSR React, Azure SQL, integration, TDD and Typescript;
+Ricardo Gaefke's project with ASP.NET Core, SSR React, Azure SQL, integration, TDD and Typescript.
 
 ## Getting Started
 
@@ -12,13 +12,15 @@ You need to have some packages in your machine or to install them to run perfect
 
 ```
 React
+
 Git
+
 .NET Core 3.0.0 & 2.0.0
 ```
 
 ### Installating
 
-To get started with RicardoGaefke, you can simply install it via npm.
+To get started with RicardoGaefke, you can simply install it via npm, using this line above:
 ```
 npm install ricardo-gaefke
 ```
@@ -31,12 +33,9 @@ npm test
 ```
 If you prefer, you can see the build running with the tests using Coveralls. To do this, you need to access this url:
 
-* [Coveralls](https://coveralls.io/github/LucasNeevs/RicardoGaefke) - Web service used to track code coverage.
+* [Coveralls](https://coveralls.io/github/RicardoGaefke/RicardoGaefke) - Web service used to track code coverage.
 
-
---->
-
-### Break down into end to end tests
+<!--### Break down into end to end tests
 
 Explain what these tests test and why
 
@@ -56,15 +55,18 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
+-->
+
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [ASP.NET Core](https://docs.microsoft.com/pt-br/aspnet/core/?view=aspnetcore-3.0) - High-performance, open-source , multi-format framework for building modern Internet-connected and cloud-based applications.
+* [SSR React](https://www.npmjs.com/package/react-ssr) - React server-side rendering solution.
+* [Azure SQL](https://docs.microsoft.com/pt-br/azure/) - A cloud plataform.
+* [Typescript](https://www.typescriptlang.org/) - Typed superset of JavaScript that compiles to plain JavaScript.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/RicardoGaefke/RicardoGaefke/blob/master/CONTRIBUITING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -72,17 +74,11 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ricardo Gaefke** - *Initial work* - [RicardoGaefke](https://github.com/RicardoGaefke)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See the [Contributors Guide](https://github.com/RicardoGaefke/RicardoGaefke/blob/master/CONTRIBUITING.md)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/RicardoGaefke/RicardoGaefke/blob/master/LICENSE.md) file for details.
 
