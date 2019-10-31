@@ -66,7 +66,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/RicardoGaefke/RicardoGaefke/blob/master/CONTRIBUITING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/RicardoGaefke/RicardoGaefke/blob/master/CONTRIBUITING) for details on our code of conduct, and the process for submitting pull requests to us.
 
 <!--
 ## Versioning
@@ -78,9 +78,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Ricardo Gaefke** - *Initial work* - [RicardoGaefke](https://github.com/RicardoGaefke)
 
-See the [Contributors Guide](https://github.com/RicardoGaefke/RicardoGaefke/blob/master/CONTRIBUITING.md)
+See the [Contributors Guide](https://github.com/RicardoGaefke/RicardoGaefke/blob/master/CONTRIBUITING)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/RicardoGaefke/RicardoGaefke/blob/master/LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/RicardoGaefke/RicardoGaefke/blob/master/LICENSE) file for details.
 
