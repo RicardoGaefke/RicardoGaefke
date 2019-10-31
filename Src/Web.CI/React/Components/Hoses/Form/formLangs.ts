@@ -48,10 +48,17 @@ const formLangs = (l: string): IHoseForm => {
     terminal1gender: 'Gênero do terminal 1',
     terminal1: 'Terminal 1',
     terminal1Angle: 'Ângulo terminal 1',
-    terminal1Material: 'Tipo de aterial',
+    terminal1Material: 'Tipo de material',
     terminal1Abrasion: 'Desgaste do terminal 1',
     adapter1: 'Adaptador 1',
-    adapter1Abrasion: 'Desgaste do adaptador 1',
+    adapter1Abrasion: 'Desgaste do adaptador 2',
+    terminal2gender: 'Gênero do terminal 2',
+    terminal2: 'Terminal 2',
+    terminal2Angle: 'Ângulo terminal 2',
+    terminal2Material: 'Tipo de aterial',
+    terminal2Abrasion: 'Desgaste do terminal 2',
+    adapter2: 'Adaptador 2',
+    adapter2Abrasion: 'Desgaste do adaptador 2',
   };
 
   const formENG: IHoseForm = {
@@ -104,6 +111,13 @@ const formLangs = (l: string): IHoseForm => {
     terminal1Abrasion: 'Terminal 1 abrasion',
     adapter1: 'Adapter 1',
     adapter1Abrasion: 'Adapter 1 abrasion',
+    terminal2gender: 'Gender terminal 2',
+    terminal2: 'Terminal 2',
+    terminal2Angle: 'Terminal 2 angle',
+    terminal2Material: 'Material type',
+    terminal2Abrasion: 'Terminal 2 abrasion',
+    adapter2: 'Adapter 2',
+    adapter2Abrasion: 'Adapter 2 abrasion',
   };
 
   if (l === 'PT') return formPT;

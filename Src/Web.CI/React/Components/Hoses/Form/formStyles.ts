@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme: Theme): IStyles => ({
   container: {
   },
   item: {
-    marginBottom: theme.spacing(2),
-    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(1),
+    marginTop: theme.spacing(1),
     width: '100%',
   },
 }));

@@ -2,7 +2,7 @@
 import { IHose } from '../../../../../TypeScript/Utils/IHose';
 
 const initialValues: IHose = {
-  Type: 2,
+  Type: 1,
   Date: new Date().toISOString(),
   Installation: new Date().toISOString(),
   Technician: 0,

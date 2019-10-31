@@ -34,4 +34,11 @@ export interface IHoseForm {
   terminal1Abrasion: string,
   adapter1: string,
   adapter1Abrasion: string,
+  terminal2gender: string,
+  terminal2: string,
+  terminal2Angle: string,
+  terminal2Material: string,
+  terminal2Abrasion: string,
+  adapter2: string,
+  adapter2Abrasion: string,
 }
