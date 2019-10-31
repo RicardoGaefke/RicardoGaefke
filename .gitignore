@@ -367,4 +367,14 @@ typings/
 # Ignore all local history of files
 .history
 
+### ignore my dist files to build on the cloud
+dist/
+ssr/
+
+### ignore local connection strings
+appsettings.json
+appSettings.json
+test.json
+
 # End of https://www.gitignore.io/api/node,aspnetcore,visualstudiocode
+Src/Web.Site/appsettings.json
