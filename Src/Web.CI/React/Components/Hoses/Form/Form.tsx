@@ -13,6 +13,7 @@ import {
   FormGroup,
   InputAdornment,
   FormHelperText,
+  FormLabel,
 } from '@material-ui/core';
 import {
   MuiPickersUtilsProvider,
@@ -966,6 +967,233 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                 <MenuItem value="2">Moderate</MenuItem>
                 <MenuItem value="3">Severe</MenuItem>
               </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          spacing={2}
+        >
+          <Grid
+            item
+            xs={12}
+            md={3}
+          >
+            <FormControl
+              margin="dense"
+              variant="filled"
+              className={classes.item}
+            >
+              <InputLabel htmlFor="Hose-Angle">{myTexts.angle}</InputLabel>
+              <Select
+                value={values.Angle}
+                onChange={handleChange}
+                inputProps={{
+                  name: 'Angle',
+                  id: 'Hose-Angle',
+                }}
+              >
+                <MenuItem value="0">&nbsp;</MenuItem>
+                <MenuItem value="1">Tenuous</MenuItem>
+                <MenuItem value="2">Moderate</MenuItem>
+                <MenuItem value="3">Severe</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={3}
+          >
+            <FormControl
+              margin="dense"
+              variant="filled"
+              className={classes.item}
+            >
+              <InputLabel htmlFor="Hose-Radius">{myTexts.radius}</InputLabel>
+              <Select
+                value={values.Radius}
+                onChange={handleChange}
+                inputProps={{
+                  name: 'Radius',
+                  id: 'Hose-Radius',
+                }}
+              >
+                <MenuItem value="0">&nbsp;</MenuItem>
+                <MenuItem value="1">Tenuous</MenuItem>
+                <MenuItem value="2">Moderate</MenuItem>
+                <MenuItem value="3">Severe</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
+        <FormLabel component="legend">{myTexts.criticality}</FormLabel>
+        <Grid
+          container
+          justify="flex-start"
+          alignItems="center"
+          spacing={2}
+        >
+          <Grid
+            item
+            xs={12}
+            md={2}
+          >
+            <FormControl
+              margin="dense"
+              component="fieldset"
+              className={classes.item}
+            >
+              <FormControlLabel
+                control={
+                  (
+                    <Switch
+                      checked={values.Security}
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                        setFieldValue('Security', event.target.checked);
+                      }}
+                      value="Security"
+                      color="primary"
+                      inputProps={{
+                        'aria-label': myTexts.security,
+                        id: 'Security',
+                        name: 'Security',
+                      }}
+                    />
+                  )
+                }
+                label={myTexts.security}
+              />
+            </FormControl>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={2}
+          >
+            <FormControl
+              margin="dense"
+              component="fieldset"
+              className={classes.item}
+            >
+              <FormControlLabel
+                control={
+                  (
+                    <Switch
+                      checked={values.Environment}
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                        setFieldValue('Environment', event.target.checked);
+                      }}
+                      value="Environment"
+                      color="primary"
+                      inputProps={{
+                        'aria-label': myTexts.environment,
+                        id: 'Environment',
+                        name: 'Environment',
+                      }}
+                    />
+                  )
+                }
+                label={myTexts.environment}
+              />
+            </FormControl>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={2}
+          >
+            <FormControl
+              margin="dense"
+              component="fieldset"
+              className={classes.item}
+            >
+              <FormControlLabel
+                control={
+                  (
+                    <Switch
+                      checked={values.Operability}
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                        setFieldValue('Operability', event.target.checked);
+                      }}
+                      value="Operability"
+                      color="primary"
+                      inputProps={{
+                        'aria-label': myTexts.operability,
+                        id: 'Operability',
+                        name: 'Operability',
+                      }}
+                    />
+                  )
+                }
+                label={myTexts.operability}
+              />
+            </FormControl>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={2}
+          >
+            <FormControl
+              margin="dense"
+              component="fieldset"
+              className={classes.item}
+            >
+              <FormControlLabel
+                control={
+                  (
+                    <Switch
+                      checked={values.Accessibility}
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                        setFieldValue('Accessibility', event.target.checked);
+                      }}
+                      value="Accessibility"
+                      color="primary"
+                      inputProps={{
+                        'aria-label': myTexts.accessibility,
+                        id: 'Accessibility',
+                        name: 'Accessibility',
+                      }}
+                    />
+                  )
+                }
+                label={myTexts.accessibility}
+              />
+            </FormControl>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={2}
+          >
+            <FormControl
+              margin="dense"
+              component="fieldset"
+              className={classes.item}
+            >
+              <FormControlLabel
+                control={
+                  (
+                    <Switch
+                      checked={values.Abrasion}
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                        setFieldValue('Abrasion', event.target.checked);
+                      }}
+                      value="Abrasion"
+                      color="primary"
+                      inputProps={{
+                        'aria-label': myTexts.abrasion,
+                        id: 'Abrasion',
+                        name: 'Abrasion',
+                      }}
+                    />
+                  )
+                }
+                label={myTexts.abrasion}
+              />
             </FormControl>
           </Grid>
         </Grid>

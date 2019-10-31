@@ -41,4 +41,12 @@ export interface IHoseForm {
   terminal2Abrasion: string,
   adapter2: string,
   adapter2Abrasion: string,
+  angle: string,
+  radius: string,
+  criticality: string,
+  security: string,
+  environment: string,
+  operability: string,
+  accessibility: string,
+  abrasion: string,
 }

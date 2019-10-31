@@ -28,11 +28,14 @@ const initialValues: IHose = {
   Adapter1: '',
   Adapter1Abrasion: 0,
   Terminal2: 0,
+  Terminal2Gender: 0,
   Terminal2Angle: 0,
   Terminal2Material: 0,
   Terminal2Abrasion: 0,
   Adapter2: '',
   Adapter2Abrasion: 0,
+  Angle: 0,
+  Radius: 0,
 };
 
 export default initialValues;

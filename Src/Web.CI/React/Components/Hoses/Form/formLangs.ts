@@ -59,6 +59,14 @@ const formLangs = (l: string): IHoseForm => {
     terminal2Abrasion: 'Desgaste do terminal 2',
     adapter2: 'Adaptador 2',
     adapter2Abrasion: 'Desgaste do adaptador 2',
+    angle: 'Ângulo de montagem',
+    radius: 'Raio de montagem',
+    criticality: 'Criticidade',
+    security: 'Segurança',
+    environment: 'Meio ambiente',
+    operability: 'Operabilidade',
+    accessibility: 'Acessibilidade',
+    abrasion: 'Abrasão',
   };
 
   const formENG: IHoseForm = {
@@ -118,6 +126,14 @@ const formLangs = (l: string): IHoseForm => {
     terminal2Abrasion: 'Terminal 2 abrasion',
     adapter2: 'Adapter 2',
     adapter2Abrasion: 'Adapter 2 abrasion',
+    angle: 'Mounting angle',
+    radius: 'Mounting radius',
+    criticality: 'Criticality',
+    security: 'Security',
+    environment: 'Environment',
+    operability: 'Operability',
+    accessibility: 'Acessibilidade',
+    abrasion: 'Abrasão',
   };
 
   if (l === 'PT') return formPT;
