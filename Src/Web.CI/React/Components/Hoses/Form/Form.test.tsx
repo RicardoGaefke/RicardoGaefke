@@ -1,5 +1,5 @@
 import React from 'react';
-/*import chai, { expect } from 'chai';
+import chai, { expect } from 'chai';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import chaiEnzyme from 'chai-enzyme';
@@ -26,7 +26,4 @@ describe('Form Tests', () => {
       expect(wrap.find(MuiPickersUtilsProvider)).to.have.lenght(1);
     });
   });
-});*/
-
-const teste = (): any => 'Teste';
-alert(teste);
+});
