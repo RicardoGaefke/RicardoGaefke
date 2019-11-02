@@ -71,4 +71,5 @@ export interface IHoseForm {
     start: string,
     end: string,
   },
+  save: string[],
 }

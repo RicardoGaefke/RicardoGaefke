@@ -80,7 +80,7 @@ const formLangs = (l: string): IHoseForm => {
     reason: 'Motivo',
     approved: 'Aprovado',
     disapproved: 'Reprovado',
-    dropzoneText: 'Arraste e solte arquivos JPG ou PNG de até 300kb ou clique',
+    dropzoneText: 'Arraste e solte até dois arquivos JPG ou PNG de até 300kb cada ou clique',
     noAttachments: 'Nenhum arquivo anexo!',
     finalRecommendations: 'Recomendações finais',
     notice: 'Observações',
@@ -89,6 +89,10 @@ const formLangs = (l: string): IHoseForm => {
       start: 'Início da parada técnica',
       end: 'Fim da parada técnica',
     },
+    save: [
+      'Salvar e encerrar',
+      'Salvar e continuar inserindo',
+    ],
   };
 
   const formENG: IHoseForm = {
@@ -169,7 +173,7 @@ const formLangs = (l: string): IHoseForm => {
     reason: 'Reason',
     approved: 'Approved',
     disapproved: 'Disapproved',
-    dropzoneText: 'Drag and drop a JPEG or PNG files up to 300kb here or click',
+    dropzoneText: 'Drag and drop up to two JPEG or PNG files (up to 300kb each) here or click',
     noAttachments: 'No attachments yet!',
     finalRecommendations: 'Final recommendations',
     notice: 'Notice',
@@ -178,6 +182,10 @@ const formLangs = (l: string): IHoseForm => {
       start: 'Beginning of technical idleness',
       end: 'End of technical idleness',
     },
+    save: [
+      'Save and finish',
+      'Save and continue inserting',
+    ],
   };
 
   if (l === 'PT') return formPT;

@@ -19,8 +19,15 @@ import {
   List,
   ListItem,
   ListItemIcon,
+  ButtonGroup,
+  Popper,
+  Grow,
+  Paper,
+  ClickAwayListener,
+  MenuList,
 } from '@material-ui/core';
 import AttachmentIcon from '@material-ui/icons/Attachment';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -39,10 +46,32 @@ import initialValues from './initialValues';
 
 const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
   const [{ language }] = useStateValue();
-
   const myTexts = formLangs(language);
-
   const classes: IStyles = useStyles('');
+
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef<HTMLDivElement>(null);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+
+  const handleMenuItemClick = (
+    event: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    index: number,
+  ): void => {
+    setSelectedIndex(index);
+    setOpen(false);
+  };
+
+  const handleToggle = (): void => {
+    setOpen((prevOpen): boolean => !prevOpen);
+  };
+
+  const handleClose = (event: React.MouseEvent<Document, MouseEvent>): void => {
+    if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement)) {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const {
     values,
@@ -1461,11 +1490,11 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                     <ListItemText primary={myTexts.noAttachments} />
                   </ListItem>
                 ) : ((values.Attachements || []).map((f: IAttachment, i: number): React.ReactNode => (
-                  <ListItem>
+                  <ListItem key={i.toString()}>
                     <ListItemIcon>
                       <AttachmentIcon />
                     </ListItemIcon>
-                    <ListItemText key={f.name + i.toString()} primary={f.name} />
+                    <ListItemText primary={f.name} />
                   </ListItem>
                 )))}
             </List>
@@ -1592,16 +1621,71 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           </Grid>
         </Grid>
         <Divider variant="fullWidth" className={classes.divider} />
-        <Button
-          color="primary"
-          variant="contained"
-          style={{ color: 'white' }}
-          type="submit"
-          title="Submit"
-          disabled={isSubmitting}
+        <Grid
+          container
+          justify="flex-start"
+          alignItems="flex-start"
+          spacing={2}
         >
-          Submit
-        </Button>
+          <Grid
+            item
+            xs={12}
+          >
+            <ButtonGroup
+              variant="contained"
+              color="primary"
+              ref={anchorRef}
+              aria-label="split button"
+            >
+              <Button
+                color="primary"
+                variant="contained"
+                style={{ color: 'white' }}
+                type="submit"
+                title="Submit"
+                disabled={isSubmitting}
+              >
+                {myTexts.save[selectedIndex]}
+              </Button>
+              <Button
+                color="primary"
+                size="small"
+                aria-owns={open ? 'menu-list-grow' : undefined}
+                aria-haspopup="true"
+                onClick={handleToggle}
+              >
+                <ArrowDropDownIcon />
+              </Button>
+            </ButtonGroup>
+            <Popper open={open} anchorEl={anchorRef.current} transition disablePortal>
+              {({ TransitionProps, placement }): React.ReactElement<any> => (
+                <Grow
+                  {...TransitionProps}
+                  style={{
+                    transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
+                  }}
+                >
+                  <Paper id="menu-list-grow">
+                    <ClickAwayListener onClickAway={handleClose}>
+                      <MenuList>
+                        {myTexts.save.map((option, index): React.ReactNode => (
+                          <MenuItem
+                            key={option}
+                            disabled={index === 2}
+                            selected={index === selectedIndex}
+                            onClick={(event): void => handleMenuItemClick(event, index)}
+                          >
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Grow>
+              )}
+            </Popper>
+          </Grid>
+        </Grid>
       </MuiPickersUtilsProvider>
     </form>
   );
