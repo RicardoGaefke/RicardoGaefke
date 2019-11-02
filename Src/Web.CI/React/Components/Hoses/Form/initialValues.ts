@@ -7,7 +7,7 @@ const initialValues: IHose = {
   Installation: new Date().toISOString(),
   Technician: 0,
   Assistant: 0,
-  Code: 'ABC',
+  Code: '',
   Tag: '',
   DetachedCode: '',
   Brand: 0,
@@ -36,6 +36,16 @@ const initialValues: IHose = {
   Adapter2Abrasion: 0,
   Angle: 0,
   Radius: 0,
+  Recommended: 90,
+  From: '',
+  To: '',
+  Status: true,
+  Reason: '',
+  Attachements: [],
+  Notice: '',
+  Stop: false,
+  Start: new Date().toISOString(),
+  End: new Date().toISOString(),
 };
 
 export default initialValues;

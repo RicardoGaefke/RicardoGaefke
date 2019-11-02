@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import React from 'react';
@@ -14,17 +15,26 @@ import {
   InputAdornment,
   FormHelperText,
   FormLabel,
+  Divider,
+  List,
+  ListItem,
+  ListItemIcon,
 } from '@material-ui/core';
+import AttachmentIcon from '@material-ui/icons/Attachment';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
+  KeyboardTimePicker,
 } from '@material-ui/pickers';
+import { DropzoneArea } from 'material-ui-dropzone';
 import { useStateValue } from '../../../Utils/StateProvider';
 // eslint-disable-next-line no-unused-vars
-import useStyles, { IStyles } from './formStyles';
+import useStyles, { IStyles } from './form.styles';
 // eslint-disable-next-line no-unused-vars
 import { IHose } from '../../../../../TypeScript/Utils/IHose';
-import formLangs from './formLangs';
+// eslint-disable-next-line no-unused-vars
+import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
+import formLangs from './form.langs';
 import initialValues from './initialValues';
 
 const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
@@ -103,10 +113,17 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             />
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           container
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.technical}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -178,10 +195,22 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               }}
             />
           </Grid>
+        </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
+        <Grid
+          container
+          spacing={2}
+        >
           <Grid
             item
             xs={12}
-            md={4}
+          >
+            <FormLabel component="legend">{myTexts.description}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={3}
           >
             <TextField
               margin="dense"
@@ -194,7 +223,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.Code && touched.Code) && errors.Code}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
             />
@@ -202,7 +231,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <TextField
               margin="dense"
@@ -215,7 +244,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.Tag && touched.Tag) && errors.Tag}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
             />
@@ -223,7 +252,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <TextField
               margin="dense"
@@ -236,7 +265,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.DetachedCode && touched.DetachedCode) && errors.DetachedCode}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
             />
@@ -244,7 +273,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
@@ -269,14 +298,14 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
               variant="filled"
               className={classes.item}
             >
-              <InputLabel htmlFor="Hose-Assistant">{myTexts.rule}</InputLabel>
+              <InputLabel htmlFor="Hose-Rule">{myTexts.rule}</InputLabel>
               <Select
                 value={values.Rule}
                 onChange={handleChange}
@@ -294,7 +323,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
@@ -331,7 +360,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
@@ -356,7 +385,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
@@ -379,11 +408,18 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           alignItems="center"
           container
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.workPressureLegend}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -400,7 +436,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.WorkPressure && touched.WorkPressure) && errors.WorkPressure}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
               type="number"
@@ -415,7 +451,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             md={4}
           >
             <FormControl
-              margin="dense"
+              margin="none"
               component="fieldset"
               className={classes.item}
             >
@@ -491,18 +527,25 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.WorkPressureOverRule && touched.WorkPressureOverRule) && errors.WorkPressureOverRule}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
               type="number"
             />
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           alignItems="center"
           container
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.size}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -520,6 +563,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               <Input
                 id="Length"
                 name="Length"
+                type="number"
                 value={values.Length}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -554,6 +598,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               <Input
                 id="Lengthm"
                 name="Lengthm"
+                type="number"
                 value={((values.Length || 0) / 100)}
                 onChange={(event: React.ChangeEvent<{ value: unknown }>): void => {
                   setFieldValue('Length', (event.target.value as number * 100));
@@ -590,6 +635,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               <Input
                 id="Lengthp"
                 name="Lengthp"
+                type="number"
                 value={((values.Length || 0) / 25.4)}
                 onChange={(event: React.ChangeEvent<{ value: unknown }>): void => {
                   setFieldValue('Length', (event.target.value as number * 25.4));
@@ -610,12 +656,19 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           container
           justify="center"
           alignItems="center"
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.terminal1}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -719,7 +772,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -745,7 +798,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <TextField
               margin="dense"
@@ -766,7 +819,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -790,12 +843,19 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           container
           justify="center"
           alignItems="center"
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.terminal2}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -899,7 +959,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -925,7 +985,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <TextField
               margin="dense"
@@ -946,7 +1006,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -970,6 +1030,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           container
           justify="center"
@@ -979,7 +1040,13 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+          >
+            <FormLabel component="legend">{myTexts.additional}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -1005,7 +1072,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -1028,7 +1095,30 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               </Select>
             </FormControl>
           </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <TextField
+              margin="dense"
+              error={errors.Recommended as any && touched.Recommended as any}
+              label={myTexts.recommended}
+              title={myTexts.recommended}
+              name="Recommended"
+              id="Recommended"
+              value={values.Recommended}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.Recommended && touched.Recommended) && errors.Recommended}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+              type="number"
+            />
+          </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <FormLabel component="legend">{myTexts.criticality}</FormLabel>
         <Grid
           container
@@ -1197,6 +1287,311 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          spacing={2}
+        >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.location}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <TextField
+              margin="dense"
+              error={errors.From as any && touched.From as any}
+              label={myTexts.from}
+              title={myTexts.from}
+              name="From"
+              id="From"
+              value={values.From}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.From && touched.From) && errors.From}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <TextField
+              margin="dense"
+              error={errors.To as any && touched.To as any}
+              label={myTexts.to}
+              title={myTexts.to}
+              name="To"
+              id="To"
+              value={values.To}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.To && touched.To) && errors.To}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
+        <Grid
+          container
+          justify="flex-start"
+          alignItems="flex-start"
+          spacing={2}
+        >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.result}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={3}
+          >
+            <FormControl
+              margin="dense"
+              component="fieldset"
+              className={classes.item}
+            >
+              <FormControlLabel
+                control={
+                  (
+                    <Switch
+                      checked={values.Status}
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                        setFieldValue('Status', event.target.checked);
+
+                        if (!event.target.checked) {
+                          setFieldValue('Reason', 0);
+                        }
+                      }}
+                      value="Status"
+                      color="primary"
+                      inputProps={{
+                        'aria-label': myTexts.result,
+                        id: 'Status',
+                        name: 'Status',
+                      }}
+                    />
+                  )
+                }
+                label={((values.Status) ? myTexts.approved : myTexts.disapproved)}
+              />
+            </FormControl>
+
+            {
+              (values.Status) ? (
+                null
+              ) : (
+                <FormControl
+                  margin="dense"
+                  variant="filled"
+                  className={classes.item}
+                >
+                  <InputLabel htmlFor="Hose-Reason">{myTexts.reason}</InputLabel>
+                  <Select
+                    value={values.Reason}
+                    onChange={handleChange}
+                    inputProps={{
+                      name: 'Reason',
+                      id: 'Hose-Reason',
+                    }}
+                  >
+                    <MenuItem value="0">&nbsp;</MenuItem>
+                    <MenuItem value="1">Reason 01</MenuItem>
+                    <MenuItem value="2">Reason 02</MenuItem>
+                  </Select>
+                </FormControl>
+              )
+            }
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={5}
+          >
+            <DropzoneArea
+              filesLimit={2}
+              maxFileSize={307200}
+              acceptedFiles={[
+                'image/jpeg',
+                'image/png',
+              ]}
+              showPreviews={false}
+              showPreviewsInDropzone
+              dropzoneText={myTexts.dropzoneText}
+              dropzoneClass={classes.dropzone}
+              showAlerts={false}
+              onChange={(files: File[]): void => {
+                const myFiles: IAttachment[] = [];
+
+                files.forEach((f: File): void => {
+                  myFiles.push({
+                    name: f.name,
+                    mime: f.type,
+                  });
+                });
+
+                setFieldValue('Attachements', myFiles);
+              }}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <List>
+              {
+                ((values.Attachements || []).length === 0) ? (
+                  <ListItem>
+                    <ListItemText primary={myTexts.noAttachments} />
+                  </ListItem>
+                ) : ((values.Attachements || []).map((f: IAttachment, i: number): React.ReactNode => (
+                  <ListItem>
+                    <ListItemIcon>
+                      <AttachmentIcon />
+                    </ListItemIcon>
+                    <ListItemText key={f.name + i.toString()} primary={f.name} />
+                  </ListItem>
+                )))}
+            </List>
+          </Grid>
+        </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
+        <Grid
+          container
+          justify="flex-start"
+          alignItems="flex-start"
+          spacing={2}
+        >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.finalRecommendations}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={6}
+          >
+            <TextField
+              multiline
+              rows="7"
+              rowsMax="7"
+              margin="dense"
+              error={errors.Notice as any && touched.Notice as any}
+              label={myTexts.notice}
+              title={myTexts.notice}
+              name="Notice"
+              id="Notice"
+              value={values.Notice}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.Notice && touched.Notice) && errors.Notice}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={6}
+          >
+            <FormControl
+              margin="none"
+              component="fieldset"
+              className={classes.item}
+            >
+              <FormGroup>
+                <FormControlLabel
+                  control={
+                    (
+                      <Switch
+                        checked={values.Stop}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                          if (!event.target.checked) {
+                            setFieldValue('Stop', false);
+                          } else {
+                            setFieldValue('Stop', true);
+                          }
+                        }}
+                        value="Stop"
+                        color="primary"
+                        inputProps={{
+                          'aria-label': myTexts.idleness.stop,
+                          id: 'Stop',
+                          name: 'Stop',
+                        }}
+                      />
+                    )
+                  }
+                  label={myTexts.idleness.stop}
+                />
+              </FormGroup>
+            </FormControl>
+            {
+              (values.Stop) ? (
+                <>
+                  <FormControl
+                    margin="none"
+                    component="fieldset"
+                    className={classes.item}
+                  >
+                    <KeyboardTimePicker
+                      margin="none"
+                      id="Hose-Start"
+                      label={myTexts.idleness.start}
+                      value={values.Start}
+                      onChange={(value: Date): void => {
+                        setFieldValue('Start', value.toISOString());
+                      }}
+                      KeyboardButtonProps={{
+                        'aria-label': myTexts.idleness.start,
+                      }}
+                    />
+                  </FormControl>
+                  <FormControl
+                    margin="none"
+                    component="fieldset"
+                    className={classes.item}
+                  >
+                    <KeyboardTimePicker
+                      margin="none"
+                      id="Hose-End"
+                      label={myTexts.idleness.end}
+                      value={values.End}
+                      onChange={(value: Date): void => {
+                        setFieldValue('End', value.toISOString());
+                      }}
+                      KeyboardButtonProps={{
+                        'aria-label': myTexts.idleness.end,
+                      }}
+                    />
+                  </FormControl>
+                </>
+              ) : (
+                null
+              )
+            }
+          </Grid>
+        </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Button
           color="primary"
           variant="contained"
