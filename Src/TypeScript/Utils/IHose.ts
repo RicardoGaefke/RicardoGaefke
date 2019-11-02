@@ -1,6 +1,5 @@
 import { IAttachment } from './IAttachment';
 import { IDowntime } from './IDowntime';
-import { IIdleness } from './IIdleness';
 
 export interface IHose {
   Id?: number,

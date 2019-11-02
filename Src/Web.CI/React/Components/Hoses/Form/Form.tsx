@@ -33,8 +33,6 @@ import useStyles, { IStyles } from './form.styles';
 // eslint-disable-next-line no-unused-vars
 import { IHose } from '../../../../../TypeScript/Utils/IHose';
 // eslint-disable-next-line no-unused-vars
-import { IIdleness } from '../../../../../TypeScript/Utils/IIdleness';
-// eslint-disable-next-line no-unused-vars
 import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import formLangs from './form.langs';
 import initialValues from './initialValues';
