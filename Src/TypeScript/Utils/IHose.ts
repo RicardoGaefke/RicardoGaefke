@@ -49,5 +49,4 @@ export interface IHose {
   Recommended?: number,
   Notice?: string
   Attachements?: IAttachment[],
-  Downtimes?: IDowntime[]
 }

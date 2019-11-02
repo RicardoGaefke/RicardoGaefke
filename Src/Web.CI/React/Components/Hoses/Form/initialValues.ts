@@ -39,6 +39,10 @@ const initialValues: IHose = {
   Recommended: 90,
   From: '',
   To: '',
+  Status: true,
+  Reason: '',
+  Attachements: [],
+  Notice: '',
 };
 
 export default initialValues;

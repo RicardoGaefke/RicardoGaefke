@@ -1,4 +1,7 @@
 export interface IAttachment {
-  file: string,
-  description?: string
+  name: string,
+  description?: string,
+  mime?: string,
+  size?: number,
+  content?: string,
 }

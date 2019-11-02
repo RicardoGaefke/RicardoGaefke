@@ -58,4 +58,12 @@ export interface IHoseForm {
   location: string,
   from: string,
   to: string,
+  result: string,
+  approved: string,
+  reason: string,
+  disapproved: string,
+  dropzoneText: string,
+  noAttachments: string,
+  finalRecommendations: string,
+  notice: string,
 }

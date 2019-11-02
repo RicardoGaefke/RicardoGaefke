@@ -76,6 +76,14 @@ const formLangs = (l: string): IHoseForm => {
     location: 'Localização',
     from: 'De',
     to: 'Para',
+    result: 'Resultado',
+    reason: 'Motivo',
+    approved: 'Aprovado',
+    disapproved: 'Reprovado',
+    dropzoneText: 'Arraste e solte um arquivo JPG ou PNG de até 300kb ou clique',
+    noAttachments: 'Nenhum arquivo anexo!',
+    finalRecommendations: 'Recomendações finais',
+    notice: 'Observações',
   };
 
   const formENG: IHoseForm = {
@@ -152,6 +160,14 @@ const formLangs = (l: string): IHoseForm => {
     location: 'Location',
     from: 'From',
     to: 'To',
+    result: 'Result',
+    reason: 'Reason',
+    approved: 'Approved',
+    disapproved: 'Disapproved',
+    dropzoneText: 'Drag and drop a JPEG or PNG file up to 300kb here or click',
+    noAttachments: 'No attachments yet!',
+    finalRecommendations: 'Final recommendations',
+    notice: 'Notice',
   };
 
   if (l === 'PT') return formPT;

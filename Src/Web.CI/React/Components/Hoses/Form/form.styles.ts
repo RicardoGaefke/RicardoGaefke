@@ -6,6 +6,7 @@ export interface IStyles {
   container: any,
   item: any,
   divider: any,
+  dropzone: any,
 }
 
 const useStyles = makeStyles((theme: Theme): IStyles => ({
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme: Theme): IStyles => ({
   divider: {
     marginBottom: theme.spacing(1),
     marginTop: theme.spacing(1),
+  },
+  dropzone: {
+    color: 'black',
   },
 }));
 

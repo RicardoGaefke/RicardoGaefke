@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import React from 'react';
@@ -15,16 +16,23 @@ import {
   FormHelperText,
   FormLabel,
   Divider,
+  List,
+  ListItem,
+  ListItemIcon,
 } from '@material-ui/core';
+import AttachmentIcon from '@material-ui/icons/Attachment';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+import { DropzoneArea } from 'material-ui-dropzone';
 import { useStateValue } from '../../../Utils/StateProvider';
 // eslint-disable-next-line no-unused-vars
 import useStyles, { IStyles } from './form.styles';
 // eslint-disable-next-line no-unused-vars
 import { IHose } from '../../../../../TypeScript/Utils/IHose';
+// eslint-disable-next-line no-unused-vars
+import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import formLangs from './form.langs';
 import initialValues from './initialValues';
 
@@ -296,7 +304,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               variant="filled"
               className={classes.item}
             >
-              <InputLabel htmlFor="Hose-Assistant">{myTexts.rule}</InputLabel>
+              <InputLabel htmlFor="Hose-Rule">{myTexts.rule}</InputLabel>
               <Select
                 value={values.Rule}
                 onChange={handleChange}
@@ -1328,6 +1336,172 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.To && touched.To) && errors.To}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
+        <Grid
+          container
+          justify="flex-start"
+          alignItems="flex-start"
+          spacing={2}
+        >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.result}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={3}
+          >
+            <FormControl
+              margin="dense"
+              component="fieldset"
+              className={classes.item}
+            >
+              <FormControlLabel
+                control={
+                  (
+                    <Switch
+                      checked={values.Status}
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                        setFieldValue('Status', event.target.checked);
+
+                        if (!event.target.checked) {
+                          setFieldValue('Reason', 0);
+                        }
+                      }}
+                      value="Status"
+                      color="primary"
+                      inputProps={{
+                        'aria-label': myTexts.result,
+                        id: 'Status',
+                        name: 'Status',
+                      }}
+                    />
+                  )
+                }
+                label={((values.Status) ? myTexts.approved : myTexts.disapproved)}
+              />
+            </FormControl>
+
+            {
+              (values.Status) ? (
+                null
+              ) : (
+                <FormControl
+                  margin="dense"
+                  variant="filled"
+                  className={classes.item}
+                >
+                  <InputLabel htmlFor="Hose-Reason">{myTexts.reason}</InputLabel>
+                  <Select
+                    value={values.Reason}
+                    onChange={handleChange}
+                    inputProps={{
+                      name: 'Reason',
+                      id: 'Hose-Reason',
+                    }}
+                  >
+                    <MenuItem value="0">&nbsp;</MenuItem>
+                    <MenuItem value="1">Reason 01</MenuItem>
+                    <MenuItem value="2">Reason 02</MenuItem>
+                  </Select>
+                </FormControl>
+              )
+            }
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={5}
+          >
+            <DropzoneArea
+              filesLimit={2}
+              maxFileSize={307200}
+              acceptedFiles={[
+                'image/jpeg',
+                'image/png',
+              ]}
+              showPreviews={false}
+              showPreviewsInDropzone
+              dropzoneText={myTexts.dropzoneText}
+              dropzoneClass={classes.dropzone}
+              showAlerts={false}
+              onChange={(files: File[]): void => {
+                const myFiles: IAttachment[] = [];
+
+                files.forEach((f: File): void => {
+                  myFiles.push({
+                    name: f.name,
+                    mime: f.type,
+                  });
+                });
+
+                setFieldValue('Attachements', myFiles);
+              }}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <List>
+              {
+                ((values.Attachements || []).length === 0) ? (
+                  <ListItem>
+                    <ListItemText primary={myTexts.noAttachments} />
+                  </ListItem>
+                ) : ((values.Attachements || []).map((f: IAttachment): React.ReactNode => (
+                  <ListItem>
+                    <ListItemIcon>
+                      <AttachmentIcon />
+                    </ListItemIcon>
+                    <ListItemText key={f.name} primary={f.name} />
+                  </ListItem>
+                )))}
+            </List>
+          </Grid>
+        </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
+        <Grid
+          container
+          justify="flex-start"
+          alignItems="center"
+          spacing={2}
+        >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.finalRecommendations}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={5}
+          >
+            <TextField
+              multiline
+              rows="5"
+              rowsMax="5"
+              margin="dense"
+              error={errors.Notice as any && touched.Notice as any}
+              label={myTexts.notice}
+              title={myTexts.notice}
+              name="Notice"
+              id="Notice"
+              value={values.Notice}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.Notice && touched.Notice) && errors.Notice}
               variant="filled"
               className={classes.item}
               fullWidth
