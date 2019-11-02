@@ -62,7 +62,6 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [ASP.NET Core](https://docs.microsoft.com/pt-br/aspnet/core/?view=aspnetcore-3.0) - High-performance, open-source , multi-format framework for building modern Internet-connected and cloud-based applications.
-* [SSR React](https://www.npmjs.com/package/react-ssr) - React server-side rendering solution.
 * [Azure SQL](https://docs.microsoft.com/pt-br/azure/) - A cloud plataform.
 * [Typescript](https://www.typescriptlang.org/) - Typed superset of JavaScript that compiles to plain JavaScript.
 
