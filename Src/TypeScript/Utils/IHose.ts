@@ -42,12 +42,14 @@ export interface IHose {
   Operability?: boolean,
   Accessibility?: boolean,
   Abrasion?: boolean,
-  From?: number,
-  To?: number,
+  From?: string,
+  To?: string,
   Status?: boolean,
   Reason?: string,
   Recommended?: number,
   Notice?: string
   Attachements?: IAttachment[],
-  Downtimes?: IDowntime[]
+  Stop: boolean,
+  Start: string,
+  End: string,
 }
