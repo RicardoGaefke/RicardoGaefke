@@ -14,6 +14,7 @@ import {
   InputAdornment,
   FormHelperText,
   FormLabel,
+  Divider,
 } from '@material-ui/core';
 import {
   MuiPickersUtilsProvider,
@@ -21,10 +22,10 @@ import {
 } from '@material-ui/pickers';
 import { useStateValue } from '../../../Utils/StateProvider';
 // eslint-disable-next-line no-unused-vars
-import useStyles, { IStyles } from './formStyles';
+import useStyles, { IStyles } from './form.styles';
 // eslint-disable-next-line no-unused-vars
 import { IHose } from '../../../../../TypeScript/Utils/IHose';
-import formLangs from './formLangs';
+import formLangs from './form.langs';
 import initialValues from './initialValues';
 
 const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
@@ -103,10 +104,17 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             />
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           container
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.technical}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -178,10 +186,22 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               }}
             />
           </Grid>
+        </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
+        <Grid
+          container
+          spacing={2}
+        >
           <Grid
             item
             xs={12}
-            md={4}
+          >
+            <FormLabel component="legend">{myTexts.description}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={3}
           >
             <TextField
               margin="dense"
@@ -194,7 +214,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.Code && touched.Code) && errors.Code}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
             />
@@ -202,7 +222,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <TextField
               margin="dense"
@@ -215,7 +235,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.Tag && touched.Tag) && errors.Tag}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
             />
@@ -223,7 +243,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <TextField
               margin="dense"
@@ -236,7 +256,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.DetachedCode && touched.DetachedCode) && errors.DetachedCode}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
             />
@@ -244,7 +264,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
@@ -269,7 +289,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
@@ -294,7 +314,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
@@ -331,7 +351,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
@@ -356,7 +376,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={4}
+            md={3}
           >
             <FormControl
               margin="dense"
@@ -379,11 +399,18 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           alignItems="center"
           container
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.workPressureLegend}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -400,7 +427,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.WorkPressure && touched.WorkPressure) && errors.WorkPressure}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
               type="number"
@@ -415,7 +442,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             md={4}
           >
             <FormControl
-              margin="dense"
+              margin="none"
               component="fieldset"
               className={classes.item}
             >
@@ -491,18 +518,25 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               onChange={handleChange}
               onBlur={handleBlur}
               helperText={(errors.WorkPressureOverRule && touched.WorkPressureOverRule) && errors.WorkPressureOverRule}
-              variant="outlined"
+              variant="filled"
               className={classes.item}
               fullWidth
               type="number"
             />
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           alignItems="center"
           container
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.size}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -520,6 +554,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               <Input
                 id="Length"
                 name="Length"
+                type="number"
                 value={values.Length}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -554,6 +589,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               <Input
                 id="Lengthm"
                 name="Lengthm"
+                type="number"
                 value={((values.Length || 0) / 100)}
                 onChange={(event: React.ChangeEvent<{ value: unknown }>): void => {
                   setFieldValue('Length', (event.target.value as number * 100));
@@ -590,6 +626,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               <Input
                 id="Lengthp"
                 name="Lengthp"
+                type="number"
                 value={((values.Length || 0) / 25.4)}
                 onChange={(event: React.ChangeEvent<{ value: unknown }>): void => {
                   setFieldValue('Length', (event.target.value as number * 25.4));
@@ -610,12 +647,19 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           container
           justify="center"
           alignItems="center"
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.terminal1}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -719,7 +763,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -745,7 +789,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <TextField
               margin="dense"
@@ -766,7 +810,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -790,12 +834,19 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           container
           justify="center"
           alignItems="center"
           spacing={2}
         >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.terminal2}</FormLabel>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -899,7 +950,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -925,7 +976,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <TextField
               margin="dense"
@@ -946,7 +997,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -970,6 +1021,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Grid
           container
           justify="center"
@@ -979,7 +1031,13 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+          >
+            <FormLabel component="legend">{myTexts.additional}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -1005,7 +1063,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl
               margin="dense"
@@ -1028,7 +1086,30 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               </Select>
             </FormControl>
           </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <TextField
+              margin="dense"
+              error={errors.Recommended as any && touched.Recommended as any}
+              label={myTexts.recommended}
+              title={myTexts.recommended}
+              name="Recommended"
+              id="Recommended"
+              value={values.Recommended}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.Recommended && touched.Recommended) && errors.Recommended}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+              type="number"
+            />
+          </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <FormLabel component="legend">{myTexts.criticality}</FormLabel>
         <Grid
           container
@@ -1197,6 +1278,63 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
             </FormControl>
           </Grid>
         </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          spacing={2}
+        >
+          <Grid
+            item
+            xs={12}
+          >
+            <FormLabel component="legend">{myTexts.location}</FormLabel>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <TextField
+              margin="dense"
+              error={errors.From as any && touched.From as any}
+              label={myTexts.from}
+              title={myTexts.from}
+              name="From"
+              id="From"
+              value={values.From}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.From && touched.From) && errors.From}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <TextField
+              margin="dense"
+              error={errors.To as any && touched.To as any}
+              label={myTexts.to}
+              title={myTexts.to}
+              name="To"
+              id="To"
+              value={values.To}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.To && touched.To) && errors.To}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+        <Divider variant="fullWidth" className={classes.divider} />
         <Button
           color="primary"
           variant="contained"

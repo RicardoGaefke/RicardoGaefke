@@ -4,7 +4,8 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export interface IStyles {
   root: any,
   container: any,
-  item: any
+  item: any,
+  divider: any,
 }
 
 const useStyles = makeStyles((theme: Theme): IStyles => ({
@@ -18,6 +19,10 @@ const useStyles = makeStyles((theme: Theme): IStyles => ({
     marginBottom: theme.spacing(1),
     marginTop: theme.spacing(1),
     width: '100%',
+  },
+  divider: {
+    marginBottom: theme.spacing(1),
+    marginTop: theme.spacing(1),
   },
 }));
 
