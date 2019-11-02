@@ -1,5 +1,6 @@
 import { IAttachment } from './IAttachment';
 import { IDowntime } from './IDowntime';
+import { IIdleness } from './IIdleness';
 
 export interface IHose {
   Id?: number,
@@ -49,4 +50,7 @@ export interface IHose {
   Recommended?: number,
   Notice?: string
   Attachements?: IAttachment[],
+  Stop: boolean,
+  Start: string,
+  End: string,
 }

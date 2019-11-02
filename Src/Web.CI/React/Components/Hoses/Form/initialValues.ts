@@ -43,6 +43,9 @@ const initialValues: IHose = {
   Reason: '',
   Attachements: [],
   Notice: '',
+  Stop: false,
+  Start: new Date().toISOString(),
+  End: new Date().toISOString(),
 };
 
 export default initialValues;

@@ -24,6 +24,7 @@ import AttachmentIcon from '@material-ui/icons/Attachment';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
+  KeyboardTimePicker,
 } from '@material-ui/pickers';
 import { DropzoneArea } from 'material-ui-dropzone';
 import { useStateValue } from '../../../Utils/StateProvider';
@@ -31,6 +32,8 @@ import { useStateValue } from '../../../Utils/StateProvider';
 import useStyles, { IStyles } from './form.styles';
 // eslint-disable-next-line no-unused-vars
 import { IHose } from '../../../../../TypeScript/Utils/IHose';
+// eslint-disable-next-line no-unused-vars
+import { IIdleness } from '../../../../../TypeScript/Utils/IIdleness';
 // eslint-disable-next-line no-unused-vars
 import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import formLangs from './form.langs';
@@ -1459,12 +1462,12 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                   <ListItem>
                     <ListItemText primary={myTexts.noAttachments} />
                   </ListItem>
-                ) : ((values.Attachements || []).map((f: IAttachment): React.ReactNode => (
+                ) : ((values.Attachements || []).map((f: IAttachment, i: number): React.ReactNode => (
                   <ListItem>
                     <ListItemIcon>
                       <AttachmentIcon />
                     </ListItemIcon>
-                    <ListItemText key={f.name} primary={f.name} />
+                    <ListItemText key={f.name + i.toString()} primary={f.name} />
                   </ListItem>
                 )))}
             </List>
@@ -1474,7 +1477,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
         <Grid
           container
           justify="flex-start"
-          alignItems="center"
+          alignItems="flex-start"
           spacing={2}
         >
           <Grid
@@ -1486,12 +1489,12 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           <Grid
             item
             xs={12}
-            md={5}
+            md={6}
           >
             <TextField
               multiline
-              rows="5"
-              rowsMax="5"
+              rows="7"
+              rowsMax="7"
               margin="dense"
               error={errors.Notice as any && touched.Notice as any}
               label={myTexts.notice}
@@ -1506,6 +1509,88 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
               className={classes.item}
               fullWidth
             />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={6}
+          >
+            <FormControl
+              margin="none"
+              component="fieldset"
+              className={classes.item}
+            >
+              <FormGroup>
+                <FormControlLabel
+                  control={
+                    (
+                      <Switch
+                        checked={values.Stop}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
+                          if (!event.target.checked) {
+                            setFieldValue('Stop', false);
+                          } else {
+                            setFieldValue('Stop', true);
+                          }
+                        }}
+                        value="Stop"
+                        color="primary"
+                        inputProps={{
+                          'aria-label': myTexts.idleness.stop,
+                          id: 'Stop',
+                          name: 'Stop',
+                        }}
+                      />
+                    )
+                  }
+                  label={myTexts.idleness.stop}
+                />
+              </FormGroup>
+            </FormControl>
+            {
+              (values.Stop) ? (
+                <>
+                  <FormControl
+                    margin="none"
+                    component="fieldset"
+                    className={classes.item}
+                  >
+                    <KeyboardTimePicker
+                      margin="none"
+                      id="Hose-Start"
+                      label={myTexts.idleness.start}
+                      value={values.Start}
+                      onChange={(value: Date): void => {
+                        setFieldValue('Start', value.toISOString());
+                      }}
+                      KeyboardButtonProps={{
+                        'aria-label': myTexts.idleness.start,
+                      }}
+                    />
+                  </FormControl>
+                  <FormControl
+                    margin="none"
+                    component="fieldset"
+                    className={classes.item}
+                  >
+                    <KeyboardTimePicker
+                      margin="none"
+                      id="Hose-End"
+                      label={myTexts.idleness.end}
+                      value={values.End}
+                      onChange={(value: Date): void => {
+                        setFieldValue('End', value.toISOString());
+                      }}
+                      KeyboardButtonProps={{
+                        'aria-label': myTexts.idleness.end,
+                      }}
+                    />
+                  </FormControl>
+                </>
+              ) : (
+                null
+              )
+            }
           </Grid>
         </Grid>
         <Divider variant="fullWidth" className={classes.divider} />

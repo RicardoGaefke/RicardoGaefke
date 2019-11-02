@@ -66,4 +66,9 @@ export interface IHoseForm {
   noAttachments: string,
   finalRecommendations: string,
   notice: string,
+  idleness: {
+    stop: string,
+    start: string,
+    end: string,
+  },
 }
