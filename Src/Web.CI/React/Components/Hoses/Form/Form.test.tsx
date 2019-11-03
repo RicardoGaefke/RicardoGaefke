@@ -3,12 +3,6 @@ import chai, { expect } from 'chai';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import chaiEnzyme from 'chai-enzyme';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
-import SuperForm from './Form';
-import AppTest from './AppTest';
 
 chai.use(chaiEnzyme());
 Enzyme.configure({ adapter: new Adapter() });
@@ -19,20 +13,9 @@ describe('Form Tests', () => {
             const wrap = true;
             expect(wrap).to.equal(true);
         });
-        it('Should exist AppTest', () => {
-            const wrap = shallow(<AppTest />);
-            expect(wrap).to.exist;
+        it('Should exist Somando', () => {
+            const wrapper = shallow(<h1>Hello</h1>);
+            expect(wrapper.find('h1').props().children).equal('Hello');
         });
     });
-    
-    /*describe('Tags Existence', () => {
-        it('Should exist tag Form equal 1 when is called', () => {
-            const wrap = shallow(<SuperForm />);
-            expect(wrap.find('form')).to.have.length(1);
-        });
-        it('Should exist tag MuiPickersUtilsProvider equal 1 when is called', () => {
-            const wrap = shallow(<SuperForm />);
-            expect(wrap.find(MuiPickersUtilsProvider)).to.have.length(1);
-        });
-    });*/
 });
