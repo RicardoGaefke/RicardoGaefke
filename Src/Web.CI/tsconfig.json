@@ -3,12 +3,24 @@
     "outDir": "./wwwroot/dist",
     "sourceMap": true,
     "strictNullChecks": true,
-    "module": "es6",
+    "module": "esnext",
     "jsx": "react",
     "target": "es5",
     "allowJs": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "include": [
     "./React"

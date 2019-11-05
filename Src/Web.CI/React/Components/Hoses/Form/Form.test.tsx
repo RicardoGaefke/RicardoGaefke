@@ -17,5 +17,9 @@ describe('Form Tests', () => {
             const wrapper = shallow(<h1>Hello</h1>);
             expect(wrapper.find('h1').props().children).equal('Hello');
         });
+        it('Should return 20', () => {
+            const wrapper = 10 + 10;
+            expect(wrapper).to.be.equal(20);
+        });
     });
 });

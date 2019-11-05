@@ -10,7 +10,8 @@
     "build": "webpack --config webpack.dev.js --progress --color",
     "production": "webpack --config webpack.prod.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "mocha React/Components/Hoses/Form/**.test.tsx --require babel-register"
+    "test:mocha": "mocha React/Components/Hoses/Form/**.test.tsx --require babel-register",
+    "test": "react-scripts test"
   },
   "keywords": [],
   "author": "Ricardo Gaefke <ricardogaefke@gmail.com> (https://ricardogaefke.com/)",
@@ -76,14 +77,14 @@
     "@typescript-eslint/parser": "^1.9.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "css-loader": "^3.0.0",
-    "eslint": "^5.16.0",
+    "eslint": "^6.1.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-babel": "^5.3.0",
@@ -93,12 +94,13 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "react-docgen-typescript-loader": "^3.1.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "react-scripts": "^3.2.0",
     "react-test-render": "^1.1.2",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "typescript": "^3.6.3",
-    "webpack": "^4.34.0",
+    "webpack": "^4.41.0",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.2.1"
   }
 }
