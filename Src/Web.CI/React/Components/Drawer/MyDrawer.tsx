@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import {
   // eslint-disable-next-line no-unused-vars
-  makeStyles, Theme,
+  makeStyles, Theme, withStyles,
 } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -12,76 +12,20 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/icons/Menu';
 import MenuOpen from '@material-ui/icons/MenuOpen';
-import MyDrawerLangs from './MyDrawerLangs';
+import MyDrawerLangs from './MyDrawer.langs';
 import { useStateValue } from '../../Utils/StateProvider';
 import NavigationTree from '../NavigationTree/MyNavigationTree';
 import MyCompanySelect from '../SelectCompany/MySelectCompany';
+// eslint-disable-next-line no-unused-vars
+import styles, { IStyles } from './MyDrawer.styles';
 import MyRouter from '../Router/Router';
 
-const drawerWidth = 450;
+interface IMyDrawer {
+  classes: IStyles,
+}
 
-const useStyles = makeStyles((theme): any => ({
-  root: {
-    display: 'flex',
-  },
-  appBar: {
-    marginTop: '65px',
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  hide: {
-    display: 'none',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    marginTop: '65px',
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    paddingTop: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-    marginBottom: '24px',
-  },
-}));
-
-const MyDrawer = (): React.ReactElement => {
-  const classes: any = useStyles({});
+const MyDrawer = (props: IMyDrawer): React.ReactElement => {
+  const { classes } = props;
 
   const [{ drawer, language, screen }, dispatch] = useStateValue();
 
@@ -144,4 +88,4 @@ const MyDrawer = (): React.ReactElement => {
   );
 };
 
-export default MyDrawer;
+export default withStyles(styles)(MyDrawer);

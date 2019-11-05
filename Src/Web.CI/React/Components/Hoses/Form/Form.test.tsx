@@ -1,29 +1,21 @@
-// import React from 'react';
-// import chai, { expect } from 'chai';
-// import Enzyme, { shallow } from 'enzyme';
-// import Adapter from 'enzyme-adapter-react-16';
-// import chaiEnzyme from 'chai-enzyme';
-// import { MuiPickersUtilsProvider } from '@material-ui/core/pickers';
-// import SuperForm from './Form';
+import React from 'react';
+import chai, { expect } from 'chai';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import chaiEnzyme from 'chai-enzyme';
 
-// Enzyme.configure({ adapter: new Adapter() });
-// chai.use(chaiEnzyme());
+chai.use(chaiEnzyme());
+Enzyme.configure({ adapter: new Adapter() });
 
-// describe('Form Tests', () => {
-//     describe('Smoke Tests', () => {
-//         it('Should exist SuperForm', () => {
-//             const wrap = shallow(<SuperForm />);
-//             expect(wrap).to.exist;
-//         });
-//     });
-//     describe('Tags Existence', () => {
-//         it('Should exist tag Form equal 1 when SuperForm is called', () => {
-//             const wrap = shallow(<SuperForm />);
-//             expect(wrap.find('form')).to.have.lenght(1);
-//         });
-//         it('Should exist tag MuiPickersUtilsProvider equal 1 when SuperForm is called', () => {
-//             const wrap = shallow(<SuperForm />);
-//             expect(wrap.find(MuiPickersUtilsProvider)).to.have.lenght(1);
-//         });
-//     });
-// });
+describe('Form Tests', () => {
+    describe('Smoke Tests', () => {
+        it('Should return true', () => {
+            const wrap = true;
+            expect(wrap).to.equal(true);
+        });
+        it('Should exist Somando', () => {
+            const wrapper = shallow(<h1>Hello</h1>);
+            expect(wrapper.find('h1').props().children).equal('Hello');
+        });
+    });
+});
