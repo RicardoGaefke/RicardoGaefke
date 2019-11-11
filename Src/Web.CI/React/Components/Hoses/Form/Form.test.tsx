@@ -1,28 +1,45 @@
+import React from 'react';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-import Enzyme from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 chai.use(chaiEnzyme());
 
-//import { sum } from '../../../../../../Src/Web.CI/React/Components/Hoses/Form/Sum';
+// Calling with: JSX
+import { Dividindo, BasicComponent } from '../Form/Div';
 
-const sub = (a: number, b: number): number => a - b;
- 
-import { Dividindo } from '../Form/Div';
+// Calling with: TSX
+//import { Sum } from '../Form/Sum';
 
 describe('Full Tests', () => {
-    it('Should return true', () => {
-        const wrap = true;
-        expect(wrap).be.equal(true);
+    context('Basic tests running', () => {
+        it('Should return true', () => {
+            const wrap = true;
+            expect(wrap).be.equal(true);
+        });
     });
-    it('Should return sum', () => {
-        const wrap = sub(10, 20);
-        expect(wrap).equal(-10);
+    context('Testing using JSX', () => {
+        it('Should return div', () => {
+            const wrap = Dividindo(10, 2);
+            expect(wrap).equal(5);
+        });
     });
-    it('Should return Div', () => {
-        const wrap = Dividindo(10, 2);
-        expect(wrap).equal(5);
+    context('Trying a simple component', () => {
+        it('Should return a basic component', () => {
+            const wrap = shallow(<BasicComponent />);
+            expect(wrap).to.exist;
+        });
+        it('Should return a basic component with a children', () => {
+            const wrap = shallow(<BasicComponent />);
+            expect(wrap.find('h1').props().children).equal('My Test Component');
+        });
     });
+    /*context('Testing using TSX', () => {
+        it('Should return sum', () => {
+            const wrap = Sum(10, 20);
+            expect(wrap).equal(30);
+        });
+    });*/
 });
