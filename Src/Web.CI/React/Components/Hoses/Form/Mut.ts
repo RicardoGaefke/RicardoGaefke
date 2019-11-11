@@ -1,0 +1,1 @@
+export const Mut = (a: number, b: number): number => a * b;

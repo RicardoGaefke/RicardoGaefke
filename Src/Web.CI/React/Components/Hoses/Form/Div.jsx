@@ -1,0 +1,1 @@
+export const Dividindo = (a, b) => a / b;
