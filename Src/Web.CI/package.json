@@ -10,7 +10,8 @@
     "build": "webpack --config webpack.dev.js --progress --color",
     "production": "webpack --config webpack.prod.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "mocha -r ts-node/register React/Components/Hoses/Form/Form.test.tsx"
+    "test": "mocha -r ts-node/register React/Components/Hoses/Form/Form.test.tsx",
+    "test:mocha": "mocha -r ts-mocha React/Components/Hoses/Form/Form.test.tsx"
   },
   "keywords": [],
   "author": "Ricardo Gaefke <ricardogaefke@gmail.com> (https://ricardogaefke.com/)",
@@ -67,6 +68,7 @@
     "@babel/preset-typescript": "^7.7.0",
     "@babel/register": "^7.6.2",
     "@types/chai": "^4.2.4",
+    "@types/expect": "^24.3.0",
     "@types/mocha": "^5.2.7",
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
@@ -98,6 +100,7 @@
     "react-test-render": "^1.1.2",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
+    "ts-mocha": "^6.0.0",
     "ts-node": "^8.5.0",
     "typescript": "^3.6.3",
     "webpack": "^4.41.0",
