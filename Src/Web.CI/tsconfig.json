@@ -1,27 +1,27 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
+    //"noImplicitAny": true,
     "outDir": "./wwwroot/dist",
     "sourceMap": true,
     "strictNullChecks": true,
     "module": "commonjs",
     "jsx": "react",
-    "target": "es2015",
+    "target": "es5",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "lib": [
+    /*"lib": [
       "dom",
       "dom.iterable",
       "esnext"
-    ],
-    "skipLibCheck": true,
+    ],*/
+    //"skipLibCheck": true,
     "esModuleInterop": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+    //"strict": true,
+    //"forceConsistentCasingInFileNames": true,
+    //"resolveJsonModule": true,
+    //"isolatedModules": true,
+    //"noEmit": true
   },
   "include": [
     "./React"
