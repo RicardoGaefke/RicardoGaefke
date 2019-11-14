@@ -9,10 +9,6 @@ import MyHoseAdd from '../Add/MyHoseAdd';
 chai.use(chaiEnzyme());
 Enzyme.configure({ adapter: new Adapter() });
 
-const teste = (a: number, b: number, c: number): number => {
-  return a + b + c;
-}
-
 describe('Full Tests', (): void => {
   describe('Smoke Tests', (): void => {
     it('Should exist SuperForm', (): void => {
@@ -25,9 +21,5 @@ describe('Full Tests', (): void => {
       // eslint-disable-next-line no-unused-expressions
       expect(wrapper).to.be.exist;
     });
-    it('Should exist TSX module', async () => {
-      const wrapper = teste(10, 10, 10);
-      expect(wrapper).to.be.equal(30);
-    })
   });
 });
