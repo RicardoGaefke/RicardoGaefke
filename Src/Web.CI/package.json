@@ -10,8 +10,21 @@
     "build": "webpack --config webpack.dev.js --progress --color",
     "production": "webpack --config webpack.prod.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "mocha -r ts-node/register React/Components/Hoses/Form/Form.test.tsx",
-    "test:mocha": "mocha -r ts-mocha React/Components/Hoses/Form/Form.test.tsx"
+    "test": "mocha -r ts-mocha React/Components/**/**/**.test.tsx",
+    "test:coverage": "nyc npm run test",
+    "coveralls": "npm run test && nyc report --reporter=lcov | coveralls"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "check-coverage": true,
+    "all": false,
+    "include": [
+      "React/Components/**/**/**.test.tsx"
+    ]
   },
   "keywords": [],
   "author": "Ricardo Gaefke <ricardogaefke@gmail.com> (https://ricardogaefke.com/)",
@@ -49,7 +62,6 @@
     "formik": "^2.0.3",
     "html-webpack-plugin": "^3.2.0",
     "material-ui-dropzone": "^2.4.5",
-    "nyc": "^14.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -67,6 +79,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.7.0",
     "@babel/register": "^7.6.2",
+    "@istanbuljs/nyc-config-typescript": "^0.1.3",
     "@types/chai": "^4.2.4",
     "@types/expect": "^24.3.0",
     "@types/mocha": "^5.2.7",
@@ -93,10 +106,12 @@
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "mocha": "^6.2.2",
+    "nyc": "^14.1.1",
     "react-docgen-typescript-loader": "^3.1.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-test-render": "^1.1.2",
     "source-map-loader": "^0.2.4",
+    "source-map-support": "^0.5.16",
     "style-loader": "^0.23.1",
     "ts-mocha": "^6.0.0",
     "ts-node": "^8.5.0",
