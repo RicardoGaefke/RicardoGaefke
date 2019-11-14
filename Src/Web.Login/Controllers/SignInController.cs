@@ -14,7 +14,7 @@ namespace MyApp.Web.Login.Controllers
   public class SignInController : ControllerBase
   {
     [HttpPost("in")]
-    public async Task<ActionResult<object>> In(User user)
+    public async Task<ActionResult<bool>> In(User user)
     {
       try
       {
@@ -66,9 +66,9 @@ namespace MyApp.Web.Login.Controllers
 
         return true;
       }
-      catch (System.Exception ex)
+      catch (System.Exception)
       {
-          return ex;
+          return false;
       }
       
     }
