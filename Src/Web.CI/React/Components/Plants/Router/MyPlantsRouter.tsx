@@ -7,8 +7,6 @@ import MyHoseAdd from '../../Hoses/Add/MyHoseAdd';
 const MyPlantRouter = (props: RouteComponentProps): React.ReactElement<any> => {
   const { match } = props;
 
-  console.log(match);
-
   return (
     <>
       <Route path={`${match.url}/`} exact component={MyInfo} />
