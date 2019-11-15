@@ -378,3 +378,5 @@ test.json
 
 # End of https://www.gitignore.io/api/node,aspnetcore,visualstudiocode
 Src/Web.Site/appsettings.json
+
+test.json
