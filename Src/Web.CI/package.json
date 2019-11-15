@@ -12,7 +12,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "mocha -r ts-mocha React/Components/**/**/**.test.tsx",
     "test:coverage": "nyc npm run test",
-    "coveralls": "npm run test && nyc report --reporter=lcov | coveralls"
+    "coveralls": "npm run lint-fix && npm run test && nyc report --reporter=lcov | coveralls"
   },
   "nyc": {
     "reporter": [
