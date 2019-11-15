@@ -1,14 +1,18 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
+import { Route, RouteComponentProps, withRouter } from 'react-router-dom';
 import MyInfo from '../Info/MyInfo';
 import MyHoseAdd from '../../Hoses/Add/MyHoseAdd';
 
-const MyPlantRouter = (): React.ReactElement<any> => (
-  <Switch>
-    <Route path="/" exact component={MyHoseAdd} />
-    <Route path="/add/" component={MyInfo} />
-    <Route component={MyHoseAdd} />
-  </Switch>
-);
+const MyPlantRouter = (props: RouteComponentProps): React.ReactElement<any> => {
+  const { match } = props;
 
-export default MyPlantRouter;
+  return (
+    <>
+      <Route path={`${match.url}/`} exact component={MyInfo} />
+      <Route path={`${match.path}/add/`} component={MyHoseAdd} />
+    </>
+  );
+};
+
+export default withRouter(MyPlantRouter);

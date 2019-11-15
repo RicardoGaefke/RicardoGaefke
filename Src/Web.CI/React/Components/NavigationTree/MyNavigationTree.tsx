@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link as RLink, withRouter } from 'react-router-dom';
+import { NavLink as RLink, withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 // eslint-disable-next-line no-unused-vars

@@ -1,4 +1,5 @@
-import React from 'react';
+// eslint-disable-next-line no-unused-vars
+import React, { ChangeEvent } from 'react';
 import {
   makeStyles, createStyles,
 } from '@material-ui/core/styles';
@@ -29,8 +30,8 @@ const MyTreeView = (): React.ReactElement<any> => {
       defaultExpandIcon={<PlusSquare />}
       defaultEndIcon={<PointSquare />}
       onNodeToggle={
-        (nodeId: string, expanded: boolean): void => {
-          console.log(nodeId, expanded);
+        (event: ChangeEvent<{}>, nodeIds: string[]): void => {
+          console.log(nodeIds, event);
         }
       }
     >
