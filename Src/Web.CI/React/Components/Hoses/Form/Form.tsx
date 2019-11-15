@@ -44,7 +44,7 @@ import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import formLangs from './form.langs';
 import initialValues from './initialValues';
 
-const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
+export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
   const [{ language }] = useStateValue();
   const myTexts = formLangs(language);
   const classes: IStyles = useStyles('');
