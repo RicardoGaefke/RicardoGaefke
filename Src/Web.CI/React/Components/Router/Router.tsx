@@ -7,9 +7,9 @@ import MyPlants from '../Plants/MyPlants';
 const MyRoutes = (): React.ReactElement<any> => (
   <Switch>
     <Route path="/" exact component={MyDashboard} />
-    <Route path="/dashboard/" exact component={MyDashboard} />
-    <Route path="/company/" exact component={MyCompany} />
-    <Route path="/plants/" exact component={MyPlants} />
+    <Route path="/dashboard" component={MyDashboard} />
+    <Route path="/company" component={MyCompany} />
+    <Route path="/plants" component={MyPlants} />
     <Route component={MyDashboard} />
   </Switch>
 );

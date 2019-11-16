@@ -6,32 +6,15 @@ import React from 'react';
 import { FormikProps, withFormik, FormikValues } from 'formik';
 import {
   Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem,
-  Input,
-  Checkbox,
-  ListItemText,
-  FormControlLabel,
-  Switch,
-  FormGroup,
-  InputAdornment,
-  FormHelperText,
-  FormLabel,
-  Divider,
-  List,
-  ListItem,
-  ListItemIcon,
-  ButtonGroup,
-  Popper,
-  Grow,
-  Paper,
-  ClickAwayListener,
+  Input, Checkbox, ListItemText, FormControlLabel, Switch, FormGroup,
+  InputAdornment, FormHelperText, FormLabel, Divider, List, ListItem,
+  ListItemIcon, ButtonGroup, Popper, Grow, Paper, ClickAwayListener,
   MenuList,
 } from '@material-ui/core';
 import AttachmentIcon from '@material-ui/icons/Attachment';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-  KeyboardTimePicker,
+  MuiPickersUtilsProvider, KeyboardDatePicker, KeyboardTimePicker,
 } from '@material-ui/pickers';
 import { DropzoneArea } from 'material-ui-dropzone';
 import { useStateValue } from '../../../Utils/StateProvider';
@@ -44,7 +27,7 @@ import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import formLangs from './form.langs';
 import initialValues from './initialValues';
 
-const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
+export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
   const [{ language }] = useStateValue();
   const myTexts = formLangs(language);
   const classes: IStyles = useStyles('');
@@ -1474,7 +1457,7 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
                   });
                 });
 
-                setFieldValue('Attachements', myFiles);
+                setFieldValue('Attachments', myFiles);
               }}
             />
           </Grid>
@@ -1485,11 +1468,11 @@ const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
           >
             <List>
               {
-                ((values.Attachements || []).length === 0) ? (
+                ((values.Attachments || []).length === 0) ? (
                   <ListItem>
                     <ListItemText primary={myTexts.noAttachments} />
                   </ListItem>
-                ) : ((values.Attachements || []).map((f: IAttachment, i: number): React.ReactNode => (
+                ) : ((values.Attachments || []).map((f: IAttachment, i: number): React.ReactNode => (
                   <ListItem key={i.toString()}>
                     <ListItemIcon>
                       <AttachmentIcon />

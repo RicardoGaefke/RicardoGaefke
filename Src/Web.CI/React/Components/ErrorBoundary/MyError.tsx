@@ -8,7 +8,7 @@ import { useStateValue } from '../../Utils/StateProvider';
 import { MyErrorTexts } from './MyErrorTexts';
 
 interface IMyErrorProps {
-  clearError: (event: React.MouseEvent<HTMLButtonElement>) => void
+  clearError: (event: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
 const useStyles = makeStyles((theme: Theme): any => ({
