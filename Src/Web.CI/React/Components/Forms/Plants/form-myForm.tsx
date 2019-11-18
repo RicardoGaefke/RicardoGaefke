@@ -21,7 +21,8 @@ import countries from './form.countries';
 
 const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> => {
   const [{ language }] = useStateValue(); // cria a variavel language que recebe o stateValue
-  const myTexts: IFormLanguages = formLanguages(language); // cria a variavel myText que recebe as linguas suportadas e passa a linguagem selecionada por default ou pelo user
+  const myTexts: IFormLanguages = formLanguages(language); // cria a variavel myText que
+  // recebe as linguas suportadas e passa a linguagem selecionada por default ou pelo user
   const classes: IStyles = useStyles(''); // classes para usar os estilos visuais
   const {
     values,
