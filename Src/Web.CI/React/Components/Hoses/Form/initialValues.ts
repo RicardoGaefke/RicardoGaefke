@@ -41,7 +41,7 @@ const initialValues: IHose = {
   To: '',
   Status: true,
   Reason: '',
-  Attachements: [],
+  Attachments: [],
   Notice: '',
   Stop: false,
   Start: new Date().toISOString(),

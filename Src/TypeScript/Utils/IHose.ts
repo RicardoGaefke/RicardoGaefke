@@ -48,7 +48,7 @@ export interface IHose {
   Reason?: string,
   Recommended?: number,
   Notice?: string
-  Attachements?: IAttachment[],
+  Attachments?: IAttachment[],
   Stop: boolean,
   Start: string,
   End: string,
