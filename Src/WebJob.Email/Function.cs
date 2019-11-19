@@ -44,6 +44,7 @@ namespace MyApp.WebJob.Email
 
       var apiKey = myConnStr.SendGrid;
       var client = new SendGridClient(apiKey);
+      // ok
 
       MyEmails email = JsonConvert.DeserializeObject<MyEmails>(message);
 
