@@ -18,16 +18,31 @@ namespace MyApp.WebJob.Email
     // private static IOptions<Secrets.ConnectionStrings> _connectionStrings;
     private static Secrets.ConnectionStrings _connectionStrings;
     private static IServiceProvider _serviceProvider;
-    public Functions(Secrets.ConnectionStrings ConnectionStrings)
+
+    private readonly MyEmail _myEmail;
+    public Functions(Secrets.ConnectionStrings ConnectionStrings, MyEmail MyEmail)
     {
       Console.WriteLine("Functions constructor");
       // _connectionStrings = ConnectionStrings;
       _connectionStrings = ConnectionStrings;
+
+      _myEmail = MyEmail;
+
+      Console.WriteLine("SG:" + _myEmail.SendGridConnStr());
     }
     public static async void ProcessQueueMessage([QueueTrigger("email")] string message, ILogger logger)
     {
-      var apiKey = "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";
-      // var apiKey = _connectionStrings.SendGrid;
+      var configuration = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddEnvironmentVariables()
+        .Build()
+      ;
+
+      Secrets.ConnectionStrings myConnStr = new Secrets.ConnectionStrings();
+      configuration.GetSection("ConnectionStrings").Bind(myConnStr);
+
+      var apiKey = myConnStr.SendGrid;
       var client = new SendGridClient(apiKey);
 
       MyEmails email = JsonConvert.DeserializeObject<MyEmails>(message);
