@@ -5,5 +5,5 @@ using MyApp.Domain;
 public interface IMyEmail
 {
   Task<string> SendMail(Emails emails);
-  Task<string> SendMailMI3D(Emails emails);
+  Task<object> SendMailMI3D(Emails emails);
 }
