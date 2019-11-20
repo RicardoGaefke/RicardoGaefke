@@ -25,7 +25,7 @@ namespace MyApp.Web.Site.Controllers
       try
       {
         Address myAddress = new Address("Ricardo Gaefke", "ricardogaefke@gmail.com");
-        Address myAddressCarlos = new Address("Ricardo Gaefke", "ricardogaefke@gmail.com");
+        Address myAddressCarlos = new Address("Carlos", "coachcarlosdesouza@hotmail.com");
 
         List<Address> myTo = new List<Address>();
         myTo.Add(myAddress);
@@ -34,6 +34,7 @@ namespace MyApp.Web.Site.Controllers
         Emails myMsg = new Emails("Ricardo Gaefke, Contact", myTo, "Mensagem a ser <strong>enviada pelo MI3D</strong>");
 
         return await _myEmail.SendMailMI3D(myMsg);
+        // return myMsg;
       }
       catch (System.Exception ex)
       {
