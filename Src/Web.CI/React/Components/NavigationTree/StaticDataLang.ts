@@ -12,7 +12,7 @@ const MyStaticDataLang = (l: string): IStaticData => {
     users: 'Usuários',
     clients: 'Clientes',
     reports: 'Meus relatórios',
-    plants: 'Plantas',
+    plants: 'Formulários',
   };
 
   const MyStaticDataENG: IStaticData = {
@@ -25,7 +25,7 @@ const MyStaticDataLang = (l: string): IStaticData => {
     users: 'Users',
     clients: 'Clients',
     reports: 'My reports',
-    plants: 'Plants',
+    plants: 'Forms',
   };
 
   if (l === 'PT') return MyStaticDataPT;
