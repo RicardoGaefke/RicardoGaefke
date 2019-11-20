@@ -34,34 +34,41 @@ namespace MyApp.WebJob.Email
     }
     public static async void ProcessQueueMessage([QueueTrigger("email")] string message, ILogger logger)
     {
-      var configuration = new ConfigurationBuilder()
+      try
+      {
+        var configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
         .AddEnvironmentVariables()
         .Build()
       ;
 
-      Secrets.ConnectionStrings myConnStr = new Secrets.ConnectionStrings();
-      configuration.GetSection("ConnectionStrings").Bind(myConnStr);
+        Secrets.ConnectionStrings myConnStr = new Secrets.ConnectionStrings();
+        configuration.GetSection("ConnectionStrings").Bind(myConnStr);
 
-      var apiKey = myConnStr.SendGrid;
-      var client = new SendGridClient(apiKey);
-      // ok
+        var apiKey = myConnStr.SendGrid;
+        var client = new SendGridClient(apiKey);
+        // ok
 
-      MyEmails email = JsonConvert.DeserializeObject<MyEmails>(message);
+        MyEmails email = JsonConvert.DeserializeObject<MyEmails>(message);
 
-      var msg = new SendGridMessage();
-      msg.SetFrom(new EmailAddress("suporte@mi3dplus.com", "Suporte MI3D Plus"));
-      msg.SetSubject(email.Subject);
-      msg.AddContent(MimeType.Html, email.Body);
-      msg.AddTo(new EmailAddress(email.To.First().Address, email.To.First().DisplayName));
-      msg.AddCc(new EmailAddress("coachcarlosdesouza@hotmail.com", "Carlos de Souza"));
+        var msg = new SendGridMessage();
+        msg.SetFrom(new EmailAddress("suporte@mi3dplus.com", "Suporte MI3D Plus"));
+        msg.SetSubject(email.Subject);
+        msg.AddContent(MimeType.Html, email.Body);
+        msg.AddTo(new EmailAddress(email.To.First().Address, email.To.First().DisplayName));
+        msg.AddCc(new EmailAddress("coachcarlosdesouza@hotmail.com", "Carlos de Souza"));
 
-      var response = await client.SendEmailAsync(msg);
+        var response = await client.SendEmailAsync(msg);
 
-      string mId = response.Headers.GetValues("x-message-id").FirstOrDefault();
+        string mId = response.Headers.GetValues("x-message-id").FirstOrDefault();
 
-      logger.LogInformation(mId);
+        logger.LogInformation(mId);
+      }
+      catch (System.Exception ex)
+      {
+          logger.LogError(ex.Message);
+      }
 
       // RegisterServices();
 
