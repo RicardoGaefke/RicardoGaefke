@@ -1,10 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Linq;
-using System.Collections.Generic;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using Newtonsoft.Json;
