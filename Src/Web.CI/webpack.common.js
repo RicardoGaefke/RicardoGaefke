@@ -7,7 +7,7 @@ module.exports = {
         use: ['awesome-typescript-loader', 'eslint-loader'],
       },
       {
-        test: /\.css$/,
+        test: /\.css$|\.scss$/,
         use: ['style-loader', 'css-loader'],
       },
       {
