@@ -55,7 +55,7 @@ namespace MyApp.Email
       return response.Headers.GetValues("x-message-id").FirstOrDefault(); ;
     }
 
-    public async Task<string> SendMailMI3D(Emails emails)
+    public async Task<object> SendMailMI3D(Emails emails)
     {
       SendGridClient client = new SendGridClient(_connectionStrings.Value.SendGrid);
 
@@ -72,7 +72,8 @@ namespace MyApp.Email
 
       Response response = await client.SendEmailAsync(msg);
 
-      return response.Headers.GetValues("x-message-id").FirstOrDefault(); ;
+      // return response.Headers.GetValues("x-message-id").FirstOrDefault();
+      return response;
     }
   }
 }

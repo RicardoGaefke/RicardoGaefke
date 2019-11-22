@@ -1,10 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Linq;
-using System.Collections.Generic;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using Newtonsoft.Json;
@@ -18,32 +20,55 @@ namespace MyApp.WebJob.Email
     // private static IOptions<Secrets.ConnectionStrings> _connectionStrings;
     private static Secrets.ConnectionStrings _connectionStrings;
     private static IServiceProvider _serviceProvider;
-    public Functions(Secrets.ConnectionStrings ConnectionStrings)
+
+    private readonly MyEmail _myEmail;
+    public Functions(Secrets.ConnectionStrings ConnectionStrings, MyEmail MyEmail)
     {
       Console.WriteLine("Functions constructor");
       // _connectionStrings = ConnectionStrings;
       _connectionStrings = ConnectionStrings;
+
+      _myEmail = MyEmail;
+
+      Console.WriteLine("SG:" + _myEmail.SendGridConnStr());
     }
     public static async void ProcessQueueMessage([QueueTrigger("email")] string message, ILogger logger)
     {
-      var apiKey = "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";
-      // var apiKey = _connectionStrings.SendGrid;
-      var client = new SendGridClient(apiKey);
+      try
+      {
+        var configuration = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+        .AddEnvironmentVariables()
+        .Build()
+      ;
 
-      MyEmails email = JsonConvert.DeserializeObject<MyEmails>(message);
+        Secrets.ConnectionStrings myConnStr = new Secrets.ConnectionStrings();
+        configuration.GetSection("ConnectionStrings").Bind(myConnStr);
 
-      var msg = new SendGridMessage();
-      msg.SetFrom(new EmailAddress("suporte@mi3dplus.com", "Suporte MI3D Plus"));
-      msg.SetSubject(email.Subject);
-      msg.AddContent(MimeType.Html, email.Body);
-      msg.AddTo(new EmailAddress(email.To.First().Address, email.To.First().DisplayName));
-      msg.AddCc(new EmailAddress("coachcarlosdesouza@hotmail.com", "Carlos de Souza"));
+        var apiKey = myConnStr.SendGrid;
+        var client = new SendGridClient(apiKey);
+        // ok
 
-      var response = await client.SendEmailAsync(msg);
+        MyEmails email = JsonConvert.DeserializeObject<MyEmails>(message);
 
-      string mId = response.Headers.GetValues("x-message-id").FirstOrDefault();
+        var msg = new SendGridMessage();
+        msg.SetFrom(new EmailAddress("suporte@mi3dplus.com", "Suporte MI3D Plus"));
+        msg.SetSubject(email.Subject);
+        msg.AddContent(MimeType.Html, email.Body);
+        msg.AddTo(new EmailAddress(email.To.First().Address, email.To.First().DisplayName));
+        msg.AddCc(new EmailAddress("coachcarlosdesouza@hotmail.com", "Carlos de Souza"));
 
-      logger.LogInformation(mId);
+        var response = await client.SendEmailAsync(msg);
+
+        string mId = response.Headers.GetValues("x-message-id").FirstOrDefault();
+
+        logger.LogInformation(mId);
+      }
+      catch (System.Exception ex)
+      {
+          logger.LogError(ex.Message);
+      }
 
       // RegisterServices();
 
