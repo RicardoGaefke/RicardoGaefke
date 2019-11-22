@@ -29,10 +29,10 @@ namespace MyApp.WebJob.Email
                 services.AddOptions<Secrets.ConnectionStrings>()
                     .Bind(hostContext.Configuration.GetSection("CUSTOMCONNSTR_ConnectionStrings"));
                 
-                services.AddSingleton<Functions>(new Functions(myConfig));
+                // services.AddSingleton<Functions>(new Functions(myConfig));
                 services.AddSingleton<IMyEmail, MyEmail>();
                 services.Configure<Secrets.ConnectionStrings>(hostContext.Configuration.GetSection("ConnectionStrings"));
-                // services.AddSingleton<Functions, Functions>();
+                services.AddSingleton<Functions, Functions>();
             })
             .ConfigureWebJobs(b =>
             {

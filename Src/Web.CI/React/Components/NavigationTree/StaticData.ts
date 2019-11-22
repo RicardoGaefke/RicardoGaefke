@@ -56,12 +56,14 @@ const myStaticData = (l: string): INavNode[] => {
       title: myTexts.plants,
       children: [
         {
-          id: 'n3a1',
-          title: 'Exemplo.1',
+          id: 'add',
+          url: '/plants/add',
+          title: 'Mangueira',
         },
         {
-          id: 'n3b1',
-          title: 'Exemplo.2',
+          id: 'plant',
+          url: '/plants/plant',
+          title: 'Planta',
         },
       ],
     },

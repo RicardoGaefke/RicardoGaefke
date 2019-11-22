@@ -7,7 +7,7 @@ import MyFooter from '../Components/Footer/MyFooter';
 import myTheme from './theme';
 import useStyles from '../Utils/AppStyles';
 
-const MyThemeApp = (props: any): any => {
+const MyThemeApp = (props: any): React.ReactElement<any> => {
   const [{ theme }] = useStateValue();
   const { children } = props;
   const classes: any = useStyles();
