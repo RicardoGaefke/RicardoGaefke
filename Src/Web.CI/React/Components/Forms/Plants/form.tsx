@@ -19,6 +19,7 @@ import formLanguages from './form.languages';
 import { IFormLanguages } from './IForm.languages';
 import initialValues from './form.initialValues';
 import countries from './form.countries';
+import validation from './form.validation';
 
 const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> => {
   const [{ language }] = useStateValue();
@@ -201,6 +202,7 @@ const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> =>
             title={myTexts.phone}
             name="Phone"
             id="Company-Phone"
+            type="number"
             value={values.Phone}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -328,6 +330,7 @@ const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> =>
 export default withFormik({
   displayName: 'CompanyForm',
   mapPropsToValues: (): ICompany => (initialValues),
+  validationSchema: validation,
   handleSubmit: (values, { setSubmitting }): void => {
     console.table(values);
     setSubmitting(false);
