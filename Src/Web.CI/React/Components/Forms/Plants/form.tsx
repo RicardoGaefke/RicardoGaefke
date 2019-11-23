@@ -20,11 +20,12 @@ import { IFormLanguages } from './IForm.languages';
 import initialValues from './form.initialValues';
 import countries from './form.countries';
 // eslint-disable-next-line no-unused-vars
-import validation from './form.validation';
+import MyValidator from './form.validation';
 
 const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> => {
   const [{ language }] = useStateValue();
   const myTexts: IFormLanguages = formLanguages(language);
+  const validation: any = MyValidator(language);
   const classes: IStyles = useStyles('');
   const {
     values,
@@ -39,7 +40,8 @@ const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> =>
   } = props;
 
   return (
-    <form
+    <>
+      <form
       className={classes.root}
       autoComplete="off"
       onSubmit={handleSubmit}
@@ -325,13 +327,15 @@ const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> =>
         </Grid>
       </Grid>
     </form>
+      <button onClick={() => alert(`Validation ${validation} - Language ${language}`)}>Validation &amp; Language</button>
+    </>
   );
 };
 
 export default withFormik({
   displayName: 'CompanyForm',
   mapPropsToValues: (): ICompany => (initialValues),
-  validationSchema: validation,
+  validationSchema: MyValidator('ENG'),
   handleSubmit: (values, { setSubmitting }): void => {
     console.table(values);
     setSubmitting(false);
