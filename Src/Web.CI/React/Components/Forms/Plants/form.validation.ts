@@ -1,7 +1,7 @@
-import * as Yup from 'yup';
+import Yup from 'yup';
 
 const MyValidator = (t: string): any => {
-  if(t === 'PT') {
+  if (t === 'PT') {
     return (
       Yup.object().shape({
         Registry: Yup.number()
@@ -27,36 +27,35 @@ const MyValidator = (t: string): any => {
           .required('Não pode ser em branco')
           .min(1, 'Não pode ser zero'),
       })
-    )
-  } else if (t === 'ENG') {
-    return(
-      Yup.object().shape({
-        Registry: Yup.number()
-          .required('This field cannot be empty')
-          .min(1, 'Not be equal zero'),
-        Name: Yup.string()
-          .required('This field cannot be empty')
-          .min(3, 'Minimum value is 3')
-          .max(20, 'Can not be soo big'),
-        OfficialName: Yup.string()
-          .required('This field cannot be empty')
-          .min(3, 'Minimum value is 3')
-          .max(20, 'Can not be soo big'),
-        Technician: Yup.string()
-          .required('This field cannot be empty')
-          .min(3, 'Minimum value is 3')
-          .max(20, 'Can not be soo big'),
-        Email: Yup.string()
-          .required('This field cannot be empty')
-          .min(3, 'Minimum value is 3')
-          .max(20, 'Can not be soo big'),
-        Phone: Yup.number()
-          .required('This field cannot be empty')
-          .min(1, 'Not be equal zero'),
-      })
     );
   }
-}
+  return (
+    Yup.object().shape({
+      Registry: Yup.number()
+        .required('This field cannot be empty')
+        .min(1, 'Not be equal zero'),
+      Name: Yup.string()
+        .required('This field cannot be empty')
+        .min(3, 'Minimum value is 3')
+        .max(20, 'Can not be soo big'),
+      OfficialName: Yup.string()
+        .required('This field cannot be empty')
+        .min(3, 'Minimum value is 3')
+        .max(20, 'Can not be soo big'),
+      Technician: Yup.string()
+        .required('This field cannot be empty')
+        .min(3, 'Minimum value is 3')
+        .max(20, 'Can not be soo big'),
+      Email: Yup.string()
+        .required('This field cannot be empty')
+        .min(3, 'Minimum value is 3')
+        .max(20, 'Can not be soo big'),
+      Phone: Yup.number()
+        .required('This field cannot be empty')
+        .min(1, 'Not be equal zero'),
+    })
+  );
+};
 
 // const validation = Yup.object().shape({
 //   Registry: Yup.number()
