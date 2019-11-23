@@ -10,7 +10,6 @@ import { ICompany } from '../../../../../TypeScript/Utils/ICompany';
 // eslint-disable-next-line no-unused-vars
 import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import { useStateValue } from '../../../Utils/StateProvider';
-import FlagIcon from '../../FlagIcon/FlagIcon';
 // eslint-disable-next-line no-unused-vars
 import useStyles, { IStyles } from './form.styles';
 import formLanguages from './form.languages';
@@ -66,7 +65,7 @@ const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> =>
               {
                 countries.map((o): React.ReactNode => (
                   <MenuItem key={o.id} value={o.id}>
-                    <FlagIcon code={o.icon} className={classes.icon} />
+                    {/*<FlagIcon code={o.icon} className={classes.icon} />*/}
                     {o.name}
                   </MenuItem>
                 ))
