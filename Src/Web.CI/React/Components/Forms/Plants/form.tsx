@@ -19,6 +19,7 @@ import formLanguages from './form.languages';
 import { IFormLanguages } from './IForm.languages';
 import initialValues from './form.initialValues';
 import countries from './form.countries';
+// eslint-disable-next-line no-unused-vars
 import validation from './form.validation';
 
 const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> => {
