@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { FormikProps, withFormik, FormikValues } from 'formik';// eslint-disable-next-line no-unused-vars
 import {
@@ -6,6 +6,8 @@ import {
 } from '@material-ui/core';
 import { DropzoneArea } from 'material-ui-dropzone';
 import Flag from 'react-world-flags';
+// eslint-disable-next-line no-unused-vars
+import { WithTranslation, withTranslation, useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
 import { ICompany } from '../../../../../TypeScript/Utils/ICompany';
 // eslint-disable-next-line no-unused-vars
@@ -20,10 +22,16 @@ import { IFormLanguages } from './IForm.languages';
 import initialValues from './form.initialValues';
 import countries from './form.countries';
 import validation from './form.validation';
+// eslint-disable-next-line no-unused-vars
+import i18n_ from './form.i18';
 
-const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> => {
+type CompanyProps = FormikProps<ICompany> & WithTranslation;
+
+const MyCompanyForm = (props: CompanyProps) : React.ReactElement<CompanyProps> => {
   const [{ language }] = useStateValue();
   const myTexts: IFormLanguages = formLanguages(language);
+  const { i18n } = useTranslation();
+
   const classes: IStyles = useStyles('');
   const {
     values,
@@ -33,9 +41,20 @@ const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> =>
     handleChange,
     handleBlur,
     handleSubmit,
-    // eslint-disable-next-line no-unused-vars
     setFieldValue,
+    setFieldTouched,
   } = props;
+
+  useEffect((): void => {
+    i18n.changeLanguage(language);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language]);
+
+  i18n.on('languageChanged', (): void => {
+    Object.keys(errors).forEach((fieldName): void => {
+      setFieldTouched(fieldName as any);
+    });
+  });
 
   return (
     <form
@@ -68,7 +87,7 @@ const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> =>
                 countries.map((o): React.ReactNode => (
                   <MenuItem key={o.id} value={o.id}>
                     {/* <FlagIcon code={o.icon} className={classes.icon} /> */}
-                    <Flag code={o.icon} height="16" className={classes.icon} />
+                    <Flag code={o.icon} alt={`Flag of ${o.name}`} height="16" className={classes.icon} />
                     {o.name}
                   </MenuItem>
                 ))
@@ -280,6 +299,7 @@ const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> =>
             acceptedFiles={[
               'image/jpeg',
               'image/png',
+              'application/pdf',
             ]}
             showPreviews={false}
             showPreviewsInDropzone
@@ -327,8 +347,9 @@ const MyCompanyForm = (props: FormikProps<ICompany>): React.ReactElement<any> =>
   );
 };
 
-export default withFormik({
+const Company = withFormik<WithTranslation, ICompany>({
   displayName: 'CompanyForm',
+  enableReinitialize: true,
   mapPropsToValues: (): ICompany => (initialValues),
   validationSchema: validation,
   handleSubmit: (values, { setSubmitting }): void => {
@@ -336,3 +357,5 @@ export default withFormik({
     setSubmitting(false);
   },
 })(MyCompanyForm);
+
+export default withTranslation()(Company);

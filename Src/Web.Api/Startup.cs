@@ -34,7 +34,7 @@ namespace MyApp.Web.Api
             // Add your AppInsights ID here to make it globally available //
             services.AddApplicationInsightsTelemetry("9e5cc6db-d8d8-49c5-aa18-d60b4d06196b");
 
-            string hostCors = Configuration.GetSection("ConnectionStrings")["Cors"];
+            // string hostCors = Configuration.GetSection("ConnectionStrings")["Cors"];
             
             services.AddCors(options =>
             {
@@ -43,7 +43,12 @@ namespace MyApp.Web.Api
                     {
                         builder
                             .WithOrigins(
-                                hostCors
+                              "https://localhost:5050",
+                              "https://localhost:5055",
+                              "https://localhost:5060",
+                              "https://www.ricardogaefke.com",
+                              "https://login.ricardogaefke.com",
+                              "https://ci.ricardogaefke.com"
                             )
                             .SetIsOriginAllowedToAllowWildcardSubdomains()
                             .AllowAnyHeader()
