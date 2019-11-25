@@ -341,9 +341,6 @@ const MyCompanyForm = (props: CompanyProps) : React.ReactElement<CompanyProps> =
           >
             {myTexts.save}
           </Button>
-          <p>
-            {i18n_.t('teste')}
-          </p>
         </Grid>
       </Grid>
     </form>

@@ -5,7 +5,6 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   ENG: {
     translation: {
-      teste: 'Teste123eng',
       Registry: {
         Required: 'Registry number is required!',
         Min: 'It cannot be zero!',
@@ -37,7 +36,6 @@ const resources = {
   },
   PT: {
     translation: {
-      teste: 'teste123pt',
       Registry: {
         Required: 'Número do CNPJ é obrigatório!',
         Min: 'CNPJ não pode ser igual a zero!',
