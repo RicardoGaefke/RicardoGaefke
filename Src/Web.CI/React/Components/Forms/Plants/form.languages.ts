@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { IFormLanguages } from './IForm.languages';
 
-const formLanguages = (l: string): IFormLanguages => {
+const formValidationLanguages = (l: string): IFormLanguages => {
   const PT: IFormLanguages = {
     country: 'País',
     registry: 'CNPJ (apenas números)',
@@ -40,4 +40,4 @@ const formLanguages = (l: string): IFormLanguages => {
   return ENG;
 };
 
-export default formLanguages;
+export default formValidationLanguages;
