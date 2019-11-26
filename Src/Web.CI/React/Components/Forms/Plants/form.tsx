@@ -50,7 +50,7 @@ const MyCompanyForm = (props: CompanyProps) : React.ReactElement<CompanyProps> =
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
 
-  i18n.on('languageChanged', (): void => {
+  i18n_.on('languageChanged', (): void => {
     Object.keys(errors).forEach((fieldName): void => {
       setFieldTouched(fieldName as any);
     });
@@ -341,9 +341,6 @@ const MyCompanyForm = (props: CompanyProps) : React.ReactElement<CompanyProps> =
           >
             {myTexts.save}
           </Button>
-          <p>
-            {i18n_.t('teste')}
-          </p>
         </Grid>
       </Grid>
     </form>

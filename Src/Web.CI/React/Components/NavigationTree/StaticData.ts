@@ -61,9 +61,14 @@ const myStaticData = (l: string): INavNode[] => {
           title: 'Mangueira',
         },
         {
+          id: 'company',
+          url: '/plants/company',
+          title: 'Company',
+        },
+        {
           id: 'plant',
           url: '/plants/plant',
-          title: 'Planta',
+          title: 'Plant',
         },
       ],
     },
