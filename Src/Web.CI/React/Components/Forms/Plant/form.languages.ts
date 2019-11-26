@@ -3,9 +3,9 @@ import { IFormLanguages } from './IForm.languages';
 
 const formValidationLanguages = (l: string): IFormLanguages => {
   const PT: IFormLanguages = {
-    name: 'Nome fantasia',
+    name: 'Nome',
     country: 'País',
-    type: 'Embarcação, Avião, Helicóptero, Base de Operações, etc',
+    type: 'Embarcação, Avião, Helicóptero, Base de Operações, etc...',
     position: 'Fixo ou móvel',
     info: 'Informações adicionais',
     active: 'Ativo',
@@ -19,7 +19,7 @@ const formValidationLanguages = (l: string): IFormLanguages => {
   const ENG: IFormLanguages = {
     name: 'Name',
     country: 'Country',
-    type: 'Vessel, Airplane, Helicopter, Base Operations, etc',
+    type: 'Vessel, Airplane, Helicopter, Base Operations, etc...',
     position: 'Fixed or mobile',
     info: 'Additional Information',
     active: 'Active',

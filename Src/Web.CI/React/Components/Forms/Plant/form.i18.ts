@@ -6,7 +6,7 @@ const resources = {
   ENG: {
     translation: {
       Name: {
-        Required: 'Company fancy name is required!',
+        Required: 'Name is required!',
         Min: 'Three character minimun!',
         Max: 'Twenty characters max!',
       },
@@ -15,7 +15,7 @@ const resources = {
   PT: {
     translation: {
       Name: {
-        Required: 'Nome fantasia da empresa é obrigatório!',
+        Required: 'Nome é obrigatório!',
         Min: 'Mínimo de três caracteres!',
         Max: 'Máximo de 20 caracteres!',
       },

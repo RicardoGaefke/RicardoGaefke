@@ -7,7 +7,7 @@ const initialValues: IPlants = {
   Country: 1,
   Type: 1,
   Position: 1,
-  Info: 'Here comes additional info',
+  Info: '',
   Active: true,
   Attachments: [],
 };

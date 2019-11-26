@@ -124,7 +124,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <FormControl variant="filled" className={classes.item} margin="dense">
               <InputLabel htmlFor="Hose-Type">{myTexts.type}</InputLabel>
@@ -139,8 +139,6 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
                 {
                 types.map((t): React.ReactNode => (
                   <MenuItem key={t.id} value={t.id}>
-                    {/* <FlagIcon code={t.icon} className={classes.icon} /> */}
-                    <Flag code={t.icon} alt={`Icon of ${t.name}`} height="16" className={classes.icon} />
                     {t.name}
                   </MenuItem>
                 ))
@@ -151,7 +149,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={2}
           >
             <FormControl variant="filled" className={classes.item} margin="dense">
               <InputLabel htmlFor="Hose-Type">{myTexts.position}</InputLabel>
@@ -166,8 +164,6 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
                 {
                 position.map((p): React.ReactNode => (
                   <MenuItem key={p.id} value={p.id}>
-                    {/* <FlagIcon code={p.icon} className={classes.icon} /> */}
-                    {/* <Flag code={p.icon} alt={`Icon of ${p.name}`} height="16" className={classes.icon} /> */}
                     {p.name}
                   </MenuItem>
                 ))
