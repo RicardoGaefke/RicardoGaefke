@@ -172,7 +172,6 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
             </FormControl>
           </Grid>
         </Grid>
-
         <Grid
           container
           spacing={2}
@@ -261,7 +260,6 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
             />
           </Grid>
         </Grid>
-
         <Grid
           container
           spacing={2}
