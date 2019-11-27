@@ -11,7 +11,7 @@ const App = (): any => (
   </MyThemeHOC>
 );
 
-storiesOf('Form.Places', module)
+storiesOf('Form.SubPlaces', module)
   .addDecorator((story: any): any => (
     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ))
