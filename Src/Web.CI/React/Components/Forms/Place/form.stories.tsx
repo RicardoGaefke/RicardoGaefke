@@ -11,7 +11,7 @@ const App = (): any => (
   </MyThemeHOC>
 );
 
-storiesOf('Form.Plants', module)
+storiesOf('Form.Places', module)
   .addDecorator((story: any): any => (
     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ))
