@@ -31,7 +31,7 @@ import position from './form.position';
 
 type PlacesProps = FormikProps<IPlaces> & WithTranslation;
 
-const MyPlantsForm = (props: PlacesProps) : React.ReactElement<PlacesProps> => {
+const MyPlacesForm = (props: PlacesProps) : React.ReactElement<PlacesProps> => {
   const [{ language }] = useStateValue();
   const myTexts: IFormLanguages = formLanguages(language);
   const { i18n } = useTranslation();
@@ -54,7 +54,7 @@ const MyPlantsForm = (props: PlacesProps) : React.ReactElement<PlacesProps> => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
 
-  i18n.on('languageChanged', (): void => {
+  i18n_.on('languageChanged', (): void => {
     Object.keys(errors).forEach((fieldName): void => {
       setFieldTouched(fieldName as any);
     });
