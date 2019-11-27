@@ -1,7 +1,7 @@
 import { IAttachment } from './IAttachment';
 
 // eslint-disable-next-line no-used-vars
-export interface IPlants {
+export interface IPlaces{
   Id?: number,
   Name: string,
   Country: number,

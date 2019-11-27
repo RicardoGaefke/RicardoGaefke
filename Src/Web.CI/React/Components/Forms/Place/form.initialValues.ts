@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import { IPlants } from '../../../../../TypeScript/Utils/IPlants';
+import { IPlaces } from '../../../../../TypeScript/Utils/IPlaces';
 
-const initialValues: IPlants = {
+const initialValues: IPlaces = {
   Id: 0,
   Name: '',
   Country: 1,

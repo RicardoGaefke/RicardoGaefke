@@ -9,7 +9,7 @@ import Flag from 'react-world-flags';
 // eslint-disable-next-line no-unused-vars
 import { WithTranslation, withTranslation, useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
-import { ICompany } from '../../../../../TypeScript/Utils/ICompany';
+// import { ICompany } from '../../../../../TypeScript/Utils/ICompany';
 // eslint-disable-next-line no-unused-vars
 import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import { useStateValue } from '../../../Utils/StateProvider';
@@ -25,13 +25,13 @@ import validation from './form.validation';
 // eslint-disable-next-line no-unused-vars
 import i18n_ from './form.i18';
 // eslint-disable-next-line no-unused-vars
-import { IPlants } from '../../../../../TypeScript/Utils/IPlants';
+import { IPlaces } from '../../../../../TypeScript/Utils/IPlaces';
 import types from './form.types';
 import position from './form.position';
 
-type PlantsProps = FormikProps<IPlants> & WithTranslation;
+type PlacesProps = FormikProps<IPlaces> & WithTranslation;
 
-const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
+const MyPlacesForm = (props: PlacesProps) : React.ReactElement<PlacesProps> => {
   const [{ language }] = useStateValue();
   const myTexts: IFormLanguages = formLanguages(language);
   const { i18n } = useTranslation();
@@ -54,7 +54,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
 
-  i18n.on('languageChanged', (): void => {
+  i18n_.on('languageChanged', (): void => {
     Object.keys(errors).forEach((fieldName): void => {
       setFieldTouched(fieldName as any);
     });
@@ -84,7 +84,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
               label={myTexts.name}
               title={myTexts.name}
               name="Name"
-              id="Plants-Name"
+              id="Places-Name"
               value={values.Name}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -106,7 +106,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
                 onChange={handleChange}
                 inputProps={{
                   name: 'Country',
-                  id: 'Plants-Country',
+                  id: 'Places-Country',
                 }}
               >
                 {
@@ -133,7 +133,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
                 onChange={handleChange}
                 inputProps={{
                   name: 'Type',
-                  id: 'Plants-Type',
+                  id: 'Places-Type',
                 }}
               >
                 {
@@ -158,7 +158,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
                 onChange={handleChange}
                 inputProps={{
                   name: 'Position',
-                  id: 'Plants-Position',
+                  id: 'Places-Position',
                 }}
               >
                 {
@@ -191,7 +191,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
               label={myTexts.info}
               title={myTexts.info}
               name="Info"
-              id="Plants-Info"
+              id="Places-Info"
               value={values.Info}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -286,15 +286,15 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
   );
 };
 
-const Plants = withFormik<WithTranslation, IPlants>({
-  displayName: 'PlantsForm',
+const Places = withFormik<WithTranslation, IPlaces>({
+  displayName: 'PlacesForm',
   enableReinitialize: true,
-  mapPropsToValues: (): IPlants => (initialValues),
+  mapPropsToValues: (): IPlaces => (initialValues),
   validationSchema: validation,
   handleSubmit: (values, { setSubmitting }): void => {
     console.table(values);
     setSubmitting(false);
   },
-})(MyPlantsForm);
+})(MyPlacesForm);
 
-export default withTranslation()(Plants);
+export default withTranslation()(Places);
