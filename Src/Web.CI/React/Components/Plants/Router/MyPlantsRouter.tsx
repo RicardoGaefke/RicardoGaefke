@@ -6,6 +6,7 @@ import MyHoseAdd from '../../Hoses/Add/MyHoseAdd';
 import MyPlantAdd from '../../Forms/Plants/form';
 import MyPlant from '../../Forms/Plant/form';
 import MyPlace from '../../Forms/Place/form';
+import MySubPlace from '../../Forms/Subplace/form';
 
 const MyPlantRouter = (props: RouteComponentProps): React.ReactElement<any> => {
   const { match } = props;
@@ -17,6 +18,7 @@ const MyPlantRouter = (props: RouteComponentProps): React.ReactElement<any> => {
       <Route path={`${match.path}/company/`} component={MyPlantAdd} />
       <Route path={`${match.path}/plant/`} component={MyPlant} />
       <Route path={`${match.path}/place/`} component={MyPlace} />
+      <Route path={`${match.path}/subplace`} component={MySubPlace} />
     </>
   );
 };
