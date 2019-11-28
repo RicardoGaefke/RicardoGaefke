@@ -9,8 +9,6 @@ import Flag from 'react-world-flags';
 // eslint-disable-next-line no-unused-vars
 import { WithTranslation, withTranslation, useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
-// import { ICompany } from '../../../../../TypeScript/Utils/ICompany';
-// eslint-disable-next-line no-unused-vars
 import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import { useStateValue } from '../../../Utils/StateProvider';
 // import FlagIcon from '../../FlagIcon/FlagIcon';
@@ -217,7 +215,7 @@ const MyPlacesForm = (props: PlacesProps) : React.ReactElement<PlacesProps> => {
                     color="primary"
                     inputProps={{
                       'aria-label': myTexts.active,
-                      id: 'Company-Active',
+                      id: 'Place-Active',
                       name: 'Active',
                     }}
                   />

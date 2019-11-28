@@ -5,7 +5,6 @@ import {
   Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem, FormControlLabel, Switch,
 } from '@material-ui/core';
 import { DropzoneArea } from 'material-ui-dropzone';
-import Flag from 'react-world-flags';
 // eslint-disable-next-line no-unused-vars
 import { WithTranslation, withTranslation, useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
@@ -18,18 +17,16 @@ import formLanguages from './form.languages';
 // eslint-disable-next-line no-unused-vars
 import { IFormLanguages } from './IForm.languages';
 import initialValues from './form.initialValues';
-import countries from './form.countries';
 import validation from './form.validation';
 // eslint-disable-next-line no-unused-vars
 import i18n_ from './form.i18';
 // eslint-disable-next-line no-unused-vars
-import { IPlants } from '../../../../../TypeScript/Utils/IPlants';
-import types from './form.types';
+import { IMachine } from '../../../../../TypeScript/Utils/IMachine';
 import position from './form.position';
 
-type PlantsProps = FormikProps<IPlants> & WithTranslation;
+type MachineProps = FormikProps<IMachine> & WithTranslation;
 
-const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
+const MyMachineForm = (props: MachineProps) : React.ReactElement<MachineProps> => {
   const [{ language }] = useStateValue();
   const myTexts: IFormLanguages = formLanguages(language);
   const { i18n } = useTranslation();
@@ -74,7 +71,28 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
           <Grid
             item
             xs={12}
-            md={3}
+            md={6}
+          >
+            <TextField
+              margin="dense"
+              error={errors.Manufacturer as any && touched.Manufacturer as any}
+              label={myTexts.manufacturer}
+              title={myTexts.manufacturer}
+              name="Manufacturer"
+              id="Machine-Manufacturer"
+              value={values.Manufacturer}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.Manufacturer && touched.Manufacturer) && errors.Manufacturer}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={6}
           >
             <TextField
               margin="dense"
@@ -82,7 +100,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
               label={myTexts.name}
               title={myTexts.name}
               name="Name"
-              id="Plants-Name"
+              id="Machine-Name"
               value={values.Name}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -92,62 +110,60 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
               fullWidth
             />
           </Grid>
+        </Grid>
+
+        <Grid
+          container
+          spacing={2}
+          justify="center"
+          alignItems="center"
+        >
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
-            <FormControl variant="filled" className={classes.item} margin="dense">
-              <InputLabel htmlFor="Hose-Type">{myTexts.country}</InputLabel>
-              <Select
-                value={values.Country}
-                onChange={handleChange}
-                inputProps={{
-                  name: 'Country',
-                  id: 'Plants-Country',
-                }}
-              >
-                {
-                countries.map((o): React.ReactNode => (
-                  <MenuItem key={o.id} value={o.id}>
-                    {/* <FlagIcon code={o.icon} className={classes.icon} /> */}
-                    <Flag code={o.icon} alt={`Flag of ${o.name}`} height="16" className={classes.icon} />
-                    {o.name}
-                  </MenuItem>
-                ))
-              }
-              </Select>
-            </FormControl>
+            <TextField
+              margin="dense"
+              error={errors.Model as any && touched.Model as any}
+              label={myTexts.model}
+              title={myTexts.model}
+              name="Model"
+              id="Machine-Model"
+              value={values.Model}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.Model && touched.Model) && errors.Model}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+            />
           </Grid>
           <Grid
             item
             xs={12}
             md={4}
           >
-            <FormControl variant="filled" className={classes.item} margin="dense">
-              <InputLabel htmlFor="Hose-Type">{myTexts.type}</InputLabel>
-              <Select
-                value={values.Type}
-                onChange={handleChange}
-                inputProps={{
-                  name: 'Type',
-                  id: 'Plants-Type',
-                }}
-              >
-                {
-                types.map((t): React.ReactNode => (
-                  <MenuItem key={t.id} value={t.id}>
-                    {t.name}
-                  </MenuItem>
-                ))
-              }
-              </Select>
-            </FormControl>
+            <TextField
+              margin="dense"
+              error={errors.Serial as any && touched.Serial as any}
+              label={myTexts.serial}
+              title={myTexts.serial}
+              name="Serial"
+              id="Machine-Serial"
+              value={values.Serial}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              helperText={(errors.Serial && touched.Serial) && errors.Serial}
+              variant="filled"
+              className={classes.item}
+              fullWidth
+            />
           </Grid>
           <Grid
             item
             xs={12}
-            md={2}
+            md={4}
           >
             <FormControl variant="filled" className={classes.item} margin="dense">
               <InputLabel htmlFor="Hose-Type">{myTexts.position}</InputLabel>
@@ -156,7 +172,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
                 onChange={handleChange}
                 inputProps={{
                   name: 'Position',
-                  id: 'Plants-Position',
+                  id: 'Machine-Position',
                 }}
               >
                 {
@@ -170,6 +186,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
             </FormControl>
           </Grid>
         </Grid>
+
         <Grid
           container
           spacing={2}
@@ -215,7 +232,7 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
                     color="primary"
                     inputProps={{
                       'aria-label': myTexts.active,
-                      id: 'Plant-Active',
+                      id: 'Machine-Active',
                       name: 'Active',
                     }}
                   />
@@ -284,15 +301,15 @@ const MyPlantsForm = (props: PlantsProps) : React.ReactElement<PlantsProps> => {
   );
 };
 
-const Plants = withFormik<WithTranslation, IPlants>({
-  displayName: 'PlantsForm',
+const Machine = withFormik<WithTranslation, IMachine>({
+  displayName: 'MachineForm',
   enableReinitialize: true,
-  mapPropsToValues: (): IPlants => (initialValues),
+  mapPropsToValues: (): IMachine => (initialValues),
   validationSchema: validation,
   handleSubmit: (values, { setSubmitting }): void => {
     console.table(values);
     setSubmitting(false);
   },
-})(MyPlantsForm);
+})(MyMachineForm);
 
-export default withTranslation()(Plants);
+export default withTranslation()(Machine);
