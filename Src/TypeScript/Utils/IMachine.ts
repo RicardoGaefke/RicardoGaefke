@@ -8,7 +8,7 @@ export interface IMachine {
     Model: string;
     Serial: string;
     Info: string;
-    Type: number;
+    Position: number;
     Active: boolean;
     Attachments: IAttachment[],
 }

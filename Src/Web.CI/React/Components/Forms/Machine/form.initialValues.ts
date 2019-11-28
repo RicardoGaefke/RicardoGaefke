@@ -8,7 +8,7 @@ const initialValues: IMachine = {
   Model: '',
   Serial: '',
   Info: '',
-  Type: 1,
+  Position: 1,
   Active: true,
   Attachments: [],
 };

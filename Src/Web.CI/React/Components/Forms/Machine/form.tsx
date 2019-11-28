@@ -5,7 +5,6 @@ import {
   Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem, FormControlLabel, Switch,
 } from '@material-ui/core';
 import { DropzoneArea } from 'material-ui-dropzone';
-import Flag from 'react-world-flags';
 // eslint-disable-next-line no-unused-vars
 import { WithTranslation, withTranslation, useTranslation } from 'react-i18next';
 // eslint-disable-next-line no-unused-vars
@@ -72,7 +71,7 @@ const MyMachineForm = (props: MachineProps) : React.ReactElement<MachineProps> =
           <Grid
             item
             xs={12}
-            md={3}
+            md={6}
           >
             <TextField
               margin="dense"
@@ -93,7 +92,7 @@ const MyMachineForm = (props: MachineProps) : React.ReactElement<MachineProps> =
           <Grid
             item
             xs={12}
-            md={3}
+            md={6}
           >
             <TextField
               margin="dense"
@@ -111,10 +110,18 @@ const MyMachineForm = (props: MachineProps) : React.ReactElement<MachineProps> =
               fullWidth
             />
           </Grid>
+        </Grid>
+
+        <Grid
+          container
+          spacing={2}
+          justify="center"
+          alignItems="center"
+        >
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <TextField
               margin="dense"
@@ -135,7 +142,7 @@ const MyMachineForm = (props: MachineProps) : React.ReactElement<MachineProps> =
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
           >
             <TextField
               margin="dense"
@@ -153,7 +160,33 @@ const MyMachineForm = (props: MachineProps) : React.ReactElement<MachineProps> =
               fullWidth
             />
           </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <FormControl variant="filled" className={classes.item} margin="dense">
+              <InputLabel htmlFor="Hose-Type">{myTexts.position}</InputLabel>
+              <Select
+                value={values.Position}
+                onChange={handleChange}
+                inputProps={{
+                  name: 'Position',
+                  id: 'Machine-Position',
+                }}
+              >
+                {
+                position.map((p): React.ReactNode => (
+                  <MenuItem key={p.id} value={p.id}>
+                    {p.name}
+                  </MenuItem>
+                ))
+              }
+              </Select>
+            </FormControl>
+          </Grid>
         </Grid>
+
         <Grid
           container
           spacing={2}
@@ -199,7 +232,7 @@ const MyMachineForm = (props: MachineProps) : React.ReactElement<MachineProps> =
                     color="primary"
                     inputProps={{
                       'aria-label': myTexts.active,
-                      id: 'Company-Active',
+                      id: 'Machine-Active',
                       name: 'Active',
                     }}
                   />
