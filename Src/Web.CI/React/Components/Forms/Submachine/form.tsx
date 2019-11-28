@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { FormikProps, withFormik, FormikValues } from 'formik';// eslint-disable-next-line no-unused-vars
+import { FormikProps, withFormik, FormikValues } from 'formik';
 import {
+  // eslint-disable-next-line no-unused-vars
   Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem, FormControlLabel, Switch,
 } from '@material-ui/core';
 import { DropzoneArea } from 'material-ui-dropzone';
