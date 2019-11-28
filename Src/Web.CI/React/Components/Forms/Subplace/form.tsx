@@ -160,7 +160,7 @@ const MySubPlacesForm = (props: SubPlacesProps) : React.ReactElement<SubPlacesPr
                     color="primary"
                     inputProps={{
                       'aria-label': myTexts.active,
-                      id: 'Company-Active',
+                      id: 'Subplace-Active',
                       name: 'Active',
                     }}
                   />
