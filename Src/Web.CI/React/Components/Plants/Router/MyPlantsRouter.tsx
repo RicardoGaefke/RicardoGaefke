@@ -8,6 +8,7 @@ import MyPlant from '../../Forms/Plant/form';
 import MyPlace from '../../Forms/Place/form';
 import MySubPlace from '../../Forms/Subplace/form';
 import MyMachine from '../../Forms/Machine/form';
+import MySubMachine from '../../Forms/Submachine/form';
 
 const MyPlantRouter = (props: RouteComponentProps): React.ReactElement<any> => {
   const { match } = props;
@@ -21,6 +22,7 @@ const MyPlantRouter = (props: RouteComponentProps): React.ReactElement<any> => {
       <Route path={`${match.path}/place/`} component={MyPlace} />
       <Route path={`${match.path}/subplace`} component={MySubPlace} />
       <Route path={`${match.path}/machine`} component={MyMachine} />
+      <Route path={`${match.path}/submachine`} component={MySubMachine} />
     </>
   );
 };
