@@ -12,6 +12,8 @@ import {// eslint-disable-next-line no-unused-vars
   MuiPickersUtilsProvider, KeyboardDatePicker, KeyboardTimePicker,
 } from '@material-ui/pickers';
 // eslint-disable-next-line no-unused-vars
+import DateFnsUtils from '@date-io/date-fns';
+// eslint-disable-next-line no-unused-vars
 import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import { useStateValue } from '../../../Utils/StateProvider';
 // import FlagIcon from '../../FlagIcon/FlagIcon';
@@ -26,7 +28,6 @@ import validation from './form.validation';
 import i18n_ from './form.i18';
 // eslint-disable-next-line no-unused-vars
 import { IInstruments } from '../../../../../TypeScript/Utils/IInstruments';
-import DateFnsUtils from '@date-io/date-fns';
 
 type InstrumentsProps = FormikProps<IInstruments> & WithTranslation;
 
