@@ -5,7 +5,7 @@ const initialValues: IInstruments = {
   Id: 0,
   Name: '',
   Serial: '',
-  Validate: '',
+  Validate: new Date().toISOString(),
   Info: '',
   Active: true,
   Attachments: [],

@@ -1,6 +1,6 @@
 import { IAttachment } from './IAttachment';
 
-// eslint-disable-next-line non-used-vars
+// eslint-disable-next-line no-unused-vars
 export interface IInstruments {
     Id: number;
     Name: string;

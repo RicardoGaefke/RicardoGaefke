@@ -1,3 +1,4 @@
+import 'date-fns';
 import React, { useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { FormikProps, withFormik, FormikValues } from 'formik';
@@ -7,6 +8,9 @@ import {// eslint-disable-next-line no-unused-vars
 import { DropzoneArea } from 'material-ui-dropzone';
 // eslint-disable-next-line no-unused-vars
 import { WithTranslation, withTranslation, useTranslation } from 'react-i18next';
+import {// eslint-disable-next-line no-unused-vars
+  MuiPickersUtilsProvider, KeyboardDatePicker, KeyboardTimePicker,
+} from '@material-ui/pickers';
 // eslint-disable-next-line no-unused-vars
 import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import { useStateValue } from '../../../Utils/StateProvider';
@@ -22,9 +26,7 @@ import validation from './form.validation';
 import i18n_ from './form.i18';
 // eslint-disable-next-line no-unused-vars
 import { IInstruments } from '../../../../../TypeScript/Utils/IInstruments';
-import {// eslint-disable-next-line no-unused-vars
-  MuiPickersUtilsProvider, KeyboardDatePicker, KeyboardTimePicker,
-} from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 type InstrumentsProps = FormikProps<IInstruments> & WithTranslation;
 
@@ -64,76 +66,78 @@ const MyInstrumentsForm = (props: InstrumentsProps) : React.ReactElement<Instrum
         autoComplete="off"
         onSubmit={handleSubmit}
       >
-        <Grid
-          container
-          spacing={2}
-          justify="center"
-          alignItems="center"
-        >
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Grid
-            item
-            xs={12}
-            md={4}
+            container
+            spacing={2}
+            justify="center"
+            alignItems="center"
           >
-            <TextField
-              margin="dense"
-              error={errors.Name as any && touched.Name as any}
-              label={myTexts.name}
-              title={myTexts.name}
-              name="Name"
-              id="Instruments-Name"
-              value={values.Name}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              helperText={(errors.Name && touched.Name) && errors.Name}
-              variant="filled"
-              className={classes.item}
-              fullWidth
-            />
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <TextField
+                margin="dense"
+                error={errors.Name as any && touched.Name as any}
+                label={myTexts.name}
+                title={myTexts.name}
+                name="Name"
+                id="Instruments-Name"
+                value={values.Name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                helperText={(errors.Name && touched.Name) && errors.Name}
+                variant="filled"
+                className={classes.item}
+                fullWidth
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <TextField
+                margin="dense"
+                error={errors.Serial as any && touched.Serial as any}
+                label={myTexts.serial}
+                title={myTexts.serial}
+                name="Serial"
+                id="Instruments-Serial"
+                value={values.Serial}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                helperText={(errors.Serial && touched.Serial) && errors.Serial}
+                variant="filled"
+                className={classes.item}
+                fullWidth
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <KeyboardDatePicker
+                fullWidth
+                margin="dense"
+                variant="inline"
+                format="MM/dd/yyyy"
+                id="Instruments-Validate"
+                label={myTexts.validate}
+                value={values.Validate}
+                onChange={(value: Date): void => {
+                  setFieldValue('Validate', value.toISOString());
+                }}
+                KeyboardButtonProps={{
+                  'aria-label': myTexts.validate,
+                }}
+              />
+            </Grid>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-          >
-            <TextField
-              margin="dense"
-              error={errors.Serial as any && touched.Serial as any}
-              label={myTexts.serial}
-              title={myTexts.serial}
-              name="Serial"
-              id="Instruments-Serial"
-              value={values.Serial}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              helperText={(errors.Serial && touched.Serial) && errors.Serial}
-              variant="filled"
-              className={classes.item}
-              fullWidth
-            />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-          >
-            <KeyboardDatePicker
-              fullWidth
-              margin="dense"
-              variant="inline"
-              format="MM/dd/yyyy"
-              id="Instruments-Validate"
-              label={myTexts.validate}
-              value={values.Validate}
-              onChange={(value: Date): void => {
-                setFieldValue('Validate', value.toISOString());
-              }}
-              KeyboardButtonProps={{
-                'aria-label': myTexts.validate,
-              }}
-            />
-          </Grid>
-        </Grid>
+        </MuiPickersUtilsProvider>
         <Grid
           container
           spacing={2}

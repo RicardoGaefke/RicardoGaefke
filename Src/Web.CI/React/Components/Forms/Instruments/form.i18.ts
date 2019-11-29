@@ -17,7 +17,7 @@ const resources = {
       },
       Validate: {
         Required: 'Certificate validity is required!',
-      }
+      },
     },
   },
   PT: {
@@ -34,7 +34,7 @@ const resources = {
       },
       Validate: {
         Required: 'Validade do certificado é obrigatório!',
-      }
+      },
     },
   },
 };
