@@ -1,0 +1,20 @@
+import * as Yup from 'yup';
+import {
+  // eslint-disable-next-line no-unused-vars
+  WithTranslation,
+} from 'react-i18next';
+
+const validation = (props: WithTranslation): object => Yup.object().shape({
+  Name: Yup.string()
+    .required(props.t('Name.Required'))
+    .min(3, props.t('Name.Min'))
+    .max(20, props.t('Name.Max')),
+  Serial: Yup.string()
+    .required(props.t('Serial.Required'))
+    .min(3, props.t('Serial.Min'))
+    .max(20, props.t('Serial.Max')),
+  Validate: Yup.date()
+    .required(props.t('Date.Required'))
+});
+
+export default validation;
