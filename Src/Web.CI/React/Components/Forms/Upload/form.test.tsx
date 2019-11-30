@@ -4,8 +4,8 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import chaiEnzyme from 'chai-enzyme';
 import MyUpload from './form';
-import initialValues from './form.initialValues';
-import { actualDate } from './form.initialValues';
+import initialValues, { actualDate } from './form.initialValues';
+
 
 chai.use(chaiEnzyme());
 Enzyme.configure({ adapter: new Adapter() });
