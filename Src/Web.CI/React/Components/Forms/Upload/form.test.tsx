@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import chaiEnzyme from 'chai-enzyme';
 import MyUpload from './form';
 import initialValues from './form.initialValues';
+import { actualDate } from './form.initialValues';
 
 chai.use(chaiEnzyme());
 Enzyme.configure({ adapter: new Adapter() });
@@ -27,7 +28,7 @@ describe('Upload.Form', (): void => {
       expect(wrapper.Name).equal('');
     });
     it('Should return Validate equal empty field, without values', (): void => {
-      expect(wrapper.Validate).equal('');
+      expect(wrapper.Validate).equal(actualDate);
     });
     it('Should return Info equal empty field, without values', (): void => {
       expect(wrapper.Info).equal('');
