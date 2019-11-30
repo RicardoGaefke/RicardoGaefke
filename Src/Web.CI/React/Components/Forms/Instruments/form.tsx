@@ -1,16 +1,22 @@
+import 'date-fns';
 import React, { useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { FormikProps, withFormik, FormikValues } from 'formik';
-import {
-  // eslint-disable-next-line no-unused-vars
+import {// eslint-disable-next-line no-unused-vars
   Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem, FormControlLabel, Switch,
 } from '@material-ui/core';
 import { DropzoneArea } from 'material-ui-dropzone';
 // eslint-disable-next-line no-unused-vars
 import { WithTranslation, withTranslation, useTranslation } from 'react-i18next';
+import {// eslint-disable-next-line no-unused-vars
+  MuiPickersUtilsProvider, KeyboardDatePicker, KeyboardTimePicker,
+} from '@material-ui/pickers';
+// eslint-disable-next-line no-unused-vars
+import DateFnsUtils from '@date-io/date-fns';
 // eslint-disable-next-line no-unused-vars
 import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import { useStateValue } from '../../../Utils/StateProvider';
+// import FlagIcon from '../../FlagIcon/FlagIcon';
 // eslint-disable-next-line no-unused-vars
 import useStyles, { IStyles } from './form.styles';
 import formLanguages from './form.languages';
@@ -21,11 +27,11 @@ import validation from './form.validation';
 // eslint-disable-next-line no-unused-vars
 import i18n_ from './form.i18';
 // eslint-disable-next-line no-unused-vars
-import { ISubMachine } from '../../../../../TypeScript/Utils/ISubMachine';
+import { IInstruments } from '../../../../../TypeScript/Utils/IInstruments';
 
-type SubMachineProps = FormikProps<ISubMachine> & WithTranslation;
+type InstrumentsProps = FormikProps<IInstruments> & WithTranslation;
 
-const MySubMachineForm = (props: SubMachineProps) : React.ReactElement<SubMachineProps> => {
+const MyInstrumentsForm = (props: InstrumentsProps) : React.ReactElement<InstrumentsProps> => {
   const [{ language }] = useStateValue();
   const myTexts: IFormLanguages = formLanguages(language);
   const { i18n } = useTranslation();
@@ -61,34 +67,78 @@ const MySubMachineForm = (props: SubMachineProps) : React.ReactElement<SubMachin
         autoComplete="off"
         onSubmit={handleSubmit}
       >
-        <Grid
-          container
-          spacing={2}
-          justify="center"
-          alignItems="center"
-        >
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Grid
-            item
-            xs={12}
-            md={12}
+            container
+            spacing={2}
+            justify="center"
+            alignItems="center"
           >
-            <TextField
-              margin="dense"
-              error={errors.Name as any && touched.Name as any}
-              label={myTexts.name}
-              title={myTexts.name}
-              name="Name"
-              id="SubMachine-Name"
-              value={values.Name}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              helperText={(errors.Name && touched.Name) && errors.Name}
-              variant="filled"
-              className={classes.item}
-              fullWidth
-            />
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <TextField
+                margin="dense"
+                error={errors.Name as any && touched.Name as any}
+                label={myTexts.name}
+                title={myTexts.name}
+                name="Name"
+                id="Instruments-Name"
+                value={values.Name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                helperText={(errors.Name && touched.Name) && errors.Name}
+                variant="filled"
+                className={classes.item}
+                fullWidth
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <TextField
+                margin="dense"
+                error={errors.Serial as any && touched.Serial as any}
+                label={myTexts.serial}
+                title={myTexts.serial}
+                name="Serial"
+                id="Instruments-Serial"
+                value={values.Serial}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                helperText={(errors.Serial && touched.Serial) && errors.Serial}
+                variant="filled"
+                className={classes.item}
+                fullWidth
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+            >
+              <KeyboardDatePicker
+                fullWidth
+                margin="dense"
+                variant="inline"
+                format="MM/dd/yyyy"
+                id="Instruments-Validate"
+                label={myTexts.validate}
+                value={values.Validate}
+                onChange={(value: Date): void => {
+                  setFieldValue('Validate', value.toISOString());
+                }}
+                KeyboardButtonProps={{
+                  'aria-label': myTexts.validate,
+                }}
+              />
+            </Grid>
           </Grid>
-        </Grid>
+        </MuiPickersUtilsProvider>
         <Grid
           container
           spacing={2}
@@ -108,7 +158,7 @@ const MySubMachineForm = (props: SubMachineProps) : React.ReactElement<SubMachin
               label={myTexts.info}
               title={myTexts.info}
               name="Info"
-              id="SubMachine-Info"
+              id="Instruments-Info"
               value={values.Info}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -134,7 +184,7 @@ const MySubMachineForm = (props: SubMachineProps) : React.ReactElement<SubMachin
                     color="primary"
                     inputProps={{
                       'aria-label': myTexts.active,
-                      id: 'SubMachine-Active',
+                      id: 'Instruments-Active',
                       name: 'Active',
                     }}
                   />
@@ -203,15 +253,15 @@ const MySubMachineForm = (props: SubMachineProps) : React.ReactElement<SubMachin
   );
 };
 
-const SubMachine = withFormik<WithTranslation, ISubMachine>({
-  displayName: 'SubMachineForm',
+const Instruments = withFormik<WithTranslation, IInstruments>({
+  displayName: 'InstrumentsForm',
   enableReinitialize: true,
-  mapPropsToValues: (): ISubMachine => (initialValues),
+  mapPropsToValues: (): IInstruments => (initialValues),
   validationSchema: validation,
   handleSubmit: (values, { setSubmitting }): void => {
     console.table(values);
     setSubmitting(false);
   },
-})(MySubMachineForm);
+})(MyInstrumentsForm);
 
-export default withTranslation()(SubMachine);
+export default withTranslation()(Instruments);
