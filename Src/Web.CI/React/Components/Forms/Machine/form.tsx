@@ -206,7 +206,7 @@ const MyMachineForm = (props: MachineProps) : React.ReactElement<MachineProps> =
               label={myTexts.info}
               title={myTexts.info}
               name="Info"
-              id="Plants-Info"
+              id="Machine-Info"
               value={values.Info}
               onChange={handleChange}
               onBlur={handleBlur}
