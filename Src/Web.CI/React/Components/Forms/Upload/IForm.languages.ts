@@ -6,4 +6,6 @@ export interface IFormLanguages {
   active: string,
   inactive: string,
   save: string,
+  dropzoneText: string,
+  noAttachments: string,
 }

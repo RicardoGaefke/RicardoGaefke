@@ -5,11 +5,14 @@ import { FormikProps, withFormik, FormikValues } from 'formik';
 import {// eslint-disable-next-line no-unused-vars
   Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem, FormControlLabel, Switch,
 } from '@material-ui/core';
+import { DropzoneArea } from 'material-ui-dropzone';
 // eslint-disable-next-line no-unused-vars
 import { WithTranslation, withTranslation, useTranslation } from 'react-i18next';
 import {// eslint-disable-next-line no-unused-vars
   MuiPickersUtilsProvider, KeyboardDatePicker, KeyboardTimePicker,
 } from '@material-ui/pickers';
+// eslint-disable-next-line no-unused-vars
+import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 // eslint-disable-next-line no-unused-vars
 import DateFnsUtils from '@date-io/date-fns';
 import { useStateValue } from '../../../Utils/StateProvider';
@@ -124,7 +127,7 @@ const MyUploadForm = (props: UploadProps) : React.ReactElement<UploadProps> => {
           <Grid
             item
             xs={12}
-            md={12}
+            md={6}
           >
             <TextField
               margin="dense"
@@ -169,6 +172,38 @@ const MyUploadForm = (props: UploadProps) : React.ReactElement<UploadProps> => {
                 label={((values.Active) ? myTexts.active : myTexts.inactive)}
               />
             </FormControl>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={6}
+          >
+            <DropzoneArea
+              filesLimit={1}
+              maxFileSize={307200}
+              acceptedFiles={[
+                'image/jpeg',
+                'image/png',
+                'application/pdf',
+              ]}
+              showPreviews={false}
+              showPreviewsInDropzone
+              dropzoneText={myTexts.dropzoneText}
+              dropzoneClass={classes.dropzone}
+              showAlerts={false}
+              onChange={(files: File[]): void => {
+                const myFiles: IAttachment[] = [];
+
+                files.forEach((f: File): void => {
+                  myFiles.push({
+                    name: f.name,
+                    mime: f.type,
+                  });
+                });
+
+                setFieldValue('Attachments', myFiles);
+              }}
+            />
           </Grid>
         </Grid>
         <Grid
