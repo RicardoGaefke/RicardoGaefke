@@ -80,55 +80,60 @@ const formLangs = (l: string): IHoseForm => {
       title: 'Segurança',
       low: {
         title: 'Baixa',
-        label: '',
+        label: 'Proximidade aos colaboradores, com proteção de segurança; Mangueira instalada longe da presença de pessoas.',
       },
       high: {
         title: 'Alta',
-        label: '',
+        label: `Proximidade das mangueiras com colaboradores (sem proteções de segurança), máquinas e equipamentos com alta temperatura,
+        painéis elétricos e afins.`,
       },
     },
     environment: {
       title: 'Meio ambiente',
       low: {
         title: 'Baixa',
-        label: '',
+        label: `Mangueira instalada em local que ,se rompida ou tiver vazamento, não entra em contato direto com o mar, piso de embarcações,
+        lençois freáticos e afins.`,
       },
       high: {
         title: 'Alta',
-        label: '',
+        label: `Mangueira instalada em local que, se rompida ou tiver vazamento, entra em contato direto com o mar, piso de embarcações,
+        lençois freáticos e afins.`,
       },
     },
     operability: {
       title: 'Operabilidade',
       low: {
         title: 'Baixa',
-        label: '',
+        label: `Mangueira instalada que, se tiver qualquer avaria e necessite troca ou reparo, mantém a operação da máquina e/ou
+        equipamento instalado.`,
       },
       high: {
         title: 'Alta',
-        label: '',
+        label: `Mangueira instalada que, se tiver qualquer avaria e necessite troca ou reparo, impede a operação da máquina e/ou
+        equipamento instalado.`,
       },
     },
     accessibility: {
       title: 'Acessibilidade',
       low: {
         title: 'Baixa',
-        label: '',
+        label: 'Mangueira instalada com dificuldade de acesso em caso de avaria com necessidade de troca ou reparo.',
       },
       high: {
         title: 'Alta',
-        label: '',
+        label: 'Mangueira instalada com dificuldade de acesso em caso de avaria com necessidade de troca ou reparo.',
       },
     },
     abrasion: {
       title: 'Abrasão',
       low: {
         title: 'Baixa',
-        label: '',
+        label: 'Mangueira instalada e/ou de processo que não possua atrito com barreiras (chapas, chão, instalações físicas) e/ou outras mangueiras.',
       },
       high: {
         title: 'Alta',
-        label: '',
+        label: 'Mangueira instalada e/ou de processo que tenha atrito com barreiras (chapas, chão, instalações físicas) e/ou outras mangueiras.',
       },
     },
     location: 'Localização',
@@ -231,55 +236,57 @@ const formLangs = (l: string): IHoseForm => {
       title: 'Security',
       low: {
         title: 'Low',
-        label: '',
+        label: 'Proximity to employees, with security protection; Hose installed away from people.',
       },
       high: {
         title: 'High',
-        label: '',
+        label: 'Proximity to hoses with employees (without safety guards), high temperature machines and equipment, electrical panels and the like.',
       },
     },
     environment: {
       title: 'Environment',
       low: {
         title: 'Low',
-        label: '',
+        label: `Hose installed in a location that, if broken or leaks, does not come into direct contact with the sea, boat floors, groundwater and
+        the like.`,
       },
       high: {
         title: 'High',
-        label: '',
+        label: `Hose installed in a location that, if ruptured or leaks, comes into direct contact with the sea, boat floor, groundwater
+        and the like.`,
       },
     },
     operability: {
       title: 'Operability',
       low: {
         title: 'Low',
-        label: '',
+        label: 'Hose installed which, if damaged and requires replacement or repair, maintains operation of the machine and/or equipment installed.',
       },
       high: {
         title: 'High',
-        label: '',
+        label: 'Hose installed which, if damaged and requires replacement or repair, prevents operation of the installed machine and/or equipment.',
       },
     },
     accessibility: {
       title: 'Accessibility',
       low: {
         title: 'Low',
-        label: '',
+        label: 'Hose installed without difficulty in case of breakdown requiring replacement or repair.',
       },
       high: {
         title: 'High',
-        label: '',
+        label: 'Hose installed with difficult access in case of malfunction requiring replacement or repair.',
       },
     },
     abrasion: {
       title: 'Abrasion',
       low: {
         title: 'Low',
-        label: '',
+        label: 'Installed and/or process hose that has no friction with barriers (sheets, floor, physical installations) and/or other hoses.',
       },
       high: {
         title: 'High',
-        label: '',
+        label: 'Installed and/or process hose that has friction with barriers (sheets, floor, physical installations) and/or other hoses.',
       },
     },
     location: 'Location',

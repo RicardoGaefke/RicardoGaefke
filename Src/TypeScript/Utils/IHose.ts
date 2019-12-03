@@ -15,7 +15,7 @@ export interface IHose {
   Rule?: number,
   CompatibleRules?: number[],
   Fluid?: number,
-  Gauge?: number,
+  Diameter?: number,
   WorkPressure?: number,
   WorkPressureExceeds?: boolean,
   WorkPressureExceedsMandatory?: boolean,

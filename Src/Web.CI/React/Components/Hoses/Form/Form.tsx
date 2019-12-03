@@ -9,7 +9,7 @@ import {
   Input, Checkbox, ListItemText, FormControlLabel, Switch, FormGroup,
   InputAdornment, FormHelperText, FormLabel, Divider, List, ListItem,
   ListItemIcon, ButtonGroup, Popper, Grow, Paper, ClickAwayListener,
-  MenuList,
+  MenuList, RadioGroup, Radio,
 } from '@material-ui/core';
 import AttachmentIcon from '@material-ui/icons/Attachment';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
@@ -26,6 +26,7 @@ import { IHose } from '../../../../../TypeScript/Utils/IHose';
 import { IAttachment } from '../../../../../TypeScript/Utils/IAttachment';
 import formLangs from './form.langs';
 import initialValues from './initialValues';
+import RadioLabel from './form.radioLabel';
 
 export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => {
   const [{ language }] = useStateValue();
@@ -406,11 +407,11 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
             >
               <InputLabel htmlFor="Hose-Assistant">{myTexts.diameter}</InputLabel>
               <Select
-                value={values.Gauge}
+                value={values.Diameter}
                 onChange={handleChange}
                 inputProps={{
-                  name: 'Gauge',
-                  id: 'Hose-Gauge',
+                  name: 'Diameter',
+                  id: 'Hose-Diameter',
                 }}
               >
                 <MenuItem value="0">&nbsp;</MenuItem>
@@ -1164,26 +1165,30 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               component="fieldset"
               className={classes.item}
             >
-              <FormControlLabel
-                control={
-                  (
-                    <Switch
-                      checked={values.Security}
-                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
-                        setFieldValue('Security', event.target.checked);
-                      }}
-                      value="Security"
-                      color="primary"
-                      inputProps={{
-                        'aria-label': myTexts.security.title,
-                        id: 'Security',
-                        name: 'Security',
-                      }}
-                    />
-                  )
-                }
-                label={myTexts.security.title}
-              />
+              <FormLabel component="legend">{myTexts.security.title}</FormLabel>
+              <RadioGroup
+                aria-label={myTexts.security.title}
+                name="Security"
+                value={values.Security}
+                onChange={(): void => {
+                  setFieldValue('Security', !values.Security);
+                }}
+              >
+                <FormControlLabel
+                  value={false}
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.security.low.label} title={myTexts.security.low.title} />
+                  )}
+                />
+                <FormControlLabel
+                  value
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.security.high.label} title={myTexts.security.high.title} />
+                  )}
+                />
+              </RadioGroup>
             </FormControl>
           </Grid>
           <Grid
