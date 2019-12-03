@@ -9,7 +9,7 @@ import initialValues from './form.initialValues';
 chai.use(chaiEnzyme());
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Upload.Form', (): void => {
+describe('Family.Form', (): void => {
   describe('Smoke Tests', (): void => {
     it('Should exist MyFamily', (): void => {
       const wrapper = shallow(<MyFamily />);
