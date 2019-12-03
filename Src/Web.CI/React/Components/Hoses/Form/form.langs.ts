@@ -41,11 +41,19 @@ const formLangs = (l: string): IHoseForm => {
     rule: 'Norma',
     compatibleRules: 'Normas compatíveis',
     fluid: 'Fluído',
-    gauge: 'Ângulo',
+    diameter: 'Diâmetro interno',
     workPressureLegend: 'Pressão de trabalho',
     workPressure: 'Pressão de trabalho',
-    workPressureExceeds: 'Pressão de trabalho excede a norma',
-    workPressureExceedsMandatory: 'É necessário exceder a norma?',
+    workPressureExceeds: {
+      title: 'Pressão de trabalho excede a norma',
+      yes: 'Sim',
+      no: 'Não',
+    },
+    workPressureExceedsMandatory: {
+      title: 'É necessário exceder a norma?',
+      yes: 'Sim',
+      no: 'Não',
+    },
     workPressureOverRule: 'Pressão de trabalho personalizada',
     size: 'Tamanho',
     length: 'Comprimento',
@@ -59,7 +67,7 @@ const formLangs = (l: string): IHoseForm => {
     terminal2gender: 'Gênero do terminal 2',
     terminal2: 'Terminal 2',
     terminal2Angle: 'Ângulo terminal 2',
-    terminal2Material: 'Tipo de aterial',
+    terminal2Material: 'Tipo de material',
     terminal2Abrasion: 'Desgaste do terminal 2',
     adapter2: 'Adaptador 2',
     adapter2Abrasion: 'Desgaste do adaptador 2',
@@ -68,11 +76,61 @@ const formLangs = (l: string): IHoseForm => {
     radius: 'Raio de montagem',
     recommended: 'Recomendação de periodicidade de inspeção',
     criticality: 'Criticidade',
-    security: 'Segurança',
-    environment: 'Meio ambiente',
-    operability: 'Operabilidade',
-    accessibility: 'Acessibilidade',
-    abrasion: 'Abrasão',
+    security: {
+      title: 'Segurança',
+      low: {
+        title: 'Baixa',
+        label: '',
+      },
+      high: {
+        title: 'Alta',
+        label: '',
+      },
+    },
+    environment: {
+      title: 'Meio ambiente',
+      low: {
+        title: 'Baixa',
+        label: '',
+      },
+      high: {
+        title: 'Alta',
+        label: '',
+      },
+    },
+    operability: {
+      title: 'Operabilidade',
+      low: {
+        title: 'Baixa',
+        label: '',
+      },
+      high: {
+        title: 'Alta',
+        label: '',
+      },
+    },
+    accessibility: {
+      title: 'Acessibilidade',
+      low: {
+        title: 'Baixa',
+        label: '',
+      },
+      high: {
+        title: 'Alta',
+        label: '',
+      },
+    },
+    abrasion: {
+      title: 'Abrasão',
+      low: {
+        title: 'Baixa',
+        label: '',
+      },
+      high: {
+        title: 'Alta',
+        label: '',
+      },
+    },
     location: 'Localização',
     from: 'De',
     to: 'Para',
@@ -91,7 +149,7 @@ const formLangs = (l: string): IHoseForm => {
     },
     save: [
       'Salvar e encerrar',
-      'Salvar e continuar inserindo',
+      'Salvar e continuar',
     ],
   };
 
@@ -134,11 +192,19 @@ const formLangs = (l: string): IHoseForm => {
     rule: 'Rule',
     compatibleRules: 'Compatible rules',
     fluid: 'Fluid',
-    gauge: 'Gauge',
+    diameter: 'Internal diameter',
     workPressureLegend: 'Work pressure',
     workPressure: 'Work pressure',
-    workPressureExceeds: 'Work pressure exceeds rule',
-    workPressureExceedsMandatory: 'Is it mandatory to exceed?',
+    workPressureExceeds: {
+      title: 'Work pressure exceeds rule',
+      yes: 'Yes',
+      no: 'No',
+    },
+    workPressureExceedsMandatory: {
+      title: 'Is it mandatory to exceed?',
+      yes: 'Yes',
+      no: 'No',
+    },
     workPressureOverRule: 'Custom work pressure',
     size: 'Size',
     length: 'Length',
@@ -161,11 +227,61 @@ const formLangs = (l: string): IHoseForm => {
     radius: 'Mounting radius',
     recommended: 'Inspection Periodicity Recommendation',
     criticality: 'Criticality',
-    security: 'Security',
-    environment: 'Environment',
-    operability: 'Operability',
-    accessibility: 'Acessibilidade',
-    abrasion: 'Abrasão',
+    security: {
+      title: 'Security',
+      low: {
+        title: 'Low',
+        label: '',
+      },
+      high: {
+        title: 'High',
+        label: '',
+      },
+    },
+    environment: {
+      title: 'Environment',
+      low: {
+        title: 'Low',
+        label: '',
+      },
+      high: {
+        title: 'High',
+        label: '',
+      },
+    },
+    operability: {
+      title: 'Operability',
+      low: {
+        title: 'Low',
+        label: '',
+      },
+      high: {
+        title: 'High',
+        label: '',
+      },
+    },
+    accessibility: {
+      title: 'Accessibility',
+      low: {
+        title: 'Low',
+        label: '',
+      },
+      high: {
+        title: 'High',
+        label: '',
+      },
+    },
+    abrasion: {
+      title: 'Abrasion',
+      low: {
+        title: 'Low',
+        label: '',
+      },
+      high: {
+        title: 'High',
+        label: '',
+      },
+    },
     location: 'Location',
     from: 'From',
     to: 'To',
@@ -184,7 +300,7 @@ const formLangs = (l: string): IHoseForm => {
     },
     save: [
       'Save and finish',
-      'Save and continue inserting',
+      'Save and continue',
     ],
   };
 

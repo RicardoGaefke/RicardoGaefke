@@ -8,6 +8,11 @@ export interface ISelect {
   options: ISelectOption[],
 }
 
+export interface ICriticity {
+  label: string,
+  title: string,
+}
+
 export interface IHoseForm {
   type: ISelect,
   date: string,
@@ -23,11 +28,19 @@ export interface IHoseForm {
   rule: string,
   compatibleRules: string,
   fluid: string,
-  gauge: string,
+  diameter: string,
   workPressureLegend: string,
   workPressure: string,
-  workPressureExceeds: string,
-  workPressureExceedsMandatory: string,
+  workPressureExceeds: {
+    title: string,
+    yes: string,
+    no: string,
+  },
+  workPressureExceedsMandatory: {
+    title: string,
+    yes: string,
+    no: string,
+  },
   workPressureOverRule: string,
   size: string,
   length: string,
@@ -50,11 +63,31 @@ export interface IHoseForm {
   radius: string,
   recommended: string,
   criticality: string,
-  security: string,
-  environment: string,
-  operability: string,
-  accessibility: string,
-  abrasion: string,
+  security: {
+    title: string,
+    high: ICriticity,
+    low: ICriticity
+  },
+  environment: {
+    title: string,
+    high: ICriticity,
+    low: ICriticity
+  },
+  operability: {
+    title: string,
+    high: ICriticity,
+    low: ICriticity
+  },
+  accessibility: {
+    title: string,
+    high: ICriticity,
+    low: ICriticity
+  },
+  abrasion: {
+    title: string,
+    high: ICriticity,
+    low: ICriticity
+  },
   location: string,
   from: string,
   to: string,

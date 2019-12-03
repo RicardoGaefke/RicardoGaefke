@@ -404,7 +404,7 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               variant="filled"
               className={classes.item}
             >
-              <InputLabel htmlFor="Hose-Assistant">{myTexts.gauge}</InputLabel>
+              <InputLabel htmlFor="Hose-Assistant">{myTexts.diameter}</InputLabel>
               <Select
                 value={values.Gauge}
                 onChange={handleChange}
@@ -485,14 +485,22 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                         value="WorkPressureExceeds"
                         color="primary"
                         inputProps={{
-                          'aria-label': myTexts.workPressureExceeds,
+                          'aria-label': myTexts.workPressureExceeds.title,
                           id: 'WorkPressureExceeds',
                           name: 'WorkPressureExceeds',
                         }}
                       />
                     )
                   }
-                  label={myTexts.workPressureExceeds}
+                  label={(
+                    <>
+                      <strong>
+                        {(values.WorkPressureExceeds) ? myTexts.workPressureExceeds.yes : myTexts.workPressureExceeds.no}
+                      </strong>
+                      &nbsp;-&nbsp;
+                      {myTexts.workPressureExceeds.title}
+                    </>
+                  )}
                 />
                 <FormControlLabel
                   control={
@@ -510,14 +518,22 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                         value="WorkPressureExceedsMandatory"
                         color="primary"
                         inputProps={{
-                          'aria-label': myTexts.workPressureExceedsMandatory,
+                          'aria-label': myTexts.workPressureExceedsMandatory.title,
                           id: 'WorkPressureExceedsMandatory',
                           name: 'WorkPressureExceedsMandatory',
                         }}
                       />
                     )
                   }
-                  label={myTexts.workPressureExceedsMandatory}
+                  label={(
+                    <>
+                      <strong>
+                        {(values.WorkPressureExceedsMandatory) ? myTexts.workPressureExceedsMandatory.yes : myTexts.workPressureExceedsMandatory.no}
+                      </strong>
+                      &nbsp;-&nbsp;
+                      {myTexts.workPressureExceedsMandatory.title}
+                    </>
+                  )}
                 />
               </FormGroup>
             </FormControl>
@@ -691,18 +707,18 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               variant="filled"
               className={classes.item}
             >
-              <InputLabel htmlFor="Hose-Terminal1">{myTexts.terminal1}</InputLabel>
+              <InputLabel htmlFor="Hose-Terminal1Gender">{myTexts.terminal1gender}</InputLabel>
               <Select
-                value={values.Terminal1}
+                value={values.Terminal1Gender}
                 onChange={handleChange}
                 inputProps={{
-                  name: 'Terminal1',
-                  id: 'Hose-Terminal1',
+                  name: 'Terminal1Gender',
+                  id: 'Hose-Terminal1Gender',
                 }}
               >
                 <MenuItem value="0">&nbsp;</MenuItem>
-                <MenuItem value="1">Terminal 01</MenuItem>
-                <MenuItem value="2">Terminal 02</MenuItem>
+                <MenuItem value="1">Gender 01</MenuItem>
+                <MenuItem value="2">Gender 02</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -716,18 +732,18 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               variant="filled"
               className={classes.item}
             >
-              <InputLabel htmlFor="Hose-Terminal1Gender">{myTexts.terminal1gender}</InputLabel>
+              <InputLabel htmlFor="Hose-Terminal1">{myTexts.terminal1}</InputLabel>
               <Select
-                value={values.Terminal1Gender}
+                value={values.Terminal1}
                 onChange={handleChange}
                 inputProps={{
-                  name: 'Terminal1Gender',
-                  id: 'Hose-Terminal1Gender',
+                  name: 'Terminal1',
+                  id: 'Hose-Terminal1',
                 }}
               >
                 <MenuItem value="0">&nbsp;</MenuItem>
-                <MenuItem value="1">Gender 01</MenuItem>
-                <MenuItem value="2">Gender 02</MenuItem>
+                <MenuItem value="1">Terminal 01</MenuItem>
+                <MenuItem value="2">Terminal 02</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -878,18 +894,18 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               variant="filled"
               className={classes.item}
             >
-              <InputLabel htmlFor="Hose-Terminal2">{myTexts.terminal2}</InputLabel>
+              <InputLabel htmlFor="Hose-Terminal2Gender">{myTexts.terminal2gender}</InputLabel>
               <Select
-                value={values.Terminal2}
+                value={values.Terminal2Gender}
                 onChange={handleChange}
                 inputProps={{
-                  name: 'Terminal2',
-                  id: 'Hose-Terminal2',
+                  name: 'Terminal2Gender',
+                  id: 'Hose-Terminal2Gender',
                 }}
               >
                 <MenuItem value="0">&nbsp;</MenuItem>
-                <MenuItem value="1">Terminal 01</MenuItem>
-                <MenuItem value="2">Terminal 02</MenuItem>
+                <MenuItem value="1">Gender 01</MenuItem>
+                <MenuItem value="2">Gender 02</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -903,18 +919,18 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               variant="filled"
               className={classes.item}
             >
-              <InputLabel htmlFor="Hose-Terminal2Gender">{myTexts.terminal2gender}</InputLabel>
+              <InputLabel htmlFor="Hose-Terminal2">{myTexts.terminal2}</InputLabel>
               <Select
-                value={values.Terminal2Gender}
+                value={values.Terminal2}
                 onChange={handleChange}
                 inputProps={{
-                  name: 'Terminal2Gender',
-                  id: 'Hose-Terminal2Gender',
+                  name: 'Terminal2',
+                  id: 'Hose-Terminal2',
                 }}
               >
                 <MenuItem value="0">&nbsp;</MenuItem>
-                <MenuItem value="1">Gender 01</MenuItem>
-                <MenuItem value="2">Gender 02</MenuItem>
+                <MenuItem value="1">Terminal 01</MenuItem>
+                <MenuItem value="2">Terminal 02</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -1159,14 +1175,14 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                       value="Security"
                       color="primary"
                       inputProps={{
-                        'aria-label': myTexts.security,
+                        'aria-label': myTexts.security.title,
                         id: 'Security',
                         name: 'Security',
                       }}
                     />
                   )
                 }
-                label={myTexts.security}
+                label={myTexts.security.title}
               />
             </FormControl>
           </Grid>
@@ -1191,14 +1207,14 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                       value="Environment"
                       color="primary"
                       inputProps={{
-                        'aria-label': myTexts.environment,
+                        'aria-label': myTexts.environment.title,
                         id: 'Environment',
                         name: 'Environment',
                       }}
                     />
                   )
                 }
-                label={myTexts.environment}
+                label={myTexts.environment.title}
               />
             </FormControl>
           </Grid>
@@ -1223,14 +1239,14 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                       value="Operability"
                       color="primary"
                       inputProps={{
-                        'aria-label': myTexts.operability,
+                        'aria-label': myTexts.operability.title,
                         id: 'Operability',
                         name: 'Operability',
                       }}
                     />
                   )
                 }
-                label={myTexts.operability}
+                label={myTexts.operability.title}
               />
             </FormControl>
           </Grid>
@@ -1255,14 +1271,14 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                       value="Accessibility"
                       color="primary"
                       inputProps={{
-                        'aria-label': myTexts.accessibility,
+                        'aria-label': myTexts.accessibility.title,
                         id: 'Accessibility',
                         name: 'Accessibility',
                       }}
                     />
                   )
                 }
-                label={myTexts.accessibility}
+                label={myTexts.accessibility.title}
               />
             </FormControl>
           </Grid>
@@ -1287,14 +1303,14 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                       value="Abrasion"
                       color="primary"
                       inputProps={{
-                        'aria-label': myTexts.abrasion,
+                        'aria-label': myTexts.abrasion.title,
                         id: 'Abrasion',
                         name: 'Abrasion',
                       }}
                     />
                   )
                 }
-                label={myTexts.abrasion}
+                label={myTexts.abrasion.title}
               />
             </FormControl>
           </Grid>
@@ -1625,7 +1641,7 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                 variant="contained"
                 style={{ color: 'white' }}
                 type="submit"
-                title="Submit"
+                title={myTexts.save[selectedIndex]}
                 disabled={isSubmitting}
               >
                 {myTexts.save[selectedIndex]}
@@ -1635,6 +1651,7 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                 size="small"
                 aria-owns={open ? 'menu-list-grow' : undefined}
                 aria-haspopup="true"
+                title="Choose save options"
                 onClick={handleToggle}
               >
                 <ArrowDropDownIcon />
