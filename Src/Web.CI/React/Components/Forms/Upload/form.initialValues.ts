@@ -9,6 +9,7 @@ const initialValues: IUpload = {
   Validate: actualDate,
   Info: '',
   Active: true,
+  Attachments: [],
 };
 
 export default initialValues;
