@@ -9,6 +9,8 @@ const formValidationLanguages = (l: string): IFormLanguages => {
     active: 'Ativo',
     inactive: 'Inativo',
     save: 'Salvar',
+    dropzoneText: 'Arraste e solte apenas um arquivo JPG ou PNG de até 300kb ou clique',
+    noAttachments: 'Nenhum arquivo anexo!',
   };
 
   const ENG: IFormLanguages = {
@@ -18,6 +20,8 @@ const formValidationLanguages = (l: string): IFormLanguages => {
     active: 'Active',
     inactive: 'Inactive',
     save: 'Save',
+    dropzoneText: 'Drag and drop up just one JPEG or PNG file (up to 300kb) here or click',
+    noAttachments: 'No attachments yet!',
   };
 
   if (l === 'PT') return PT;
