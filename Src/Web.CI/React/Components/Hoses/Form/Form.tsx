@@ -1704,7 +1704,7 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                         {myTexts.save.map((option, index): React.ReactNode => (
                           <MenuItem
                             key={option}
-                            disabled={index === 2}
+                            disabled={index === 3}
                             selected={index === selectedIndex}
                             onClick={(event): void => handleMenuItemClick(event, index)}
                           >

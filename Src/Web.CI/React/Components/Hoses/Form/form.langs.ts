@@ -155,6 +155,7 @@ const formLangs = (l: string): IHoseForm => {
     save: [
       'Salvar e encerrar',
       'Salvar e continuar',
+      'Visualizar',
     ],
   };
 
@@ -308,6 +309,7 @@ const formLangs = (l: string): IHoseForm => {
     save: [
       'Save and finish',
       'Save and continue',
+      'View data',
     ],
   };
 
