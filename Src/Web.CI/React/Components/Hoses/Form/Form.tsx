@@ -1213,26 +1213,30 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               component="fieldset"
               className={classes.item}
             >
-              <FormControlLabel
-                control={
-                  (
-                    <Switch
-                      checked={values.Environment}
-                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
-                        setFieldValue('Environment', event.target.checked);
-                      }}
-                      value="Environment"
-                      color="primary"
-                      inputProps={{
-                        'aria-label': myTexts.environment.title,
-                        id: 'Environment',
-                        name: 'Environment',
-                      }}
-                    />
-                  )
-                }
-                label={myTexts.environment.title}
-              />
+              <FormLabel component="legend">{myTexts.environment.title}</FormLabel>
+              <RadioGroup
+                aria-label={myTexts.environment.title}
+                name="Environment"
+                value={values.Environment}
+                onChange={(): void => {
+                  setFieldValue('Environment', !values.Security);
+                }}
+              >
+                <FormControlLabel
+                  value={false}
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.environment.low.label} title={myTexts.environment.low.title} />
+                  )}
+                />
+                <FormControlLabel
+                  value
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.environment.high.label} title={myTexts.environment.high.title} />
+                  )}
+                />
+              </RadioGroup>
             </FormControl>
           </Grid>
           <Grid
@@ -1245,26 +1249,30 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               component="fieldset"
               className={classes.item}
             >
-              <FormControlLabel
-                control={
-                  (
-                    <Switch
-                      checked={values.Operability}
-                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
-                        setFieldValue('Operability', event.target.checked);
-                      }}
-                      value="Operability"
-                      color="primary"
-                      inputProps={{
-                        'aria-label': myTexts.operability.title,
-                        id: 'Operability',
-                        name: 'Operability',
-                      }}
-                    />
-                  )
-                }
-                label={myTexts.operability.title}
-              />
+              <FormLabel component="legend">{myTexts.operability.title}</FormLabel>
+              <RadioGroup
+                aria-label={myTexts.operability.title}
+                name="Operability"
+                value={values.Operability}
+                onChange={(): void => {
+                  setFieldValue('Operability', !values.Operability);
+                }}
+              >
+                <FormControlLabel
+                  value={false}
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.operability.low.label} title={myTexts.operability.low.title} />
+                  )}
+                />
+                <FormControlLabel
+                  value
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.operability.high.label} title={myTexts.operability.high.title} />
+                  )}
+                />
+              </RadioGroup>
             </FormControl>
           </Grid>
           <Grid
@@ -1277,26 +1285,30 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               component="fieldset"
               className={classes.item}
             >
-              <FormControlLabel
-                control={
-                  (
-                    <Switch
-                      checked={values.Accessibility}
-                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
-                        setFieldValue('Accessibility', event.target.checked);
-                      }}
-                      value="Accessibility"
-                      color="primary"
-                      inputProps={{
-                        'aria-label': myTexts.accessibility.title,
-                        id: 'Accessibility',
-                        name: 'Accessibility',
-                      }}
-                    />
-                  )
-                }
-                label={myTexts.accessibility.title}
-              />
+              <FormLabel component="legend">{myTexts.accessibility.title}</FormLabel>
+              <RadioGroup
+                aria-label={myTexts.accessibility.title}
+                name="Accessibility"
+                value={values.Accessibility}
+                onChange={(): void => {
+                  setFieldValue('Accessibility', !values.Accessibility);
+                }}
+              >
+                <FormControlLabel
+                  value={false}
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.accessibility.low.label} title={myTexts.accessibility.low.title} />
+                  )}
+                />
+                <FormControlLabel
+                  value
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.accessibility.high.label} title={myTexts.accessibility.high.title} />
+                  )}
+                />
+              </RadioGroup>
             </FormControl>
           </Grid>
           <Grid
@@ -1309,26 +1321,30 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
               component="fieldset"
               className={classes.item}
             >
-              <FormControlLabel
-                control={
-                  (
-                    <Switch
-                      checked={values.Abrasion}
-                      onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
-                        setFieldValue('Abrasion', event.target.checked);
-                      }}
-                      value="Abrasion"
-                      color="primary"
-                      inputProps={{
-                        'aria-label': myTexts.abrasion.title,
-                        id: 'Abrasion',
-                        name: 'Abrasion',
-                      }}
-                    />
-                  )
-                }
-                label={myTexts.abrasion.title}
-              />
+              <FormLabel component="legend">{myTexts.abrasion.title}</FormLabel>
+              <RadioGroup
+                aria-label={myTexts.abrasion.title}
+                name="Abrasion"
+                value={values.Abrasion}
+                onChange={(): void => {
+                  setFieldValue('Abrasion', !values.Abrasion);
+                }}
+              >
+                <FormControlLabel
+                  value={false}
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.abrasion.low.label} title={myTexts.abrasion.low.title} />
+                  )}
+                />
+                <FormControlLabel
+                  value
+                  control={<Radio />}
+                  label={(
+                    <RadioLabel label={myTexts.abrasion.high.label} title={myTexts.abrasion.high.title} />
+                  )}
+                />
+              </RadioGroup>
             </FormControl>
           </Grid>
         </Grid>
