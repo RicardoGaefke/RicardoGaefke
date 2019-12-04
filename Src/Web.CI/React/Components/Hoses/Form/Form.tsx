@@ -500,6 +500,12 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                       </strong>
                       &nbsp;-&nbsp;
                       {myTexts.workPressureExceeds.title}
+                      &nbsp;
+                      (
+                      {myTexts.workPressureExceeds.yes}
+                      /
+                      {myTexts.workPressureExceeds.no}
+                      )
                     </>
                   )}
                 />
@@ -533,6 +539,12 @@ export const HoseForm = (props: FormikProps<IHose>): React.ReactElement<any> => 
                       </strong>
                       &nbsp;-&nbsp;
                       {myTexts.workPressureExceedsMandatory.title}
+                      &nbsp;
+                      (
+                      {myTexts.workPressureExceedsMandatory.yes}
+                      /
+                      {myTexts.workPressureExceedsMandatory.no}
+                      )
                     </>
                   )}
                 />
