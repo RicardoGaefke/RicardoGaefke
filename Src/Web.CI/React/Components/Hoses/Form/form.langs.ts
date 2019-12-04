@@ -40,7 +40,7 @@ const formLangs = (l: string): IHoseForm => {
     brand: 'Marca',
     rule: 'Norma',
     compatibleRules: 'Normas compatíveis',
-    fluid: 'Fluído',
+    fluid: 'Fluido',
     diameter: 'Diâmetro interno',
     workPressureLegend: 'Pressão de trabalho',
     workPressure: 'Pressão de trabalho',
@@ -73,7 +73,7 @@ const formLangs = (l: string): IHoseForm => {
     adapter2Abrasion: 'Desgaste do adaptador 2',
     additional: 'Informações adicionais',
     angle: 'Ângulo de montagem',
-    radius: 'Raio de montagem',
+    radius: 'Raio mínimo de curvatura',
     recommended: 'Recomendação de periodicidade de inspeção',
     criticality: 'Criticidade',
     security: {
@@ -230,7 +230,7 @@ const formLangs = (l: string): IHoseForm => {
     adapter2Abrasion: 'Adapter 2 abrasion',
     additional: 'Additional info',
     angle: 'Mounting angle',
-    radius: 'Mounting radius',
+    radius: 'minimum radius of curvature',
     recommended: 'Inspection Periodicity Recommendation',
     criticality: 'Criticality',
     security: {
