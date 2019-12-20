@@ -1,3 +1,9 @@
+|Branch|Status|
+|---|---|
+|master|   |
+|staging|[![Build status](https://dev.azure.com/ricardogaefke/RicardoGaefke/_apis/build/status/staging-WebSite)](https://dev.azure.com/ricardogaefke/RicardoGaefke/_build/latest?definitionId=16)|
+|dev|[![Build status](https://dev.azure.com/ricardogaefke/RicardoGaefke/_apis/build/status/dev-WebSite)](https://dev.azure.com/ricardogaefke/RicardoGaefke/_build/latest?definitionId=15)|
+
 # RicardoGaefke
 
 Ricardo Gaefke's project with ASP.NET Core, SSR React, Azure SQL, integration, TDD and Typescript.
