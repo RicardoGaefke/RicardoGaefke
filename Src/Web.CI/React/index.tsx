@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import MyStateProvider from './Utils/AppContext';
 import MyApp from './Utils/MyApp';
 
-const App = (): any => (
+const App = (): React.ReactElement<any> => (
   <BrowserRouter>
     <MyStateProvider>
       <MyApp />

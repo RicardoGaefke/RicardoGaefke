@@ -41,14 +41,31 @@ namespace MyApp.Web.CI
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder
+                    if (HostingEnvironment.IsDevelopment())
+                    {
+                      builder
                         .WithOrigins(
-                            "https://*.ricardogaefke.com"
-                        ).SetIsOriginAllowedToAllowWildcardSubdomains()
+                            "https://localhost:5050",
+                            "https://localhost:5055",
+                            "https://localhost:5060",
+                            "https://localhost:5065"
+                        )
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials()
-                    ;
+                      ;
+                    }
+                    else
+                    {
+                        builder
+                          .WithOrigins(
+                              "https://*.ricardogaefke.com"
+                          ).SetIsOriginAllowedToAllowWildcardSubdomains()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader()
+                          .AllowCredentials()
+                      ;
+                    }
                 });
             });
 

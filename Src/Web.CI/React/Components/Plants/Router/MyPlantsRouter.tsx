@@ -13,7 +13,7 @@ import MyInstruments from '../../Forms/Instruments/form';
 import MyUpload from '../../Forms/Upload/form';
 import MyFamily from '../../Forms/Family/form';
 
-const MyPlantRouter = (props: RouteComponentProps): React.ReactElement<any> => {
+const MyPlantRouter = (props: RouteComponentProps): React.ReactElement => {
   const { match } = props;
 
   return (

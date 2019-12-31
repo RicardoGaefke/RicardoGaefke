@@ -12,10 +12,10 @@ const NewApp = (): any => (
 );
 
 storiesOf('Logged', module)
-  .addDecorator((story: any): any => (
+  .addDecorator((story: any): React.ReactElement => (
     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ))
-  .addDecorator((storyFn, context): any => withConsole()(storyFn)(context))
+  .addDecorator((storyFn, context): React.ReactElement => withConsole()(storyFn)(context))
   .add('Basic', (): React.ReactElement => (
     <NewApp />
   ));

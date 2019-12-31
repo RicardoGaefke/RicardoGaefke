@@ -3,7 +3,7 @@ import React from 'react';
 import { IInitialContext } from '../../../TypeScript/Utils/IInitialState';
 import { StateProvider, initialState } from './StateProvider';
 
-const MyStateProvider = (props: any): any => {
+const MyStateProvider = (props: React.PropsWithChildren<any>): any => {
   const { children } = props;
 
   const reducer = (state: IInitialContext, action: any): IInitialContext => {
